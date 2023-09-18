@@ -2,8 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "versioned-layout": "samples/versioned-layout",
-    "versioned-layout-header": "samples/versioned-layout/header",
-    "versioned-layout-host": "samples/versioned-layout/host"
+    "template": "samples/template",
+    "template-remote": "samples/template/remote",
+    "template-host": "samples/template/host"
   }
 }
