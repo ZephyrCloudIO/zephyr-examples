@@ -1,12 +1,13 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to template!</title>
+        <title>Welcome to template-host!</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
