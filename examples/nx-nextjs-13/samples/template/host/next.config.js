@@ -9,7 +9,7 @@ const REMOTE_APP_URL =
 const remotes = (/** @type {Boolean} */ isServer) => {
   const location = isServer ? 'ssr' : 'chunks';
   return {
-    remote: `header@${REMOTE_APP_URL}/_next/static/${location}/remoteEntry.js`,
+    remote: `remote@${REMOTE_APP_URL}/_next/static/${location}/remoteEntry.js`,
   };
 };
 
