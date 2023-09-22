@@ -1,7 +1,11 @@
+import dynamic from 'next/dynamic';
+
+const Table = dynamic(() => import('remote/table'), { ssr: true });
+
 export function Index() {
   return (
-    <section className="max-w-7xl mx-auto py-12 px-4 flex justify-center">
-      <div className="flex flex-col items-center justify-center min-h-[80vh] max-w-2xl">
+    <section className="max-w-7xl mx-auto py-12 px-4 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center max-w-2xl">
         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
           Hey there! This is a bullet{' '}
           <a href="#" className="font-semibold text-indigo-600">
@@ -36,6 +40,12 @@ export function Index() {
             </a>
           </div>
         </div>
+      </div>
+      <h3 className="mt-16">
+        The component below is comes from the remote app
+      </h3>
+      <div className="mt-4 border-4 border-dashed border-blue-500 p-16 rounded-lg w-full">
+        <Table />
       </div>
     </section>
   );

@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@template-host/*": ["samples/template/host/*"],
+      "@template-remote/*": ["samples/template/remote/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -6,14 +6,46 @@
   "targets": {
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
+      "configurations": {
+        "production": {
+          "commands": [
+            {
+              "command": "nx run template-host:serve:production",
+              "color": "blue"
+            },
+            {
+              "command": "nx run template-remote:serve:production",
+              "color": "green"
+            }
+          ],
+          "parallel": true
+        },
+        "development": {
+          "commands": [
+            {
+              "command": "nx run template-host:serve:development",
+              "color": "blue"
+            },
+            {
+              "command": "nx run template-remote:serve:development",
+              "color": "green"
+            }
+          ],
+          "parallel": true
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
           {
-            "command": "nx run template-host:serve",
+            "command": "nx run template-host:build",
             "color": "blue"
           },
           {
-            "command": "nx run template-remote:serve",
+            "command": "nx run template-remote:build",
             "color": "green"
           }
         ],
