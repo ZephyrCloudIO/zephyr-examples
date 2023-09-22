@@ -5,9 +5,12 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@module-federation/nextjs-mf": "^7.0.8",
     "@nx/next": "16.8.1",
     "autoprefixer": "^10.4.15",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.279.0",
     "next": "13.4.1",
     "postcss": "^8.4.30",
     "react": "18.2.0",
