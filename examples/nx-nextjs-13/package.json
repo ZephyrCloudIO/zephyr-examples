@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@module-federation/dashboard-plugin": "^2.7.5",
     "@module-federation/nextjs-mf": "^7.0.8",
     "@nx/next": "16.8.1",
     "autoprefixer": "^10.4.15",
