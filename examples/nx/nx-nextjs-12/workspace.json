@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "template": "samples/template",
+    "template-remote": "samples/template/remote",
+    "template-host": "samples/template/host"
+  }
+}
