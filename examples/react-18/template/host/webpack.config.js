@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
+const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const path = require('path');
+
+const dashboardURL = `${process.env.DASHBOARD_BASE_URL}/env/development/get-remote?token=${process.env.DASHBOARD_READ_TOKEN}`;
 
 /**
  * @type {import('webpack').Configuration}
@@ -38,35 +41,33 @@ const webpackConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app2',
-      library: { type: 'var', name: 'app2' },
+      name: 'host',
       filename: 'remoteEntry.js',
-      exposes: {
-        './Button': './src/components/Button',
-        './ModernComponent': './src/components/ModernReactComponent',
-        './newReact': require.resolve('react'),
-        './newReactDOM': require.resolve('react-dom'),
+      shared: ['react', 'react-dom'],
+      exposes: {},
+      remotes: {
+        remote: DashboardPlugin.clientVersion({
+          currentHost: 'home',
+          remoteName: 'remote',
+          dashboardURL,
+        }),
       },
-      shared: [
-        'react-dom',
-        {
-          react: {
-            import: 'react', // the "react" package will be used a provided and fallback module
-            shareKey: 'newReact', // under this name the shared module will be placed in the share scope
-            shareScope: 'default', // share scope with this name will be used
-            singleton: true, // only a single version of the shared module is allowed
-          },
-          // reactNew: {
-          //   import: "react", // the "react" package will be used a provided and fallback module
-          //   shareKey: "reactNew", // under this name the shared module will be placed in the share scope
-          //   shareScope: "modern", // share scope with this name will be used
-          //   singleton: true, // only a single version of the shared module is allowed
-          // },
-        },
-      ],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new DashboardPlugin({
+      versionStrategy: `${Date.now()}`,
+      filename: 'dashboard.json',
+      environment: 'development',
+      dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
+      metadata: {
+        baseUrl: 'http://localhost:3000',
+        source: {
+          url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/react-18/template/host',
+        },
+        remote: 'http://localhost:3000/remoteEntry.js',
+      },
     }),
   ],
 };

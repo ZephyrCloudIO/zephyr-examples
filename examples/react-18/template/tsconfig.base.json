@@ -17,8 +17,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@host/*": ["host/*"],
-      "@remote/*": ["remote/*"]
+      "@host/*": ["host/src/*"],
+      "@remote/*": ["remote/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

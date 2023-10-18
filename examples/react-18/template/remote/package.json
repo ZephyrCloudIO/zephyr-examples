@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack-cli serve",
+    "start": "env-cmd webpack-cli serve",
     "build": "webpack --mode production",
     "serve": "serve dist -p 3000",
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@module-federation/dashboard-plugin": "^2.7.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -20,6 +21,7 @@
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
     "babel-loader": "9.1.3",
+    "env-cmd": "^10.1.0",
     "html-webpack-plugin": "5.5.1",
     "rimraf": "^5.0.5",
     "serve": "14.2.1",
