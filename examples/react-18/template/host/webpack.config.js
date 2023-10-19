@@ -43,7 +43,8 @@ const webpackConfig = {
     new ModuleFederationPlugin({
       name: 'host',
       filename: 'remoteEntry.js',
-      shared: ['react', 'react-dom'],
+      // shared: ['react', 'react-dom'],
+      shared: require('./package.json').dependencies,
       exposes: {},
       remotes: {
         remote: DashboardPlugin.clientVersion({

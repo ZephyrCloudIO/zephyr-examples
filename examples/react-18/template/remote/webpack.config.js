@@ -41,7 +41,8 @@ const webpackConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'remote',
+      name: 'remote__REMOTE_VERSION__',
+      library: { type: 'var', name: 'remote__REMOTE_VERSION__' },
       filename: 'remoteEntry.js',
       shared: ['react', 'react-dom'],
       exposes: {
