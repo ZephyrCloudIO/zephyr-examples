@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "jsx": "react",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dsl/*": ["dsl/src/*"],
+      "@home/*": ["home/src/*"],
+      "@nav/*": ["nav/src/*"],
+      "@search/*": ["search/src/*"],
+      "@utils/*": ["utils/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
