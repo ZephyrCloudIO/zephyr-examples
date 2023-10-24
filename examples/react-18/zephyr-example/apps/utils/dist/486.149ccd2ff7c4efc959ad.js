@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkv1698112601498=self.webpackChunkv1698112601498||[]).push([[486],{486:(s,e,n)=>{n.r(e),n.d(e,{sendAnalyticsMessage:()=>c}),console.log("Loading sendAnalytics");const c=s=>{console.log(s)}}}]);

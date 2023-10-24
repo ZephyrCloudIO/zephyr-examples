@@ -1,29 +1,17 @@
 {
-  "name": "medusa-example",
+  "name": "zephyr-example",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "./dsl",
-      "./home",
-      "./nav",
-      "./search",
-      "./utils"
-    ]
-  },
+  "workspaces": [
+    "./apps/*"
+  ],
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"cd dsl; yarn start\" \"cd home; yarn start\" \"cd nav; yarn start\" \"cd search; yarn start\" \"cd utils; yarn start\"",
-    "stackblitzStart": "cd dsl; yarn build && cd ../home; yarn build && cd ../nav; yarn build && cd ../search; yarn build && cd ../utils; yarn build && yarn serve",
-    "build": "concurrently \"cd dsl; yarn build\" \"cd home; yarn build\" \"cd nav; yarn build\" \"cd search; yarn build\" \"cd utils; yarn build\"",
-    "serve": "concurrently \"yarn serve:dsl\" \"yarn serve:home\" \"yarn serve:nav\" \"yarn serve:search\" \"yarn serve:utils\"",
-    "serve:dsl": "cd dsl; yarn serve",
-    "serve:home": "cd home; yarn serve",
-    "serve:nav": "cd nav; yarn serve",
-    "serve:search": "cd search; yarn serve",
-    "serve:utils": "cd utils; yarn serve",
-    "clean": "lerna run --scope @dashboard/* --parallel clean"
+    "start": "env-cmd concurrently \"npm run start -w apps/dsl\" \"npm run start -w apps/home\" \"npm run start -w apps/nav\" \"npm run start -w apps/search\" \"npm run start -w apps/utils\"",
+    "build": "env-cmd concurrently \"npm run build -w apps/dsl\" \"npm run build -w apps/home\" \"npm run build -w apps/nav\" \"npm run build -w apps/search\" \"npm run build -w apps/utils\"",
+    "serve": "env-cmd concurrently \"npm run serve -w apps/dsl\" \"npm run serve -w apps/home\" \"npm run serve -w apps/nav\" \"npm run serve -w apps/search\" \"npm run serve -w apps/utils\""
   },
   "devDependencies": {
-    "concurrently": "7.6.0"
+    "concurrently": "7.6.0",
+    "env-cmd": "^10.1.0"
   }
 }

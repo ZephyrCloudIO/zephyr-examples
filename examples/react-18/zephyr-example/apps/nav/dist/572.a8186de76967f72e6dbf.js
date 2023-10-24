@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkv1698112601500=self.webpackChunkv1698112601500||[]).push([[572],{3572:(e,l,t)=>{t.r(l),t.d(l,{default:()=>c});var n=t(4886),u=t.n(n),a=t(2863);const c=({children:e})=>u().createElement(a.Layout.Footer,null,u().createElement("h2",null,e))}}]);

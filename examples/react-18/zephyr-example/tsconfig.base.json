@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
     "jsx": "react",
     "sourceMap": true,
     "declaration": false,
@@ -17,11 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dsl/*": ["dsl/src/*"],
-      "@home/*": ["home/src/*"],
-      "@nav/*": ["nav/src/*"],
-      "@search/*": ["search/src/*"],
-      "@utils/*": ["utils/src/*"]
+      "@dsl/*": ["apps/dsl/src/*"],
+      "@home/*": ["apps/home/src/*"],
+      "@nav/*": ["apps/nav/src/*"],
+      "@search/*": ["apps/search/src/*"],
+      "@utils/*": ["apps/utils/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

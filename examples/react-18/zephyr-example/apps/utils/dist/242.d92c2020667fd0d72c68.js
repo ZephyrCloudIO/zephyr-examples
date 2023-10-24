@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkv1698112601498=self.webpackChunkv1698112601498||[]).push([[242],{242:(s,e,n)=>{function c(){console.log("this is the bar funcion")}n.r(e),n.d(e,{bar:()=>c})}}]);
