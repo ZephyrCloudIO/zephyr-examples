@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkv1698112601431=self.webpackChunkv1698112601431||[]).push([[902],{7902:(e,s,a)=>{a.r(s),a.d(s,{default:()=>r});var c=a(4886),l=a.n(c),n=a(2863);const r=({children:e,...s})=>l().createElement(n.Carousel,s,e)}}]);

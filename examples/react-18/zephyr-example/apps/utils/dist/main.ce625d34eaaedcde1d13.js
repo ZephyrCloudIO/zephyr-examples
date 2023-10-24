@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Loading sendAnalytics"),console.log("sendAnalytics hello")})();
