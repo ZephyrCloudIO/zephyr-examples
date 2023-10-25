@@ -43,6 +43,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      excludeChunks: ['remoteEntry'],
     }),
     new ModuleFederationPlugin({
       name: 'utils__REMOTE_VERSION__',

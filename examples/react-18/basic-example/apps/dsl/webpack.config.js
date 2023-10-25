@@ -76,6 +76,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      excludeChunks: ['remoteEntry'],
     }),
     new DashboardPlugin({
       versionStrategy: `${Date.now()}`,
