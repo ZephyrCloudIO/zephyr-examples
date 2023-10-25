@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 
+/**
+ * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}}
+ */
 module.exports = {
   entry: './src/index',
   mode: 'development',
@@ -20,6 +23,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
     publicPath: `auto`,
+    clean: true,
   },
   module: {
     rules: [

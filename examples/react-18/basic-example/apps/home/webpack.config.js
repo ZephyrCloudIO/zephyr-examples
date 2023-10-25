@@ -5,6 +5,9 @@ const DashboardPlugin = require('@module-federation/dashboard-plugin');
 
 const dashboardURL = `${process.env.DASHBOARD_BASE_URL}/env/development/get-remote?token=${process.env.DASHBOARD_READ_TOKEN}`;
 
+/**
+ * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}}
+ */
 module.exports = {
   entry: './src/index',
   mode: 'development',
@@ -22,6 +25,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
     publicPath: 'auto',
+    clean: true,
   },
   module: {
     rules: [
@@ -59,7 +63,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // new FunctionCall(),
     new ModuleFederationPlugin({
       name: 'home',
       filename: 'remoteEntry.js',

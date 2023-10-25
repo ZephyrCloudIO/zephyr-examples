@@ -12,6 +12,7 @@
     "@webpack-cli/serve": "1.7.0",
     "babel-loader": "9.0.1",
     "esbuild-loader": "2.20.0",
+    "rimraf": "^5.0.5",
     "serve": "14.0.1",
     "typescript": "^5.2.2",
     "webpack": "5.80.0",
@@ -21,6 +22,7 @@
   "scripts": {
     "start": "webpack-cli serve",
     "build": "webpack --mode production",
-    "serve": "serve dist -p 3005"
+    "serve": "serve dist -p 3005",
+    "clean": "rimraf dist"
   }
 }
