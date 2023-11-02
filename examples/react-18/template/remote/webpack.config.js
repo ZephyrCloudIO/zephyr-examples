@@ -12,10 +12,19 @@ const webpackConfig = {
   entry: './src/index',
   mode: 'development',
   devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    },
     static: {
       directory: path.join(__dirname, 'dist'),
     },
     port: 3001,
+    proxy: {
+      '/remoteEntry.js': {
+        target: 'http://localhost:3001',
+        pathRewrite: { '^/.*.remoteEntry.js': '/remoteEntry.js' },
+      },
+    },
   },
   output: {
     publicPath: 'auto',
@@ -60,7 +69,7 @@ const webpackConfig = {
       template: './public/index.html',
     }),
     new DashboardPlugin({
-      versionStrategy: `${Date.now()}`,
+      versionStrategy: 'buildHash',
       filename: 'dashboard.json',
       environment: 'development',
       dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,

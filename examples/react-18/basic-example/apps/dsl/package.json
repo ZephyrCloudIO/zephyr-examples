@@ -1,6 +1,6 @@
 {
   "name": "@basic-example/dsl",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.21.4",

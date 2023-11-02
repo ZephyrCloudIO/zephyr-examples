@@ -10,6 +10,9 @@ module.exports = {
   entry: './src/index',
   mode: 'development',
   devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    },
     static: {
       directory: path.join(__dirname, 'dist'),
     },
@@ -23,7 +26,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
     publicPath: `auto`,
-    clean: true,
+    clean: false,
   },
   module: {
     rules: [
@@ -91,10 +94,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      excludeChunks: ['remoteEntry'],
+      // excludeChunks: ['remoteEntry'],
     }),
     new DashboardPlugin({
-      versionStrategy: `${Date.now()}`,
+      versionStrategy: 'buildHash',
       filename: 'dashboard.json',
       dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
       versionChangeWebhook: 'http://cnn.com/',

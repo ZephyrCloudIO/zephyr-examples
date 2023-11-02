@@ -14,14 +14,14 @@ import { sendMessage } from './analytics';
 
 const Header = React.lazy(() => import('nav/Header'));
 const Footer = React.lazy(() => import('nav/Footer'));
-
 const SearchList = React.lazy(() => import('search/SearchList'));
+
 const items = [
-  { label: 'Sally', key:'1', children:<PageSally />},
-  { label: 'Little Guy', key:'2', children:<PageLG />},
-  { label: 'Mimi', key:'3', children:<PageMimi />},
-  { label: 'Sammy', key:'4', children:<PageSammy />}
-]
+  { label: 'Sally', key: '1', children: <PageSally /> },
+  { label: 'Little Guy', key: '2', children: <PageLG /> },
+  { label: 'Mimi', key: '3', children: <PageMimi /> },
+  { label: 'Sammy', key: '4', children: <PageSammy /> },
+];
 const App = () => {
   sendMessage('Application loaded');
   return (

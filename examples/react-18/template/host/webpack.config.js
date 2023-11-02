@@ -12,6 +12,9 @@ const webpackConfig = {
   entry: './src/index',
   mode: 'development',
   devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    },
     static: {
       directory: path.join(__dirname, 'dist'),
     },
@@ -58,7 +61,7 @@ const webpackConfig = {
       template: './public/index.html',
     }),
     new DashboardPlugin({
-      versionStrategy: `${Date.now()}`,
+      versionStrategy: 'buildHash',
       filename: 'dashboard.json',
       environment: 'development',
       dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
