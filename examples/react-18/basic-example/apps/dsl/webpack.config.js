@@ -4,7 +4,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 
 /**
- * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}}
+ * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}
  */
 module.exports = {
   entry: './src/index',
