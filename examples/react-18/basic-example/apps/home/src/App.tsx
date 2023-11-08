@@ -1,8 +1,6 @@
 import React from 'react';
 import { Layout, Tabs, Divider } from 'antd';
 
-import './index.less';
-
 import HeroImage from './HeroImage';
 import PageSally from './PageSally';
 import PageLG from './PageLG';
@@ -22,6 +20,7 @@ const items = [
   { label: 'Mimi', key: '3', children: <PageMimi /> },
   { label: 'Sammy', key: '4', children: <PageSammy /> },
 ];
+
 const App = () => {
   sendMessage('Application loaded');
   return (

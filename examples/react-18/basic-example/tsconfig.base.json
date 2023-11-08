@@ -1,7 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "strict": false,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

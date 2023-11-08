@@ -1,8 +1,6 @@
 import React from 'react';
 import { Layout, Divider } from 'antd';
 
-import 'antd/dist/antd.less';
-
 import { sendMessage } from './analytics';
 
 const Header = React.lazy(() => import('nav/Header'));
