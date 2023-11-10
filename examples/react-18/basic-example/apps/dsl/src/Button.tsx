@@ -7,7 +7,7 @@ console.log('REMOTE FEDERATION MANAGEMENT: using remote version: ' + require('..
 // green
 // blue
 const MyButton = ({ children }) => (
-  <Button type="primary" style={{ background: 'blue' }}>
+  <Button type="primary" style={{ background: 'green' }}>
     {children}
   </Button>
 );
