@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "strict": false,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dsl/*": ["apps/dsl/src/*"],
+      "@home/*": ["apps/home/src/*"],
+      "@nav/*": ["apps/nav/src/*"],
+      "@search/*": ["apps/search/src/*"],
+      "@utils/*": ["apps/utils/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
