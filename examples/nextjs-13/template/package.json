@@ -1,10 +1,13 @@
 {
   "name": "template",
+  "workspaces": [
+    "./apps/*"
+  ],
   "scripts": {
-    "dev": "concurrently \"cd host && npm run dev\" \"cd remote && npm run dev\"",
-    "build": "concurrently \"cd host && npm run build\" \"cd remote && npm run build\"",
-    "start": "concurrently \"cd host && npm run start\" \"cd remote && npm run start\"",
-    "lint": "concurrently \"cd host && npm run lint\" \"cd remote && npm run lint\""
+    "dev": "concurrently \"cd apps/host && npm run dev\" \"cd apps/remote && npm run dev\"",
+    "build": "concurrently \"cd apps/host && npm run build\" \"cd apps/remote && npm run build\"",
+    "start": "concurrently \"cd apps/host && npm run start\" \"cd apps/remote && npm run start\"",
+    "lint": "concurrently \"cd apps/host && npm run lint\" \"cd apps/remote && npm run lint\""
   },
   "dependencies": {
     "concurrently": "^8.2.1"

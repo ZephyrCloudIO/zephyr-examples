@@ -1,14 +1,15 @@
 {
-  "name": "template-host",
+  "name": "template-remote",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3011",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3011",
     "lint": "next lint"
   },
   "dependencies": {
+    "@module-federation/dashboard-plugin": "^2.8.0-beta.6",
     "@module-federation/nextjs-mf": "^7.0.8",
     "next": "latest",
     "react": "latest",
