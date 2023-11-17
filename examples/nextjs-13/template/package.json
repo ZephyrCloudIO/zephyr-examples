@@ -10,6 +10,7 @@
     "lint": "concurrently \"cd apps/host && npm run lint\" \"cd apps/remote && npm run lint\""
   },
   "dependencies": {
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.1",
+    "@module-federation/dashboard-plugin": "^2.8.0-beta.6"
   }
 }
