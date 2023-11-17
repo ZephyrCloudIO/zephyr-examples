@@ -5,7 +5,8 @@ import type { TableData } from 'remote/table';
 // const Table = React.lazy(() => import('remote/table'));
 // const Table = dynamic(() => import('remote/table'), { ssr: true });
 // const Table = dynamic(() => import('remote/table'), { ssr: false });
-const Table = dynamic(() => import('remoteRaw/table'), { ssr: false });
+// const Table = dynamic(() => import('remoteRaw/table'), { ssr: false });
+const Table = dynamic(() => import('remote/table'), { ssr: false });
 
 const tableData: TableData[] = [
   {

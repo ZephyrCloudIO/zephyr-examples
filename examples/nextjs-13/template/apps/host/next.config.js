@@ -26,7 +26,7 @@ const getRemotes = (/** @type {Boolean} */ isServer) => {
       [globalName]: createDelegatedModule(require.resolve('./remote-delegate.ts'), {
         remote: `${globalName}@${url}`,
       }),
-      [`${globalName}Raw`]: `${globalName}Raw@${REMOTE_APP_URL}/_next/static/${location}/remoteEntry.js`,
+      // [`${globalName}Raw`]: `${globalName}Raw@${REMOTE_APP_URL}/_next/static/${location}/remoteEntry.js`,
     };
   }, {});
 };

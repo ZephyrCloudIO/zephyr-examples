@@ -8,9 +8,9 @@ const nextConfig = {
     const { isServer } = options;
     config.plugins.push(
       new NextFederationPlugin({
-        // name: 'remote__REMOTE_VERSION__',
-        // library: { type: 'var', name: 'remote__REMOTE_VERSION__' },
-        name: 'remoteRaw',
+        name: 'remote__REMOTE_VERSION__',
+        library: { type: 'var', name: 'remote__REMOTE_VERSION__' },
+        // name: 'remoteRaw',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {},
         exposes: {
@@ -20,20 +20,20 @@ const nextConfig = {
         shared: {
           // whatever else
         },
+      }),
+      new NextMedusaPlugin({
+        versionStrategy: 'buildHash',
+        filename: 'dashboard.json',
+        environment: 'development',
+        dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
+        metadata: {
+          baseUrl: 'http://localhost:3011',
+          source: {
+            url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/template/apps/remote',
+          },
+          remote: 'http://localhost:3011/_next/static/chunks/remoteEntry.js',
+        },
       })
-      // new NextMedusaPlugin({
-      //   versionStrategy: 'buildHash',
-      //   filename: 'dashboard.json',
-      //   environment: 'development',
-      //   dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
-      //   metadata: {
-      //     baseUrl: 'http://localhost:3011',
-      //     source: {
-      //       url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/template/apps/remote',
-      //     },
-      //     remote: 'http://localhost:3011/_next/static/chunks/remoteEntry.js',
-      //   },
-      // })
     );
 
     return config;
