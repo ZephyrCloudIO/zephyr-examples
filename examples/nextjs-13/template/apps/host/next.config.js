@@ -48,10 +48,7 @@ const nextConfig = {
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
         library: { type: 'var', name: 'host' },
-        // remotes: getRemotes(isServer),
-        remotes: {
-          remote: 'remote@http://localhost:3011/_next/static/chunks/remoteEntry.js',
-        },
+        remotes: getRemotes(isServer),
         exposes: {
           // whatever else
         },
