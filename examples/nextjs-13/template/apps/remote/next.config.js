@@ -22,6 +22,7 @@ const nextConfig = {
         },
       }),
       new NextMedusaPlugin({
+        skipPost: isServer,
         versionStrategy: 'buildHash',
         filename: 'dashboard.json',
         environment: 'development',
