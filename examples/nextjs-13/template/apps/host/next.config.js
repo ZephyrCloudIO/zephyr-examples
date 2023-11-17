@@ -14,15 +14,15 @@ const dashboardURL = `${process.env.DASHBOARD_BASE_URL}/env/${environment}/get-r
 // loading remotes on demand, not ideal for SSR
 const getRemotes = (/** @type {Boolean} */ isServer) => {
   // TODO: discussion about zephyr + nextjs (SSR remotes)
-  const location = isServer ? 'ssr' : 'chunks';
-  // const location = 'chunks';
+  // const location = isServer ? 'ssr' : 'chunks';
+  const location = 'chunks';
 
   const remotes = {
-    // remote: `__REMOTE_URL__/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
+    remote: `__REMOTE_URL__/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
     // remote: `remote@${REMOTE_APP_URL}/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
     // remote: `remote@__REMOTE_URL__/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
     // remote: `__REMOTE_URL__/_next/static/chunks/remoteEntry.js`,
-    remote: `http://localhost:3011/_next/static/chunks/remoteEntry.js`,
+    // remote: `http://localhost:3011/_next/static/chunks/remoteEntry.js`,
   };
 
   return Object.entries(remotes || {}).reduce((acc, [remote, url]) => {
