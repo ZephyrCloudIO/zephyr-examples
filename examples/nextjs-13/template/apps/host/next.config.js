@@ -3,7 +3,7 @@ const NextFederationPlugin = require('@module-federation/nextjs-mf');
 const { NextMedusaPlugin } = require('@module-federation/dashboard-plugin');
 const { createDelegatedModule } = require('@module-federation/utilities');
 
-// const REMOTE_APP_URL = process.env.NEXT_PUBLIC_REMOTE_APP_URL || 'http://localhost:3011';
+const REMOTE_APP_URL = process.env.NEXT_PUBLIC_REMOTE_APP_URL || 'http://localhost:3011';
 
 // TODO: need to fix this
 // const environment = process.env.NODE_ENV || 'development';
@@ -14,23 +14,19 @@ const dashboardURL = `${process.env.DASHBOARD_BASE_URL}/env/${environment}/get-r
 // loading remotes on demand, not ideal for SSR
 const getRemotes = (/** @type {Boolean} */ isServer) => {
   // TODO: discussion about zephyr + nextjs (SSR remotes)
-  // const location = isServer ? 'ssr' : 'chunks';
-  const location = 'chunks';
+  const location = isServer ? 'ssr' : 'chunks';
 
   const remotes = {
     remote: `__REMOTE_URL__/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
-    // remote: `remote@${REMOTE_APP_URL}/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
-    // remote: `remote@__REMOTE_URL__/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
-    // remote: `__REMOTE_URL__/_next/static/chunks/remoteEntry.js`,
-    // remote: `http://localhost:3011/_next/static/chunks/remoteEntry.js`,
   };
 
-  return Object.entries(remotes || {}).reduce((acc, [remote, url]) => {
+  return Object.entries(remotes || {}).reduce((acc, [globalName, url]) => {
     return {
       ...acc,
-      [remote]: createDelegatedModule(require.resolve('./remote-delegate.ts'), {
-        remote: `${remote}@${url}`,
+      [globalName]: createDelegatedModule(require.resolve('./remote-delegate.ts'), {
+        remote: `${globalName}@${url}`,
       }),
+      [`${globalName}Raw`]: `${globalName}Raw@${REMOTE_APP_URL}/_next/static/${location}/remoteEntry.js`,
     };
   }, {});
 };
@@ -47,7 +43,7 @@ const nextConfig = {
       new NextFederationPlugin({
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
-        library: { type: 'var', name: 'host' },
+        // library: { type: 'var', name: 'host' },
         remotes: getRemotes(isServer),
         exposes: {
           // whatever else
