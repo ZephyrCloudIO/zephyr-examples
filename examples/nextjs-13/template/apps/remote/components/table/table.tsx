@@ -1,9 +1,17 @@
 import styles from './table.module.css';
 
-/* eslint-disable-next-line */
-export interface TableProps {}
+export type TableData = {
+  name: string;
+  age: number;
+  email: string;
+};
 
-export function Table(props: TableProps) {
+/* eslint-disable-next-line */
+export interface TableProps {
+  data: TableData[];
+}
+
+export function Table({ data }: TableProps) {
   return (
     <table className={`${styles.table}`}>
       <thead>
@@ -14,16 +22,13 @@ export function Table(props: TableProps) {
         </tr>
       </thead>
       <tbody>
-        <tr className={styles.tableRow}>
-          <td className={styles.tableCell}>John Doe</td>
-          <td className={styles.tableCell}>30</td>
-          <td className={styles.tableCell}>john@example.com</td>
-        </tr>
-        <tr className={styles.tableRow}>
-          <td className={styles.tableCell}>Jane Smith</td>
-          <td className={styles.tableCell}>25</td>
-          <td className={styles.tableCell}>jane@example.com</td>
-        </tr>
+        {data.map((row) => (
+          <tr className={styles.tableRow} key={row.email}>
+            <td className={styles.tableCell}>{row.name}</td>
+            <td className={styles.tableCell}>{row.age}</td>
+            <td className={styles.tableCell}>{row.email}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

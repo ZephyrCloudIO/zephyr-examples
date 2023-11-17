@@ -9,7 +9,7 @@ const nextConfig = {
     config.plugins.push(
       new NextFederationPlugin({
         name: 'remote__REMOTE_VERSION__',
-        library: { type: 'var', name: 'remote__REMOTE_VERSION__' },
+        // library: { type: 'var', name: 'remote__REMOTE_VERSION__' },
         filename: 'static/chunks/remoteEntry.js',
         remotes: {},
         exposes: {

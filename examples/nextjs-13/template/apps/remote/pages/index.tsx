@@ -1,4 +1,22 @@
-import Table from '../components/table/table';
+import Table, { TableData } from '../components/table/table';
+
+const tableData: TableData[] = [
+  {
+    name: 'John Doe',
+    age: 25,
+    email: 'john.doe@email.com',
+  },
+  {
+    name: 'Jane Doe',
+    age: 23,
+    email: 'jane.doe@email.com',
+  },
+  {
+    name: 'John Smith',
+    age: 30,
+    email: 'john.smith@email.com',
+  },
+];
 
 export function Index() {
   return (
@@ -46,7 +64,7 @@ export function Index() {
       </div>
       <h3 className="mt-16">The component below is comes from this app</h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-16 rounded-lg w-full">
-        <Table />
+        <Table data={tableData} />
       </div>
     </section>
   );

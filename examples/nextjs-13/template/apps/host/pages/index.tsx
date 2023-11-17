@@ -1,7 +1,26 @@
 import dynamic from 'next/dynamic';
+import type { TableData } from 'remote/table';
 
 // const Table = dynamic(() => import('remote/table'), { ssr: false });
-const Table = dynamic(() => import('remote/table'), { ssr: true });
+const Table = dynamic(() => import('remote/table'), { ssr: false });
+
+const tableData: TableData[] = [
+  {
+    name: 'San Francisco',
+    age: 66,
+    email: 'san.francisco@email.com',
+  },
+  {
+    name: 'Alex Smith',
+    age: 42,
+    email: 'alex.smith@email.com',
+  },
+  {
+    name: 'Mary Jane',
+    age: 77,
+    email: 'mary.jane@email.com',
+  },
+];
 
 export function Index() {
   return (
@@ -49,7 +68,7 @@ export function Index() {
       </div>
       <h3 className="mt-16">The component below is comes from the remote app</h3>
       <div className="mt-4 border-4 border-dashed border-blue-500 p-16 rounded-lg w-full">
-        <Table />
+        <Table data={tableData} />
       </div>
     </section>
   );
