@@ -38,6 +38,8 @@ const nextConfig = {
   webpack: (config, options) => {
     const gitSHA = execSync(`git rev-list -n 1 HEAD -- .`, { cwd: process.cwd() }).toString().trim();
     const { isServer } = options;
+    //workaround to v7 bug
+    config.optimization.minimize = false
     config.plugins.push(
       new DefinePlugin({
         'process.env.DASHBOARD_CLIENT_URL': JSON.stringify(dashboardURL),

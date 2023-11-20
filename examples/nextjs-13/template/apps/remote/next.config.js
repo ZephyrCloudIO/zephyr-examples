@@ -7,11 +7,11 @@ const nextConfig = {
   webpack: (config, options) => {
     const gitSHA = execSync(`git rev-list -n 1 HEAD -- .`, { cwd: process.cwd() }).toString().trim();
     const { isServer } = options;
+    //workaround to v7 bug
+    config.optimization.minimize = false
     config.plugins.push(
       new NextFederationPlugin({
         name: 'remote__REMOTE_VERSION__',
-        library: { type: 'var', name: 'remote__REMOTE_VERSION__' },
-        // name: 'remoteRaw',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {},
         exposes: {
