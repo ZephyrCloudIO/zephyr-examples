@@ -2,6 +2,7 @@ const { DefinePlugin } = require('webpack');
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
 const { NextMedusaPlugin } = require('@module-federation/dashboard-plugin');
 const { createDelegatedModule } = require('@module-federation/utilities');
+const { execSync } = require('child_process');
 
 const REMOTE_APP_URL = process.env.NEXT_PUBLIC_REMOTE_APP_URL || 'http://localhost:3011';
 
@@ -35,7 +36,10 @@ const getRemotes = (/** @type {Boolean} */ isServer) => {
 const nextConfig = {
   cleanDistDir: false,
   webpack: (config, options) => {
+    const gitSHA = execSync(`git rev-list -n 1 HEAD -- .`, { cwd: process.cwd() }).toString().trim();
     const { isServer } = options;
+    //workaround to v7 bug
+    config.optimization.minimize = false
     config.plugins.push(
       new DefinePlugin({
         'process.env.DASHBOARD_CLIENT_URL': JSON.stringify(dashboardURL),
@@ -54,7 +58,7 @@ const nextConfig = {
       }),
       new NextMedusaPlugin({
         skipPost: isServer,
-        versionStrategy: 'buildHash',
+        versionStrategy: gitSHA,
         filename: 'dashboard.json',
         environment,
         dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,

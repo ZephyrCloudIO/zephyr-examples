@@ -1,10 +1,5 @@
 // import { importDelegatedModule } from '@module-federation/utilities';
 
-// TODO: replace by consuming the related version from dashboard metadata
-const relatedRemoteVersions: Record<string, string> = {
-  a0603bf16baf79c4: '91c63db724f937b9',
-};
-
 module.exports = new Promise(async (resolve, reject) => {
   const { importDelegatedModule } = await import('@module-federation/utilities');
   const isServer = typeof window === 'undefined';
@@ -52,8 +47,7 @@ module.exports = new Promise(async (resolve, reject) => {
     // const remoteEntryFileUrl = new URL(remoteEntryFilename, remoteData.remoteURL);
 
     // TODO: replace by consuming the related version from dashboard metadata
-    const resolvedRemoteVersion = isServer ? relatedRemoteVersions[remoteData.version] : remoteData.version;
-
+    const resolvedRemoteVersion = remoteData.version;
     const remoteParsedUrl = remoteUrl.replace('__REMOTE_URL__', remoteData.remoteURL).replace('__REMOTE_VERSION__', resolvedRemoteVersion);
 
     console.log('remoteParsedUrl', remoteParsedUrl);
