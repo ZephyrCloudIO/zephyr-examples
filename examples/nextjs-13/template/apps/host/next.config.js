@@ -1,54 +1,33 @@
 const { DefinePlugin } = require('webpack');
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
 const { NextMedusaPlugin } = require('@module-federation/dashboard-plugin');
-const { createDelegatedModule } = require('@module-federation/utilities');
-const { execSync } = require('child_process');
+const { versionResolver } = require('./ze-plugin/next-utils/version-resolver');
+const { remotesResolver } = require('./ze-plugin/next-utils/remote-resolver');
+const remoteMap = require('./remote-map');
 
-const REMOTE_APP_URL = process.env.NEXT_PUBLIC_REMOTE_APP_URL || 'http://localhost:3011';
-
-// TODO: need to fix this
-// const environment = process.env.NODE_ENV || 'development';
+// you can use NODE_ENV to switch between environments
 const environment = 'development';
-const dashboardURL = `${process.env.DASHBOARD_BASE_URL}/env/${environment}/get-remote?token=${process.env.DASHBOARD_READ_TOKEN}`;
-
-// this enables you to use import() and the webpack parser
-// loading remotes on demand, not ideal for SSR
-const getRemotes = (/** @type {Boolean} */ isServer) => {
-  // TODO: discussion about zephyr + nextjs (SSR remotes)
-  const location = isServer ? 'ssr' : 'chunks';
-
-  const remotes = {
-    remote: `__REMOTE_URL__/_next/static/${location}/__REMOTE_VERSION__.remoteEntry.js`,
-  };
-
-  return Object.entries(remotes || {}).reduce((acc, [globalName, url]) => {
-    return {
-      ...acc,
-      [globalName]: createDelegatedModule(require.resolve('./remote-delegate.ts'), {
-        remote: `${globalName}@${url}`,
-      }),
-      // [`${globalName}Raw`]: `${globalName}Raw@${REMOTE_APP_URL}/_next/static/${location}/remoteEntry.js`,
-    };
-  }, {});
-};
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   cleanDistDir: false,
-  webpack: (config, options) => {
-    const gitSHA = execSync(`git rev-list -n 1 HEAD -- .`, { cwd: process.cwd() }).toString().trim();
-    const { isServer } = options;
-    //workaround to v7 bug
-    config.optimization.minimize = false
+  webpack: (config, { isServer }) => {
+    const version = versionResolver();
+
+    // workaround to @module-federation/nextjs-mf@v7 bug
+    config.optimization.minimize = false;
+
     config.plugins.push(
+      // This is important to pass static data to the ze-remote-delegate during build time
       new DefinePlugin({
-        'process.env.DASHBOARD_CLIENT_URL': JSON.stringify(dashboardURL),
+        'process.env.ZE_DASHBOARD_API_URL': JSON.stringify(process.env.ZE_DASHBOARD_API_URL),
+        'process.env.ZE_DASHBOARD_ENV': JSON.stringify(environment),
+        'process.env.ZE_READ_TOKEN': JSON.stringify(process.env.ZE_READ_TOKEN),
       }),
       new NextFederationPlugin({
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
-        // library: { type: 'var', name: 'host' },
-        remotes: getRemotes(isServer),
+        remotes: remotesResolver({ isServer, remoteMap, delegatePath: require.resolve('./remote-delegate.ts') }),
         exposes: {
           // whatever else
         },
@@ -58,10 +37,10 @@ const nextConfig = {
       }),
       new NextMedusaPlugin({
         skipPost: isServer,
-        versionStrategy: gitSHA,
+        versionStrategy: version,
         filename: 'dashboard.json',
         environment,
-        dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
+        dashboardURL: `${process.env.ZE_DASHBOARD_API_URL}/update?token=${process.env.ZE_WRITE_TOKEN}`,
         metadata: {
           baseUrl: 'http://localhost:3010',
           source: {

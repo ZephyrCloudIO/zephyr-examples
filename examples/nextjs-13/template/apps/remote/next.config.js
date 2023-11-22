@@ -1,14 +1,20 @@
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
 const { NextMedusaPlugin } = require('@module-federation/dashboard-plugin');
 const { execSync } = require('child_process');
+
+// you can use NODE_ENV to switch between environments
+const environment = 'development';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   cleanDistDir: false,
-  webpack: (config, options) => {
+  webpack: (config, { isServer }) => {
+    // TODO: should use versionResolver from ze-plugin/next-utils/version-resolver.js
     const gitSHA = execSync(`git rev-list -n 1 HEAD -- .`, { cwd: process.cwd() }).toString().trim();
-    const { isServer } = options;
-    //workaround to v7 bug
-    config.optimization.minimize = false
+
+    // workaround to @module-federation/nextjs-mf@v7 bug
+    config.optimization.minimize = false;
+
     config.plugins.push(
       new NextFederationPlugin({
         name: 'remote__REMOTE_VERSION__',
@@ -26,8 +32,8 @@ const nextConfig = {
         skipPost: isServer,
         versionStrategy: gitSHA,
         filename: 'dashboard.json',
-        environment: 'development',
-        dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
+        environment,
+        dashboardURL: `${process.env.ZE_DASHBOARD_API_URL}/update?token=${process.env.ZE_WRITE_TOKEN}`,
         metadata: {
           baseUrl: 'http://localhost:3011',
           source: {
