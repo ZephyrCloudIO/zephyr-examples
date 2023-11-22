@@ -1,0 +1,18 @@
+{
+  "name": "basic-example",
+  "private": true,
+  "workspaces": [
+    "./apps/*"
+  ],
+  "version": "0.0.0",
+  "scripts": {
+    "start": "env-cmd concurrently \"npm run start -w apps/dsl\" \"npm run start -w apps/home\" \"npm run start -w apps/nav\" \"npm run start -w apps/search\" \"npm run start -w apps/utils\"",
+    "build": "env-cmd concurrently \"npm run build -w apps/dsl\" \"npm run build -w apps/home\" \"npm run build -w apps/nav\" \"npm run build -w apps/search\" \"npm run build -w apps/utils\"",
+    "serve": "env-cmd concurrently \"npm run serve -w apps/dsl\" \"npm run serve -w apps/home\" \"npm run serve -w apps/nav\" \"npm run serve -w apps/search\" \"npm run serve -w apps/utils\"",
+    "clean": "env-cmd concurrently \"npm run clean -w apps/dsl\" \"npm run clean -w apps/home\" \"npm run clean -w apps/nav\" \"npm run clean -w apps/search\" \"npm run clean -w apps/utils\""
+  },
+  "devDependencies": {
+    "concurrently": "7.6.0",
+    "env-cmd": "^10.1.0"
+  }
+}
