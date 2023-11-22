@@ -14,7 +14,7 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     const version = versionResolver();
 
-    // workaround to v7 bug
+    // workaround to @module-federation/nextjs-mf@v7 bug
     config.optimization.minimize = false;
 
     config.plugins.push(

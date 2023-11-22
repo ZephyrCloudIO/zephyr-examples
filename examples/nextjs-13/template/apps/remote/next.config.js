@@ -12,7 +12,7 @@ const nextConfig = {
     // TODO: should use versionResolver from ze-plugin/next-utils/version-resolver.js
     const gitSHA = execSync(`git rev-list -n 1 HEAD -- .`, { cwd: process.cwd() }).toString().trim();
 
-    // workaround to v7 bug
+    // workaround to @module-federation/nextjs-mf@v7 bug
     config.optimization.minimize = false;
 
     config.plugins.push(
