@@ -11,7 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@module-federation/dashboard-plugin": "^2.8.0-beta.6",
+    "@module-federation/dashboard-plugin": "^2.8.0-beta.7",
     "@module-federation/nextjs-mf": "^7.0.8",
     "@module-federation/utilities": "^3.0.0",
     "next": "latest",
