@@ -17,6 +17,7 @@ const nextConfig = {
 
     config.plugins.push(
       new NextFederationPlugin({
+        // name: 'remote',
         name: 'remote__REMOTE_VERSION__',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {},

@@ -11,7 +11,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@module-federation/dashboard-plugin": "^2.8.0-beta.7",
     "@module-federation/nextjs-mf": "^7.0.8",
     "@module-federation/utilities": "^3.0.0",
     "next": "latest",
@@ -26,8 +25,10 @@
     "cross-env": "^7.0.3",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "next-compose-plugins": "^2.2.1",
     "postcss": "latest",
     "tailwindcss": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "webpack-merge": "^5.10.0"
   }
 }

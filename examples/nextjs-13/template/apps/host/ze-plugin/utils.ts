@@ -36,14 +36,18 @@ export interface ImportVersionedRemoteOptions {
   remoteUrl: string;
 }
 
-export type ImportVersionedRemoteResult = { fake?: boolean; init: () => Promise<any>; get: () => Promise<any> };
+export interface Container {
+  fake?: boolean;
+  init(shareScope: (typeof __webpack_share_scopes__)[string]): void;
+  get<T>(module: string): T;
+}
 
 /**
  * Imports a versioned remote.
  * @param options
  * @returns The imported versioned remote.
  */
-export async function importVersionedRemote(options: ImportVersionedRemoteOptions): Promise<ImportVersionedRemoteResult> {
+export async function importVersionedRemote(options: ImportVersionedRemoteOptions): Promise<Container> {
   const {
     debug = false,
     apiUrl = DEFAULT_API_URL,
@@ -84,15 +88,15 @@ export async function importVersionedRemote(options: ImportVersionedRemoteOption
     const remoteData = await remoteVersionReq.json();
 
     const resolvedRemoteVersion = remoteData.version;
-    const remoteParsedUrl = remoteUrl.replaceAll('__REMOTE_URL__', remoteData.remoteURL).replaceAll('__REMOTE_VERSION__', resolvedRemoteVersion);
+    const remoteParsedUrl = remoteUrl.replace(/__REMOTE_URL__/g, remoteData.remoteURL).replace(/__REMOTE_VERSION__/g, resolvedRemoteVersion);
 
     if (debug) {
       console.debug(`[${DEBUG_LOG_HEADER}]: remoteParsedUrl`, remoteParsedUrl);
     }
 
     const resolvedVersionedRemoteName = versionedRemoteNameSchema
-      .replaceAll('__REMOTE_NAME__', remoteName)
-      .replaceAll('__REMOTE_VERSION__', resolvedRemoteVersion);
+      .replace(/__REMOTE_NAME__/g, remoteName)
+      .replace(/__REMOTE_VERSION__/g, resolvedRemoteVersion);
 
     // importing the delegated module
     const importedRemote = await importDelegatedModule({

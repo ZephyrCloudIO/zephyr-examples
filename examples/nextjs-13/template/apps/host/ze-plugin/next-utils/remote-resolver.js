@@ -22,7 +22,7 @@ const remotesResolver = ({ isServer, remoteMap, delegatePath }) => {
     return {
       ...acc,
       [globalName]: createDelegatedModule(delegatePath, {
-        remote: `${globalName}@${url.replace('__LOCATION__', location)}`,
+        remote: `${globalName}@${url.replace(/__LOCATION__/g, location)}`,
       }),
     };
   }, {});
