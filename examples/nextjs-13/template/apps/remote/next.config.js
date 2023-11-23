@@ -13,7 +13,7 @@ module.exports = withZe(nextConfig, {
   },
   // Here we can add some metadata to provide more information about the app
   metadata: {
-    baseUrl: 'http://localhost:3011',
+    baseUrl: 'http://localhost:3011', // This value is used to genereate the remote URL on the host
     source: {
       url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/template/apps/remote',
     },
