@@ -21,8 +21,10 @@
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "next-compose-plugins": "^2.2.1",
     "postcss": "latest",
     "tailwindcss": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "webpack-merge": "^5.10.0"
   }
 }
