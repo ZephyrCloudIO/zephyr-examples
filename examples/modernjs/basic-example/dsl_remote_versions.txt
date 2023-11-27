@@ -1,0 +1,26 @@
+badc0a9640a9b479ad0e.remoteEntry.js     badc0a9640a9b479ad0e    blue
+dce4082880ca0c127216.remoteEntry.js     dce4082880ca0c127216    red
+
+Examples with Windows 11
+381b0562e32302143220.remoteEntry.js     381b0562e32302143220    blue
+4dd451fb268a702d01ed.remoteEntry.js     4dd451fb268a702d01ed    red
+
+# dsl
+http://localhost:3333/env/development/get-remote?token=5a1659ae-cfb0-4642-b348-ddd13c0278ff&currentHost=home&remoteName=dsl
+https://api-dev.zephyr-cloud.io/env/development/get-remote?token=a9ee8b4c-0533-4773-bd3d-b1f32af8887c&currentHost=home&remoteName=dsl
+# nav
+http://localhost:3333/env/development/get-remote?token=5a1659ae-cfb0-4642-b348-ddd13c0278ff&currentHost=home&remoteName=nav
+https://api-dev.zephyr-cloud.io/env/development/get-remote?token=a9ee8b4c-0533-4773-bd3d-b1f32af8887c&currentHost=home&remoteName=nav
+
+
+## blue
+apps/dsl/dist/566.e61c35f024a809d23efd.js
+apps/dsl/dist/990.ba90174d237e4d0a641b.js
+node_modules/@basic-example/dsl/dist/566.e61c35f024a809d23efd.js
+node_modules/@basic-example/dsl/dist/990.ba90174d237e4d0a641b.js
+
+## green
+apps/dsl/dist/566.60118cceb314c784312a.js
+apps/dsl/dist/990.4677941d87c896ef412d.js
+node_modules/@basic-example/dsl/dist/566.60118cceb314c784312a.js
+node_modules/@basic-example/dsl/dist/990.4677941d87c896ef412d.js
