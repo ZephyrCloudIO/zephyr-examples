@@ -13,6 +13,7 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "^7.0.8",
     "@module-federation/utilities": "^3.0.0",
+    "@module-federation/dashboard-plugin": "^2.8.0-beta.8",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
