@@ -1,27 +1,18 @@
-import prisma from "@/app/libs/prismadb";
+import { listingsMock, usersMock } from '../mocks';
 
 interface IParams {
   listingId?: string;
 }
 
-export default async function getListingById(
-  params: IParams
-) {
+export default async function getListingById(params: IParams) {
   try {
     const { listingId } = params;
 
-    const listing = await prisma.listing.findUnique({
-      where: {
-        id: listingId,
-      },
-      include: {
-        user: true
-      }
-    });
+    const found = listingsMock.find(({ id }) => id === listingId);
 
-    if (!listing) {
-      return null;
-    }
+    if (!found) return null;
+
+    const listing = { ...found, user: usersMock[0] };
 
     return {
       ...listing,
@@ -30,9 +21,8 @@ export default async function getListingById(
         ...listing.user,
         createdAt: listing.user.createdAt.toString(),
         updatedAt: listing.user.updatedAt.toString(),
-        emailVerified: 
-          listing.user.emailVerified?.toString() || null,
-      }
+        emailVerified: listing.user.emailVerified?.toString() || null,
+      },
     };
   } catch (error: any) {
     throw new Error(error);

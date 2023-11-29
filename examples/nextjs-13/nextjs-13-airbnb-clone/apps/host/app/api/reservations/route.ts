@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 
-import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import { listingsMock, reservationsMock } from '@/app/mocks';
+import { randomUUID } from 'crypto';
 
 export async function POST(
   request: Request, 
@@ -24,21 +25,20 @@ export async function POST(
     return NextResponse.error();
   }
 
-  const listingAndReservation = await prisma.listing.update({
-    where: {
-      id: listingId
-    },
-    data: {
-      reservations: {
-        create: {
-          userId: currentUser.id,
-          startDate,
-          endDate,
-          totalPrice,
-        }
-      }
-    }
+  const reservation = reservationsMock.push({
+    id: randomUUID(),
+    listingId,
+    createdAt: new Date(),
+    userId: currentUser.id,
+    startDate,
+    endDate,
+    totalPrice,
   });
+
+  const listingAndReservation = {
+    ...listingsMock.find(({id}) => id === listingId)!,
+    reservations: [reservation]
+  }
 
   return NextResponse.json(listingAndReservation);
 }

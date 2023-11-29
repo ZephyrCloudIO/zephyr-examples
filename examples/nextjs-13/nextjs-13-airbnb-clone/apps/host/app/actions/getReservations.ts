@@ -1,4 +1,4 @@
-import prisma from "@/app/libs/prismadb";
+import { listingsMock, reservationsMock } from '../mocks';
 
 interface IParams {
   listingId?: string;
@@ -6,45 +6,43 @@ interface IParams {
   authorId?: string;
 }
 
-export default async function getReservations(
-  params: IParams
-) {
+export default async function getReservations(params: IParams) {
   try {
     const { listingId, userId, authorId } = params;
 
-    const query: any = {};
-        
+    let reservations = reservationsMock.map((reservation) => ({
+      ...reservation,
+      listing: listingsMock.find(
+        (listing) => listing.id === reservation.listingId
+      ),
+    }));
+
     if (listingId) {
-      query.listingId = listingId;
-    };
+      reservations = reservations.filter(
+        (reservation) => reservation.listingId === listingId
+      );
+    }
 
     if (userId) {
-      query.userId = userId;
+      reservations = reservations.filter(
+        (reservation) => reservation.userId === userId
+      );
     }
 
     if (authorId) {
-      query.listing = { userId: authorId };
+      reservations = reservations.filter(
+        (reservation) => reservation.listing?.userId === authorId
+      );
     }
 
-    const reservations = await prisma.reservation.findMany({
-      where: query,
-      include: {
-        listing: true
-      },
-      orderBy: {
-        createdAt: 'desc'
-      }
-    });
-
-    const safeReservations = reservations.map(
-      (reservation) => ({
+    const safeReservations = reservations.map((reservation) => ({
       ...reservation,
       createdAt: reservation.createdAt.toISOString(),
       startDate: reservation.startDate.toISOString(),
       endDate: reservation.endDate.toISOString(),
       listing: {
         ...reservation.listing,
-        createdAt: reservation.listing.createdAt.toISOString(),
+        createdAt: reservation.listing?.createdAt.toISOString(),
       },
     }));
 
