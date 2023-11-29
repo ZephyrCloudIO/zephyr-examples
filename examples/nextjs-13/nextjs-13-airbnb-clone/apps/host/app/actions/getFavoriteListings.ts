@@ -1,6 +1,5 @@
-import prisma from "@/app/libs/prismadb";
-
-import getCurrentUser from "./getCurrentUser";
+import getCurrentUser from './getCurrentUser';
+import { listingsMock } from '../mocks';
 
 export default async function getFavoriteListings() {
   try {
@@ -10,13 +9,9 @@ export default async function getFavoriteListings() {
       return [];
     }
 
-    const favorites = await prisma.listing.findMany({
-      where: {
-        id: {
-          in: [...(currentUser.favoriteIds || [])]
-        }
-      }
-    });
+    const favorites = listingsMock.filter(({ id }) =>
+      currentUser.favoriteIds.includes(id)
+    );
 
     const safeFavorites = favorites.map((favorite) => ({
       ...favorite,

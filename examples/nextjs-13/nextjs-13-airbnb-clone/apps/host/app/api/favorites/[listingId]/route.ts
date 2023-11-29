@@ -1,16 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
-import getCurrentUser from "@/app/actions/getCurrentUser";
-import prisma from "@/app/libs/prismadb";
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import { usersMock } from '@/app/mocks';
 
 interface IParams {
   listingId?: string;
 }
 
-export async function POST(
-  request: Request, 
-  { params }: { params: IParams }
-) {
+export async function POST(request: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -27,20 +24,15 @@ export async function POST(
 
   favoriteIds.push(listingId);
 
-  const user = await prisma.user.update({
-    where: {
-      id: currentUser.id
-    },
-    data: {
-      favoriteIds
-    }
-  });
+  const user = usersMock.find((user) => (user.id = currentUser.id))!;
+
+  user.favoriteIds = favoriteIds;
 
   return NextResponse.json(user);
 }
 
 export async function DELETE(
-  request: Request, 
+  request: Request,
   { params }: { params: IParams }
 ) {
   const currentUser = await getCurrentUser();
@@ -59,14 +51,9 @@ export async function DELETE(
 
   favoriteIds = favoriteIds.filter((id) => id !== listingId);
 
-  const user = await prisma.user.update({
-    where: {
-      id: currentUser.id
-    },
-    data: {
-      favoriteIds
-    }
-  });
+  const user = usersMock.find((user) => (user.id = currentUser.id))!;
+
+  user.favoriteIds = favoriteIds;
 
   return NextResponse.json(user);
 }
