@@ -1,5 +1,3 @@
-'use client';
-
 import { Range } from "react-date-range";
 
 import Button from "../Button";
