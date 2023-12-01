@@ -12,27 +12,19 @@ export default function getReservations(params: IParams) {
 
     let reservations = reservationsMock.map((reservation) => ({
       ...reservation,
-      listing: listingsMock.find(
-        (listing) => listing.id === reservation.listingId
-      )!,
+      listing: listingsMock.find((listing) => listing.id === reservation.listingId)!,
     }));
 
     if (listingId) {
-      reservations = reservations.filter(
-        (reservation) => reservation.listingId === listingId
-      );
+      reservations = reservations.filter((reservation) => reservation.listingId === listingId);
     }
 
     if (userId) {
-      reservations = reservations.filter(
-        (reservation) => reservation.userId === userId
-      );
+      reservations = reservations.filter((reservation) => reservation.userId === userId);
     }
 
     if (authorId) {
-      reservations = reservations.filter(
-        (reservation) => reservation.listing?.userId === authorId
-      );
+      reservations = reservations.filter((reservation) => reservation.listing?.userId === authorId);
     }
 
     const safeReservations = reservations.map((reservation) => ({

@@ -9,9 +9,7 @@ export default function getFavoriteListings() {
       return [];
     }
 
-    const favorites = listingsMock.filter(({ id }) =>
-      currentUser.favoriteIds.includes(id)
-    );
+    const favorites = listingsMock.filter(({ id }) => currentUser.favoriteIds.includes(id));
 
     const safeFavorites = favorites.map((favorite) => ({
       ...favorite,

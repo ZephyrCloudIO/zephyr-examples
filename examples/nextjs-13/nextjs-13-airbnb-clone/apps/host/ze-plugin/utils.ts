@@ -1,5 +1,10 @@
 import { importDelegatedModule } from '@module-federation/utilities';
-import { DEBUG_ERROR_HEADER, DEBUG_LOG_HEADER, DEFAULT_API_URL, DEFAULT_VERSIONED_REMOTE_NAME_SCHEMA } from './constants';
+import {
+  DEBUG_ERROR_HEADER,
+  DEBUG_LOG_HEADER,
+  DEFAULT_API_URL,
+  DEFAULT_VERSIONED_REMOTE_NAME_SCHEMA,
+} from './constants';
 
 export interface ImportVersionedRemoteOptions {
   /**
@@ -82,13 +87,17 @@ export async function importVersionedRemote(options: ImportVersionedRemoteOption
     const remoteVersionReq = await fetch(resolvedApiUrl);
 
     if (!remoteVersionReq.ok) {
-      throw new Error(`[${DEBUG_ERROR_HEADER}]: Failed to fetch remote version from API: ${remoteVersionReq.statusText}`);
+      throw new Error(
+        `[${DEBUG_ERROR_HEADER}]: Failed to fetch remote version from API: ${remoteVersionReq.statusText}`,
+      );
     }
 
     const remoteData = await remoteVersionReq.json();
 
     const resolvedRemoteVersion = remoteData.version;
-    const remoteParsedUrl = remoteUrl.replace(/__REMOTE_URL__/g, remoteData.remoteURL).replace(/__REMOTE_VERSION__/g, resolvedRemoteVersion);
+    const remoteParsedUrl = remoteUrl
+      .replace(/__REMOTE_URL__/g, remoteData.remoteURL)
+      .replace(/__REMOTE_VERSION__/g, resolvedRemoteVersion);
 
     if (debug) {
       console.debug(`[${DEBUG_LOG_HEADER}]: remoteParsedUrl`, remoteParsedUrl);
