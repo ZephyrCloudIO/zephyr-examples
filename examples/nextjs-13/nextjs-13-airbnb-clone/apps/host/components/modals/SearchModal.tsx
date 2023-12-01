@@ -90,7 +90,18 @@ const SearchModal = () => {
     setStep(STEPS.LOCATION);
     searchModal.onClose();
     router.push(url);
-  }, [step, searchModal, location, router, guestCount, roomCount, dateRange, onNext, bathroomCount, params]);
+  }, [
+    step,
+    searchModal,
+    location,
+    router,
+    guestCount,
+    roomCount,
+    dateRange,
+    onNext,
+    bathroomCount,
+    params,
+  ]);
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.INFO) {
@@ -110,8 +121,14 @@ const SearchModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading title="Where do you wanna go?" subtitle="Find the perfect location!" />
-      <CountrySelect value={location} onChange={(value) => setLocation(value as CountrySelectValue)} />
+      <Heading
+        title="Where do you wanna go?"
+        subtitle="Find the perfect location!"
+      />
+      <CountrySelect
+        value={location}
+        onChange={(value) => setLocation(value as CountrySelectValue)}
+      />
       <hr />
       <Map center={location?.latlng} />
     </div>
@@ -120,8 +137,14 @@ const SearchModal = () => {
   if (step === STEPS.DATE) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading title="When do you plan to go?" subtitle="Make sure everyone is free!" />
-        <Calendar onChange={(value) => setDateRange(value.selection)} value={dateRange} />
+        <Heading
+          title="When do you plan to go?"
+          subtitle="Make sure everyone is free!"
+        />
+        <Calendar
+          onChange={(value) => setDateRange(value.selection)}
+          value={dateRange}
+        />
       </div>
     );
   }

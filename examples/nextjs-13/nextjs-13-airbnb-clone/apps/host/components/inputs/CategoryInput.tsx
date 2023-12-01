@@ -7,7 +7,12 @@ interface CategoryBoxProps {
   onClick: (value: string) => void;
 }
 
-const CategoryBox: React.FC<CategoryBoxProps> = ({ icon: Icon, label, selected, onClick }) => {
+const CategoryBox: React.FC<CategoryBoxProps> = ({
+  icon: Icon,
+  label,
+  selected,
+  onClick,
+}) => {
   return (
     <div
       onClick={() => onClick(label)}
