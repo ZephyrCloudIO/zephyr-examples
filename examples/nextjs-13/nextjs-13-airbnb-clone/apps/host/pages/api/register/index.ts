@@ -1,4 +1,4 @@
-import { usersMock } from '@/mocks';
+import { usersMock } from '../../../mocks';
 import { randomUUID } from 'crypto';
 import { NextApiRequest, NextApiResponse } from 'next';
 

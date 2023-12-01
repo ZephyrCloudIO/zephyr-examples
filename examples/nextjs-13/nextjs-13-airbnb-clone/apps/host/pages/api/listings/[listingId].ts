@@ -1,7 +1,7 @@
-import getCurrentUser from '@/actions/getCurrentUser';
-import { listingsMock } from '@/mocks';
+import getCurrentUser from '../../../actions/getCurrentUser';
+import { listingsMock } from '../../../mocks';
 import { NextApiRequest, NextApiResponse } from 'next';
-import getListingById from '@/actions/getListingById';
+import getListingById from '../../../actions/getListingById';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {

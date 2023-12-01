@@ -1,9 +1,9 @@
-import EmptyState from '@/components/EmptyState';
-import ClientOnly from '@/components/ClientOnly';
+import EmptyState from '../../components/EmptyState';
+import ClientOnly from '../../components/ClientOnly';
 
 import PropertiesClient from '../../templates/PropertiesClient';
-import useCurrentUser from '@/hooks/useCurrentUser';
-import useListings from '@/hooks/useListings';
+import useCurrentUser from '../../hooks/useCurrentUser';
+import useListings from '../../hooks/useListings';
 
 const PropertiesPage = () => {
   const { currentUser } = useCurrentUser();

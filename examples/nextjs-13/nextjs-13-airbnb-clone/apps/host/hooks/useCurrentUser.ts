@@ -1,5 +1,5 @@
-import fetcher from '@/libs/fetcher';
-import { SafeUser } from '@/types';
+import fetcher from '../libs/fetcher';
+import { SafeUser } from '../types';
 import useSWR from 'swr';
 
 const useCurrentUser = () => {

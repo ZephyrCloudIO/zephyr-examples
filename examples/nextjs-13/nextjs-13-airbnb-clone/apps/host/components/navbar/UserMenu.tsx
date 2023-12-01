@@ -3,10 +3,10 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-import useLoginModal from '@/hooks/useLoginModal';
-import useRegisterModal from '@/hooks/useRegisterModal';
-import useRentModal from '@/hooks/useRentModal';
-import { SafeUser } from '@/types';
+import useLoginModal from '../../hooks/useLoginModal';
+import useRegisterModal from '../../hooks/useRegisterModal';
+import useRentModal from '../../hooks/useRentModal';
+import { SafeUser } from '../../types';
 
 import MenuItem from './MenuItem';
 import Avatar from '../Avatar';
