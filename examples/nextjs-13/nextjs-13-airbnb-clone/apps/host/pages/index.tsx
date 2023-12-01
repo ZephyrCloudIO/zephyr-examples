@@ -25,7 +25,7 @@ export const getServerSideProps = (async ({ query }) => {
 }) satisfies GetServerSideProps<{}>;
 
 const Home = ({ listings }: HomeProps) => {
-  const {currentUser} = useCurrentUser();
+  const { currentUser } = useCurrentUser();
   return (
     <ClientOnly>
       <Container>
@@ -43,11 +43,7 @@ const Home = ({ listings }: HomeProps) => {
           "
         >
           {listings.map((listing: any) => (
-            <ListingCard
-              currentUser={currentUser}
-              key={listing.id}
-              data={listing}
-            />
+            <ListingCard currentUser={currentUser} key={listing.id} data={listing} />
           ))}
         </div>
       </Container>

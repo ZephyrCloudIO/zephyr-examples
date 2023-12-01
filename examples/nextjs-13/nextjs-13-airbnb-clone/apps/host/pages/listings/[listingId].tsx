@@ -12,7 +12,7 @@ interface IParams {
 }
 
 const ListingPage = () => {
-  const { query,  } = useRouter();
+  const { query } = useRouter();
   const { listing } = useListing(query?.listingId as string);
   const { reservations } = useReservations({
     listingId: query?.listingId as string,
@@ -29,11 +29,7 @@ const ListingPage = () => {
 
   return (
     <ClientOnly>
-      <ListingClient
-        listing={listing}
-        reservations={reservations}
-        currentUser={currentUser}
-      />
+      <ListingClient listing={listing} reservations={reservations} currentUser={currentUser} />
     </ClientOnly>
   );
 };

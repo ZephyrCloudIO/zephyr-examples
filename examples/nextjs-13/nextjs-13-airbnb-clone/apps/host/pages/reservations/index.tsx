@@ -1,7 +1,6 @@
 import EmptyState from '@/components/EmptyState';
 import ClientOnly from '@/components/ClientOnly';
 
-
 import TripsClient from '../../templates/ReservationsClient';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useReservations from '@/hooks/useReservations';
@@ -21,10 +20,7 @@ const ReservationsPage = () => {
   if (reservations.length === 0) {
     return (
       <ClientOnly>
-        <EmptyState
-          title="No reservations found"
-          subtitle="Looks like you have no reservations on your properties."
-        />
+        <EmptyState title="No reservations found" subtitle="Looks like you have no reservations on your properties." />
       </ClientOnly>
     );
   }

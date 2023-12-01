@@ -32,9 +32,7 @@ async function DELETE(req: NextApiRequest, res: NextApiResponse) {
     throw new Error('Invalid ID');
   }
 
-  const listingIndex = listingsMock.findIndex(
-    ({ id, userId }) => id === listingId && userId === currentUser.id
-  );
+  const listingIndex = listingsMock.findIndex(({ id, userId }) => id === listingId && userId === currentUser.id);
 
   const listing = { ...listingsMock[listingIndex] };
   listingsMock.splice(listingIndex, 1);

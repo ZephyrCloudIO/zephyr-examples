@@ -83,4 +83,4 @@ export const reservationsMock: Reservation[] = [
     totalPrice: 700,
     userId: usersMock[1].id,
   },
-] 
+];

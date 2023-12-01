@@ -25,22 +25,12 @@ async function POST(request: NextApiRequest, res: NextApiResponse) {
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
-    return res.status(400).send("Unauthorized");
+    return res.status(400).send('Unauthorized');
   }
-  console.log(0)
+  console.log(0);
 
   const body = request.body;
-  const {
-    title,
-    description,
-    imageSrc,
-    category,
-    roomCount,
-    bathroomCount,
-    guestCount,
-    location,
-    price,
-  } = body;
+  const { title, description, imageSrc, category, roomCount, bathroomCount, guestCount, location, price } = body;
 
   const listing = listingsMock.push({
     id: randomUUID(),

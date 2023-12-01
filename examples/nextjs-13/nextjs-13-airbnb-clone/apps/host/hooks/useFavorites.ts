@@ -7,7 +7,7 @@ const useFavorites = () => {
 
   return {
     favorites: data ?? [],
-    ...rest
+    ...rest,
   };
 };
 

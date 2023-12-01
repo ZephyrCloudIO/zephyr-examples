@@ -8,7 +8,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <RootLayout>
       <Head>
-        <title>Welcome to template-host!</title>
+        <title>Welcome to AirBnb Host Example!</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />

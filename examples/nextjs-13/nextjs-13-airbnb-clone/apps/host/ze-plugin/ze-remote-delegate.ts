@@ -5,7 +5,7 @@ export default function (resourceQuery: string) {
         (process.env.DEBUG === 'true' ||
           process.env.DEBUG === '1' ||
           process.env.DEBUG.includes('ze:remote-delegate') ||
-          process.env.DEBUG.includes('ze:*'))
+          process.env.DEBUG.includes('ze:*')),
     );
 
     const { importVersionedRemote } = await import('./utils');
@@ -50,7 +50,7 @@ export default function (resourceQuery: string) {
           remoteName,
           currentHost,
           remoteUrl,
-        })
+        }),
       );
     } catch (error) {
       reject(error);

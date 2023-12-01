@@ -12,14 +12,7 @@ export interface IListingsParams {
 
 export default function getListings(params: IListingsParams) {
   try {
-    const {
-      userId,
-      roomCount,
-      guestCount,
-      bathroomCount,
-      locationValue,
-      category,
-    } = params;
+    const { userId, roomCount, guestCount, bathroomCount, locationValue, category } = params;
 
     let listings: Listing[] = listingsMock;
 

@@ -25,7 +25,7 @@ async function POST(req: NextApiRequest, res: NextApiResponse) {
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
-    return res.status(400).send("Unauthorized");
+    return res.status(400).send('Unauthorized');
   }
 
   const body = req.body;
