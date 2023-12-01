@@ -1,12 +1,12 @@
-import Container from '@/components/Container';
-import ListingCard from '@/components/listings/ListingCard';
+import Container from '../components/Container';
+import ListingCard from '../components/listings/ListingCard';
 
-import getListings from '@/actions/getListings';
-import getCurrentUser from '@/actions/getCurrentUser';
-import ClientOnly from '@/components/ClientOnly';
+import getListings from '../actions/getListings';
+import getCurrentUser from '../actions/getCurrentUser';
+import ClientOnly from '../components/ClientOnly';
 import { GetServerSideProps } from 'next';
-import { SafeListing } from '@/types';
-import useCurrentUser from '@/hooks/useCurrentUser';
+import { SafeListing } from '../types';
+import useCurrentUser from '../hooks/useCurrentUser';
 
 interface HomeProps {
   listings: SafeListing[];

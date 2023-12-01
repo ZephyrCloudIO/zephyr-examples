@@ -1,8 +1,8 @@
-import getCurrentUser from '@/actions/getCurrentUser';
-import { listingsMock } from '@/mocks';
+import getCurrentUser from '../../../actions/getCurrentUser';
+import { listingsMock } from '../../../mocks';
 import { randomUUID } from 'crypto';
 import { NextApiRequest, NextApiResponse } from 'next';
-import getListings from '@/actions/getListings';
+import getListings from '../../../actions/getListings';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {

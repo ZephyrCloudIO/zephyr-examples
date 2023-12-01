@@ -5,7 +5,7 @@ import { Range } from 'react-date-range';
 import { formatISO } from 'date-fns';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import useSearchModal from '@/hooks/useSearchModal';
+import useSearchModal from '../../hooks/useSearchModal';
 
 import Modal from './Modal';
 import Calendar from '../inputs/Calendar';

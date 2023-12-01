@@ -1,15 +1,11 @@
-import ClientOnly from '@/components/ClientOnly';
-import EmptyState from '@/components/EmptyState';
+import ClientOnly from '../../components/ClientOnly';
+import EmptyState from '../../components/EmptyState';
 
 import ListingClient from '../../templates/ListingClient';
-import useCurrentUser from '@/hooks/useCurrentUser';
-import useListing from '@/hooks/useListing';
-import useReservations from '@/hooks/useReservations';
+import useCurrentUser from '../../hooks/useCurrentUser';
+import useListing from '../../hooks/useListing';
+import useReservations from '../../hooks/useReservations';
 import { useRouter } from 'next/router';
-
-interface IParams {
-  listingId?: string;
-}
 
 const ListingPage = () => {
   const { query } = useRouter();

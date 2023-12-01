@@ -1,8 +1,8 @@
-import ClientOnly from '@/components/ClientOnly';
-import EmptyState from '@/components/EmptyState';
+import ClientOnly from '../../components/ClientOnly';
+import EmptyState from '../../components/EmptyState';
 
-import useCurrentUser from '@/hooks/useCurrentUser';
-import useFavorites from '@/hooks/useFavorites';
+import useCurrentUser from '../../hooks/useCurrentUser';
+import useFavorites from '../../hooks/useFavorites';
 import FavoritesClient from '../../templates/FavoritesClient';
 
 const ListingPage = () => {

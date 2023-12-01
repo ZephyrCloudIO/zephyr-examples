@@ -1,5 +1,5 @@
-import realFetch from '@/libs/fetcher';
-import { SafeReservation } from '@/types';
+import realFetch from '../libs/fetcher';
+import { SafeReservation } from '../types';
 import useSWR from 'swr';
 
 type Params = {
