@@ -1,7 +1,5 @@
-import bcrypt from 'bcrypt';
-
 import { usersMock } from '@/mocks';
-import { randomUUID } from 'crypto';
+import { randomUUID,  } from 'crypto';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -15,15 +13,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
 async function POST(req: NextApiRequest, res: NextApiResponse) {
   const body = req.body;
-  const { email, name, password } = body;
-
-  const hashedPassword = await bcrypt.hash(password, 12);
+  const { email, name } = body;
 
   const user = usersMock.push({
     id: randomUUID(),
     email,
     name,
-    hashedPassword,
     createdAt: new Date(),
     updatedAt: new Date(),
     favoriteIds: [],
