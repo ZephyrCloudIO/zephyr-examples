@@ -1,4 +1,4 @@
-import getCurrentUser from '@/actions/getCurrentUser';
+import getCurrentUser from '../../../actions/getCurrentUser';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

@@ -1,9 +1,9 @@
-import EmptyState from '@/components/EmptyState';
-import ClientOnly from '@/components/ClientOnly';
+import EmptyState from '../../components/EmptyState';
+import ClientOnly from '../../components/ClientOnly';
 
 import TripsClient from '../../templates/ReservationsClient';
-import useCurrentUser from '@/hooks/useCurrentUser';
-import useReservations from '@/hooks/useReservations';
+import useCurrentUser from '../../hooks/useCurrentUser';
+import useReservations from '../../hooks/useReservations';
 
 const ReservationsPage = () => {
   const { currentUser } = useCurrentUser();

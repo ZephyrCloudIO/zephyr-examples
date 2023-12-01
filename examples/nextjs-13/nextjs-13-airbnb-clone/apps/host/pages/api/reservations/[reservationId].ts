@@ -1,5 +1,5 @@
-import getCurrentUser from '@/actions/getCurrentUser';
-import { listingsMock, reservationsMock } from '@/mocks';
+import getCurrentUser from '../../../actions/getCurrentUser';
+import { listingsMock, reservationsMock } from '../../../mocks';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

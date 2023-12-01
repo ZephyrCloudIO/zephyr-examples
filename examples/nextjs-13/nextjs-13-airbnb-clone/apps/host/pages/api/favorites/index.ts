@@ -1,4 +1,4 @@
-import getFavoriteListings from '@/actions/getFavoriteListings';
+import getFavoriteListings from '../../../actions/getFavoriteListings';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

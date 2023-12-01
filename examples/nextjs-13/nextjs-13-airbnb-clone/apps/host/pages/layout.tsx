@@ -1,14 +1,14 @@
 import { Nunito } from 'next/font/google';
-import Navbar from '@/components/navbar/Navbar';
-import LoginModal from '@/components/modals/LoginModal';
-import RegisterModal from '@/components/modals/RegisterModal';
-import SearchModal from '@/components/modals/SearchModal';
-import RentModal from '@/components/modals/RentModal';
+import Navbar from '../components/navbar/Navbar';
+import LoginModal from '../components/modals/LoginModal';
+import RegisterModal from '../components/modals/RegisterModal';
+import SearchModal from '../components/modals/SearchModal';
+import RentModal from '../components/modals/RentModal';
 
-import ToasterProvider from '@/providers/ToasterProvider';
+import ToasterProvider from '../providers/ToasterProvider';
 
 import ClientOnly from '../components/ClientOnly';
-import useCurrentUser from '@/hooks/useCurrentUser';
+import useCurrentUser from '../hooks/useCurrentUser';
 
 export const metadata = {
   title: 'Airbnb',

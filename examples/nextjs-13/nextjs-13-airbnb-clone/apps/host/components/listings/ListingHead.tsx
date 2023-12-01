@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import useCountries from '@/hooks/useCountries';
-import { SafeUser } from '@/types';
+import useCountries from '../../hooks/useCountries';
+import { SafeUser } from '../../types';
 
 import Heading from '../Heading';
 import HeartButton from '../HeartButton';

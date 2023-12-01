@@ -1,4 +1,4 @@
-import { SafeUser } from '@/types';
+import { SafeUser } from '../../types';
 
 import Categories from './Categories';
 import Container from '../Container';

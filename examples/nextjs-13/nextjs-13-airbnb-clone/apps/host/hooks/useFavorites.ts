@@ -1,5 +1,5 @@
-import fetcher from '@/libs/fetcher';
-import { SafeListing } from '@/types';
+import fetcher from '../libs/fetcher';
+import { SafeListing } from '../types';
 import useSWR from 'swr';
 
 const useFavorites = () => {

@@ -1,4 +1,4 @@
-import realFetch from '@/libs/fetcher';
+import realFetch from '../libs/fetcher';
 import useSWR from 'swr';
 
 type Params = {

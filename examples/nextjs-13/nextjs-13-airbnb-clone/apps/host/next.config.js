@@ -15,8 +15,8 @@ module.exports = withZe(nextConfig, {
   metadata: {
     baseUrl: 'http://localhost:3010', // This value is used to genereate the remote URL on the host
     source: {
-      url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/template/apps/remote',
+      url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/nextjs-13-airbnb-clone/apps/host',
     },
-    remote: 'http://localhost:3011/_next/static/chunks/remoteEntry.js',
+    remote: 'http://localhost:3010/_next/static/chunks/remoteEntry.js',
   },
 });
