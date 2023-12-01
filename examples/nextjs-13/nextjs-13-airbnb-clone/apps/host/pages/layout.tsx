@@ -19,11 +19,7 @@ const font = Nunito({
   subsets: ['latin'],
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const { currentUser } = useCurrentUser();
 
   return (

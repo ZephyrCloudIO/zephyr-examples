@@ -12,14 +12,9 @@ type Params = {
 
 const useListings = (params: Params = {}) => {
   const query = new URLSearchParams(castParams(params));
-  const fetcher = Object.values(params).some(Boolean)
-    ? realFetch
-    : async () => undefined;
+  const fetcher = Object.values(params).some(Boolean) ? realFetch : async () => undefined;
 
-  const { data, ...rest } = useSWR(
-    '/api/listings?' + query.toString(),
-    fetcher
-  );
+  const { data, ...rest } = useSWR('/api/listings?' + query.toString(), fetcher);
 
   return {
     listings: data ?? [],
@@ -27,12 +22,7 @@ const useListings = (params: Params = {}) => {
   };
 };
 
-const castParams = ({
-  guestCount,
-  roomCount,
-  bathroomCount,
-  ...rest
-}: Params) => ({
+const castParams = ({ guestCount, roomCount, bathroomCount, ...rest }: Params) => ({
   ...rest,
   ...(guestCount && { guestCount: guestCount.toString() }),
   ...(roomCount && { roomCount: roomCount.toString() }),

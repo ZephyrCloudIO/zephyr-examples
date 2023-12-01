@@ -15,7 +15,7 @@ async function DELETE(req: NextApiRequest, res: NextApiResponse) {
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
-    return res.status(400).send("Unauthorized");
+    return res.status(400).send('Unauthorized');
   }
 
   const { reservationId } = req.query;
@@ -28,9 +28,7 @@ async function DELETE(req: NextApiRequest, res: NextApiResponse) {
     if (reservation.id !== reservationId) return false;
     if (reservation.userId === currentUser.id) return true;
 
-    const listing = listingsMock.find(
-      ({ id }) => id === reservation.listingId
-    )!;
+    const listing = listingsMock.find(({ id }) => id === reservation.listingId)!;
     if (listing.userId === currentUser.id) return true;
 
     return false;

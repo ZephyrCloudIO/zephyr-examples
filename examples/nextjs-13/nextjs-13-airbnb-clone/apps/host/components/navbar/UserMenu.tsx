@@ -1,23 +1,21 @@
-import { useCallback, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useCallback, useState } from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-import useLoginModal from "@/hooks/useLoginModal";
-import useRegisterModal from "@/hooks/useRegisterModal";
-import useRentModal from "@/hooks/useRentModal";
-import { SafeUser } from "@/types";
+import useLoginModal from '@/hooks/useLoginModal';
+import useRegisterModal from '@/hooks/useRegisterModal';
+import useRentModal from '@/hooks/useRentModal';
+import { SafeUser } from '@/types';
 
-import MenuItem from "./MenuItem";
-import Avatar from "../Avatar";
+import MenuItem from './MenuItem';
+import Avatar from '../Avatar';
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null
+  currentUser?: SafeUser | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({
-  currentUser
-}) => {
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
 
   const loginModal = useLoginModal();
@@ -38,10 +36,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
     rentModal.onOpen();
   }, [loginModal, rentModal, currentUser]);
 
-  return ( 
+  return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div 
+        <div
           onClick={onRent}
           className="
             hidden
@@ -58,9 +56,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
         >
           Airbnb your home
         </div>
-        <div 
-        onClick={toggleOpen}
-        className="
+        <div
+          onClick={toggleOpen}
+          className="
           p-4
           md:py-1
           md:px-2
@@ -83,7 +81,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         </div>
       </div>
       {isOpen && (
-        <div 
+        <div
           className="
             absolute 
             rounded-xl 
@@ -100,49 +98,25 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem 
-                  label="My trips" 
-                  onClick={() => router.push('/trips')}
-                />
-                <MenuItem 
-                  label="My favorites" 
-                  onClick={() => router.push('/favorites')}
-                />
-                <MenuItem 
-                  label="My reservations" 
-                  onClick={() => router.push('/reservations')}
-                />
-                <MenuItem 
-                  label="My properties" 
-                  onClick={() => router.push('/properties')}
-                />
-                <MenuItem 
-                  label="Airbnb your home" 
-                  onClick={rentModal.onOpen}
-                />
+                <MenuItem label="My trips" onClick={() => router.push('/trips')} />
+                <MenuItem label="My favorites" onClick={() => router.push('/favorites')} />
+                <MenuItem label="My reservations" onClick={() => router.push('/reservations')} />
+                <MenuItem label="My properties" onClick={() => router.push('/properties')} />
+                <MenuItem label="Airbnb your home" onClick={rentModal.onOpen} />
                 <hr />
-                <MenuItem 
-                  label="Logout" 
-                  onClick={() => signOut()}
-                />
+                <MenuItem label="Logout" onClick={() => signOut()} />
               </>
             ) : (
               <>
-                <MenuItem 
-                  label="Login" 
-                  onClick={loginModal.onOpen}
-                />
-                <MenuItem 
-                  label="Sign up" 
-                  onClick={registerModal.onOpen}
-                />
+                <MenuItem label="Login" onClick={loginModal.onOpen} />
+                <MenuItem label="Sign up" onClick={registerModal.onOpen} />
               </>
             )}
           </div>
         </div>
       )}
     </div>
-   );
-}
- 
+  );
+};
+
 export default UserMenu;

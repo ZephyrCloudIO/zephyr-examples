@@ -13,29 +13,29 @@ interface ReservationsClientProps {
   currentUser?: SafeUser | null;
 }
 
-const ReservationsClient: React.FC<ReservationsClientProps> = ({
-  reservations,
-  currentUser,
-}) => {
+const ReservationsClient: React.FC<ReservationsClientProps> = ({ reservations, currentUser }) => {
   const [deletingId, setDeletingId] = useState('');
   const { mutate } = useReservations({ authorId: currentUser?.id });
 
-  const onCancel = useCallback((id: string) => {
-    setDeletingId(id);
+  const onCancel = useCallback(
+    (id: string) => {
+      setDeletingId(id);
 
-    axios
-      .delete(`/api/reservations/${id}`)
-      .then(() => {
-        toast.success('Reservation cancelled');
-        mutate();
-      })
-      .catch(() => {
-        toast.error('Something went wrong.');
-      })
-      .finally(() => {
-        setDeletingId('');
-      });
-  }, [mutate]);
+      axios
+        .delete(`/api/reservations/${id}`)
+        .then(() => {
+          toast.success('Reservation cancelled');
+          mutate();
+        })
+        .catch(() => {
+          toast.error('Something went wrong.');
+        })
+        .finally(() => {
+          setDeletingId('');
+        });
+    },
+    [mutate],
+  );
 
   return (
     <Container>

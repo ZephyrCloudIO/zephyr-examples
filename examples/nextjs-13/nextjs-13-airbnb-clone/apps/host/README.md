@@ -2,7 +2,6 @@
 
 ![Copy of Fullstack Twitter Clone (8)](https://user-images.githubusercontent.com/23248726/229031522-64a49ad0-66f7-4ea8-94a8-f64a0bb56736.png)
 
-
 This is a repository for a Full Stack Airbnb Clone with Next.js 13 App Router: React, Tailwind, Prisma, MongoDB, NextAuth.
 
 [VIDEO TUTORIAL](https://youtu.be/c_-b_isI4vg)
@@ -27,10 +26,10 @@ Features:
 - Creation and deletion of properties
 - Pricing calculation
 - Advanced search algorithm by category, date range, map location, number of guests, rooms and bathrooms
-    - For example we will filter out properties that have a reservation in your desired date range to travel
+  - For example we will filter out properties that have a reservation in your desired date range to travel
 - Favorites system
 - Shareable URL filters
-    - Lets say you select a category, location and date range, you will be able to share URL with a logged out friend in another browser and they will see the same results
+  - Lets say you select a category, location and date range, you will be able to share URL with a logged out friend in another browser and they will see the same results
 - How to write POST and DELETE routes in route handlers (app/api)
 - How to fetch data in server react components by directly accessing database (WITHOUT API! like Magic!)
 - How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling
@@ -53,7 +52,6 @@ npm i
 ```
 
 ### Setup .env file
-
 
 ```js
 DATABASE_URL=
@@ -81,6 +79,6 @@ npm run dev
 
 Running commands with npm `npm run [command]`
 
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+| command | description                              |
+| :------ | :--------------------------------------- |
+| `dev`   | Starts a development instance of the app |

@@ -14,36 +14,33 @@ interface TripsClientProps {
   currentUser?: SafeUser | null;
 }
 
-const TripsClient: React.FC<TripsClientProps> = ({
-  reservations,
-  currentUser,
-}) => {
+const TripsClient: React.FC<TripsClientProps> = ({ reservations, currentUser }) => {
   const [deletingId, setDeletingId] = useState('');
   const { mutate } = useReservations({ userId: currentUser?.id });
 
-  const onCancel = useCallback((id: string) => {
-    setDeletingId(id);
+  const onCancel = useCallback(
+    (id: string) => {
+      setDeletingId(id);
 
-    axios
-      .delete(`/api/reservations/${id}`)
-      .then(() => {
-        toast.success('Reservation cancelled');
-        mutate();
-      })
-      .catch((error) => {
-        toast.error(error?.response?.data?.error);
-      })
-      .finally(() => {
-        setDeletingId('');
-      });
-  }, [mutate]);
+      axios
+        .delete(`/api/reservations/${id}`)
+        .then(() => {
+          toast.success('Reservation cancelled');
+          mutate();
+        })
+        .catch((error) => {
+          toast.error(error?.response?.data?.error);
+        })
+        .finally(() => {
+          setDeletingId('');
+        });
+    },
+    [mutate],
+  );
 
   return (
     <Container>
-      <Heading
-        title="Trips"
-        subtitle="Where you've been and where you're going"
-      />
+      <Heading title="Trips" subtitle="Where you've been and where you're going" />
       <div
         className="
           mt-10

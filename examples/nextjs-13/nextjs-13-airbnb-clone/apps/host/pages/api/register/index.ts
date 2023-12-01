@@ -1,5 +1,5 @@
 import { usersMock } from '@/mocks';
-import { randomUUID,  } from 'crypto';
+import { randomUUID } from 'crypto';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

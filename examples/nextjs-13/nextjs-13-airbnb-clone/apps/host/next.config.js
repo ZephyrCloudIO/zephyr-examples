@@ -4,12 +4,7 @@ const remoteMap = require('./remote-map');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      'res.cloudinary.com',
-      'avatars.githubusercontent.com',
-      'lh3.googleusercontent.com',
-      'picsum.photos',
-    ],
+    domains: ['res.cloudinary.com', 'avatars.githubusercontent.com', 'lh3.googleusercontent.com', 'picsum.photos'],
   },
 };
 

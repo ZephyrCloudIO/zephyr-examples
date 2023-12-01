@@ -1,50 +1,47 @@
-import { toast } from "react-hot-toast";
-import axios from "axios";
-import { useCallback, useState } from "react";
-import { useRouter } from "next/navigation";
+import { toast } from 'react-hot-toast';
+import axios from 'axios';
+import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { SafeListing, SafeUser } from "@/types";
+import { SafeListing, SafeUser } from '@/types';
 
-import Heading from "@/components/Heading";
-import Container from "@/components/Container";
-import ListingCard from "@/components/listings/ListingCard";
+import Heading from '@/components/Heading';
+import Container from '@/components/Container';
+import ListingCard from '@/components/listings/ListingCard';
 
 interface PropertiesClientProps {
-  listings: SafeListing[],
-  currentUser?: SafeUser | null,
+  listings: SafeListing[];
+  currentUser?: SafeUser | null;
 }
 
-const PropertiesClient: React.FC<PropertiesClientProps> = ({
-  listings,
-  currentUser
-}) => {
+const PropertiesClient: React.FC<PropertiesClientProps> = ({ listings, currentUser }) => {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState('');
 
-  const onDelete = useCallback((id: string) => {
-    setDeletingId(id);
+  const onDelete = useCallback(
+    (id: string) => {
+      setDeletingId(id);
 
-    axios.delete(`/api/listings/${id}`)
-    .then(() => {
-      toast.success('Listing deleted');
-      router.refresh();
-    })
-    .catch((error) => {
-      toast.error(error?.response?.data?.error)
-    })
-    .finally(() => {
-      setDeletingId('');
-    })
-  }, [router]);
+      axios
+        .delete(`/api/listings/${id}`)
+        .then(() => {
+          toast.success('Listing deleted');
+          router.refresh();
+        })
+        .catch((error) => {
+          toast.error(error?.response?.data?.error);
+        })
+        .finally(() => {
+          setDeletingId('');
+        });
+    },
+    [router],
+  );
 
-
-  return ( 
+  return (
     <Container>
-      <Heading
-        title="Properties"
-        subtitle="List of your properties"
-      />
-      <div 
+      <Heading title="Properties" subtitle="List of your properties" />
+      <div
         className="
           mt-10
           grid 
@@ -70,7 +67,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
         ))}
       </div>
     </Container>
-   );
-}
- 
+  );
+};
+
 export default PropertiesClient;

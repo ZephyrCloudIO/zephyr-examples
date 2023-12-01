@@ -7,7 +7,7 @@ const useCurrentUser = () => {
 
   return {
     currentUser: data,
-    ...rest
+    ...rest,
   };
 };
 
