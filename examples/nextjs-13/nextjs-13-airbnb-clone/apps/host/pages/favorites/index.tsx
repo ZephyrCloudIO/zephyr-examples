@@ -12,7 +12,10 @@ const ListingPage = () => {
   if (favorites?.length === 0) {
     return (
       <ClientOnly>
-        <EmptyState title="No favorites found" subtitle="Looks like you have no favorite listings." />
+        <EmptyState
+          title="No favorites found"
+          subtitle="Looks like you have no favorite listings."
+        />
       </ClientOnly>
     );
   }

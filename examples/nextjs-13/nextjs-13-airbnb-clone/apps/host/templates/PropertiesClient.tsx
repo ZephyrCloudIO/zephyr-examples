@@ -14,7 +14,10 @@ interface PropertiesClientProps {
   currentUser?: SafeUser | null;
 }
 
-const PropertiesClient: React.FC<PropertiesClientProps> = ({ listings, currentUser }) => {
+const PropertiesClient: React.FC<PropertiesClientProps> = ({
+  listings,
+  currentUser,
+}) => {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState('');
 
