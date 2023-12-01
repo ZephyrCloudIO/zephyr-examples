@@ -10,9 +10,14 @@ type Params = {
 
 const useReservations = (params: Params) => {
   const query = new URLSearchParams(params);
-  const fetcher = Object.values(params).some(Boolean) ? realFetch : async () => undefined;
+  const fetcher = Object.values(params).some(Boolean)
+    ? realFetch
+    : async () => undefined;
 
-  const { data, ...rest } = useSWR<SafeReservation[]>('/api/reservations?' + query.toString(), fetcher);
+  const { data, ...rest } = useSWR<SafeReservation[]>(
+    '/api/reservations?' + query.toString(),
+    fetcher,
+  );
 
   return {
     reservations: data ?? [],

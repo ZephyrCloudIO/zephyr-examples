@@ -20,7 +20,10 @@ const ReservationsPage = () => {
   if (reservations.length === 0) {
     return (
       <ClientOnly>
-        <EmptyState title="No reservations found" subtitle="Looks like you have no reservations on your properties." />
+        <EmptyState
+          title="No reservations found"
+          subtitle="Looks like you have no reservations on your properties."
+        />
       </ClientOnly>
     );
   }

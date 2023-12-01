@@ -66,7 +66,10 @@ const ListingCard: React.FC<ListingCardProps> = ({
   }, [reservation]);
 
   return (
-    <div onClick={() => router.push(`/listings/${data.id}`)} className="col-span-1 cursor-pointer group">
+    <div
+      onClick={() => router.push(`/listings/${data.id}`)}
+      className="col-span-1 cursor-pointer group"
+    >
       <div className="flex flex-col gap-2 w-full">
         <div
           className="
@@ -102,12 +105,21 @@ const ListingCard: React.FC<ListingCardProps> = ({
         <div className="font-semibold text-lg">
           {location?.region}, {location?.label}
         </div>
-        <div className="font-light text-neutral-500">{reservationDate || data.category}</div>
+        <div className="font-light text-neutral-500">
+          {reservationDate || data.category}
+        </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">$ {price}</div>
           {!reservation && <div className="font-light">night</div>}
         </div>
-        {onAction && actionLabel && <Button disabled={disabled} small label={actionLabel} onClick={handleCancel} />}
+        {onAction && actionLabel && (
+          <Button
+            disabled={disabled}
+            small
+            label={actionLabel}
+            onClick={handleCancel}
+          />
+        )}
       </div>
     </div>
   );

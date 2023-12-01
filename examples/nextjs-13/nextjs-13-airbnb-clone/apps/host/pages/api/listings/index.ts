@@ -30,7 +30,17 @@ async function POST(request: NextApiRequest, res: NextApiResponse) {
   console.log(0);
 
   const body = request.body;
-  const { title, description, imageSrc, category, roomCount, bathroomCount, guestCount, location, price } = body;
+  const {
+    title,
+    description,
+    imageSrc,
+    category,
+    roomCount,
+    bathroomCount,
+    guestCount,
+    location,
+    price,
+  } = body;
 
   const listing = listingsMock.push({
     id: randomUUID(),

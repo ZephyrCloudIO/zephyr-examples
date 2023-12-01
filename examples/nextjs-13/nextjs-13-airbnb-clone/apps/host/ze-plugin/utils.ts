@@ -52,7 +52,9 @@ export interface Container {
  * @param options
  * @returns The imported versioned remote.
  */
-export async function importVersionedRemote(options: ImportVersionedRemoteOptions): Promise<Container> {
+export async function importVersionedRemote(
+  options: ImportVersionedRemoteOptions,
+): Promise<Container> {
   const {
     debug = false,
     apiUrl = DEFAULT_API_URL,
@@ -64,11 +66,16 @@ export async function importVersionedRemote(options: ImportVersionedRemoteOption
   } = options;
 
   if (debug) {
-    console.debug(`[${DEBUG_LOG_HEADER}]: importVersionedRemote options`, options);
+    console.debug(
+      `[${DEBUG_LOG_HEADER}]: importVersionedRemote options`,
+      options,
+    );
   }
 
   if (!remoteName) {
-    throw new Error(`[${DEBUG_ERROR_HEADER}]: Expected remoteName but none was provided`);
+    throw new Error(
+      `[${DEBUG_ERROR_HEADER}]: Expected remoteName but none was provided`,
+    );
   }
 
   try {

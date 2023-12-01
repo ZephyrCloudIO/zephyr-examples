@@ -12,7 +12,14 @@ export interface IListingsParams {
 
 export default function getListings(params: IListingsParams) {
   try {
-    const { userId, roomCount, guestCount, bathroomCount, locationValue, category } = params;
+    const {
+      userId,
+      roomCount,
+      guestCount,
+      bathroomCount,
+      locationValue,
+      category,
+    } = params;
 
     let listings: Listing[] = listingsMock;
 
@@ -29,15 +36,21 @@ export default function getListings(params: IListingsParams) {
     }
 
     if (guestCount) {
-      listings = listings.filter((listing) => +guestCount <= listing.guestCount);
+      listings = listings.filter(
+        (listing) => +guestCount <= listing.guestCount,
+      );
     }
 
     if (bathroomCount) {
-      listings = listings.filter((listing) => +bathroomCount <= listing.bathroomCount);
+      listings = listings.filter(
+        (listing) => +bathroomCount <= listing.bathroomCount,
+      );
     }
 
     if (locationValue) {
-      listings = listings.filter((listing) => locationValue === listing.locationValue);
+      listings = listings.filter(
+        (listing) => locationValue === listing.locationValue,
+      );
     }
 
     const safeListings = listings.map((listing) => ({

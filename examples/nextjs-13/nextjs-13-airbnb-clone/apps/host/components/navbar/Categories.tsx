@@ -119,7 +119,12 @@ const Categories = () => {
         "
       >
         {categories.map((item) => (
-          <CategoryBox key={item.label} label={item.label} icon={item.icon} selected={category === item.label} />
+          <CategoryBox
+            key={item.label}
+            label={item.label}
+            icon={item.icon}
+            selected={category === item.label}
+          />
         ))}
       </div>
     </Container>

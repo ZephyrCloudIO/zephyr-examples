@@ -11,11 +11,15 @@ export default function (resourceQuery: string) {
     const { importVersionedRemote } = await import('./utils');
 
     if (!resourceQuery) {
-      reject("Running the delegate in a non-delegate-remote context. Missing 'resourceQuery' in the context.");
+      reject(
+        "Running the delegate in a non-delegate-remote context. Missing 'resourceQuery' in the context.",
+      );
     }
 
     if (!debug) {
-      console.debug(`Delegate being called for ${resourceQuery} from ${__webpack_runtime_id__}`);
+      console.debug(
+        `Delegate being called for ${resourceQuery} from ${__webpack_runtime_id__}`,
+      );
     }
 
     const currentRequest = new URLSearchParams(resourceQuery);

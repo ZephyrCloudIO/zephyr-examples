@@ -25,7 +25,11 @@ const ListingPage = () => {
 
   return (
     <ClientOnly>
-      <ListingClient listing={listing} reservations={reservations} currentUser={currentUser} />
+      <ListingClient
+        listing={listing}
+        reservations={reservations}
+        currentUser={currentUser}
+      />
     </ClientOnly>
   );
 };
