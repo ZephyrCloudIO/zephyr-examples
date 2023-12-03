@@ -1,28 +1,27 @@
 const { withZe } = require('./ze-plugin/next-utils/with-ze');
-const remoteMap = require('./remote-map')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      'res.cloudinary.com',
-      'avatars.githubusercontent.com',
-      'lh3.googleusercontent.com',
-      'picsum.photos',
-    ],
+    domains: ['res.cloudinary.com', 'avatars.githubusercontent.com', 'lh3.googleusercontent.com', 'picsum.photos'],
   },
 }
 
 module.exports = withZe(nextConfig, {
-  hostName: 'host',
-  remoteMap,
+  hostName: 'remote',
+  mfOptions: {
+    exposes: {
+      './ListingCategory': './components/ListingCategory',
+      // whatever else
+    },
+  },
   // Here we can add some metadata to provide more information about the app
   metadata: {
-    baseUrl: 'http://localhost:3010', // This value is used to genereate the remote URL on the host
+    baseUrl: 'http://localhost:3011', // This value is used to genereate the remote URL on the host
     source: {
-      url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/nextjs-13-airbnb-clone/apps/host',
+      url: 'https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/nextjs-13/template/apps/remote',
     },
-    remote: 'http://localhost:3010/_next/static/chunks/remoteEntry.js',
+    remote: 'http://localhost:3011/_next/static/chunks/remoteEntry.js',
   },
 });
 
@@ -31,12 +30,7 @@ module.exports = withZe(nextConfig, {
 // /** @type {import('next').NextConfig} */
 // const nextConfig = {
 //   images: {
-//     domains: [
-//       'res.cloudinary.com',
-//       'avatars.githubusercontent.com',
-//       'lh3.googleusercontent.com',
-//       'picsum.photos',
-//     ],
+//     domains: ['res.cloudinary.com', 'avatars.githubusercontent.com', 'lh3.googleusercontent.com', 'picsum.photos'],
 //   },
 //   webpack(config, options) {
 //     const { isServer } = options;
@@ -44,10 +38,10 @@ module.exports = withZe(nextConfig, {
 
 //     config.plugins.push(
 //       new NextFederationPlugin({
-//         name: 'host',
+//         name: 'remote',
 //         filename: `static/${remoteDir}/remoteEntry.js`,
-//         remotes: {
-//           remote: `remote@http://localhost:3011/_next/static/${remoteDir}/remoteEntry.js`,
+//         exposes: {
+//           './ListingCategory': './components/ListingCategory.tsx',
 //         },
 //         shared: {},
 //         extraOptions: {
