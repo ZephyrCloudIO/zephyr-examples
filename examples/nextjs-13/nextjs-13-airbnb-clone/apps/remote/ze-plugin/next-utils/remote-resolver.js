@@ -18,18 +18,14 @@ const { createDelegatedModule } = require('@module-federation/utilities');
 const remotesResolver = ({ isServer, remoteMap, delegatePath }) => {
   const location = isServer ? 'ssr' : 'chunks';
 
-  return {
-    remote: `remote@http://localhost:3011/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`
-  }
-
-  // return Object.entries(remoteMap || {}).reduce((acc, [globalName, url]) => {
-  //   return {
-  //     ...acc,
-  //     [globalName]: createDelegatedModule(delegatePath, {
-  //       remote: `${globalName}@${url.replace(/__LOCATION__/g, location)}`,
-  //     }),
-  //   };
-  // }, {});
+  return Object.entries(remoteMap || {}).reduce((acc, [globalName, url]) => {
+    return {
+      ...acc,
+      [globalName]: createDelegatedModule(delegatePath, {
+        remote: `${globalName}@${url.replace(/__LOCATION__/g, location)}`,
+      }),
+    };
+  }, {});
 };
 
 exports.remotesResolver = remotesResolver;

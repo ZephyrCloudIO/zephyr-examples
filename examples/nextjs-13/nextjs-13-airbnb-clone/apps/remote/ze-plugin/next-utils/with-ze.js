@@ -62,21 +62,15 @@ const withZe = (
           config.plugins.push(
             // This is important to pass static data to the ze-remote-delegate during build time
             new DefinePlugin({
-              'process.env.ZE_DASHBOARD_API_URL': JSON.stringify(
-                process.env.ZE_DASHBOARD_API_URL,
-              ),
+              'process.env.ZE_DASHBOARD_API_URL': JSON.stringify(process.env.ZE_DASHBOARD_API_URL),
               'process.env.ZE_DASHBOARD_ENV': JSON.stringify(environment),
-              'process.env.ZE_READ_TOKEN': JSON.stringify(
-                process.env.ZE_READ_TOKEN,
-              ),
+              'process.env.ZE_READ_TOKEN': JSON.stringify(process.env.ZE_READ_TOKEN),
             }),
             new NextFederationPlugin({
               ...mfOptions,
               name: hostName,
-              extraOptions: {
-                exposePages: true
-              },
-              filename: path.join(outputRemoteEntryPath, 'remoteEntry.js'),
+              extraOptions: {},
+              filename: path.join(`static/${isServer ? 'ssr' : 'chunks'}`, 'remoteEntry.js'),
               remotes: remotesResolver({ isServer, remoteMap, delegatePath }),
               // override default options
               ...mfOverrideOptions,

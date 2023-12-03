@@ -5,9 +5,11 @@ import useCountries from '../../hooks/useCountries';
 import { SafeUser } from '../../types';
 
 import Avatar from '../Avatar';
-import ListingCategory from './ListingCategory';
 
 const Map = dynamic(() => import('../Map'), {
+  ssr: false,
+});
+const ListingCategory = dynamic(() => import('remote/ListingCategory'), {
   ssr: false,
 });
 
@@ -37,7 +39,8 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   locationValue,
 }) => {
   const { getByValue } = useCountries();
-
+  console.log({ category });
+  console.log({ ListingCategory });
   const coordinates = getByValue(locationValue)?.latlng;
 
   return (
@@ -72,7 +75,13 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         </div>
       </div>
       <hr />
-      {category && <ListingCategory icon={category.icon} label={category?.label} description={category?.description} />}
+      {category && (
+        <ListingCategory
+          icon={category.icon}
+          label={category?.label}
+          description={category?.description}
+        />
+      )}
       <hr />
       <div
         className="
