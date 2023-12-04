@@ -73,9 +73,7 @@ const withZe = (
             new NextFederationPlugin({
               ...mfOptions,
               name: hostName,
-              extraOptions: {
-                exposePages: true
-              },
+              extraOptions: {},
               filename: path.join(outputRemoteEntryPath, 'remoteEntry.js'),
               remotes: remotesResolver({ isServer, remoteMap, delegatePath }),
               // override default options

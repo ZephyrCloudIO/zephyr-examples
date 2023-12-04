@@ -39,8 +39,6 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   locationValue,
 }) => {
   const { getByValue } = useCountries();
-  console.log({ category });
-  console.log({ ListingCategory });
   const coordinates = getByValue(locationValue)?.latlng;
 
   return (
