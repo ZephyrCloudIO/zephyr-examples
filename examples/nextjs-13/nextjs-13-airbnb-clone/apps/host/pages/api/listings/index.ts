@@ -27,8 +27,6 @@ async function POST(request: NextApiRequest, res: NextApiResponse) {
   if (!currentUser) {
     return res.status(400).send('Unauthorized');
   }
-  console.log(0);
-
   const body = request.body;
   const {
     title,
