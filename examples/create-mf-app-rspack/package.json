@@ -26,7 +26,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zephyr-edge-contract": "file:..\\..\\_zephyr_pack\\zephyr-edge-contract-0.0.2.tgz",
-    "zephyr-webpack-plugin": "file:..\\..\\_zephyr_pack\\zephyr-webpack-plugin-0.0.2.tgz"
+    "zephyr-edge-contract": "^0.0.2",
+    "zephyr-webpack-plugin": "^0.0.2"
   }
 }
