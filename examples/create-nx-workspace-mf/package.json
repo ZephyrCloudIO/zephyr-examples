@@ -50,6 +50,6 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.11.2",
     "tslib": "^2.3.0",
-    "zephyr-webpack-plugin": "^0.0.2"
+    "zephyr-webpack-plugin": "^0.0.3"
   }
 }
