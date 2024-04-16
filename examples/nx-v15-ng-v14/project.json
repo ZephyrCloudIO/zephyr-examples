@@ -7,9 +7,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-builders/custom-webpack:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "customWebpackConfig": {
+          "path": "./extra-webpack.config.js"
+        },
+        "indexTransform": "./index-html-transform.js",
         "outputPath": "dist/nx-v15-ng-v14",
         "index": "./src/index.html",
         "main": "./src/main.ts",
