@@ -9,7 +9,7 @@ import Avatar from '../Avatar';
 const Map = dynamic(() => import('../Map'), {
   ssr: false,
 });
-const ListingCategory = dynamic(() => import('remote/ListingCategory'), {
+const ListingCategory = dynamic(() => import('airbnb-remote1/ListingCategory'), {
   ssr: false,
 });
 

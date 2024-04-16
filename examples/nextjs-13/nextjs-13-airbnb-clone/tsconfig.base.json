@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@host/*": ["apps/host/*"],
-      "@remote/*": ["apps/remote/*"]
+      "@airbnb-remote1/*": ["apps/remote1/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

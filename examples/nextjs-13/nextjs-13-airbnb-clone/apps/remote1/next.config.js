@@ -8,7 +8,7 @@ const {
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 /** @type {(stage: string, options: any) => Promise<import('next').NextConfig>} */
-const nextConfig = async (stage, options) => {
+const nextConfig = async (stage) => {
   const isServer = [PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_SERVER].includes(
     stage
   );
@@ -16,10 +16,10 @@ const nextConfig = async (stage, options) => {
   const zeConfig = await withZephyr()({
     plugins: [
       new NextFederationPlugin({
-        name: 'airbnb-host',
+        name: 'airbnb-remote1',
         filename: `static/${remoteDir}/remoteEntry.js`,
-        remotes: {
-          'airbnb-remote1': `airbnb-remote1@http://localhost:3011/_next/static/${remoteDir}/remoteEntry.js`,
+        exposes: {
+          './ListingCategory': './components/ListingCategory',
         },
         shared: {},
         extraOptions: {},

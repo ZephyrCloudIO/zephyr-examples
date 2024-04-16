@@ -13,7 +13,7 @@ interface HomeProps {
 }
 
 export const getServerSideProps = (async ({ query }) => {
-  const listings = await getListings(query);
+  const listings = getListings(query);
   const currentUser = getCurrentUser();
 
   return {
