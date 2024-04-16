@@ -10,10 +10,10 @@ module.exports = withZephyr()({
   entry: {
     main: './src/index.ts',
   },
-  devServer: {
-    historyApiFallback: true,
-    port: 8080,
-  },
+  // devServer: {
+  //   historyApiFallback: true,
+  //   port: 8080,
+  // },
   resolve: {
     extensions: ['.js','.jsx','.ts','.tsx','.json']
   },
