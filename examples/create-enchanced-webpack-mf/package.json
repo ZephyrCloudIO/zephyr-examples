@@ -1,5 +1,5 @@
 {
-  "name": "control-sharing",
+  "name": "create-enchanced-webpack-mf",
   "workspaces": [
     "./app1",
     "./app2"
@@ -8,16 +8,16 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "pnpm --filter control-sharing_app* --parallel start",
-    "build": "pnpm --filter control-sharing_app* --parallel build",
-    "serve": "pnpm --filter control-sharing_app* --parallel serve",
-    "clean": "pnpm --filter control-sharing_app* --parallel clean",
-    "legacy:start": "pnpm --filter control-sharing_app* --parallel legacy:start",
-    "legacy:build": "pnpm --filter control-sharing_app* --parallel legacy:build",
-    "e2e:ci": "pnpm start & wait-on tcp:3001 && wait-on tcp:3002 && sleep 5 && npx cypress run --config-file ../../cypress-e2e/config/cypress.config.ts --config '{\"supportFile\": \"../../cypress-e2e/support/e2e.ts\"}' --spec \"./e2e/*.cy.ts\" --browser=chrome",
-    "legacy:e2e:ci": "pnpm legacy:start & wait-on tcp:3001 && wait-on tcp:3002 && sleep 5  && npx cypress run --config-file ../../cypress-e2e/config/cypress.config.ts --config '{\"supportFile\": \"../../cypress-e2e/support/e2e.ts\"}' --spec \"./e2e/*.cy.ts\" --browser=chrome"
+    "start": "pnpm --filter create-enchanced-webpack-mf_app* --parallel start",
+    "build": "pnpm --filter create-enchanced-webpack-mf_app* --parallel build",
+    "serve": "pnpm --filter create-enchanced-webpack-mf_app* --parallel serve",
+    "clean": "pnpm --filter create-enchanced-webpack-mf_app* --parallel clean"
   },
   "devDependencies": {
     "wait-on": "7.2.0"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5",
+    "zephyr-webpack-plugin": "^0.0.9"
   }
 }

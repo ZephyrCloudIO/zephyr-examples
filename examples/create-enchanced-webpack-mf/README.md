@@ -1,6 +1,6 @@
 # Controlled Vendor Sharing
 
-Dynamic Vendor Sharing is an application that implements a control panel in the runtime plugin for module federation 1.5 in rspack or `@module-federation/enhanced`. The control panel allows you to deterministically manage and modify the rules for shared modules, as well as upgrade or downgrade applications based on the inputs from the React form.
+Dynamic Vendor Sharing is an application that implements a control panel in the runtime plugin for module federation 1.5 in `@module-federation/enhanced`. The control panel allows you to deterministically manage and modify the rules for shared modules, as well as upgrade or downgrade applications based on the inputs from the React form.
 
 ## Features
 

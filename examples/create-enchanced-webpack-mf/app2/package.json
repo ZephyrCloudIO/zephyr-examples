@@ -1,5 +1,5 @@
 {
-  "name": "control-sharing_app2",
+  "name": "create-enchanced-webpack-mf_app2",
   "version": "0.0.0",
   "devDependencies": {
     "@babel/core": "7.24.3",
@@ -17,10 +17,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
-    "start": "rspack serve -c rspack.config.js",
-    "build": "rspack build --mode production -c rspack.config.js",
-    "legacy:start": "webpack serve --config webpack.config.js",
-    "legacy:build": "webpack --config webpack.config.js  --mode production",
+    "start": "webpack serve --config webpack.config.js",
+    "build": "webpack --config webpack.config.js  --mode production",
     "serve": "serve dist -p 3002",
     "clean": "rm -rf dist"
   },
