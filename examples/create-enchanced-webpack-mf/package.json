@@ -1,5 +1,5 @@
 {
-  "name": "create-enchanced-webpack-mf",
+  "name": "create_enchanced_webpack_mf_app2",
   "workspaces": [
     "./app1",
     "./app2"
@@ -8,10 +8,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "pnpm --filter create-enchanced-webpack-mf_app* --parallel start",
-    "build": "pnpm --filter create-enchanced-webpack-mf_app* --parallel build",
-    "serve": "pnpm --filter create-enchanced-webpack-mf_app* --parallel serve",
-    "clean": "pnpm --filter create-enchanced-webpack-mf_app* --parallel clean"
+    "start": "pnpm --filter create_enchanced_webpack_mf_app* --parallel start",
+    "build": "pnpm --filter create_enchanced_webpack_mf_app* --parallel build",
+    "serve": "pnpm --filter create_enchanced_webpack_mf_app* --parallel serve",
+    "clean": "pnpm --filter create_enchanced_webpack_mf_app* --parallel clean"
   },
   "devDependencies": {
     "wait-on": "7.2.0"

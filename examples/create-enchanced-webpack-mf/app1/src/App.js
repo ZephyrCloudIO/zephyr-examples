@@ -1,7 +1,7 @@
 import LocalButton from './Button';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RemoteButton from 'app2/Button';
+import RemoteButton from 'create_enchanced_webpack_mf_app2/Button';
 import lodash from 'lodash';
 import ControlPanel from './ControlPanel';
 const getColorFromString = str => {

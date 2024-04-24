@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { withZephyr } = require("zephyr-webpack-plugin");
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 const path = require('path');
 
@@ -13,7 +14,7 @@ const path = require('path');
 // with might lead the bundle size problems
 const deps = require('./package.json').dependencies;
 
-module.exports = {
+module.exports = withZephyr()({
   entry: './src/index',
   cache: false,
   mode: 'development',
@@ -41,10 +42,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app1',
+      name: 'create_enchanced_webpack_mf_app1',
       filename: 'remoteEntry.js',
       remotes: {
-        app2: 'app2@http://localhost:3002/remoteEntry.js',
+        "create_enchanced_webpack_mf_app2": "create_enchanced_webpack_mf_app2",
       },
       runtimePlugins: [require.resolve('../control-share.js')],
       exposes: {
@@ -64,4 +65,4 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-};
+});
