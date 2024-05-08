@@ -1,5 +1,6 @@
 {
   "name": "my-qwik-basic-starter",
+  "version": "0.1.0",
   "description": "Demo App with Routing built-in (recommended)",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
@@ -15,7 +16,7 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adapters/netlify-edge/vite.config.ts",
+    "build.server": "vite build -c adapters/static/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "netlify deploy --build",
     "dev": "vite --mode ssr",
@@ -38,10 +39,13 @@
     "eslint": "^8.57.0",
     "eslint-plugin-qwik": "^1.5.2",
     "netlify-cli": "^15.0.0",
+    "open": "^10.1.0",
     "prettier": "^3.2.5",
     "typescript": "5.3.3",
     "undici": "*",
     "vite": "^5.1.6",
+    "vite-plugin-inspect": "^0.8.4",
+    "vite-plugin-zephyr": "^0.0.12",
     "vite-tsconfig-paths": "^4.2.1"
   }
 }
