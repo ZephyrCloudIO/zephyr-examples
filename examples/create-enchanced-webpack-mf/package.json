@@ -1,0 +1,23 @@
+{
+  "name": "create_enchanced_webpack_mf_app2",
+  "workspaces": [
+    "./app1",
+    "./app2"
+  ],
+  "description": "Control Sharing Panel. Lets you change share resolver in the app via GUI",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "pnpm --filter create_enchanced_webpack_mf_app* --parallel start",
+    "build": "pnpm --filter create_enchanced_webpack_mf_app* --parallel build",
+    "serve": "pnpm --filter create_enchanced_webpack_mf_app* --parallel serve",
+    "clean": "pnpm --filter create_enchanced_webpack_mf_app* --parallel clean"
+  },
+  "devDependencies": {
+    "wait-on": "7.2.0"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5",
+    "zephyr-webpack-plugin": "^0.0.9"
+  }
+}
