@@ -17,11 +17,10 @@ const config = {
       path: require.resolve('path-browserify'),
       util: require.resolve('util/'),
     },
-    alias: { '@shared': path.resolve(__dirname, '../', 'shared/src') },
   },
   devServer: {
     static: { directory: path.resolve(__dirname, 'dist'), serveIndex: true },
-    port: 3010,
+    port: 3016,
     hot: true,
     compress: true,
     historyApiFallback: true,
@@ -56,15 +55,10 @@ const config = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'host',
+      name: 'reservations',
       filename: 'remoteEntry.js',
-      remotes: {
-        categories: `categories@http://localhost:3011/remoteEntry.js`,
-        home: `home@http://localhost:3012/remoteEntry.js`,
-        favorites: `favorites@http://localhost:3013/remoteEntry.js`,
-        trips: `trips@http://localhost:3014/remoteEntry.js`,
-        properties: `properties@http://localhost:3015/remoteEntry.js`,
-        reservations: `reservations@http://localhost:3016/remoteEntry.js`,
+      exposes: {
+        './Reservations': './src/reservations.tsx',
       },
       shared: {
         react: {

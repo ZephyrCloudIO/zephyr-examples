@@ -1,12 +1,12 @@
 import { toast } from 'react-hot-toast';
 import { useCallback, useState } from 'react';
 
-import { SafeReservation, User } from '../common/types';
-import Heading from '../components/Heading';
-import Container from '../components/Container';
-import ListingCard from '../components/listings/ListingCard';
-import useReservations from '../common/hooks/useReservations';
-import axios from '../common//libs/axios';
+import { SafeReservation, User } from './common/types';
+import Heading from './components/Heading';
+import Container from './components/Container';
+import ListingCard from './components/listings/ListingCard';
+import useReservations from './common/hooks/useReservations';
+import axios from './common//libs/axios';
 
 interface ReservationsClientProps {
   reservations: SafeReservation[];

@@ -1,8 +1,10 @@
 import EmptyState from '../../components/EmptyState';
 
-import TripsClient from '../../templates/ReservationsClient';
 import useCurrentUser from '../../common/hooks/useCurrentUser';
 import useReservations from '../../common/hooks/useReservations';
+import { Suspense, lazy } from 'react';
+
+const ReservationsClient = lazy(() => import('reservations/Reservations'));
 
 const ReservationsPage = () => {
   const { currentUser } = useCurrentUser();
@@ -21,7 +23,14 @@ const ReservationsPage = () => {
     );
   }
 
-  return <TripsClient reservations={reservations} currentUser={currentUser} />;
+  return (
+    <Suspense>
+      <ReservationsClient
+        reservations={reservations}
+        currentUser={currentUser}
+      />
+    </Suspense>
+  );
 };
 
 export default ReservationsPage;
