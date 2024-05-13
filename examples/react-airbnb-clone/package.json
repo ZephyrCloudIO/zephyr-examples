@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "pnpm run --parallel dev",
     "build": "pnpm run --parallel build",
-    "build-others": "pnpm --filter \"!react-host\" run --parallel build",
+    "build-remotes": "pnpm --filter \"!react-host\" run --parallel build",
+    "build-host": "pnpm --filter \"react-host\" run build",
     "start": "pnpm run --parallel start",
-    "start-others": "pnpm --filter \"!react-host\" run --parallel start"
+    "start-remotes": "pnpm --filter \"!react-host\" run --parallel start",
+    "start-host": "pnpm --filter \"react-host\" run start"
   },
   "dependencies": {
     "concurrently": "^8.2.1",

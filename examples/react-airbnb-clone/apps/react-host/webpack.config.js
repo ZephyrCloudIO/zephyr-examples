@@ -23,6 +23,7 @@ const config = {
     hot: true,
     compress: true,
     historyApiFallback: true,
+    open: true,
   },
   output: {
     filename: '[name].[contenthash].js',
