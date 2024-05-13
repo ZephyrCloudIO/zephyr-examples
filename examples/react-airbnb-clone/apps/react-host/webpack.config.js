@@ -1,4 +1,4 @@
-const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack');
+const { ModuleFederationPlugin } = require('webpack').container;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { withZephyr } = require('zephyr-webpack-plugin');
@@ -100,4 +100,4 @@ const config = {
   devtool: 'source-map',
 };
 
-module.exports = config;
+module.exports = withZephyr()(config);

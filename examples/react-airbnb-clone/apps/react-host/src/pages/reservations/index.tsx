@@ -26,10 +26,7 @@ const ReservationsPage = () => {
 
   return (
     <RemoteWrap remoteName="reservations">
-      <ReservationsClient
-        reservations={reservations}
-        currentUser={currentUser}
-      />
+      <ReservationsClient reservations={reservations} currentUser={currentUser} />
     </RemoteWrap>
   );
 };

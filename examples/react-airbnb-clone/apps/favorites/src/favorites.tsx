@@ -9,10 +9,7 @@ interface FavoritesClientProps {
   currentUser?: User | null;
 }
 
-const FavoritesClient: React.FC<FavoritesClientProps> = ({
-  listings,
-  currentUser,
-}) => {
+const FavoritesClient: React.FC<FavoritesClientProps> = ({ listings, currentUser }) => {
   return (
     <Container>
       <Heading title="Favorites" subtitle="List of places you favorited!" />
@@ -30,11 +27,7 @@ const FavoritesClient: React.FC<FavoritesClientProps> = ({
         "
       >
         {listings.map((listing: any) => (
-          <ListingCard
-            currentUser={currentUser}
-            key={listing.id}
-            data={listing}
-          />
+          <ListingCard currentUser={currentUser} key={listing.id} data={listing} />
         ))}
       </div>
     </Container>

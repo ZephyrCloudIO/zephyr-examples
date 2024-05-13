@@ -11,9 +11,7 @@ export default function getFavoriteListings() {
 
     const listings = getListings();
 
-    const favorites = listings.filter(({ id }) =>
-      currentUser.favoriteIds.includes(id),
-    );
+    const favorites = listings.filter(({ id }) => currentUser.favoriteIds.includes(id));
 
     return favorites;
   } catch (error: any) {

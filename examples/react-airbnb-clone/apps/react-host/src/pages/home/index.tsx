@@ -6,7 +6,7 @@ import useShowRemotes from '../../common/hooks/useShowRemotes';
 const RemoteHome = lazy(() => import('home/Home'));
 
 const Home = () => {
-  const {show} = useShowRemotes();
+  const { show } = useShowRemotes();
   return (
     <Container>
       <div className={show ? 'pt-32' : 'pt-24'}>

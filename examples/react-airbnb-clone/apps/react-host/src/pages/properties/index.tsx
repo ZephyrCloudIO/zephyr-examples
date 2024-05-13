@@ -15,12 +15,7 @@ const PropertiesPage = () => {
   }
 
   if (listings.length === 0) {
-    return (
-      <EmptyState
-        title="No properties found"
-        subtitle="Looks like you have no properties."
-      />
-    );
+    return <EmptyState title="No properties found" subtitle="Looks like you have no properties." />;
   }
 
   return (

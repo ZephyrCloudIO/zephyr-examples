@@ -25,10 +25,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
 
   return (
     <>
-      <Heading
-        title={title}
-        subtitle={`${location?.region}, ${location?.label}`}
-      />
+      <Heading title={title} subtitle={`${location?.region}, ${location?.label}`} />
       <div
         className="
           w-full
@@ -38,11 +35,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
           relative
         "
       >
-        <img
-          src={imageSrc}
-          className="object-cover w-full"
-          alt="Image"
-        />
+        <img src={imageSrc} className="object-cover w-full" alt="Image" />
         <div
           className="
             absolute

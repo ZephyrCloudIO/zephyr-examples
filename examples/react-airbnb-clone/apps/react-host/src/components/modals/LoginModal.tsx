@@ -12,7 +12,7 @@ import Input from '../inputs/Input';
 import Heading from '../Heading';
 import Button from '../Button';
 
-const signIn = async (a: string, test?: any) => Promise.resolve({} as any)
+const signIn = async (a: string, test?: any) => Promise.resolve({} as any);
 
 const LoginModal = () => {
   const loginModal = useLoginModal();

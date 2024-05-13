@@ -77,7 +77,7 @@ const SearchModal = () => {
         url: '/',
         query: updatedQuery,
       },
-      { skipNull: true }
+      { skipNull: true },
     );
 
     setStep(STEPS.LOCATION);
@@ -114,10 +114,7 @@ const SearchModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading
-        title="Where do you wanna go?"
-        subtitle="Find the perfect location!"
-      />
+      <Heading title="Where do you wanna go?" subtitle="Find the perfect location!" />
       <CountrySelect
         value={location}
         onChange={(value) => setLocation(value as CountrySelectValue)}
@@ -132,14 +129,8 @@ const SearchModal = () => {
   if (step === STEPS.DATE) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="When do you plan to go?"
-          subtitle="Make sure everyone is free!"
-        />
-        <Calendar
-          onChange={(value) => setDateRange(value.selection)}
-          value={dateRange}
-        />
+        <Heading title="When do you plan to go?" subtitle="Make sure everyone is free!" />
+        <Calendar onChange={(value) => setDateRange(value.selection)} value={dateRange} />
       </div>
     );
   }

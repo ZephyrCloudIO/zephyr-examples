@@ -5,12 +5,14 @@ This is an Airbnb clone sample based on [another example](https://github.com/Ant
 The example was ported from Next.js to vanilla React using React Router for the purposes of showcasing the use of federated components with Zephyr.
 
 To run:
+
 ```bash
 pnpm i
 pnpm dev
 ```
 
 To build
+
 ```bash
 # You need to first build the remotes in order for the host to attach them to the application
 pnpm build-remotes

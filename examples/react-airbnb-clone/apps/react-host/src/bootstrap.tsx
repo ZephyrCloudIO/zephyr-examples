@@ -11,5 +11,5 @@ const container = document.getElementById('root');
 createRoot(container!).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );

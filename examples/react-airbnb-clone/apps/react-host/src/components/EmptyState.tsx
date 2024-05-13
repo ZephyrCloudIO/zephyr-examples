@@ -28,13 +28,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
     >
       <Heading center title={title} subtitle={subtitle} />
       <div className="w-48 mt-4">
-        {showReset && (
-          <Button
-            outline
-            label="Remove all filters"
-            onClick={() => navigate('/')}
-          />
-        )}
+        {showReset && <Button outline label="Remove all filters" onClick={() => navigate('/')} />}
       </div>
     </div>
   );

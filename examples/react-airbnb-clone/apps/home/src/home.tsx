@@ -23,11 +23,7 @@ const Home = () => {
           "
     >
       {listings.map((listing: any) => (
-        <ListingCard
-          currentUser={currentUser}
-          key={listing.id}
-          data={listing}
-        />
+        <ListingCard currentUser={currentUser} key={listing.id} data={listing} />
       ))}
     </div>
   );

@@ -46,17 +46,11 @@ export default function RemoteWrap({ remoteName, children }: RemoteProps) {
     >
       <Suspense fallback={<div className="text-center py-5">Loading Remote</div>}>
         <div
-          className={
-            show
-              ? `border-4 ${remotes[remoteName].border} border-dashed rounded-2xl`
-              : ''
-          }
+          className={show ? `border-4 ${remotes[remoteName].border} border-dashed rounded-2xl` : ''}
         >
           {children}
           {show ? (
-            <p
-              className={`text-center ${remotes[remoteName].text} my-2 font-bold text-lg`}
-            >
+            <p className={`text-center ${remotes[remoteName].text} my-2 font-bold text-lg`}>
               Remote: {remoteName}
             </p>
           ) : null}

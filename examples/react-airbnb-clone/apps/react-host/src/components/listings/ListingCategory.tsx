@@ -6,11 +6,7 @@ interface CategoryViewProps {
   description: string;
 }
 
-const CategoryView: React.FC<CategoryViewProps> = ({
-  icon: Icon,
-  label,
-  description,
-}) => {
+const CategoryView: React.FC<CategoryViewProps> = ({ icon: Icon, label, description }) => {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-row items-center gap-4">

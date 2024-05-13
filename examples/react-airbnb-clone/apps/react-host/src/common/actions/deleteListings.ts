@@ -9,7 +9,7 @@ export default function deleteListing(listingId: string) {
   const listings = getListings();
 
   const listingIndex = listings.findIndex(
-    ({ id, userId }) => id === listingId && userId === currentUser.id
+    ({ id, userId }) => id === listingId && userId === currentUser.id,
   );
 
   if (listingIndex === undefined) return false;

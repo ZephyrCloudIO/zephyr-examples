@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import logo from '../../../public/images/logo.png'
+import logo from '../../../public/images/logo.png';
 
 const Logo = () => {
   const navigate = useNavigate();

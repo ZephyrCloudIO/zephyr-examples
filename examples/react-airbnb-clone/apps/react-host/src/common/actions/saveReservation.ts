@@ -3,10 +3,7 @@ import getReservations, { RESERVATIONS_KEY } from './getReservations';
 import getCurrentUser from './getCurrentUser';
 import { v4 } from 'uuid';
 
-type NewReservation = Pick<
-  Reservation,
-  'listingId' | 'startDate' | 'endDate' | 'totalPrice'
->;
+type NewReservation = Pick<Reservation, 'listingId' | 'startDate' | 'endDate' | 'totalPrice'>;
 
 export default function saveReservation(body: NewReservation) {
   const currentUser = getCurrentUser();

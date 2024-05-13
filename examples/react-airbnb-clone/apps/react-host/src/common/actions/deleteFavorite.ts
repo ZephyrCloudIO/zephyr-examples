@@ -6,9 +6,7 @@ export default function deleteFavorite(listingId: string) {
 
   if (!currentUser) return false;
 
-  currentUser.favoriteIds = currentUser.favoriteIds.filter(
-    (id) => id !== listingId
-  );
+  currentUser.favoriteIds = currentUser.favoriteIds.filter((id) => id !== listingId);
 
   saveUser(currentUser);
 

@@ -5,11 +5,11 @@ export const CURRENT_USER_KEY = 'airbnb-current-user';
 
 export default function getCurrentUser(): User | undefined {
   try {
-    const localUser = localStorage.getItem(CURRENT_USER_KEY)
+    const localUser = localStorage.getItem(CURRENT_USER_KEY);
 
     if (localUser) return JSON.parse(localUser);
-  
-    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUserMock))
+
+    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUserMock));
 
     return {
       ...currentUserMock,

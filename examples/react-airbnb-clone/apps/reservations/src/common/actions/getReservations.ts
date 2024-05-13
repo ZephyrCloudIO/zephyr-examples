@@ -29,21 +29,15 @@ export default function getReservations(params: IParams = {}): SafeReservation[]
   }));
 
   if (listingId) {
-    reservations = reservations.filter(
-      (reservation) => reservation.listingId === listingId
-    );
+    reservations = reservations.filter((reservation) => reservation.listingId === listingId);
   }
 
   if (userId) {
-    reservations = reservations.filter(
-      (reservation) => reservation.userId === userId
-    );
+    reservations = reservations.filter((reservation) => reservation.userId === userId);
   }
 
   if (authorId) {
-    reservations = reservations.filter(
-      (reservation) => reservation.listing?.userId === authorId
-    );
+    reservations = reservations.filter((reservation) => reservation.listing?.userId === authorId);
   }
 
   return reservations;

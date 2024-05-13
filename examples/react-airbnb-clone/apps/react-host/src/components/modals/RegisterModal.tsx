@@ -13,7 +13,7 @@ import Heading from '../Heading';
 import Button from '../Button';
 import axios from '../../common//libs/axios';
 
-const signIn = async (a: string, test?: any) => Promise.resolve({} as any)
+const signIn = async (a: string, test?: any) => Promise.resolve({} as any);
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();

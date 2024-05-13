@@ -15,10 +15,7 @@ interface PropertiesClientProps {
   currentUser?: User | null;
 }
 
-const PropertiesClient: React.FC<PropertiesClientProps> = ({
-  listings,
-  currentUser,
-}) => {
+const PropertiesClient: React.FC<PropertiesClientProps> = ({ listings, currentUser }) => {
   const navigate = useNavigate();
   const { mutate } = useListings({ userId: currentUser?.id });
   const [deletingId, setDeletingId] = useState('');
@@ -40,7 +37,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
           setDeletingId('');
         });
     },
-    [navigate]
+    [navigate],
   );
 
   return (

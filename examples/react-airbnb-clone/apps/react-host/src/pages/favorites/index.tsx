@@ -12,15 +12,12 @@ const FavoritesPage = () => {
 
   if (favorites?.length === 0) {
     return (
-      <EmptyState
-        title="No favorites found"
-        subtitle="Looks like you have no favorite listings."
-      />
+      <EmptyState title="No favorites found" subtitle="Looks like you have no favorite listings." />
     );
   }
 
   return (
-    <RemoteWrap remoteName='favorites' >
+    <RemoteWrap remoteName="favorites">
       <FavoritesClient listings={favorites} currentUser={currentUser} />
     </RemoteWrap>
   );

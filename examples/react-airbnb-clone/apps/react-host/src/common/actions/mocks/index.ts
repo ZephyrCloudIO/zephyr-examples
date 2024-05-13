@@ -25,7 +25,8 @@ export const currentUserMock: User = {
   createdAt: '2023-11-28T16:48:50.669Z',
   updatedAt: '2023-11-28T16:48:50.669Z',
   favoriteIds: [],
-  name: 'Current User',}
+  name: 'Current User',
+};
 
 export const listingsMock: Listing[] = [
   {

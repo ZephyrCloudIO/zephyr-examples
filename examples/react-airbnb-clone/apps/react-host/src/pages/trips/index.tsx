@@ -17,10 +17,7 @@ const TripsPage = () => {
 
   if (reservations.length === 0) {
     return (
-      <EmptyState
-        title="No trips found"
-        subtitle="Looks like you havent reserved any trips."
-      />
+      <EmptyState title="No trips found" subtitle="Looks like you havent reserved any trips." />
     );
   }
 

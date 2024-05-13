@@ -20,7 +20,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
     [onChange],
   );
 
-  return (<></>
+  return (
+    <></>
     // <CldUploadWidget
     //   onUpload={handleUpload}
     //   uploadPreset={uploadPreset}
@@ -37,9 +38,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
     //           cursor-pointer
     //           hover:opacity-70
     //           transition
-    //           border-dashed 
-    //           border-2 
-    //           p-20 
+    //           border-dashed
+    //           border-2
+    //           p-20
     //           border-neutral-300
     //           flex
     //           flex-col

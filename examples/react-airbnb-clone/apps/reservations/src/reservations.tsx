@@ -13,10 +13,7 @@ interface ReservationsClientProps {
   currentUser?: User | null;
 }
 
-const ReservationsClient: React.FC<ReservationsClientProps> = ({
-  reservations,
-  currentUser,
-}) => {
+const ReservationsClient: React.FC<ReservationsClientProps> = ({ reservations, currentUser }) => {
   const [deletingId, setDeletingId] = useState('');
   const { mutate } = useReservations({ authorId: currentUser?.id });
 
