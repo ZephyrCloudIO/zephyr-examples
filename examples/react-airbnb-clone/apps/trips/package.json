@@ -5,6 +5,6 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "rimraf dist && webpack --mode production",
-    "start": "http-server dist -p 3010"
+    "start": "http-server dist -p 3014"
   }
 }

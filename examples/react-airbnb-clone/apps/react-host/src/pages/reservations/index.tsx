@@ -2,7 +2,8 @@ import EmptyState from '../../components/EmptyState';
 
 import useCurrentUser from '../../common/hooks/useCurrentUser';
 import useReservations from '../../common/hooks/useReservations';
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
+import RemoteWrap from '../../components/RemoteWrap';
 
 const ReservationsClient = lazy(() => import('reservations/Reservations'));
 
@@ -24,12 +25,12 @@ const ReservationsPage = () => {
   }
 
   return (
-    <Suspense>
+    <RemoteWrap remoteName="reservations">
       <ReservationsClient
         reservations={reservations}
         currentUser={currentUser}
       />
-    </Suspense>
+    </RemoteWrap>
   );
 };
 

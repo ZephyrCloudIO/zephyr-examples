@@ -1,8 +1,7 @@
-const {
-  ModuleFederationPlugin,
-} = require('@module-federation/enhanced/webpack');
+const { ModuleFederationPlugin } = require('webpack').container;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const { withZephyr } = require('zephyr-webpack-plugin');
 
 /**
  * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}
@@ -17,7 +16,6 @@ const config = {
       path: require.resolve('path-browserify'),
       util: require.resolve('util/'),
     },
-    alias: { '@shared': path.resolve(__dirname, '../', 'shared/src') },
   },
   devServer: {
     static: { directory: path.resolve(__dirname, 'dist'), serveIndex: true },
@@ -56,7 +54,7 @@ const config = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'host',
+      name: 'react-host',
       filename: 'remoteEntry.js',
       remotes: {
         categories: `categories@http://localhost:3011/remoteEntry.js`,

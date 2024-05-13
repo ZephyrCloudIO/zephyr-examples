@@ -1,8 +1,9 @@
 const {
   ModuleFederationPlugin,
-} = require('@module-federation/enhanced/webpack');
+} = require('webpack').container;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const { withZephyr } = require('zephyr-webpack-plugin');
 
 /**
  * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}
@@ -58,7 +59,7 @@ const config = {
       name: 'properties',
       filename: 'remoteEntry.js',
       exposes: {
-        './Properties': './src/properties.tsx',
+        './Properties': './src/expose.tsx',
       },
       shared: {
         react: {

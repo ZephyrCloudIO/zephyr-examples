@@ -1,6 +1,7 @@
 const {
   ModuleFederationPlugin,
-} = require('@module-federation/enhanced/webpack');
+} = require('webpack').container;
+const { withZephyr } = require('zephyr-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -58,7 +59,7 @@ const config = {
       name: 'trips',
       filename: 'remoteEntry.js',
       exposes: {
-        './Trips': './src/trips.tsx',
+        './Trips': './src/expose.tsx',
       },
       shared: {
         react: {

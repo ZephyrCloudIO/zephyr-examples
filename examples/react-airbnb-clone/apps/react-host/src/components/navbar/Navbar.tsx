@@ -1,18 +1,23 @@
+import { lazy } from 'react';
 import { User } from '../../common/types';
 
 import Container from '../Container';
+import RemoteWrap from '../RemoteWrap';
 import Logo from './Logo';
 import Search from './Search';
 import UserMenu from './UserMenu';
-import { Suspense, lazy } from 'react';
-
-const Categories = lazy(() => import('categories/Categories'));
+import { useLocation } from 'react-router-dom';
 
 interface NavbarProps {
   currentUser?: User | null;
 }
 
+const Categories = lazy(() => import('categories/Categories'));
+
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
+  const location = useLocation();
+  const isMainPage = location.pathname === '/';
+
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div
@@ -38,9 +43,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           </div>
         </Container>
       </div>
-      <Suspense>
-        <Categories />
-      </Suspense>
+      {isMainPage ? (
+        <RemoteWrap remoteName="categories">
+          <Categories />
+        </RemoteWrap>
+      ) : null}
     </div>
   );
 };

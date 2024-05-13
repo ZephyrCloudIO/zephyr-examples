@@ -1,7 +1,8 @@
 import EmptyState from '../../components/EmptyState';
 import useCurrentUser from '../../common/hooks/useCurrentUser';
 import useFavorites from '../../common/hooks/useFavorites';
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
+import RemoteWrap from '../../components/RemoteWrap';
 
 const FavoritesClient = lazy(() => import('favorites/Favorites'));
 
@@ -19,9 +20,9 @@ const FavoritesPage = () => {
   }
 
   return (
-    <Suspense>
+    <RemoteWrap remoteName='favorites' >
       <FavoritesClient listings={favorites} currentUser={currentUser} />
-    </Suspense>
+    </RemoteWrap>
   );
 };
 

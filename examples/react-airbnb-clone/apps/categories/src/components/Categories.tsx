@@ -99,13 +99,6 @@ export const categories = [
 const Categories = () => {
   const [params] = useSearchParams();
   const category = params?.get('category');
-  const location = useLocation();
-  const isMainPage = location.pathname === '/';
-
-  if (!isMainPage) {
-    return null;
-  }
-
   return (
     <Container>
       <div

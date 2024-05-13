@@ -53,7 +53,6 @@ const Search = () => {
       onClick={searchModal.onOpen}
       className="
         border-[1px] 
-        w-full 
         md:w-auto 
         py-2 
         rounded-full 

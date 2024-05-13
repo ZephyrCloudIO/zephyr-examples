@@ -1,5 +1,5 @@
 import qs from 'query-string';
-import { lazy, useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
 import { Range } from 'react-date-range';
 import { formatISO } from 'date-fns';
 
@@ -18,10 +18,12 @@ enum STEPS {
   INFO = 2,
 }
 
+const Map = lazy(() => import('../Map'));
+
 const SearchModal = () => {
   const navigate = useNavigate();
   const searchModal = useSearchModal();
-  const params = useSearchParams();
+  const [params] = useSearchParams();
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
@@ -34,8 +36,6 @@ const SearchModal = () => {
     endDate: new Date(),
     key: 'selection',
   });
-
-  const Map = useMemo(() => lazy(() => import('../Map')), [location]);
 
   const onBack = useCallback(() => {
     setStep((value) => value - 1);
@@ -123,7 +123,9 @@ const SearchModal = () => {
         onChange={(value) => setLocation(value as CountrySelectValue)}
       />
       <hr />
-      <Map center={location?.latlng} />
+      <Suspense>
+        <Map center={location?.latlng} />
+      </Suspense>
     </div>
   );
 

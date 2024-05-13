@@ -1,16 +1,19 @@
 import Container from '../../components/Container';
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
+import RemoteWrap from '../../components/RemoteWrap';
+import useShowRemotes from '../../common/hooks/useShowRemotes';
 
 const RemoteHome = lazy(() => import('home/Home'));
 
 const Home = () => {
+  const {show} = useShowRemotes();
   return (
     <Container>
-      <Suspense>
-        <div className="pt-24">
+      <div className={show ? 'pt-32' : 'pt-24'}>
+        <RemoteWrap remoteName="home">
           <RemoteHome />
-        </div>
-      </Suspense>
+        </RemoteWrap>
+      </div>
     </Container>
   );
 };

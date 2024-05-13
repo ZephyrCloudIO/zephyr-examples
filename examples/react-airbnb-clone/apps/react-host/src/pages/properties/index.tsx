@@ -1,7 +1,8 @@
 import EmptyState from '../../components/EmptyState';
 import useCurrentUser from '../../common/hooks/useCurrentUser';
 import useListings from '../../common/hooks/useListings';
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
+import RemoteWrap from '../../components/RemoteWrap';
 
 const PropertiesClient = lazy(() => import('properties/Properties'));
 
@@ -23,9 +24,9 @@ const PropertiesPage = () => {
   }
 
   return (
-    <Suspense>
+    <RemoteWrap remoteName="properties">
       <PropertiesClient listings={listings} currentUser={currentUser} />
-    </Suspense>
+    </RemoteWrap>
   );
 };
 
