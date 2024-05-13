@@ -13,6 +13,7 @@
     "start-host": "pnpm --filter \"react-host\" run start"
   },
   "dependencies": {
+    "@module-federation/enhanced": "^0.1.12",
     "concurrently": "^8.2.1",
     "date-fns": "^2.29.3",
     "eslint": "8.36.0",

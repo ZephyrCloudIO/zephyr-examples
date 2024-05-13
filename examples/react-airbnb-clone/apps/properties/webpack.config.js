@@ -1,6 +1,6 @@
 const {
   ModuleFederationPlugin,
-} = require('webpack').container;
+} = require('@module-federation/enhanced/webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { withZephyr } = require('zephyr-webpack-plugin');
