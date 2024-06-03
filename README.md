@@ -13,5 +13,18 @@ npm i
 ### run
 ```bash
 cd ./examples/create-default-webpack-mf/
+npm run build
+```
 
+## create mf app rspack
+
+```bash
+cd ./examples/create-mf-app-rspack/
+npm i
+```
+
+### run
+```bash
+cd ./examples/create-mf-app-rspack/
+npm run build
 ```
