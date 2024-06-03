@@ -80,3 +80,16 @@ npm i
 cd ./examples/qwik-1.5/
 npm run build
 ```
+
+## react-tractor-sample
+
+```bash
+cd ./examples/react-tractor-sample/
+npm i
+```
+
+### run
+```bash
+cd ./examples/react-tractor-sample/
+npm run build
+```

@@ -19,7 +19,7 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/host/src/assets",
+            "input": "apps/team-red/src/assets",
             "output": "."
           }
         ],

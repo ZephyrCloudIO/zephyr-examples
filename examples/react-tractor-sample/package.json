@@ -3,15 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx run-many -t serve --parallel=5 -p team-blue team-red team-green",
-    "build": "nx run-many -t build --parallel=1 --skip-nx-cache -p team-blue team-red team-green",
-    "serve:host": "nx run host:serve",
-    "build:host": "nx run host:build:production --skip-nx-cache",
-    "serve:team-red": "nx run team-red:serve",
+    "build": "nx run-many -t build --parallel=1 --skip-nx-cache -p team-blue team-green team-red --verbose",
     "build:team-red": "nx run team-red:build:production --skip-nx-cache",
-    "serve:team-blue": "nx run team-blue:serve",
     "build:team-blue": "nx run team-blue:build:production --skip-nx-cache",
-    "serve:team-green": "nx run team-green:serve",
     "build:team-green": "nx run team-green:build:production --skip-nx-cache  --watch"
   },
   "private": true,
@@ -52,6 +46,6 @@
     "ts-node": "10.9.1",
     "typescript": "^5.4.5",
     "url-loader": "^4.1.1",
-    "zephyr-webpack-plugin": "^0.0.12"
+    "zephyr-webpack-plugin": "^0.0.13"
   }
 }
