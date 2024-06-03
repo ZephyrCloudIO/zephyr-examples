@@ -54,3 +54,16 @@ npm i
 cd ./examples/create-nx-workspace-mf/
 npm run build
 ```
+
+## nx-v15-ng-v14
+
+```bash
+cd ./examples/ng-nx-v15/
+npm i
+```
+
+### run
+```bash
+cd ./examples/ng-nx-v15/
+npm run build
+```
