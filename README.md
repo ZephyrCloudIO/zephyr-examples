@@ -93,3 +93,16 @@ npm i
 cd ./examples/react-tractor-sample/
 npm run build
 ```
+
+## react-vite-ts
+
+```bash
+cd ./examples/react-vite-ts/
+npm i
+```
+
+### run
+```bash
+cd ./examples/react-vite-ts/
+npm run build
+```
