@@ -2,7 +2,9 @@
   "name": "@create-nx-workspace-mf/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --projects=remote1,remote2,shell --parallel=1 --verbose --skip-nx-cache"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -50,6 +52,6 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.11.2",
     "tslib": "^2.3.0",
-    "zephyr-webpack-plugin": "^0.0.3"
+    "zephyr-webpack-plugin": "^0.0.13"
   }
 }

@@ -41,3 +41,16 @@ npm i
 cd ./examples/create-nx-rspack-workpace-mf/
 npm run build
 ```
+
+## create-nx-workspace-mf
+
+```bash
+cd ./examples/create-nx-workspace-mf/
+npm i
+```
+
+### run
+```bash
+cd ./examples/create-nx-workspace-mf/
+npm run build
+```
