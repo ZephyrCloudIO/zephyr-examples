@@ -28,3 +28,16 @@ npm i
 cd ./examples/create-mf-app-rspack/
 npm run build
 ```
+
+## create-nx-rspack-workpace-mf
+
+```bash
+cd ./examples/create-nx-rspack-workpace-mf/
+npm i
+```
+
+### run
+```bash
+cd ./examples/create-nx-rspack-workpace-mf/
+npm run build
+```
