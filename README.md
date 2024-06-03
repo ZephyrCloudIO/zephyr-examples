@@ -67,3 +67,16 @@ npm i
 cd ./examples/ng-nx-v15/
 npm run build
 ```
+
+## qwik-1.5
+
+```bash
+cd ./examples/qwik-1.5/
+npm i
+```
+
+### run
+```bash
+cd ./examples/qwik-1.5/
+npm run build
+```
