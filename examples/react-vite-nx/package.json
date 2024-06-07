@@ -12,5 +12,15 @@
     "type": "git",
     "url": "https://github.com/ZephyrCloudIO/zephyr-mono.git"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "vite": "^5.2.13",
+    "vite-plugin-zephyr": "^0.0.13",
+    "zephyr-agent": "^0.0.13",
+    "zephyr-edge-contract": "^0.0.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2"
+  }
 }
