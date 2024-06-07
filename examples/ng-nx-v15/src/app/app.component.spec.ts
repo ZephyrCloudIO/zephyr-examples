@@ -15,13 +15,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome nx-v15-ng-v14'
+      'Welcome Zephyr AngularV15 + Nx example'
     );
   });
 
-  it(`should have as title 'nx-v15-ng-v14'`, () => {
+  it(`should have as title 'Zephyr AngularV15 + Nx example'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('nx-v15-ng-v14');
+    expect(app.title).toEqual('Zephyr AngularV15 + Nx example');
   });
 });
