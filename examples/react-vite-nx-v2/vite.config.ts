@@ -26,6 +26,8 @@ export default defineConfig({
 
   build: {
     outDir: './dist/react-vite-nx-v2',
+    // FIXME: Currently working on this issue
+    // assetsDir: "./dist/react-vite-nx-v2/assets",
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
