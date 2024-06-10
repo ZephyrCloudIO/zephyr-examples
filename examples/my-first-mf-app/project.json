@@ -1,0 +1,44 @@
+{
+  "name": "my-first-mf-app",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/my-first-mf-app",
+        "main": "src/main.tsx",
+        "tsConfig": "tsconfig.app.json",
+        "rspackConfig": "rspack.config.js",
+        "assets": ["src/favicon.ico", "src/assets"]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:dev-server",
+      "options": {
+        "buildTarget": "my-first-mf-app:build:development"
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "my-first-mf-app:build:production"
+        }
+      }
+    }
+  }
+}
