@@ -103,18 +103,7 @@ module.exports = {
         './pi': './src/pi.ts',
       },
       manifest: true,
-      // shared: {
-      //   ...deps,
-      //   "react-router-dom": {
-      //     singleton: true,
-      //   },
-      //   "react-dom": {
-      //     singleton: true,
-      //   },
-      //   react: {
-      //     singleton: true,
-      //   },
-      // },
+
     }),
     isDev ? new refreshPlugin() : null,
   ].filter(Boolean),
