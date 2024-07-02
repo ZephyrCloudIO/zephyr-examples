@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@rspack/cli": "^0.7.0",
-    "@rspack/core": "0.7.0",
+    "@rspack/core": "0.7.2-canary-5802e08-20240615034207",
     "@rspack/plugin-react-refresh": "^0.7.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",

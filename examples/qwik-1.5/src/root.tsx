@@ -1,14 +1,14 @@
-import { component$ } from "@builder.io/qwik";
+import { component$ } from '@builder.io/qwik';
 import {
   QwikCityProvider,
   RouterOutlet,
   ServiceWorkerRegister,
-} from "@builder.io/qwik-city";
-import { RouterHead } from "./components/router-head/router-head";
+} from '@builder.io/qwik-city';
+import { RouterHead } from './components/router-head/router-head';
 
-import "./global.css";
+import './global.css';
 
-console.log("Hello, world! v4");
+console.log('Hello, world! v4');
 
 export default component$(() => {
   /**
@@ -27,6 +27,7 @@ export default component$(() => {
         <ServiceWorkerRegister />
       </head>
       <body lang="en">
+        some text?
         <RouterOutlet />
       </body>
     </QwikCityProvider>
