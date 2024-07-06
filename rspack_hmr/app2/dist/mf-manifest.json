@@ -1,0 +1,64 @@
+{
+  "id": "app_02",
+  "name": "app_02",
+  "metaData": {
+    "name": "app_02",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "@rspack-hmr/app2"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "app_02",
+    "pluginVersion": "0.2.1",
+    "publicPath": "http://localhost:3001/"
+  },
+  "shared": [],
+  "remotes": [],
+  "exposes": [
+    {
+      "id": "app_02:Hello",
+      "name": "Hello",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Hello.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./Hello"
+    },
+    {
+      "id": "app_02:pi",
+      "name": "pi",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_pi.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./pi"
+    }
+  ]
+}
