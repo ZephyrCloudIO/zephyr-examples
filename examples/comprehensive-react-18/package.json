@@ -1,0 +1,33 @@
+{
+  "name": "comprehensive-react-18",
+  "version": "1.0.0",
+  "description": "Multi-framework comprehensive demo for react 18.",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm build && pnpm serve",
+    "legacy:start": "pnpm legacy:build && pnpm serve",
+    "build": "pnpm --filter \"app_*\" build",
+    "legacy:build": "pnpm --filter \"app*\" legacy:build",
+    "serve": "pnpm --filter \"app_*\" --parallel serve",
+    "clean": "pnpm --filter \"app_*\" --parallel clean",
+    "e2e:ci": "pnpm start & wait-on http-get://localhost:3001/ && npx cypress run --config-file ../cypress-e2e/config/cypress.config.ts --config '{\"supportFile\": \"../cypress-e2e/support/e2e.ts\"}' --spec \"./e2e/*.cy.ts\" --browser=chrome",
+    "legacy:e2e:ci": "pnpm legacy:start & wait-on http-get://localhost:3001/ && npx cypress run --config-file ../cypress-e2e/config/cypress.config.ts --config '{\"supportFile\": \"../cypress-e2e/support/e2e.ts\"}' --spec \"./e2e/*.cy.ts\" --browser=chrome"
+  },
+  "devDependencies": {
+    "@rsdoctor/rspack-plugin": "^0.1.8",
+    "@rsdoctor/webpack-plugin": "^0.1.8",
+    "concurrently": "8.2.2",
+    "cross-env": "^7.0.3",
+    "wait-on": "7.2.0"
+  },
+  "dependencies": {
+    "zephyr-webpack-plugin": "^0.0.9"
+  },
+  "keywords": [
+    "zephyr",
+    "react",
+    "multi-framework"
+  ],
+  "author": "ZephyrCloudIO",
+  "license": "MIT"
+}
