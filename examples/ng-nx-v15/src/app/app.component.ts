@@ -10,5 +10,5 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'nx-v15-ng-v14';
+  title = 'Zephyr AngularV15 + Nx example4';
 }

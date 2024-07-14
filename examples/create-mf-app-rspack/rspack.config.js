@@ -1,6 +1,6 @@
 const rspack = require('@rspack/core')
 const refreshPlugin = require('@rspack/plugin-react-refresh')
-const {withZephyr} = require('zephyr-webpack-plugin');
+const { withZephyr } = require('zephyr-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development'
 /**
  * @type {import('@rspack/cli').Configuration}
@@ -15,7 +15,7 @@ module.exports = withZephyr()({
   //   port: 8080,
   // },
   resolve: {
-    extensions: ['.js','.jsx','.ts','.tsx','.json']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
   },
   module: {
     rules: [
@@ -76,7 +76,7 @@ module.exports = withZephyr()({
   },
   plugins: [
     new rspack.container.ModuleFederationPlugin({
-      name: 'create_mf_app_rspack',
+      name: 'create_mf_app',
       filename: 'remoteEntry.js',
       exposes: {},
       shared: {
