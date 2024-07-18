@@ -4,7 +4,7 @@ This repository contains projects demonstrating how to deploy applications to Ze
 A selection of bundlers, frameworks, and patterns are used.
 
 Each example project comes with Zephyr Cloud enabled.
-You can clone this repository and follow the instructions to [build and deploy](#running-an-example-project) to your Zephyr Cloud account.
+You can clone this repository and follow the instructions to [build and deploy](#deploying-an-example-project) to your Zephyr Cloud account.
 
 *   __[`create-default-webpack-mf`](./examples/create-default-webpack-mf)__  
     A React application with Module Federation, using Rspack as the bundler.
