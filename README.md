@@ -1,108 +1,49 @@
 # Zephyr Cloud Examples
 
-This is the official repository for Zephyr Cloud Examples. It contains a set of examples that demonstrate how to use Zephyr Cloud to build
-micro frontend applications and deploy them to our cloud services.
+This repository contains projects demonstrating how to deploy applications to Zephyr Cloud.
+A selection of bundlers, frameworks, and patterns are used.
 
-## create default webpack mf
-### install
-```bash
-cd ./examples/create-default-webpack-mf/
-npm i
-```
+Each example project comes with Zephyr Cloud enabled.
+You can clone this repository and follow the instructions to [build and deploy](#running-an-example-project) to your Zephyr Cloud account.
 
-### run
-```bash
-cd ./examples/create-default-webpack-mf/
-npm run build
-```
+*   __[`create-default-webpack-mf`](./examples/create-default-webpack-mf)__  
+    A React application with Module Federation, using Rspack as the bundler.
+*   __[`create-mf-app-rspack`](./examples/create-mf-app-rspack)__  
+    A React application using Rspack as the bundler.
+*   __[`create-nx-rspack-workpace-mf`](./examples/create-nx-rspack-workpace-mf)__  
+    A monorepo using Nx, React, Module Federation, and Rspack as the bundler.
+*   __[`create-nx-workspace-mf`](./examples/create-nx-workspace-mf)__  
+    A monorepo using Nx, React, Module Federation, and Webpack as the bundler.
+*   __[`ng-nx-v15`](./examples/ng-nx-v15)__  
+    A monorepo using Nx, Angular v15, and Webpack as the bundler.
+*   __[`qwik-1.5`](./examples/qwik-1.5)__  
+    A Qwik v1.5 app using Vite as the bundler.
+*   __[`react-tractor-sample`](./examples/react-tractor-sample)__  
+    A monorepo using Nx, React, and Webpack as the bundler.
+*   __[`react-vite-nx`](./examples/react-vite-nx)__  
+    A monorepo using Nx, React, and Vite as the bundler
+*   __[`react-vite-ts`](./examples/react-vite-ts)__  
+    A React application built in TypeScript, using Vite as the bundler.
 
-## create mf app rspack
+## Deploying an example project
+After cloning this repository to your machine, follow these steps:
 
-```bash
-cd ./examples/create-mf-app-rspack/
-npm i
-```
+1.  __Change directory to the example codebase__  
+    For example, if you want to run the `create-default-webpack-mf` example:
 
-### run
-```bash
-cd ./examples/create-mf-app-rspack/
-npm run build
-```
+    ```shell
+    cd ./examples/create-default-webpack-mf
+    ```
+2.  __Install project dependencies__  
+    ```shell
+    npm install
+    ```
+3.  __Build the project__  
+    ```shell
+    npm run build
+    ```
 
-## create-nx-rspack-workpace-mf
+After you build the project, it will be deployed to your Zephyr Cloud account.
+For more information on using Zephyr Cloud, visit the [official documentation][documentation].
 
-```bash
-cd ./examples/create-nx-rspack-workpace-mf/
-npm i
-```
-
-### run
-```bash
-cd ./examples/create-nx-rspack-workpace-mf/
-npm run build
-```
-
-## create-nx-workspace-mf
-
-```bash
-cd ./examples/create-nx-workspace-mf/
-npm i
-```
-
-### run
-```bash
-cd ./examples/create-nx-workspace-mf/
-npm run build
-```
-
-## nx-v15-ng-v14
-
-```bash
-cd ./examples/ng-nx-v15/
-npm i
-```
-
-### run
-```bash
-cd ./examples/ng-nx-v15/
-npm run build
-```
-
-## qwik-1.5
-
-```bash
-cd ./examples/qwik-1.5/
-npm i
-```
-
-### run
-```bash
-cd ./examples/qwik-1.5/
-npm run build
-```
-
-## react-tractor-sample
-
-```bash
-cd ./examples/react-tractor-sample/
-npm i
-```
-
-### run
-```bash
-cd ./examples/react-tractor-sample/
-npm run build
-```
-
-## react-vite-ts
-
-```bash
-cd ./examples/react-vite-ts/
-npm i
-```
-
-### run
-```bash
-cd ./examples/react-vite-ts/
-npm run build
-```
+[documentation]: https://docs.zephyr-cloud.io
