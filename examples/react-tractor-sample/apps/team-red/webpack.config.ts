@@ -22,7 +22,7 @@ export default composePlugins(
   withNx(),
   withReact(),
   withModuleFederation(mfConfig),
-  withZephyr(),
+  // withZephyr(),
   (config) => {
     return config;
   }
