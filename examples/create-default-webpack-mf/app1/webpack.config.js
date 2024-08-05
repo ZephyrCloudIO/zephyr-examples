@@ -28,7 +28,7 @@ module.exports = withZephyr()({
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "default-webpack-mf_first",
+      name: "default_webpack_mf_first",
       remotes: {
         "default-webpack-mf_second": "default-webpack-mf_second@[app2Url]/remoteEntry.js",
       },

@@ -22,10 +22,9 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "rollup-plugin-zephyr": "file:rollup-plugin-zephyr-0.0.1.tgz",
+    "vite-plugin-zephyr": "^0.0.13",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
-    "vite-plugin-inspect": "^0.8.4",
-    "zephyr-agent": "file:zephyr-agent-0.0.10.tgz"
+    "vite-plugin-inspect": "^0.8.4"
   }
 }
