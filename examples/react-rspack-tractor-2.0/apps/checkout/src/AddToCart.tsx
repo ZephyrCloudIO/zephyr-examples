@@ -2,13 +2,14 @@ import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import data from './data/db.json';
 import Button from './components/Button';
-import './css/AddToCart.css'
+import './css/AddToCart.css';
 
 type AddToCardProps = {
   sku: string;
 };
 
 const AddToCart: React.FC<AddToCardProps> = ({ sku }) => {
+  console.log('------------------ data from AddToCart: ', data);
   const variant = data.variants.find((p) => p.sku === sku);
   const navigate = useNavigate();
   const outOfStock = variant.inventory === 0;

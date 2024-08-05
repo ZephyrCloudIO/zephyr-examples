@@ -28,7 +28,7 @@ const ProductPage: React.FC = () => {
   const { id } = useParams();
   const { name, variants, highlights = [] } = data.products.find((p) => p.id === id);
   const variant = variants.find((v) => v.sku === sku) || variants[0];
-
+  console.log('------------------ data from ProductPage: ', data);
   const handleSkuSelect = (ev: React.MouseEvent) => {
     const attr = (ev.target as HTMLElement).getAttribute('href');
 

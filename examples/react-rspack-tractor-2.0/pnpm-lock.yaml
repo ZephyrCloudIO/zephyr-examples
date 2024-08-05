@@ -50,6 +50,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.5.4
+      zephyr-webpack-plugin:
+        specifier: ../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
+        version: link:../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
 
   apps/checkout:
     dependencies:
@@ -90,6 +93,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.5.4
+      zephyr-webpack-plugin:
+        specifier: ../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
+        version: link:../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
 
   apps/decide:
     dependencies:
@@ -124,6 +130,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.5.4
+      zephyr-webpack-plugin:
+        specifier: ../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
+        version: link:../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
 
   apps/explore:
     dependencies:
@@ -158,6 +167,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.5.4
+      zephyr-webpack-plugin:
+        specifier: ../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
+        version: link:../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist
 
 packages:
 

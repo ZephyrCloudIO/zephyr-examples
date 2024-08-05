@@ -3,13 +3,14 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const path = require('path');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
+const { withZephyr } = require('zephyr-webpack-plugin');
 
 const name = 'tractor_v2_checkout';
 
 /**
  * @type {import('@rspack/cli').Configuration}
  */
-module.exports = {
+const config = {
   entry: { main: './src/index.tsx' },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
   optimization: { minimize: false },
@@ -95,3 +96,5 @@ module.exports = {
     }),
   ],
 };
+
+module.exports = process.env['WITH_ZE'] !== undefined ? withZephyr()(config) : config;

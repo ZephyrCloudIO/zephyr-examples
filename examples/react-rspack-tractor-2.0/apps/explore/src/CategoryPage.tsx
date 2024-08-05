@@ -5,12 +5,14 @@ import Filter from './components/Filter';
 import Header from './Header';
 import Footer from './Footer';
 import './css/CategoryPage.css';
+import { useParams } from 'react-router-dom';
 
 type CategoryPageProps = {
   category: string;
 };
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
+const CategoryPage: React.FC<CategoryPageProps> = () => {
+  const { category } = useParams();
   const cat = category && data.categories.find((c) => c.key === category);
 
   const title = cat ? cat.name : 'All Machines';

@@ -28,6 +28,7 @@
     "@rspack/core": "^0.7.5",
     "@types/react": "^18",
     "@types/react-router-dom": "^5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "zephyr-webpack-plugin": "../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist"
   }
 }

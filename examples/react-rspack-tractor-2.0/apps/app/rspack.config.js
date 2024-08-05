@@ -4,13 +4,14 @@ const refreshPlugin = require('@rspack/plugin-react-refresh');
 
 const path = require('path');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
+const { withZephyr } = require('zephyr-webpack-plugin');
 
 const name = 'tractor_v2_app';
 
 /**
  * @type {import('@rspack/cli').Configuration}
  */
-module.exports = {
+const config = {
   //context: __dirname,
   entry: { main: './src/index.tsx' },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
@@ -94,3 +95,5 @@ module.exports = {
     ...(isDev ? [new refreshPlugin()] : []),
   ],
 };
+
+module.exports = process.env['WITH_ZE'] !== undefined ? withZephyr()(config) : config;
