@@ -59,6 +59,14 @@ Now you can run all micro frontends locally:
 pnpm serve
 ```
 
+### Deploy to Zephyr Cloud
+
+You can deploy to Zephyr Cloud building the packages:
+
+```sh
+WITH_ZE=true pnpm build
+```
+
 ## More Information
 
 The [Piral documentation page](https://docs.piral.io/guidelines/tutorials/23-monorepo) has a tutorial on the sample that this example was based on. Make sure to follow and understand the tutorial before going deep into this sample.
