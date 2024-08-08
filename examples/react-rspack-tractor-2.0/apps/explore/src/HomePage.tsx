@@ -8,6 +8,7 @@ import Footer from './Footer';
 import './css/HomePage.css';
 
 const HomePage = () => {
+  console.log('------------ data from HomePage: ', data);
   return (
     <div data-boundary-page="explore">
       <Header />

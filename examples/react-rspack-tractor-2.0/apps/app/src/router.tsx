@@ -1,10 +1,9 @@
-// @ts-nocheck
 import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 const Home = lazy(() => import('tractor_v2_explore/HomePage'));
 const CategoryPage = lazy(() => import('tractor_v2_explore/CategoryPage'));
-const Stores = lazy(() => import('tractor_v2_explore/Stores'));
+const StoresPage = lazy(() => import('tractor_v2_explore/StoresPage'));
 const CartPage = lazy(() => import('tractor_v2_checkout/CartPage'));
 const Checkout = lazy(() => import('tractor_v2_checkout/Checkout'));
 const Thanks = lazy(() => import('tractor_v2_checkout/Thanks'));
@@ -61,10 +60,9 @@ export const router = createBrowserRouter([
   },
   {
     path: '/stores',
-    element: <Stores />,
     element: (
       <Suspense fallback={'Loading...'}>
-        <Stores />
+        <StoresPage />
       </Suspense>
     ),
   },

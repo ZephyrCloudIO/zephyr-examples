@@ -2,7 +2,7 @@ import * as React from 'react';
 import CompactHeader from './components/CompactHeader';
 import Button from './components/Button';
 import { useNavigate } from 'react-router-dom';
-import './css/Checkout.css'
+import './css/Checkout.css';
 
 const StorePicker = React.lazy(() => import('tractor_v2_explore/StorePicker'));
 const Footer = React.lazy(() => import('tractor_v2_explore/Footer'));
@@ -29,7 +29,6 @@ const defaultForm = {
   firstName: '',
   lastName: '',
 };
-
 
 const Checkout: React.FC = () => {
   const shop = useShop();
