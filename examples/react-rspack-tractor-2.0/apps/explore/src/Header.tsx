@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import './css/Header.css';
 
-const MiniCart = React.lazy(() => import('tractor_v2_checkout/MiniCart'));
+// const MiniCart = React.lazy(() => import('tractor_v2_checkout/MiniCart'));
 
 const Header = () => {
   return (
@@ -21,7 +21,7 @@ const Header = () => {
             <Navigation />
           </div>
           <div className="e_Header__cart">
-            <MiniCart />
+            {/* <MiniCart /> */}
           </div>
         </div>
       </div>

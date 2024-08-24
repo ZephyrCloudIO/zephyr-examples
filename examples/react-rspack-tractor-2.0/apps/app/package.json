@@ -30,6 +30,6 @@
     "@types/react-dom": "^18",
     "react-refresh": "^0.14.2",
     "typescript": "^5",
-    "zephyr-webpack-plugin": "../../../../../zephyr-mono/libs/zephyr-webpack-plugin/dist"
+    "zephyr-webpack-plugin": "0.0.16"
   }
 }
