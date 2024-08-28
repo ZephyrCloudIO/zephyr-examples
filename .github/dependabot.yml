@@ -8,5 +8,16 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "/examples" # Location of package manifests
+    schedule:
+      interval: "monthly" # so we don't get buried in dependabot PR
+      
+  - package-ecosystem: "pnpm" 
+    directory: "/examples" 
+    schedule:
+      interval: "monthly"
+           
   
