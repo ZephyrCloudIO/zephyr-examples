@@ -1,13 +1,13 @@
 {
   "root": true,
   "ignorePatterns": ["!**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nx"],
   "overrides": [
     {
       "files": ["*.ts"],
       "extends": [
-        "plugin:@nrwl/nx/typescript",
-        "plugin:@nrwl/nx/angular",
+        "plugin:@nx/typescript",
+        "plugin:@nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
@@ -26,12 +26,14 @@
             "prefix": "nx-v15-ng-v14",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/no-extra-semi": "error",
+        "no-extra-semi": "off"
       }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "extends": ["plugin:@nx/angular-template"],
       "rules": {}
     }
   ]

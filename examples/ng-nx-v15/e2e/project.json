@@ -3,9 +3,11 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "e2e/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["nx-v15-ng-v14"],
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
+      "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "e2e/cypress.config.ts",
         "devServerTarget": "nx-v15-ng-v14:serve:development",
@@ -21,13 +23,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["e2e/**/*.{js,ts}"]
-      }
+      "executor": "@nx/eslint:lint"
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["nx-v15-ng-v14"]
+  }
 }
