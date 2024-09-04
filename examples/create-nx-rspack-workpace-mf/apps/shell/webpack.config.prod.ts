@@ -34,5 +34,5 @@ const prodConfig: ModuleFederationConfig = {
 export default composePlugins(
   withNx(),
   withReact(),
-  withModuleFederation(prodConfig)
+  withModuleFederation(prodConfig, { dts: false })
 );
