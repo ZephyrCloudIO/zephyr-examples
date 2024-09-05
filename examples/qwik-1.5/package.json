@@ -29,23 +29,23 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.5.2",
-    "@builder.io/qwik-city": "^1.5.2",
-    "@netlify/edge-functions": "^2.0.0",
+    "@builder.io/qwik": "^1.8.0",
+    "@builder.io/qwik-city": "^1.8.0",
+    "@netlify/edge-functions": "^2.10.0",
     "@types/eslint": "^8.56.6",
     "@types/node": "^20.11.30",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-qwik": "^1.5.2",
-    "netlify-cli": "^15.0.0",
+    "eslint-plugin-qwik": "^1.8.0",
+    "netlify-cli": "^17.34.3",
     "open": "^10.1.0",
     "prettier": "^3.2.5",
-    "typescript": "5.3.3",
+    "typescript": "5.5.4",
     "undici": "*",
-    "vite": "^5.1.6",
-    "vite-plugin-inspect": "^0.8.4",
-    "vite-plugin-zephyr": "^0.0.13",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite": "^5.4.3",
+    "vite-plugin-inspect": "^0.8.7",
+    "vite-plugin-zephyr": "^0.0.16",
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }
