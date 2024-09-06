@@ -20,13 +20,15 @@
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
     "postcss": "8.4.44",
     "postcss-loader": "8.1.1",
-    "react-refresh": "0.14.2"
+    "react-refresh": "0.14.2",
+    "style-loader": "^4.0.0"
   },
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "zephyr-webpack-plugin": "^0.0.16"
+    "zephyr-webpack-plugin": "^0.0.17"
   }
 }
