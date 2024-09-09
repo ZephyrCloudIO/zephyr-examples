@@ -37,6 +37,6 @@ const prodConfig: ModuleFederationConfig = {
 export default composePlugins(
   withNx(),
   withReact(),
-  withModuleFederation(prodConfig, { dts: false, filename: 'remoteEntry.js' } as any),
+  withModuleFederation(prodConfig, { dts: false } as any),
   withZephyr()
 );
