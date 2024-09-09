@@ -55,7 +55,7 @@ pnpm install
 
 1. Build the `explore` app first 
 
-Because this project has recursive dependencies, you must comment out remotes that's yet build in this example and build the remotes first. Otherwise Zephyr won't be able to map your remotes against your host applications (or the application consumes it).
+Because this project has recursive dependencies, you must comment out remotes that's yet build, and build the remotes first -- otherwise Zephyr won't be able to map your remotes against your host applications (or the application consumes it).
 
 Note that each `build` command will trigger a deployment with Zephyr. 
 
