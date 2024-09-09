@@ -59,7 +59,7 @@ Because this project has recursive dependencies, you must comment out remotes th
 
 Note that each `build` command will trigger a deployment with Zephyr. 
 
-In the [rspack.config.ts of `explore`](./apps/explore/rspack.config.js), comment out 
+In the [rspack.config.ts of `explore`](./apps/explore/rspack.config.js), comment out the remotes (it's not built yet):
 
 ```ts
  new ModuleFederationPlugin({
