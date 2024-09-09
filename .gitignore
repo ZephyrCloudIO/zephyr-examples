@@ -8,3 +8,4 @@ node_modules
 
 # ignore nx cache
 .nx
+*/.nx
