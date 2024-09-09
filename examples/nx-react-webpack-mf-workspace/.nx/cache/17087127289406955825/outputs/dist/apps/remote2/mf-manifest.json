@@ -1,0 +1,91 @@
+{
+  "id": "remote2",
+  "name": "remote2",
+  "metaData": {
+    "name": "remote2",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "0.0.0",
+      "buildName": "@nx-react-webpack-mf-workspace/source"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "",
+      "api": ""
+    },
+    "globalName": "remote2",
+    "pluginVersion": "0.2.8",
+    "publicPath": "auto"
+  },
+  "shared": [
+    {
+      "id": "remote2:react-dom",
+      "name": "react-dom",
+      "version": "18.3.1",
+      "singleton": true,
+      "requiredVersion": "^18.3.1",
+      "assets": {
+        "js": {
+          "async": [
+            "744.2c204b2e.js"
+          ],
+          "sync": [
+            "89.d02d69b2.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "remote2:react",
+      "name": "react",
+      "version": "18.3.1",
+      "singleton": true,
+      "requiredVersion": "^18.3.1",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "744.2c204b2e.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "id": "remote2:Module",
+      "name": "Module",
+      "assets": {
+        "js": {
+          "sync": [
+            "297.6d70c5df.js",
+            "__federation_expose_Module.bf45ae6f.js"
+          ],
+          "async": [
+            "744.2c204b2e.js"
+          ]
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./Module"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkremote1=self.webpackChunkremote1||[]).push([["474"],{29:function(e,t,o){var r,c=o(782);t.createRoot=c.createRoot,c.hydrateRoot},313:function(e,t,o){o.r(t);var r=o(322),c=o(798),n=o(29),a=o(507);n.createRoot(document.getElementById("root")).render((0,r.jsx)(c.StrictMode,{children:(0,r.jsx)(a.Z,{})}))}}]);

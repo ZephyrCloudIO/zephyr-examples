@@ -43,7 +43,7 @@ Several performance optimizations could still be applied, however, in the out-of
 
 ### Installation
 
-Clone this repository. Then use `pnpm` to bootstrap the mono repo. Make sure to have `pnpm` (v9) installed for this.
+**Fork** this repository. Then use `pnpm` to bootstrap the mono repo. Make sure to have `pnpm` (v9) installed for this.
 
 Run the following command inside the repository:
 
@@ -53,11 +53,94 @@ pnpm install
 
 ### Running the Code
 
-Now you can run all micro frontends locally:
+1. Build the `explore` app first 
 
-```sh
-pnpm serve
+Because this project has recursive dependencies, you must comment out remotes that's yet build in this example and build the remotes first. Otherwise Zephyr won't be able to map your remotes against your host applications (or the application consumes it).
+
+Note that each `build` command will trigger a deployment with Zephyr. 
+
+In the [rspack.config.ts of `explore`](./apps/explore/rspack.config.js), comment out 
+
+```ts
+ new ModuleFederationPlugin({
+      name,
+      filename: 'remoteEntry.js',
+      shared: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+      // remotes: {
+      //   tractor_v2_checkout: 'tractor_v2_checkout@http://localhost:3001/remoteEntry.js',
+      // },
+      exposes: {
+        './HomePage': path.resolve(__dirname) + '/src/HomePage.tsx',
+        './CategoryPage': path.resolve(__dirname) + '/src/CategoryPage.tsx',
+        './StoresPage': path.resolve(__dirname) + '/src/StoresPage.tsx',
+        './Recommendations': path.resolve(__dirname) + '/src/Recommendations.tsx',
+        './StorePicker': path.resolve(__dirname) + '/src/StorePicker.tsx',
+        './Header': path.resolve(__dirname) + '/src/Header.tsx',
+        './Footer': path.resolve(__dirname) + '/src/Footer.tsx',
+      },
+    }),
 ```
+
+and run 
+
+```
+WITH_ZE=true pnpm --filter tractor_v2_explore run build
+```
+
+2. Build `checkout` app 
+
+At this point `explore` app has been build and `checkout` app is only consuming `explore`, we build the `checkout` app next: 
+
+```sh 
+WITH_ZE=true pnpm --filter tractor_v2_checkout run build
+```
+
+3. Uncomment `checkout` in `explore` app 
+
+Run explore app's build again to build it to a full app, but uncomment the remotes in configuration file: 
+
+```ts
+
+new ModuleFederationPlugin({
+      name,
+      filename: 'remoteEntry.js',
+      shared: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+       remotes: {
+         tractor_v2_checkout: 'tractor_v2_checkout@http://localhost:3001/remoteEntry.js',
+       },
+      exposes: {
+        './HomePage': path.resolve(__dirname) + '/src/HomePage.tsx',
+        './CategoryPage': path.resolve(__dirname) + '/src/CategoryPage.tsx',
+        './StoresPage': path.resolve(__dirname) + '/src/StoresPage.tsx',
+        './Recommendations': path.resolve(__dirname) + '/src/Recommendations.tsx',
+        './StorePicker': path.resolve(__dirname) + '/src/StorePicker.tsx',
+        './Header': path.resolve(__dirname) + '/src/Header.tsx',
+        './Footer': path.resolve(__dirname) + '/src/Footer.tsx',
+      },
+    }),
+```
+
+```sh 
+WITH_ZE=true pnpm --filter tractor_v2_explore run build
+```
+
+4. Build `decide` 
+
+Since `explore` and `checkout` are both being built, you can run this command to build `decide` (`decide` consumes `explore` and `checkout`, they are both built at this point ): 
+
+```sh 
+WITH_ZE=true pnpm --filter tractor_v2_decide run build
+```
+
+5. Build `app` 
+
+All the remotes are being built now and Zephyr will be able to map your remote application in output bundle, you can build `app` directly by running: 
+
+```sh 
+WITH_ZE=true pnpm --filter tractor_v2_app run build
+```
+
+
 
 ### Deploy to Zephyr Cloud
 
@@ -66,6 +149,14 @@ You can deploy to Zephyr Cloud building the packages:
 ```sh
 WITH_ZE=true pnpm build
 ```
+Or deploy to cloud on each save by running: 
+```sh
+WITH_ZE=true pnpm serve
+```
+
+##### We have now deployed everything! You can open our [Chrome Extension](https://chromewebstore.google.com/detail/zephyr-mission-control/liflhldchhinbaeplljlplhnbkdidedn), 
+
+Select this application on  Chrome Extension, toggle on `Live reload` to inspect file changes while running `WITH_ZE=true pnpm serve` 
 
 ## More Information
 
