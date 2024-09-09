@@ -6,12 +6,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/webpack:webpack",
+      "executor": "@nx/rspack:rspack",
       "outputs": [
         "{options.outputPath}"
       ],
       "defaultConfiguration": "production",
       "options": {
+        "target": "web",
         "compiler": "babel",
         "outputPath": "dist/apps/host",
         "index": "apps/host/src/index.html",
@@ -26,7 +27,7 @@
           "apps/host/src/styles.css"
         ],
         "scripts": [],
-        "webpackConfig": "apps/host/webpack.config.ts"
+        "rspackConfig": "apps/host/rspack.config.ts"
       },
       "configurations": {
         "development": {
@@ -48,12 +49,12 @@
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false,
-          "webpackConfig": "apps/host/webpack.config.prod.ts"
+          "rspackConfig": "apps/host/rspack.config.prod.ts"
         }
       }
     },
     "serve": {
-      "executor": "@nx/react:module-federation-dev-server",
+      "executor": "@nx/rspack:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "host:build",

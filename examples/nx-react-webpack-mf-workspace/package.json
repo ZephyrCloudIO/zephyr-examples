@@ -49,9 +49,12 @@
     "typescript": "~5.5.2"
   },
   "dependencies": {
+    "@nx/rspack": "^19.7.0",
+    "@rspack/dev-server": "^1.0.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.11.2",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zephyr-webpack-plugin": "^0.0.17"
   }
 }

@@ -1,8 +1,6 @@
-import { composePlugins, withNx } from '@nx/webpack';
-import { withReact } from '@nx/react';
-import { withModuleFederation } from '@nx/react/module-federation';
-import { ModuleFederationConfig } from '@nx/webpack';
-
+import { composePlugins, withNx, withReact } from '@nx/rspack';
+import { withModuleFederation, ModuleFederationConfig } from '@nx/rspack/module-federation';
+import { withZephyr } from 'zephyr-webpack-plugin';
 import baseConfig from './module-federation.config';
 
 const prodConfig: ModuleFederationConfig = {
@@ -39,5 +37,6 @@ const prodConfig: ModuleFederationConfig = {
 export default composePlugins(
   withNx(),
   withReact(),
-  withModuleFederation(prodConfig, { dts: false }),
+  withModuleFederation(prodConfig, { dts: false, filename: 'remoteEntry.js' } as any),
+  withZephyr()
 );
