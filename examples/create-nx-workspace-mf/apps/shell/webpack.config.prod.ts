@@ -4,7 +4,7 @@ import { withModuleFederation } from '@nx/react/module-federation';
 import { ModuleFederationConfig } from '@nx/webpack';
 
 import baseConfig from './module-federation.config';
-import {withZephyr} from "zephyr-webpack-plugin";
+import { withZephyr } from 'zephyr-webpack-plugin';
 
 const prodConfig: ModuleFederationConfig = {
   ...baseConfig,
@@ -35,9 +35,9 @@ const prodConfig: ModuleFederationConfig = {
 export default composePlugins(
   withNx(),
   withReact(),
-  withModuleFederation(prodConfig),
+  withModuleFederation(prodConfig, { dts: false }),
   withZephyr(),
-  (config)=>{
+  (config) => {
     return config;
   }
 );
