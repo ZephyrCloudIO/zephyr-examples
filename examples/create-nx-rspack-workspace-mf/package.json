@@ -2,7 +2,9 @@
   "name": "@create-nx-rspack-workspace-mf/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --projects=host,remote1,remote2 --parallel=1 --verbose --skip-nx-cache"
+  },
   "private": true,
   "devDependencies": {
     "@module-federation/enhanced": "~0.6.0",
