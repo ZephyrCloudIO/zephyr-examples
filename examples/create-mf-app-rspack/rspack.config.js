@@ -24,23 +24,6 @@ module.exports = withZephyr()({
         type: 'asset',
       },
       {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: {
-                  tailwindcss: {},
-                  autoprefixer: {},
-                },
-              },
-            },
-          },
-        ],
-        type: 'css',
-      },
-      {
         test: /\.(jsx?|tsx?)$/,
         use: [
           {
@@ -70,6 +53,13 @@ module.exports = withZephyr()({
               },
             },
           },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
         ],
       },
     ],
