@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "nx-v15-ng-v14",
+            "prefix": "nx-ng",
             "style": "kebab-case"
           }
         ],

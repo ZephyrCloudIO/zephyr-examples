@@ -5,10 +5,10 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 @Component({
   standalone: true,
   imports: [NxWelcomeComponent, RouterModule],
-  selector: 'nx-v15-ng-v14-root',
+  selector: 'nx-ng-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'nx-v15-ng-v14';
+  title = 'nx-ng';
 }

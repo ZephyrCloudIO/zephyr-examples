@@ -1,8 +1,8 @@
 {
-  "name": "nx-v15-ng-v14",
+  "name": "nx-ng",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "nx-v15-ng-v14",
+  "prefix": "nx-ng",
   "sourceRoot": "./src",
   "tags": [],
   "targets": {
@@ -14,7 +14,7 @@
           "path": "./extra-webpack.config.js"
         },
         "indexTransform": "./index-html-transform.js",
-        "outputPath": "dist/nx-v15-ng-v14",
+        "outputPath": "dist/nx-ng",
         "index": "./src/index.html",
         "main": "./src/main.ts",
         "polyfills": ["zone.js"],
@@ -54,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "nx-v15-ng-v14:build:production"
+          "buildTarget": "nx-ng:build:production"
         },
         "development": {
-          "buildTarget": "nx-v15-ng-v14:build:development"
+          "buildTarget": "nx-ng:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,7 +65,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "nx-v15-ng-v14:build"
+        "buildTarget": "nx-ng:build"
       }
     },
     "lint": {
@@ -84,7 +84,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "nx-v15-ng-v14:build"
+        "buildTarget": "nx-ng:build"
       }
     }
   }

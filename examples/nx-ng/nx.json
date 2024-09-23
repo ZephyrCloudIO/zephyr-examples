@@ -59,7 +59,7 @@
       "style": "css"
     }
   },
-  "defaultProject": "nx-v15-ng-v14",
+  "defaultProject": "nx-ng",
   "useInferencePlugins": false,
   "defaultBase": "master"
 }
