@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@module-federation/enhanced": "^0.6.1",
+    "@module-federation/enhanced": "^0.6.7",
     "@rspack/dev-server": "^1.0.3"
   }
 }
