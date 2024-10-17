@@ -33,6 +33,6 @@
     "@types/react": "^18",
     "@types/react-router-dom": "^5",
     "typescript": "^5",
-    "zephyr-webpack-plugin": "0.0.16"
+    "zephyr-webpack-plugin": "0.0.22"
   }
 }
