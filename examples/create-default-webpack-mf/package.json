@@ -15,7 +15,6 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
-    "zephyr-edge-contract": "^0.0.17",
-    "zephyr-webpack-plugin": "^0.0.17"
+    "zephyr-webpack-plugin": "^0.0.22"
   }
 }
