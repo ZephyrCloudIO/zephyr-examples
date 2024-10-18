@@ -51,8 +51,8 @@ importers:
         specifier: ^5
         version: 5.5.4
       zephyr-webpack-plugin:
-        specifier: 0.0.16
-        version: 0.0.16(esbuild@0.17.19)
+        specifier: 0.0.22
+        version: 0.0.22(esbuild@0.17.19)
 
   apps/checkout:
     dependencies:
@@ -94,8 +94,8 @@ importers:
         specifier: ^5
         version: 5.5.4
       zephyr-webpack-plugin:
-        specifier: 0.0.16
-        version: 0.0.16
+        specifier: 0.0.22
+        version: 0.0.22
 
   apps/decide:
     dependencies:
@@ -131,8 +131,8 @@ importers:
         specifier: ^5
         version: 5.5.4
       zephyr-webpack-plugin:
-        specifier: 0.0.16
-        version: 0.0.16
+        specifier: 0.0.22
+        version: 0.0.22
 
   apps/explore:
     dependencies:
@@ -168,8 +168,8 @@ importers:
         specifier: ^5
         version: 5.5.4
       zephyr-webpack-plugin:
-        specifier: 0.0.16
-        version: 0.0.16
+        specifier: 0.0.22
+        version: 0.0.22
 
 packages:
 
@@ -2337,14 +2337,14 @@ packages:
   youch@3.3.3:
     resolution: {integrity: sha512-qSFXUk3UZBLfggAW3dJKg0BMblG5biqSF8M34E06o5CSsZtH92u9Hqmj2RzGiHDi64fhe83+4tENFP2DB6t6ZA==}
 
-  zephyr-agent@0.0.16:
-    resolution: {integrity: sha512-n97Vh1Vb42NnA5Qx1enOrwku7jjB0LaA5LBGhhPujz0K6/Z/itNAIV9MkQf235UCwqpBJj83NHbg7HfSM7MvGA==}
+  zephyr-agent@0.0.22:
+    resolution: {integrity: sha512-TFmAevrJJ0UkGOiIIT4mgql0gl1EmuI9qQjxFj9fIZ3p6+WtBB4KkQsUrnGKdbSHM9R4UhCpUR3REOAtyl/BSw==}
 
-  zephyr-edge-contract@0.0.16:
-    resolution: {integrity: sha512-Txl4nIZGPnGnkO8E3nrJ5DHz+SeiV76BTm/JxhIJ+4dxIbpoexQmX3kLOrZQZB2myyFpNnesHQKvwLx7s+wBmg==}
+  zephyr-edge-contract@0.0.22:
+    resolution: {integrity: sha512-FIPuhI8UW+oK0U9Om8F5+X4blXjU32MAUalbdeS7LJNZTFjOMPDkvuocCfAzor29HAG9v3J+w1XIKuXOlR9tLw==}
 
-  zephyr-webpack-plugin@0.0.16:
-    resolution: {integrity: sha512-Rot6Vyn/ZMUHJewOpBKE7WbhMd0xOAefYST+AAh9wjyW0c4UOy6DFAjc+YcrZ6lOlGIF/nDcOSdyhfaS8FD02Q==}
+  zephyr-webpack-plugin@0.0.22:
+    resolution: {integrity: sha512-QK4tRerIuwM4CEMONb8dAIi14JP7FQHsLTXCoY/hj4DAxSSwVC66/0u9Ynk9JpuIjdGvJ4+yj4wblfvdwfOGtg==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -4834,7 +4834,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.16:
+  zephyr-agent@0.0.22:
     dependencies:
       cloudflare: 3.5.0
       is-ci: 3.0.1
@@ -4843,7 +4843,7 @@ snapshots:
       socket.io-client: 4.7.5
       tslib: 2.6.3
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.16
+      zephyr-edge-contract: 0.0.22
     optionalDependencies:
       wrangler: 3.72.1
     transitivePeerDependencies:
@@ -4853,7 +4853,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.16:
+  zephyr-edge-contract@0.0.22:
     dependencies:
       debug: 4.3.6
       node-persist: 4.0.3
@@ -4861,14 +4861,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  zephyr-webpack-plugin@0.0.16:
+  zephyr-webpack-plugin@0.0.22:
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.93.0)
       is-ci: 3.0.1
       tslib: 2.6.3
       webpack: 5.93.0
-      zephyr-agent: 0.0.16
-      zephyr-edge-contract: 0.0.16
+      zephyr-agent: 0.0.22
+      zephyr-edge-contract: 0.0.22
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
@@ -4880,14 +4880,14 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-webpack-plugin@0.0.16(esbuild@0.17.19):
+  zephyr-webpack-plugin@0.0.22(esbuild@0.17.19):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.93.0(esbuild@0.17.19))
       is-ci: 3.0.1
       tslib: 2.6.3
       webpack: 5.93.0(esbuild@0.17.19)
-      zephyr-agent: 0.0.16
-      zephyr-edge-contract: 0.0.16
+      zephyr-agent: 0.0.22
+      zephyr-edge-contract: 0.0.22
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
