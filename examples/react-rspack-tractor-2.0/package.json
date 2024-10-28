@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ryok90/tractor-v2-react-mf.git"
+    "url": "git+ssh://git@github.com:ZephyrCloudIO/zephyr-examples.git"
   },
   "scripts": {
     "build": "pnpm run --parallel build",
@@ -17,12 +17,12 @@
     "rspack",
     "micro frontends"
   ],
-  "author": "Rodrigo Yokota",
+  "author": "Zephyr Cloud IO",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ryok90/tractor-v2-react-mf/issues"
+    "url": "https://github.com/ZephyrCloudIO/zephyr-examples/issues"
   },
-  "homepage": "https://github.com/ryok90/tractor-v2-react-mf#readme",
+  "homepage": "https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/react-rspack-tractor-2.0",
   "dependencies": {
     "canvas-confetti": "1.9.3",
     "react": "18.3.1",
