@@ -5,6 +5,7 @@ const refreshPlugin = require('@rspack/plugin-react-refresh');
 const path = require('path');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
 const { withZephyr } = require('zephyr-webpack-plugin');
+const { dependencies: deps } = require('../../package.json');
 
 const name = 'tractor_v2_checkout';
 
@@ -86,10 +87,26 @@ const config = {
       name,
       filename: 'remoteEntry.js',
       shared: {
-        react: { singleton: true },
-        'react-dom': { singleton: true },
-        'react-router': { singleton: true },
-        'react-router-dom': { singleton: true },
+        react: {
+          singleton: true,
+          version: deps.react,
+          requiredVersion: deps.react,
+        },
+        'react-dom': {
+          singleton: true,
+          version: deps.react,
+          requiredVersion: deps.react,
+        },
+        'react-router': {
+          singleton: true,
+          version: deps['react-router'],
+          requiredVersion: deps['react-router'],
+        },
+        'react-router-dom': {
+          singleton: true,
+          version: deps['react-router-dom'],
+          requiredVersion: deps['react-router-dom'],
+        },
       },
       remotes: {
         tractor_v2_explore: 'tractor_v2_explore@http://localhost:3003/remoteEntry.js',
