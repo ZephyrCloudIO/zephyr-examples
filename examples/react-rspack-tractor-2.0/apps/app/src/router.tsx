@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { createBrowserRouter } from 'react-router-dom';
 
 const Home = lazy(() => import('tractor_v2_explore/HomePage'));
@@ -64,6 +65,24 @@ export const router = createBrowserRouter([
       <Suspense fallback={'Loading...'}>
         <StoresPage />
       </Suspense>
+    ),
+  },
+  {
+    path: '*',
+    element: (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1em',
+          paddingBottom: '2rem',
+          textAlign: 'center',
+        }}>
+        <h1>Tractor Sample 2.0</h1>
+        <h2>404 - Page not found</h2>
+        <Link to="/">Back to Home</Link>
+      </div>
     ),
   },
 ]);

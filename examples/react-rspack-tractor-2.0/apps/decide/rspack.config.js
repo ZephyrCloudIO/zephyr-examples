@@ -1,5 +1,6 @@
 const rspack = require('@rspack/core');
 const isDev = process.env.NODE_ENV === 'development';
+const refreshPlugin = require('@rspack/plugin-react-refresh');
 
 const path = require('path');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
@@ -13,7 +14,7 @@ const name = 'tractor_v2_decide';
 const config = {
   entry: { main: './src/index.tsx' },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
-  optimization: { minimize: false },
+  optimization: { minimize: false, sideEffects: true },
   devServer: {
     port: 3002,
     static: { directory: path.join(__dirname, 'build') },
@@ -23,6 +24,7 @@ const config = {
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
     },
+    historyApiFallback: true,
   },
   devtool: 'source-map',
   output: {
@@ -31,6 +33,7 @@ const config = {
     publicPath: 'auto',
     filename: '[name].js',
   },
+  experiments: { css: true },
   module: {
     rules: [
       {
@@ -74,7 +77,7 @@ const config = {
     new rspack.ProgressPlugin({}),
     new rspack.HtmlRspackPlugin({
       template: './index.html',
-      excludedChunks: [name],
+      excludeChunks: [name],
       filename: 'index.html',
       inject: true,
       publicPath: '/',
@@ -82,7 +85,12 @@ const config = {
     new ModuleFederationPlugin({
       name,
       filename: 'remoteEntry.js',
-      shared: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+      shared: {
+        react: { singleton: true },
+        'react-dom': { singleton: true },
+        'react-router': { singleton: true },
+        'react-router-dom': { singleton: true },
+      },
       remotes: {
         tractor_v2_checkout: 'tractor_v2_checkout@http://localhost:3001/remoteEntry.js',
         tractor_v2_explore: 'tractor_v2_explore@http://localhost:3003/remoteEntry.js',
@@ -91,7 +99,9 @@ const config = {
         './ProductPage': path.resolve(__dirname) + '/src/ProductPage.tsx',
       },
     }),
+    ...(isDev ? [new refreshPlugin()] : []),
   ],
 };
 
+// @ts-expect-error
 module.exports = process.env['WITH_ZE'] !== undefined ? withZephyr()(config) : config;
