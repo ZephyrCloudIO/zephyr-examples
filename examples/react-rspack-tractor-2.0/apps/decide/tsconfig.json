@@ -16,7 +16,8 @@
     "jsx": "react",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "paths": { "*": ["./@mf-types/*"] }
   },
   "include": [
     "./src"

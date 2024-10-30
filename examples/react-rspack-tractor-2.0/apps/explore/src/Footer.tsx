@@ -28,14 +28,14 @@ const Footer = () => {
 
           <div className="e_Footer__credits">
             <h3>techstack</h3>
-            <p>SPA, Piral, React, esbuild</p>
+            <p>SPA, Module Federation, React, rspack, React Router</p>
             <p>
-              build by <img src="https://piral.io/logo-simple.f8667084.png" alt="Piral" width="14" height="14" />
-              <a href="https://www.piral.io" target="_blank">
-                Piral
+              build by <img src="https://cdn.prod.website-files.com/669061ee3adb95b628c3acda/6696ebc69ea29a3d91e74441_zephyr%20fav.svg" alt="Zephyr Cloud" width="14" height="14" />
+              <a href="https://www.zephyr-cloud.io/" target="_blank">
+                Zephyr Cloud
               </a>{' '}
               /{' '}
-              <a href="https://github.com/piral-samples/tractor-v2" target="_blank">
+              <a href="https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/react-rspack-tractor-2.0" target="_blank">
                 GitHub
               </a>
             </p>

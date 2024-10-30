@@ -5,6 +5,7 @@ const refreshPlugin = require('@rspack/plugin-react-refresh');
 const path = require('path');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
 const { withZephyr } = require('zephyr-webpack-plugin');
+const { dependencies: deps } = require('../../package.json');
 
 const name = 'tractor_v2_app';
 
@@ -34,6 +35,7 @@ const config = {
     publicPath: 'auto',
     filename: '[name].js',
   },
+  experiments: { css: true },
   module: {
     rules: [
       {
@@ -77,7 +79,7 @@ const config = {
     new rspack.ProgressPlugin({}),
     new rspack.HtmlRspackPlugin({
       template: './index.html',
-      excludedChunks: [name],
+      excludeChunks: [name],
       filename: 'index.html',
       inject: true,
       publicPath: '/',
@@ -85,7 +87,28 @@ const config = {
     new ModuleFederationPlugin({
       name,
       filename: 'remoteEntry.js',
-      shared: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+      shared: {
+        react: {
+          singleton: true,
+          version: deps.react,
+          requiredVersion: deps.react,
+        },
+        'react-dom': {
+          singleton: true,
+          version: deps.react,
+          requiredVersion: deps.react,
+        },
+        'react-router': {
+          singleton: true,
+          version: deps['react-router'],
+          requiredVersion: deps['react-router'],
+        },
+        'react-router-dom': {
+          singleton: true,
+          version: deps['react-router-dom'],
+          requiredVersion: deps['react-router-dom'],
+        },
+      },
       remotes: {
         tractor_v2_checkout: 'tractor_v2_checkout@http://localhost:3001/remoteEntry.js',
         tractor_v2_decide: 'tractor_v2_decide@http://localhost:3002/remoteEntry.js',
@@ -96,4 +119,5 @@ const config = {
   ],
 };
 
+// @ts-expect-error
 module.exports = process.env['WITH_ZE'] !== undefined ? withZephyr()(config) : config;
