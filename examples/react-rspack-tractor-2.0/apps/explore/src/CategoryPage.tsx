@@ -7,11 +7,7 @@ import Footer from './Footer';
 import './css/CategoryPage.css';
 import { useParams } from 'react-router-dom';
 
-type CategoryPageProps = {
-  category: string;
-};
-
-const CategoryPage: React.FC<CategoryPageProps> = () => {
+const CategoryPage: React.FC = () => {
   const { category } = useParams();
   const cat = category && data.categories.find((c) => c.key === category);
 
