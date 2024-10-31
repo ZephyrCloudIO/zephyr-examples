@@ -1,4 +1,8 @@
-[Documentation](https://docs.zephyr-cloud.io/recipes/vite-rspack-webpack-mf) for this example
+# Vite Host + Vite Remote + Rspack Remote + Webpack Remote 
+
+[Documentation](https://docs.zephyr-cloud.io/recipes/vite-rspack-webpack-mf) for this example.
+
+![image](./image.png)
 
 To run this example:
 
