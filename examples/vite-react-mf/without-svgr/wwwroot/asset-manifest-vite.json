@@ -1,0 +1,130 @@
+{
+  "__commonjsHelpers-BvryMGaU.js": {
+    "file": "/assets/_commonjsHelpers-BvryMGaU.js",
+    "name": "_commonjsHelpers"
+  },
+  "_index-DGTCVKxC.js": {
+    "file": "/assets/index-DGTCVKxC.js",
+    "name": "index",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js"
+    ]
+  },
+  "_index-DZQE6iK-.js": {
+    "file": "/assets/index-DZQE6iK-.js",
+    "name": "index",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_vite_mf_2_host__loadShare__react__loadShare__-BZWt6XwW.js"
+    ]
+  },
+  "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js": {
+    "file": "/assets/virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js",
+    "name": "virtual_mf-REMOTE_ENTRY_ID",
+    "imports": [
+      "virtual:mf-exposes"
+    ],
+    "dynamicImports": [
+      "_index-DGTCVKxC.js",
+      "_index-DZQE6iK-.js"
+    ]
+  },
+  "_vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__-CWRCkJvB.js": {
+    "file": "/assets/vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__-CWRCkJvB.js",
+    "name": "vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js"
+    ]
+  },
+  "_vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__-CPpRNP0J.js": {
+    "file": "/assets/vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__-CPpRNP0J.js",
+    "name": "vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js"
+    ]
+  },
+  "_vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__-D9wr2BHY.js": {
+    "file": "/assets/vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__-D9wr2BHY.js",
+    "name": "vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js"
+    ]
+  },
+  "_vite_mf_2_host__loadShare__react__loadShare__-BZWt6XwW.js": {
+    "file": "/assets/vite_mf_2_host__loadShare__react__loadShare__-BZWt6XwW.js",
+    "name": "vite_mf_2_host__loadShare__react__loadShare__",
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js"
+    ]
+  },
+  "index.html": {
+    "file": "/assets/index-qbwiujro.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js",
+      "node_modules/__mf__virtual/vite_mf_2_host__mf_v__hostAutoInit__mf_v__.js",
+      "virtual:mf-exposes"
+    ],
+    "dynamicImports": [
+      "src/bootstrap.tsx"
+    ],
+    "css": []
+  },
+  "node_modules/__mf__virtual/vite_mf_2_host__mf_v__hostAutoInit__mf_v__.js": {
+    "file": "/assets/hostInit-CN6-YbaR.js",
+    "name": "hostInit",
+    "src": "node_modules/__mf__virtual/vite_mf_2_host__mf_v__hostAutoInit__mf_v__.js",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js",
+      "virtual:mf-exposes"
+    ]
+  },
+  "src/bootstrap.tsx": {
+    "file": "/assets/bootstrap-DA5ku1JN.js",
+    "name": "bootstrap",
+    "src": "src/bootstrap.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vite_mf_2_host__loadShare__react__loadShare__-BZWt6XwW.js",
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js",
+      "virtual:mf-exposes"
+    ],
+    "dynamicImports": [
+      "_vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__-CWRCkJvB.js",
+      "_vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__-D9wr2BHY.js",
+      "_vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__-CPpRNP0J.js"
+    ],
+    "css": [
+      "assets/bootstrap-Bv8auy69.css"
+    ]
+  },
+  "virtual:mf-REMOTE_ENTRY_ID": {
+    "file": "/remoteEntry.js",
+    "name": "remoteEntry",
+    "src": "virtual:mf-REMOTE_ENTRY_ID",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-Ba-D59qW.js",
+      "virtual:mf-exposes"
+    ]
+  },
+  "virtual:mf-exposes": {
+    "file": "/assets/virtualExposes-Dff6wIYf.js",
+    "name": "virtualExposes",
+    "src": "virtual:mf-exposes",
+    "isEntry": true
+  }
+}

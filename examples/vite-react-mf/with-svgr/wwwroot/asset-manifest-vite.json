@@ -1,0 +1,98 @@
+{
+  "_bootstrap-!~{002}~.js": {
+    "file": "/assets/bootstrap-Bv8auy69.css",
+    "src": "_bootstrap-!~{002}~.js"
+  },
+  "_bootstrap-C1XG_0G-.js": {
+    "file": "/assets/bootstrap-C1XG_0G-.js",
+    "name": "bootstrap",
+    "isDynamicEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js",
+      "index.html"
+    ],
+    "dynamicImports": [
+      "_vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__-BhZZGSSu.js",
+      "_vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__-C-Pj_Gx_.js",
+      "_vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__-CuC8zd7j.js"
+    ],
+    "css": [
+      "assets/bootstrap-Bv8auy69.css"
+    ]
+  },
+  "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js": {
+    "file": "/assets/virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js",
+    "name": "virtual_mf-REMOTE_ENTRY_ID",
+    "imports": [
+      "virtual:mf-exposes"
+    ]
+  },
+  "_vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__-BhZZGSSu.js": {
+    "file": "/assets/vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__-BhZZGSSu.js",
+    "name": "vite_mf_2_host__loadRemote__vite_mf_2_remote_mf_1_Button__loadRemote__",
+    "isDynamicEntry": true,
+    "imports": [
+      "_bootstrap-C1XG_0G-.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js"
+    ]
+  },
+  "_vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__-CuC8zd7j.js": {
+    "file": "/assets/vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__-CuC8zd7j.js",
+    "name": "vite_mf_2_host__loadRemote__vite_rspack_mf_1_Image__loadRemote__",
+    "isDynamicEntry": true,
+    "imports": [
+      "_bootstrap-C1XG_0G-.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js"
+    ]
+  },
+  "_vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__-C-Pj_Gx_.js": {
+    "file": "/assets/vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__-C-Pj_Gx_.js",
+    "name": "vite_mf_2_host__loadRemote__vite_webpack_mf_1_Image__loadRemote__",
+    "isDynamicEntry": true,
+    "imports": [
+      "_bootstrap-C1XG_0G-.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js"
+    ]
+  },
+  "index.html": {
+    "file": "/assets/index-Cq2nUmhu.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "node_modules/__mf__virtual/vite_mf_2_host__mf_v__hostAutoInit__mf_v__.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js",
+      "virtual:mf-exposes"
+    ],
+    "dynamicImports": [
+      "_bootstrap-C1XG_0G-.js"
+    ],
+    "css": []
+  },
+  "node_modules/__mf__virtual/vite_mf_2_host__mf_v__hostAutoInit__mf_v__.js": {
+    "file": "/assets/hostInit-D6CAbyZj.js",
+    "name": "hostInit",
+    "src": "node_modules/__mf__virtual/vite_mf_2_host__mf_v__hostAutoInit__mf_v__.js",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js",
+      "virtual:mf-exposes"
+    ]
+  },
+  "virtual:mf-REMOTE_ENTRY_ID": {
+    "file": "/remoteEntry.js",
+    "name": "remoteEntry",
+    "src": "virtual:mf-REMOTE_ENTRY_ID",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-BSFIM8Mi.js",
+      "virtual:mf-exposes"
+    ]
+  },
+  "virtual:mf-exposes": {
+    "file": "/assets/virtualExposes-Dff6wIYf.js",
+    "name": "virtualExposes",
+    "src": "virtual:mf-exposes",
+    "isEntry": true
+  }
+}
