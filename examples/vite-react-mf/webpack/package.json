@@ -38,6 +38,7 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zephyr-webpack-plugin": "0.0.24"
