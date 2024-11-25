@@ -1,6 +1,6 @@
 const rspack = require('@rspack/core')
 const refreshPlugin = require('@rspack/plugin-react-refresh')
-const {withZephyr} = require('zephyr-webpack-plugin');
+const { withZephyr } = require('zephyr-rspack-plugin');
 const isDev = process.env.NODE_ENV === 'development'
 /**
  * @type {import('@rspack/cli').Configuration}

@@ -4,7 +4,7 @@ const refreshPlugin = require('@rspack/plugin-react-refresh');
 
 const path = require('path');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
-const { withZephyr } = require('zephyr-webpack-plugin');
+const { withZephyr } = require('zephyr-rspack-plugin');
 const { dependencies: deps } = require('../../package.json');
 
 const name = 'tractor_v2_explore';
@@ -86,6 +86,7 @@ const config = {
     new ModuleFederationPlugin({
       name,
       filename: 'remoteEntry.js',
+      dts: false,
       shared: {
         react: {
           singleton: true,
@@ -125,5 +126,4 @@ const config = {
   ],
 };
 
-// @ts-expect-error
 module.exports = process.env['WITH_ZE'] !== undefined ? withZephyr()(config) : config;

@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@module-federation/runtime": "0.6.6",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@module-federation/runtime": "0.6.6"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -26,6 +26,6 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.5",
-    "vite-plugin-zephyr": "^0.0.24"
+    "vite-plugin-zephyr": "^0.0.30"
   }
 }

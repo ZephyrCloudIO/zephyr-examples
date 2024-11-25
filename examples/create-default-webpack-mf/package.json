@@ -12,9 +12,7 @@
     "build": "lerna run build --scope=default_webpack_mf_second --scope=default_webpack_mf_first"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
-  },
-  "dependencies": {
-    "zephyr-webpack-plugin": "^0.0.23"
+    "lerna": "^4.0.0",
+    "zephyr-webpack-plugin": "^0.0.30"
   }
 }
