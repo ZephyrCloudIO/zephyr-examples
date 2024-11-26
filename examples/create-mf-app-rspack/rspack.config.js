@@ -1,6 +1,6 @@
 const rspack = require('@rspack/core')
 const refreshPlugin = require('@rspack/plugin-react-refresh')
-const {withZephyr} = require('zephyr-webpack-plugin');
+const { withZephyr } = require('zephyr-rspack-plugin');
 const isDev = process.env.NODE_ENV === 'development'
 /**
  * @type {import('@rspack/cli').Configuration}
@@ -22,23 +22,6 @@ module.exports = withZephyr()({
       {
         test: /\.svg$/,
         type: 'asset',
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: {
-                  tailwindcss: {},
-                  autoprefixer: {},
-                },
-              },
-            },
-          },
-        ],
-        type: 'css',
       },
       {
         test: /\.(jsx?|tsx?)$/,
@@ -70,6 +53,13 @@ module.exports = withZephyr()({
               },
             },
           },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
         ],
       },
     ],

@@ -1,0 +1,30 @@
+{
+  "name": "host-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/host-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["host"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/host-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "host:serve",
+        "baseUrl": "http://localhost:4200"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "host:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "host:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
