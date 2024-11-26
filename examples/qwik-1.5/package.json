@@ -45,7 +45,7 @@
     "undici": "*",
     "vite": "^5.1.6",
     "vite-plugin-inspect": "^0.8.4",
-    "vite-plugin-zephyr": "^0.0.14",
+    "vite-plugin-zephyr": "^0.0.13",
     "vite-tsconfig-paths": "^4.2.1"
   }
 }
