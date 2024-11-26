@@ -6,5 +6,8 @@ export const mfConfig: ModuleFederationPluginOptions = {
   exposes: {
     "./RemoteEntry": "./src/RemoteEntry.tsx"
   },
+  remotes: {
+    host: "host@http://localhost:3000/remoteEntry.js"
+  },
   shared: ["react", "react-dom", "react-router"]
 };

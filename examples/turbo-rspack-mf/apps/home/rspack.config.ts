@@ -11,7 +11,8 @@ const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
 export default withZephyr()({
   context: __dirname,
   devServer: {
-    port: 3001
+    port: 3001,
+    historyApiFallback: true,
   },
   entry: {
     main: "./src/main.tsx"

@@ -1,11 +1,12 @@
 import { Cloud, Github, Menu, X } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router';
+import { useLocalStorage } from '../useLocalStorage';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <header className="w-full bg-black backdrop-blur-md border-b border-gray-100">
+    <header className="w-full bg-black backdrop-blur-md ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/">
