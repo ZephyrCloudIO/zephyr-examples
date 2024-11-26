@@ -1,4 +1,4 @@
-const { ModuleFederationPlugin } = require('webpack').container;
+const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 const { withZephyr } = require('zephyr-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
@@ -56,6 +56,7 @@ const config = {
     new ModuleFederationPlugin({
       name: 'trips',
       filename: 'remoteEntry.js',
+      dts: false,
       exposes: {
         './Trips': './src/expose.tsx',
       },

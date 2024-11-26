@@ -1,4 +1,4 @@
-const { ModuleFederationPlugin } = require('webpack').container;
+const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { withZephyr } = require('zephyr-webpack-plugin');
@@ -57,6 +57,7 @@ const config = {
     new ModuleFederationPlugin({
       name: 'react-host',
       filename: 'remoteEntry.js',
+      dts: false,
       remotes: {
         categories: `categories@http://localhost:3011/remoteEntry.js`,
         home: `home@http://localhost:3012/remoteEntry.js`,
