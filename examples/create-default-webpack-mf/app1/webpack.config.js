@@ -30,7 +30,7 @@ module.exports = withZephyr()({
     new ModuleFederationPlugin({
       name: "default_webpack_mf_first",
       remotes: {
-        "default-webpack-mf_second": "default-webpack-mf_second@[app2Url]/remoteEntry.js",
+        "default_webpack_mf_second": "default_webpack_mf_second@[app2Url]/remoteEntry.js",
       },
       shared: {react: {singleton: true}, "react-dom": {singleton: true}},
     }),

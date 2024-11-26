@@ -1,0 +1,73 @@
+{
+  "name": "host",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/host/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/host",
+        "main": "apps/host/src/main.ts",
+        "tsConfig": "apps/host/tsconfig.app.json",
+        "rspackConfig": "apps/host/rspack.config.ts",
+        "assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false,
+          "rspackConfig": "apps/host/rspack.config.prod.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:module-federation-dev-server",
+      "options": {
+        "buildTarget": "host:build:development",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "host:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "host:build",
+        "watch": false,
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "host:build:development"
+        },
+        "production": {
+          "buildTarget": "host:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/host/jest.config.ts"
+      }
+    }
+  }
+}
