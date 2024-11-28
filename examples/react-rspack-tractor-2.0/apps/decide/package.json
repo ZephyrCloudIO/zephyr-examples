@@ -1,0 +1,19 @@
+{
+  "name": "tractor_v2_decide",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "NODE_ENV=development rspack serve",
+    "build": "NODE_ENV=production rspack build"
+  },
+  "source": "src/index.tsx",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "importmap": {
+    "imports": {},
+    "inherit": [
+      "app"
+    ]
+  }
+}

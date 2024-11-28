@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["@babel/preset-env"],
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic" // Enables the new JSX transform in React 17+
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-syntax-dynamic-import"]
+}
