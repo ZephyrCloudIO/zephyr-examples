@@ -8,10 +8,10 @@
     "preview": "rspress preview"
   },
   "dependencies": {
-    "rspress": "0.0.0-nightly-20240607160125"
+    "rspress": "^1.37.3"
   },
   "devDependencies": {
     "@types/node": "^16",
-    "zephyr-webpack-plugin": "^0.0.13"
+    "zephyr-rspack-plugin": "^0.0.30"
   }
 }
