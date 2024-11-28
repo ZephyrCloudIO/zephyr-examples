@@ -1,5 +1,5 @@
 import React, {Suspense} from "react";
-const RemoteApp = React.lazy(() => import("default-webpack-mf_second/App"));
+const RemoteApp = React.lazy(() => import("default_webpack_mf_second/App"));
 
 const App = () => {
   return (

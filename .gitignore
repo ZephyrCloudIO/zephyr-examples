@@ -5,3 +5,17 @@ node_modules
 !.env.example
 .idea
 .DS_Store
+
+# ignore nx cache
+.nx
+*/.nx
+
+# ignore build output
+
+dist
+*/dist
+
+# Module Federation Enhanced generated types
+@mf-types
+*/.__mf__temp
+*/**/.__mf__temp

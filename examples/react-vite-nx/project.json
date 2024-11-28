@@ -1,67 +1,10 @@
 {
   "name": "react-vite-nx",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "examples/react-vite-nx/src",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "includedScripts": [],
+  "sourceRoot": "./src",
   "projectType": "application",
   "tags": [],
-  "targets": {
-    "build": {
-      "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "outputPath": "dist/examples/react-vite-nx"
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
-      }
-    },
-    "serve": {
-      "executor": "@nx/vite:dev-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "react-vite-nx:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "react-vite-nx:build:development",
-          "hmr": true
-        },
-        "production": {
-          "buildTarget": "react-vite-nx:build:production",
-          "hmr": false
-        }
-      }
-    },
-    "preview": {
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "react-vite-nx:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "react-vite-nx:build:development"
-        },
-        "production": {
-          "buildTarget": "react-vite-nx:build:production"
-        }
-      }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
-      "options": {
-        "reportsDirectory": "../../coverage/examples/react-vite-nx"
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
-    }
-  }
+  "// targets": "to see all targets run: nx show project react-vite-nx --web",
+  "targets": {}
 }
