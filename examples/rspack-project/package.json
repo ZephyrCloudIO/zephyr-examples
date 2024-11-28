@@ -7,17 +7,17 @@
     "build": "cross-env NODE_ENV=production rspack build"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "zephyr-webpack-plugin": "^0.0.13"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zephyr-rspack-plugin": "^0.0.30"
   },
   "devDependencies": {
-    "@rspack/cli": "1.0.0-alpha.1",
-    "@rspack/core": "1.0.0-alpha.1",
-    "@rspack/plugin-react-refresh": "1.0.0-alpha.1",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@rspack/cli": "1.1.4",
+    "@rspack/core": "1.1.4",
+    "@rspack/plugin-react-refresh": "1.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "cross-env": "^7.0.3",
-    "react-refresh": "^0.14.0"
+    "react-refresh": "^0.14.2"
   }
 }

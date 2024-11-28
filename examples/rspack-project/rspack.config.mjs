@@ -3,7 +3,7 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { rspack } from "@rspack/core";
 import RefreshPlugin from "@rspack/plugin-react-refresh";
-import { withZephyr } from "zephyr-webpack-plugin";
+import { withZephyr } from "zephyr-rspack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const isDev = process.env.NODE_ENV === "development";
