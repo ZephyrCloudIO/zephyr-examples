@@ -28,7 +28,7 @@ Once you've forked this repository, you can clone it and follow the instructions
     A monorepo using pnpm workspace, Module Federation, React, and Vite as the bundler
 *   __[`react-vite-nx`](./examples/react-vite-nx)__  
     A monorepo using Nx, React, and Vite as the bundler
-*``   __[`react-vite-ts`](./examples/react-vite-ts)__  
+*   __[`react-vite-ts`](./examples/react-vite-ts)__  
     A React application built in TypeScript, using Vite as the bundler.
 
 ## Deploying an example project
@@ -53,3 +53,6 @@ After you build the project, it will be deployed to your Zephyr Cloud account.
 For more information on using Zephyr Cloud, visit the [official documentation][documentation].
 
 [documentation]: https://docs.zephyr-cloud.io
+
+## Contributors
+![Alt](https://repobeats.axiom.co/api/embed/9d3af925eba49c0dd8ddd8ee144443242fba9b6a.svg "Repobeats analytics image")
