@@ -55,3 +55,6 @@ After you build the project, it will be deployed to your Zephyr Cloud account.
 For more information on using Zephyr Cloud, visit the [official documentation][documentation].
 
 [documentation]: https://docs.zephyr-cloud.io
+
+## Contributors
+![Alt](https://repobeats.axiom.co/api/embed/9d3af925eba49c0dd8ddd8ee144443242fba9b6a.svg "Repobeats analytics image")
