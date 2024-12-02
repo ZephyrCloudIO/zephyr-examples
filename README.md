@@ -30,6 +30,8 @@ Once you've forked this repository, you can clone it and follow the instructions
     A monorepo using Nx, React, and Vite as the bundler
 *   __[`react-vite-ts`](./examples/react-vite-ts)__  
     A React application built in TypeScript, using Vite as the bundler.
+*   __[`rspack-project`](./examples/rspack-project)__  
+    A simple Rspack application using React.
 
 ## Deploying an example project
 After cloning your fork of this repository locally, follow these steps:
