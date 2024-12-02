@@ -3,6 +3,7 @@ import data from './data/db.json';
 import Button from './components/Button';
 import { src, srcset } from './js/utils';
 import './css/StorePicker.css';
+import './css/Button.css';
 
 const StorePicker: React.FC = () => {
   const [currentStore, setCurrentStore] = React.useState('');
