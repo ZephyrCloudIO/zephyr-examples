@@ -28,7 +28,9 @@ Once you've forked this repository, you can clone it and follow the instructions
     A monorepo using pnpm workspace, Module Federation, React, and Vite as the bundler
 *   __[`react-vite-nx`](./examples/react-vite-nx)__  
     A monorepo using Nx, React, and Vite as the bundler
-*   __[`react-vite-ts`](./examples/react-vite-ts)__  
+*   __[`turbo-rspack-mf`](./examples/turbo-rspack-mf/)__  
+    A monorepo using Turborepo, React, and Rspack as the bundler
+*``   __[`react-vite-ts`](./examples/react-vite-ts)__  
     A React application built in TypeScript, using Vite as the bundler.
 *   __[`rspack-project`](./examples/rspack-project)__  
     A simple Rspack application using React.

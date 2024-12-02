@@ -1,0 +1,20 @@
+{
+  "name": "ze-starter-turbo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "check": "biome check --write",
+    "dev": "turbo dev",
+    "format": "biome format --write",
+    "lint": "turbo lint"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
+    "turbo": "^2.3.1",
+    "typescript": "5.5.4"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18"
+  }
+}
