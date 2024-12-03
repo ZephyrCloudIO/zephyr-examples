@@ -8,6 +8,8 @@
     "preview": "rspress preview"
   },
   "dependencies": {
+    "@rspack/binding-darwin-x64": "^1.1.5",
+    "@rspress/mdx-rs-darwin-x64": "^0.6.4",
     "rspress": "^1.37.3"
   },
   "devDependencies": {
