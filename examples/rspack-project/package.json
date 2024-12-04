@@ -1,0 +1,23 @@
+{
+  "name": "rspack-react-starter",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rspack serve",
+    "build": "cross-env NODE_ENV=production rspack build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zephyr-rspack-plugin": "^0.0.30"
+  },
+  "devDependencies": {
+    "@rspack/cli": "1.1.4",
+    "@rspack/core": "1.1.4",
+    "@rspack/plugin-react-refresh": "1.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "cross-env": "^7.0.3",
+    "react-refresh": "^0.14.2"
+  }
+}

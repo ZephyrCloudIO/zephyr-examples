@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/typescript-config/mf-tsconfig.json",
+  "include": ["src"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}

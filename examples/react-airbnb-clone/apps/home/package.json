@@ -1,0 +1,10 @@
+{
+  "name": "airbnb-home",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "rimraf dist && webpack --mode production",
+    "start": "http-server dist -p 3012"
+  }
+}
