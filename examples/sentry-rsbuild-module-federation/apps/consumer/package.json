@@ -1,0 +1,25 @@
+{
+  "name": "consumer",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rsbuild build",
+    "check": "biome check --write",
+    "dev": "rsbuild dev --open",
+    "format": "biome format --write",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zephyr-rspack-plugin": "^0.0.31"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
+    "@rsbuild/core": "^1.1.8",
+    "@rsbuild/plugin-react": "^1.0.7",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.2"
+  }
+}
