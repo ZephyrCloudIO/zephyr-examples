@@ -14,9 +14,13 @@ const ZephyrRsbuildPlugin = (): RsbuildPlugin => ({
 });
 
 export default defineConfig({
-  plugins: [pluginReact(), ZephyrRsbuildPlugin()],
+  plugins: [
+    pluginReact({ splitChunks: { react: false, router: false } }),
+    ZephyrRsbuildPlugin(),
+  ],
   server: {
     port: 3000,
+    open: false,
   },
   moduleFederation: {
     options: mfConfig,

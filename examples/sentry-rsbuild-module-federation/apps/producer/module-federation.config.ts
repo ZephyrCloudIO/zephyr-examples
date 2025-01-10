@@ -4,5 +4,5 @@ export const config = {
   exposes: {
     "./Producer": "./src/RemoteEntry.tsx",
   },
-  shared: ["react", "react-dom"],
+  shared: ["react", "react-dom", "@sentry/react"],
 };

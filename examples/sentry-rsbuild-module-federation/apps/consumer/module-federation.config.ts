@@ -1,8 +1,7 @@
-
 export const config = {
-  name: 'consumer',
+  name: "consumer",
   remotes: {
-    producer: 'producer@http://localhost:3001/remoteEntry.js',
+    producer: "producer@http://localhost:3001/remoteEntry.js",
   },
-  shared: ['react', 'react-dom'],
-}
+  shared: ["react", "react-dom", "@sentry/react"],
+};

@@ -11,3 +11,6 @@ dist/
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Sentry Config File
+.env.sentry-build-plugin
