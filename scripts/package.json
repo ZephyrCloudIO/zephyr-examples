@@ -1,0 +1,6 @@
+{
+  "name": "zephyr-examples-scripts",
+  "devDependencies": {
+    "@types/node": "^22.10.7"
+  }
+}

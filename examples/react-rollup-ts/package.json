@@ -21,7 +21,7 @@
     "react-dom": "^18.3.1",
     "rollup": "^4.27.4",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-zephyr": "^0.0.30",
+    "rollup-plugin-zephyr": "^0.0.31",
     "typescript": "^5.7.2"
   }
 }

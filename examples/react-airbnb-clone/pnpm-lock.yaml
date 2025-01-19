@@ -163,8 +163,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(webpack-cli@5.1.4)(webpack@5.96.1)
       zephyr-webpack-plugin:
-        specifier: 0.0.30
-        version: 0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))
+        specifier: 0.0.31
+        version: 0.0.31(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))
 
   apps/categories: {}
 
@@ -291,11 +291,6 @@ packages:
   '@babel/highlight@7.24.5':
     resolution: {integrity: sha512-8lLmua6AVh/8SLJRRVD6V8p73Hir9w5mJrhE+IPpILG31KKlI9iz5zmBYKcWPS59qSfgP9RaSBQSHHE81WKuEw==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.24.5':
-    resolution: {integrity: sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.26.2':
     resolution: {integrity: sha512-DWMCZH9WA4Maitz2q21SRKHo9QXZxkDsbNZoVD62gusNtNBBqDg9i7uOhASfTfIGNzW+O+r7+jAlM8dwphcJKQ==}
@@ -3221,10 +3216,6 @@ packages:
   sorted-array-functions@1.3.0:
     resolution: {integrity: sha512-2sqgzeFlid6N4Z2fUQ1cvFmTOLRi/sEDzSQ0OKYchqgoPmQBVyM3959qYx3fpS6Esef80KjmpgPeEr028dP3OA==}
 
-  source-map-js@1.2.0:
-    resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
-    engines: {node: '>=0.10.0'}
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -3731,17 +3722,17 @@ packages:
   youch@3.3.4:
     resolution: {integrity: sha512-UeVBXie8cA35DS6+nBkls68xaBBXCye0CNznrhszZjTbRVnJKQuNsyLKBTTL4ln1o1rh2PKtv35twV7irj5SEg==}
 
-  zephyr-agent@0.0.30:
-    resolution: {integrity: sha512-m2+2FtviTZlXwmT4UGHMMu1n2HUHEMyzlD8LJNQUeD9h2peki2P2tIipHVgGu2Agp9WnM1Dj1caB7YLU34zFBA==}
+  zephyr-agent@0.0.31:
+    resolution: {integrity: sha512-+1r6/+J8w4+uh5/zl8ueghNtywveU9hc7A77AGBTWMxNA7YKmOnk7hDFHtB9FmlK9D7QftzD9F0BEFFhM8p9zA==}
 
-  zephyr-edge-contract@0.0.30:
-    resolution: {integrity: sha512-GCA0s1sPhC7bNmv9ZRzGKoqqUAIa0TWEZ4un44UVUrieyUegNuuzOTXFqkOSiJXEM5Q9Pgo6MHT9sdbi39a1gQ==}
+  zephyr-edge-contract@0.0.31:
+    resolution: {integrity: sha512-eXSFXYmtfVCpZew4hldL0tHwRQbdCPPy9IDuOf6Kw2RUP2h9bGG1rwxuHLsOUlfg0kAVTlSG1rhUrqUey0FSTw==}
 
-  zephyr-webpack-plugin@0.0.30:
-    resolution: {integrity: sha512-/FY+RD12RmfWeh9bQr1rFyEJLuhQf1dvFZXe1Vke/RvQ7uC4g3/PVSSnT+jLvNM9L/jDehbGCLiwb5iNOhyJrg==}
+  zephyr-webpack-plugin@0.0.31:
+    resolution: {integrity: sha512-rhyiZnk0OkVE0RZFfKvs0vgda8w3XKwHLZVyLeWPB46nQW8XahggxIT/3McQKe2NvXIEX75o+2kTf9EYH+CqWQ==}
 
-  zephyr-xpack-internal@0.0.30:
-    resolution: {integrity: sha512-mNL43/bSILyww3iIO5mhIr/US/1R3Bt63VP5Yqj4qY5FMmAHf1JlaJOUA3G+Z6HbobNkJoVhaegNsm1oMHNzAA==}
+  zephyr-xpack-internal@0.0.31:
+    resolution: {integrity: sha512-H4xMGlMH8xkjTVlIF/BszCQ4e0REA8XI2cqHfy7qCam1VAzX0N0Lh2kr4SjVRlI39uW3v+brLdmjJwiOEXPtDw==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -3916,11 +3907,6 @@ snapshots:
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.0
-
-  '@babel/parser@7.24.5':
-    dependencies:
-      '@babel/types': 7.24.5
-    optional: true
 
   '@babel/parser@7.26.2':
     dependencies:
@@ -4643,11 +4629,11 @@ snapshots:
 
   '@vue/compiler-core@3.4.27':
     dependencies:
-      '@babel/parser': 7.24.5
+      '@babel/parser': 7.26.2
       '@vue/shared': 3.4.27
       entities: 4.5.0
       estree-walker: 2.0.2
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
     optional: true
 
   '@vue/compiler-dom@3.4.27':
@@ -7037,9 +7023,6 @@ snapshots:
 
   sorted-array-functions@1.3.0: {}
 
-  source-map-js@1.2.0:
-    optional: true
-
   source-map-js@1.2.1: {}
 
   source-map-support@0.5.21:
@@ -7601,7 +7584,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.30:
+  zephyr-agent@0.0.31:
     dependencies:
       cloudflare: 3.5.0
       debug: 4.3.4
@@ -7613,7 +7596,7 @@ snapshots:
       socket.io-client: 4.8.1
       tslib: 2.8.1
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.30
+      zephyr-edge-contract: 0.0.31
     optionalDependencies:
       wrangler: 3.90.0
     transitivePeerDependencies:
@@ -7623,19 +7606,19 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.30:
+  zephyr-edge-contract@0.0.31:
     dependencies:
       tslib: 2.8.1
 
-  zephyr-webpack-plugin@0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)):
+  zephyr-webpack-plugin@0.0.31(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
       is-ci: 3.0.1
       tslib: 2.8.1
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))
+      zephyr-agent: 0.0.31
+      zephyr-edge-contract: 0.0.31
+      zephyr-xpack-internal: 0.0.31(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
@@ -7647,14 +7630,14 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-xpack-internal@0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)):
+  zephyr-xpack-internal@0.0.31(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
       is-ci: 3.0.1
       tslib: 2.8.1
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
+      zephyr-agent: 0.0.31
+      zephyr-edge-contract: 0.0.31
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'

@@ -6,7 +6,17 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      vite-plugin-zephyr:
+        specifier: ^0.0.31
+        version: 0.0.31(@types/node@22.8.5)(terser@5.36.0)
+      zephyr-rspack-plugin:
+        specifier: 0.0.31
+        version: 0.0.31(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
+      zephyr-webpack-plugin:
+        specifier: ^0.0.31
+        version: 0.0.31(esbuild@0.17.19)
 
   host:
     dependencies:
@@ -53,9 +63,6 @@ importers:
       vite:
         specifier: ^5.4.5
         version: 5.4.10(@types/node@22.8.5)(terser@5.36.0)
-      vite-plugin-zephyr:
-        specifier: ^0.0.30
-        version: 0.0.30(@types/node@22.8.5)(terser@5.36.0)
 
   remote:
     dependencies:
@@ -102,9 +109,6 @@ importers:
       vite:
         specifier: ^5.4.1
         version: 5.4.10(@types/node@22.8.5)(terser@5.36.0)
-      vite-plugin-zephyr:
-        specifier: ^0.0.30
-        version: 0.0.30(@types/node@22.8.5)(terser@5.36.0)
 
   rspack:
     dependencies:
@@ -145,9 +149,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.11
         version: 3.4.14
-      zephyr-rspack-plugin:
-        specifier: 0.0.30
-        version: 0.0.30(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
 
   webpack:
     dependencies:
@@ -181,7 +182,7 @@ importers:
         version: 7.25.6
       '@module-federation/enhanced':
         specifier: 0.6.3
-        version: 0.6.3(typescript@4.9.5)(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 0.6.3(typescript@4.9.5)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       '@types/react':
         specifier: ^18.2.0
         version: 18.3.12
@@ -193,25 +194,25 @@ importers:
         version: 10.4.20(postcss@8.4.47)
       babel-loader:
         specifier: ^8.2.2
-        version: 8.4.1(@babel/core@7.26.0)(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 8.4.1(@babel/core@7.26.0)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       css-loader:
         specifier: ^6.3.0
-        version: 6.11.0(@rspack/core@1.1.3)(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 6.11.0(@rspack/core@1.1.3)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       dotenv-webpack:
         specifier: ^8.0.1
-        version: 8.1.0(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 8.1.0(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       html-webpack-plugin:
         specifier: ^5.3.2
-        version: 5.6.3(@rspack/core@1.1.3)(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 5.6.3(@rspack/core@1.1.3)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       postcss:
         specifier: ^8.2.1
         version: 8.4.47
       postcss-loader:
         specifier: ^4.1.0
-        version: 4.3.0(postcss@8.4.47)(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 4.3.0(postcss@8.4.47)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       style-loader:
         specifier: ^3.3.0
-        version: 3.3.4(webpack@5.95.0(webpack-cli@4.10.0))
+        version: 3.3.4(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.14
@@ -220,16 +221,13 @@ importers:
         version: 4.9.5
       webpack:
         specifier: ^5.57.1
-        version: 5.95.0(webpack-cli@4.10.0)
+        version: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
       webpack-cli:
         specifier: ^4.10.0
         version: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)
       webpack-dev-server:
         specifier: ^4.3.1
         version: 4.15.2(webpack-cli@4.10.0)(webpack@5.95.0)
-      zephyr-webpack-plugin:
-        specifier: ^0.0.30
-        version: 0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))
 
 packages:
 
@@ -4263,8 +4261,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-plugin-zephyr@0.0.30:
-    resolution: {integrity: sha512-Wypvxiu++DAWxVJbwdSpY81NuaYy4XDT3gpkjvnEQ8Q6ddYuQFyiQRiV87LZ1sXTF5j/XwaYemoqqi9h1/09uA==}
+  vite-plugin-zephyr@0.0.31:
+    resolution: {integrity: sha512-zcJqOul8DJGH0ROr59G0Oe8aNyars6SjTM27nXzj5q6EeCje3osZiIHsdKhUG06bkv0uflWM25AtR9H+yWrmeg==}
 
   vite@5.4.10:
     resolution: {integrity: sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==}
@@ -4560,20 +4558,20 @@ packages:
   youch@3.3.4:
     resolution: {integrity: sha512-UeVBXie8cA35DS6+nBkls68xaBBXCye0CNznrhszZjTbRVnJKQuNsyLKBTTL4ln1o1rh2PKtv35twV7irj5SEg==}
 
-  zephyr-agent@0.0.30:
-    resolution: {integrity: sha512-m2+2FtviTZlXwmT4UGHMMu1n2HUHEMyzlD8LJNQUeD9h2peki2P2tIipHVgGu2Agp9WnM1Dj1caB7YLU34zFBA==}
+  zephyr-agent@0.0.31:
+    resolution: {integrity: sha512-+1r6/+J8w4+uh5/zl8ueghNtywveU9hc7A77AGBTWMxNA7YKmOnk7hDFHtB9FmlK9D7QftzD9F0BEFFhM8p9zA==}
 
-  zephyr-edge-contract@0.0.30:
-    resolution: {integrity: sha512-GCA0s1sPhC7bNmv9ZRzGKoqqUAIa0TWEZ4un44UVUrieyUegNuuzOTXFqkOSiJXEM5Q9Pgo6MHT9sdbi39a1gQ==}
+  zephyr-edge-contract@0.0.31:
+    resolution: {integrity: sha512-eXSFXYmtfVCpZew4hldL0tHwRQbdCPPy9IDuOf6Kw2RUP2h9bGG1rwxuHLsOUlfg0kAVTlSG1rhUrqUey0FSTw==}
 
-  zephyr-rspack-plugin@0.0.30:
-    resolution: {integrity: sha512-4maZ9VE9n9mFWdV4LBSz7jxo1XCCMDxNQNcr4UuqFjqHayiBwDNJZXvyF1/0jwIzTar+YNGv038GeZK8ssu+LQ==}
+  zephyr-rspack-plugin@0.0.31:
+    resolution: {integrity: sha512-hkDW1A41xXy7UBsorGrvJGA931ggKWpYZb0rgqtcet1sE7ap71zH8ROOnxCn98zbxdCwrrKp5nVqJEMnbjkluw==}
 
-  zephyr-webpack-plugin@0.0.30:
-    resolution: {integrity: sha512-/FY+RD12RmfWeh9bQr1rFyEJLuhQf1dvFZXe1Vke/RvQ7uC4g3/PVSSnT+jLvNM9L/jDehbGCLiwb5iNOhyJrg==}
+  zephyr-webpack-plugin@0.0.31:
+    resolution: {integrity: sha512-rhyiZnk0OkVE0RZFfKvs0vgda8w3XKwHLZVyLeWPB46nQW8XahggxIT/3McQKe2NvXIEX75o+2kTf9EYH+CqWQ==}
 
-  zephyr-xpack-internal@0.0.30:
-    resolution: {integrity: sha512-mNL43/bSILyww3iIO5mhIr/US/1R3Bt63VP5Yqj4qY5FMmAHf1JlaJOUA3G+Z6HbobNkJoVhaegNsm1oMHNzAA==}
+  zephyr-xpack-internal@0.0.31:
+    resolution: {integrity: sha512-H4xMGlMH8xkjTVlIF/BszCQ4e0REA8XI2cqHfy7qCam1VAzX0N0Lh2kr4SjVRlI39uW3v+brLdmjJwiOEXPtDw==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -5637,11 +5635,6 @@ snapshots:
       find-package-json: 1.2.0
       webpack: 5.95.0(esbuild@0.17.19)
 
-  '@module-federation/automatic-vendor-federation@1.2.1(webpack@5.95.0(webpack-cli@4.10.0))':
-    dependencies:
-      find-package-json: 1.2.0
-      webpack: 5.95.0(webpack-cli@4.10.0)
-
   '@module-federation/bridge-react-webpack-plugin@0.6.3':
     dependencies:
       '@module-federation/sdk': 0.6.3
@@ -5672,7 +5665,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@module-federation/enhanced@0.6.3(typescript@4.9.5)(webpack@5.95.0(webpack-cli@4.10.0))':
+  '@module-federation/enhanced@0.6.3(typescript@4.9.5)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))':
     dependencies:
       '@module-federation/bridge-react-webpack-plugin': 0.6.3
       '@module-federation/dts-plugin': 0.6.3(typescript@4.9.5)
@@ -5685,7 +5678,7 @@ snapshots:
       upath: 2.0.1
     optionalDependencies:
       typescript: 4.9.5
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -6379,9 +6372,9 @@ snapshots:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))(webpack@5.95.0(webpack-cli@4.10.0))':
+  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))':
     dependencies:
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)
 
   '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))':
@@ -6511,14 +6504,14 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  babel-loader@8.4.1(@babel/core@7.26.0)(webpack@5.95.0(webpack-cli@4.10.0)):
+  babel-loader@8.4.1(@babel/core@7.26.0)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
       '@babel/core': 7.26.0
       find-cache-dir: 3.3.2
       loader-utils: 2.0.4
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   babel-plugin-polyfill-corejs2@0.4.11(@babel/core@7.26.0):
     dependencies:
@@ -6811,7 +6804,7 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  css-loader@6.11.0(@rspack/core@1.1.3)(webpack@5.95.0(webpack-cli@4.10.0)):
+  css-loader@6.11.0(@rspack/core@1.1.3)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.47)
       postcss: 8.4.47
@@ -6823,7 +6816,7 @@ snapshots:
       semver: 7.6.3
     optionalDependencies:
       '@rspack/core': 1.1.3
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   css-select@4.3.0:
     dependencies:
@@ -6935,10 +6928,10 @@ snapshots:
     dependencies:
       dotenv: 8.6.0
 
-  dotenv-webpack@8.1.0(webpack@5.95.0(webpack-cli@4.10.0)):
+  dotenv-webpack@8.1.0(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
       dotenv-defaults: 2.0.2
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   dotenv@8.6.0: {}
 
@@ -7482,7 +7475,7 @@ snapshots:
       relateurl: 0.2.7
       terser: 5.36.0
 
-  html-webpack-plugin@5.6.3(@rspack/core@1.1.3)(webpack@5.95.0(webpack-cli@4.10.0)):
+  html-webpack-plugin@5.6.3(@rspack/core@1.1.3)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -7491,7 +7484,7 @@ snapshots:
       tapable: 2.2.1
     optionalDependencies:
       '@rspack/core': 1.1.3
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   htmlparser2@6.1.0:
     dependencies:
@@ -8160,7 +8153,7 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.47
 
-  postcss-loader@4.3.0(postcss@8.4.47)(webpack@5.95.0(webpack-cli@4.10.0)):
+  postcss-loader@4.3.0(postcss@8.4.47)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
       cosmiconfig: 7.1.0
       klona: 2.0.6
@@ -8168,7 +8161,7 @@ snapshots:
       postcss: 8.4.47
       schema-utils: 3.3.0
       semver: 7.6.3
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   postcss-loader@8.1.1(@rspack/core@1.0.4)(postcss@8.4.47)(typescript@5.6.3)(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
@@ -8680,9 +8673,9 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  style-loader@3.3.4(webpack@5.95.0(webpack-cli@4.10.0)):
+  style-loader@3.3.4(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   sucrase@3.35.0:
     dependencies:
@@ -8733,6 +8726,17 @@ snapshots:
 
   tapable@2.2.1: {}
 
+  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.36.0
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
+    optionalDependencies:
+      esbuild: 0.17.19
+
   terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
@@ -8743,15 +8747,6 @@ snapshots:
       webpack: 5.95.0(esbuild@0.17.19)
     optionalDependencies:
       esbuild: 0.17.19
-
-  terser-webpack-plugin@5.3.10(webpack@5.95.0(webpack-cli@4.10.0)):
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.25
-      jest-worker: 27.5.1
-      schema-utils: 3.3.0
-      serialize-javascript: 6.0.2
-      terser: 5.36.0
-      webpack: 5.95.0(webpack-cli@4.10.0)
 
   terser@5.36.0:
     dependencies:
@@ -8910,7 +8905,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-zephyr@0.0.30(@types/node@22.8.5)(terser@5.36.0):
+  vite-plugin-zephyr@0.0.31(@types/node@22.8.5)(terser@5.36.0):
     dependencies:
       '@module-federation/runtime': 0.6.14
       '@module-federation/vite': 1.1.4(@types/node@22.8.5)(rollup@4.24.3)(terser@5.36.0)
@@ -8920,7 +8915,7 @@ snapshots:
       json5: 2.2.3
       rollup: 4.24.3
       vite: 5.4.10(@types/node@22.8.5)(terser@5.36.0)
-      zephyr-agent: 0.0.30
+      zephyr-agent: 0.0.31
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@edge-runtime/vm'
@@ -9020,7 +9015,7 @@ snapshots:
   webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))(webpack@5.95.0(webpack-cli@4.10.0))
+      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))
       '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))(webpack-dev-server@4.15.2(webpack-cli@4.10.0)(webpack@5.95.0))
       colorette: 2.0.20
@@ -9030,19 +9025,19 @@ snapshots:
       import-local: 3.2.0
       interpret: 2.2.0
       rechoir: 0.7.1
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
       webpack-merge: 5.10.0
     optionalDependencies:
       webpack-dev-server: 4.15.2(webpack-cli@4.10.0)(webpack@5.95.0)
 
-  webpack-dev-middleware@5.3.4(webpack@5.95.0(webpack-cli@4.10.0)):
+  webpack-dev-middleware@5.3.4(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)):
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
       mime-types: 2.1.35
       range-parser: 1.2.1
       schema-utils: 4.2.0
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
 
   webpack-dev-middleware@7.4.2(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
@@ -9085,10 +9080,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 5.3.4(webpack@5.95.0(webpack-cli@4.10.0))
+      webpack-dev-middleware: 5.3.4(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.95.0(webpack-cli@4.10.0)
+      webpack: 5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)
     transitivePeerDependencies:
       - bufferutil
@@ -9174,7 +9169,7 @@ snapshots:
       - esbuild
       - uglify-js
 
-  webpack@5.95.0(webpack-cli@4.10.0):
+  webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0):
     dependencies:
       '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
@@ -9196,7 +9191,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.95.0(webpack-cli@4.10.0))
+      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)(webpack-cli@4.10.0))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
@@ -9330,7 +9325,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.30:
+  zephyr-agent@0.0.31:
     dependencies:
       cloudflare: 3.5.0
       debug: 4.3.7
@@ -9342,7 +9337,7 @@ snapshots:
       socket.io-client: 4.8.1
       tslib: 2.8.0
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.30
+      zephyr-edge-contract: 0.0.31
     optionalDependencies:
       wrangler: 3.84.0
     transitivePeerDependencies:
@@ -9352,19 +9347,19 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.30:
+  zephyr-edge-contract@0.0.31:
     dependencies:
       tslib: 2.8.0
 
-  zephyr-rspack-plugin@0.0.30(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
+  zephyr-rspack-plugin@0.0.31(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
       '@rspack/core': 1.1.3
       is-ci: 3.0.1
       tslib: 2.8.0
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(esbuild@0.17.19)
+      zephyr-agent: 0.0.31
+      zephyr-edge-contract: 0.0.31
+      zephyr-xpack-internal: 0.0.31(esbuild@0.17.19)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
@@ -9378,34 +9373,15 @@ snapshots:
       - webpack
       - webpack-cli
 
-  zephyr-webpack-plugin@0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)):
-    dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(webpack-cli@4.10.0))
-      is-ci: 3.0.1
-      tslib: 2.8.0
-      webpack: 5.95.0(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@swc/core'
-      - bufferutil
-      - encoding
-      - esbuild
-      - supports-color
-      - uglify-js
-      - utf-8-validate
-      - webpack-cli
-
-  zephyr-xpack-internal@0.0.30(esbuild@0.17.19):
+  zephyr-webpack-plugin@0.0.31(esbuild@0.17.19):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
       is-ci: 3.0.1
       tslib: 2.8.0
       webpack: 5.95.0(esbuild@0.17.19)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
+      zephyr-agent: 0.0.31
+      zephyr-edge-contract: 0.0.31
+      zephyr-xpack-internal: 0.0.31(esbuild@0.17.19)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
@@ -9417,14 +9393,14 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-xpack-internal@0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)):
+  zephyr-xpack-internal@0.0.31(esbuild@0.17.19):
     dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(webpack-cli@4.10.0))
+      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
       is-ci: 3.0.1
       tslib: 2.8.0
-      webpack: 5.95.0(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
+      webpack: 5.95.0(esbuild@0.17.19)
+      zephyr-agent: 0.0.31
+      zephyr-edge-contract: 0.0.31
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'

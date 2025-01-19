@@ -49,13 +49,13 @@
     "react-refresh": "~0.14.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "~5.5.2"
+    "typescript": "~5.5.2",
+    "zephyr-rspack-plugin": "^0.0.31"
   },
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.11.2",
-    "tslib": "^2.3.0",
-    "zephyr-rspack-plugin": "^0.0.30"
+    "tslib": "^2.3.0"
   }
 }

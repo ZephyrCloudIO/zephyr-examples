@@ -6,6 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "vite-plugin-zephyr": "^0.0.31",
+    "zephyr-rspack-plugin": "0.0.31",
+    "zephyr-webpack-plugin": "^0.0.31"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
