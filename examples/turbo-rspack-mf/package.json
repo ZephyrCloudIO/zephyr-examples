@@ -13,7 +13,7 @@
     "cross-env": "^7.0.3",
     "turbo": "^2.3.1",
     "typescript": "5.5.4",
-    "zephyr-rspack-plugin": "0.0.0-canary-20250203201037"
+    "zephyr-rspack-plugin": "0.0.0-canary-20250203225642"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {
