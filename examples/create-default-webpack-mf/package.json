@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0",
-    "zephyr-webpack-plugin": "^0.0.0-canary-20250122193404"
+    "zephyr-webpack-plugin": "^0.0.0-canary-20250203201037"
   }
 }

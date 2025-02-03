@@ -25,6 +25,6 @@
     "typescript": "^5.5.4",
     "vite": "^5.4.3",
     "vite-plugin-inspect": "^0.8.7",
-    "vite-plugin-zephyr": "^0.0.0-canary-20250122193404"
+    "vite-plugin-zephyr": "^0.0.0-canary-20250203201037"
   }
 }

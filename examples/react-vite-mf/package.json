@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm -r build"
   },
   "devDependencies": {
-    "vite-plugin-zephyr": "0.0.0-canary-20250122193404",
-    "zephyr-rspack-plugin": "0.0.0-canary-20250122193404",
-    "zephyr-webpack-plugin": "0.0.0-canary-20250122193404"
+    "vite-plugin-zephyr": "0.0.0-canary-20250203201037",
+    "zephyr-rspack-plugin": "0.0.0-canary-20250203201037",
+    "zephyr-webpack-plugin": "0.0.0-canary-20250203201037"
   },
   "keywords": [],
   "author": "",

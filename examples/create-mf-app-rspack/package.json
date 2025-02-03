@@ -25,7 +25,7 @@
     "postcss-loader": "8.1.1",
     "react-refresh": "0.14.2",
     "style-loader": "^4.0.0",
-    "zephyr-rspack-plugin": "^0.0.0-canary-20250122193404"
+    "zephyr-rspack-plugin": "^0.0.0-canary-20250203201037"
   },
   "dependencies": {
     "react": "18.3.1",
