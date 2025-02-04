@@ -1,8 +1,13 @@
 # Scripts to help validate Canary and Next tag builds
 
+Install Deps
+```bash
+cd scripts && pnpm i
+```
+
 Upgrade all plugins
 ```bash
-pnpm upgrade-plugins v0.0.50
+pnpm upgrade-plugins {version here}
 ```
 
 Build all projects
