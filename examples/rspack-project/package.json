@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "zephyr-rspack-plugin": "^0.0.30"
+    "zephyr-rspack-plugin": "latest"
   },
   "devDependencies": {
     "@rspack/cli": "1.1.4",

@@ -54,8 +54,8 @@ importers:
         specifier: ^5.4.5
         version: 5.4.10(@types/node@22.8.5)(terser@5.36.0)
       vite-plugin-zephyr:
-        specifier: ^0.0.30
-        version: 0.0.30(@types/node@22.8.5)(terser@5.36.0)
+        specifier: latest
+        version: 0.0.34(@types/node@22.8.5)(terser@5.36.0)
 
   remote:
     dependencies:
@@ -103,8 +103,8 @@ importers:
         specifier: ^5.4.1
         version: 5.4.10(@types/node@22.8.5)(terser@5.36.0)
       vite-plugin-zephyr:
-        specifier: ^0.0.30
-        version: 0.0.30(@types/node@22.8.5)(terser@5.36.0)
+        specifier: latest
+        version: 0.0.34(@types/node@22.8.5)(terser@5.36.0)
 
   rspack:
     dependencies:
@@ -117,7 +117,7 @@ importers:
     devDependencies:
       '@rspack/cli':
         specifier: 1.0.4
-        version: 1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0(esbuild@0.17.19))
+        version: 1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0)
       '@rspack/core':
         specifier: 1.0.4
         version: 1.0.4
@@ -138,7 +138,7 @@ importers:
         version: 8.4.47
       postcss-loader:
         specifier: ^8.0.0
-        version: 8.1.1(@rspack/core@1.0.4)(postcss@8.4.47)(typescript@5.6.3)(webpack@5.95.0(esbuild@0.17.19))
+        version: 8.1.1(@rspack/core@1.0.4)(postcss@8.4.47)(typescript@5.6.3)(webpack@5.95.0)
       react-refresh:
         specifier: ^0.14.0
         version: 0.14.2
@@ -146,8 +146,8 @@ importers:
         specifier: ^3.4.11
         version: 3.4.14
       zephyr-rspack-plugin:
-        specifier: 0.0.30
-        version: 0.0.30(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
+        specifier: latest
+        version: 0.0.34(webpack@5.95.0)
 
   webpack:
     dependencies:
@@ -228,8 +228,8 @@ importers:
         specifier: ^4.3.1
         version: 4.15.2(webpack-cli@4.10.0)(webpack@5.95.0)
       zephyr-webpack-plugin:
-        specifier: ^0.0.30
-        version: 0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))
+        specifier: latest
+        version: 0.0.34(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))
 
 packages:
 
@@ -1243,7 +1243,7 @@ packages:
   '@module-federation/automatic-vendor-federation@1.2.1':
     resolution: {integrity: sha512-73wxkXM7pbRZ6GGM90JP5IPTPvY3fvrhQyTVdMCUx85cQRWqnbzbibcsz3pkOMOeXyYAO4tXXsG13yNaEEGhJA==}
     peerDependencies:
-      webpack: ^5.0.0-beta.16
+      webpack: '>=5.94.0'
 
   '@module-federation/bridge-react-webpack-plugin@0.6.3':
     resolution: {integrity: sha512-bGqsPNMFHfGNqyVcdKIypnlmbNrJRHFADKYU3puBeyO+D8IIRoQY+GFtFMRDXakqUzQPioXhh5G1sH8GMacUig==}
@@ -4263,8 +4263,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-plugin-zephyr@0.0.30:
-    resolution: {integrity: sha512-Wypvxiu++DAWxVJbwdSpY81NuaYy4XDT3gpkjvnEQ8Q6ddYuQFyiQRiV87LZ1sXTF5j/XwaYemoqqi9h1/09uA==}
+  vite-plugin-zephyr@0.0.34:
+    resolution: {integrity: sha512-S6HEjnfXM8lmwdg0hvVZlUtElsgAujcn5e6PE/XdqABPszSwhvH14QZVzPaBRb+O44dVzR7bB1cZ3v0BlIzbAA==}
 
   vite@5.4.10:
     resolution: {integrity: sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==}
@@ -4560,20 +4560,20 @@ packages:
   youch@3.3.4:
     resolution: {integrity: sha512-UeVBXie8cA35DS6+nBkls68xaBBXCye0CNznrhszZjTbRVnJKQuNsyLKBTTL4ln1o1rh2PKtv35twV7irj5SEg==}
 
-  zephyr-agent@0.0.30:
-    resolution: {integrity: sha512-m2+2FtviTZlXwmT4UGHMMu1n2HUHEMyzlD8LJNQUeD9h2peki2P2tIipHVgGu2Agp9WnM1Dj1caB7YLU34zFBA==}
+  zephyr-agent@0.0.34:
+    resolution: {integrity: sha512-q5cq7RCvQY4cmbee+GC3rSPV4NYD3CY/rwsWgAkgHAsS0SaOHXQ9Ns2V/6QV+n0WN9p1rBBQGxWGlSkHxlptNA==}
 
-  zephyr-edge-contract@0.0.30:
-    resolution: {integrity: sha512-GCA0s1sPhC7bNmv9ZRzGKoqqUAIa0TWEZ4un44UVUrieyUegNuuzOTXFqkOSiJXEM5Q9Pgo6MHT9sdbi39a1gQ==}
+  zephyr-edge-contract@0.0.34:
+    resolution: {integrity: sha512-x4t+ghhbMii3a/pCFApDLUNJ/iA59tRKExcgVgbhXCUUAlLOMCwLxlZbfOJdASBy098dJT8GnaqzTzqqqY2oEA==}
 
-  zephyr-rspack-plugin@0.0.30:
-    resolution: {integrity: sha512-4maZ9VE9n9mFWdV4LBSz7jxo1XCCMDxNQNcr4UuqFjqHayiBwDNJZXvyF1/0jwIzTar+YNGv038GeZK8ssu+LQ==}
+  zephyr-rspack-plugin@0.0.34:
+    resolution: {integrity: sha512-bh6fbDgVuqZzl27O2xZq7Z1CtVCCTGvaBPqED9KOn0DXcZUq6Q9aynqI64wEYRQ0s+66aK2ewlA4l7O3UJeg5A==}
 
-  zephyr-webpack-plugin@0.0.30:
-    resolution: {integrity: sha512-/FY+RD12RmfWeh9bQr1rFyEJLuhQf1dvFZXe1Vke/RvQ7uC4g3/PVSSnT+jLvNM9L/jDehbGCLiwb5iNOhyJrg==}
+  zephyr-webpack-plugin@0.0.34:
+    resolution: {integrity: sha512-EdW5CNknTeCkK6Rqa51nYN34wzW2FMW5kH7zpnl0m5HYj1pMYeZrlm+c20ljkJ09TAPjFuuMJ0H/ACV9vMzJsg==}
 
-  zephyr-xpack-internal@0.0.30:
-    resolution: {integrity: sha512-mNL43/bSILyww3iIO5mhIr/US/1R3Bt63VP5Yqj4qY5FMmAHf1JlaJOUA3G+Z6HbobNkJoVhaegNsm1oMHNzAA==}
+  zephyr-xpack-internal@0.0.34:
+    resolution: {integrity: sha512-vDOIY0tttUy5xJjdeyZqHNCcq3N59Dq/Ky61xaNX/NmKZkZc2qfdGgTwFFA38CxyNnNjd8wYQAGQ/uLIO6jEsA==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -5632,15 +5632,15 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
-  '@module-federation/automatic-vendor-federation@1.2.1(webpack@5.95.0(esbuild@0.17.19))':
-    dependencies:
-      find-package-json: 1.2.0
-      webpack: 5.95.0(esbuild@0.17.19)
-
   '@module-federation/automatic-vendor-federation@1.2.1(webpack@5.95.0(webpack-cli@4.10.0))':
     dependencies:
       find-package-json: 1.2.0
       webpack: 5.95.0(webpack-cli@4.10.0)
+
+  '@module-federation/automatic-vendor-federation@1.2.1(webpack@5.95.0)':
+    dependencies:
+      find-package-json: 1.2.0
+      webpack: 5.95.0
 
   '@module-federation/bridge-react-webpack-plugin@0.6.3':
     dependencies:
@@ -5965,11 +5965,11 @@ snapshots:
       '@rspack/binding-win32-ia32-msvc': 1.1.3
       '@rspack/binding-win32-x64-msvc': 1.1.3
 
-  '@rspack/cli@1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0(esbuild@0.17.19))':
+  '@rspack/cli@1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0)':
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
       '@rspack/core': 1.0.4
-      '@rspack/dev-server': 1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0(esbuild@0.17.19))
+      '@rspack/dev-server': 1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0)
       colorette: 2.0.19
       exit-hook: 3.2.0
       interpret: 3.1.1
@@ -6000,7 +6000,7 @@ snapshots:
       '@rspack/lite-tapable': 1.0.1
       caniuse-lite: 1.0.30001676
 
-  '@rspack/dev-server@1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0(esbuild@0.17.19))':
+  '@rspack/dev-server@1.0.4(@rspack/core@1.0.4)(@types/express@4.17.21)(webpack@5.95.0)':
     dependencies:
       '@rspack/core': 1.0.4
       chokidar: 3.6.0
@@ -6009,8 +6009,8 @@ snapshots:
       http-proxy-middleware: 2.0.7(@types/express@4.17.21)
       mime-types: 2.1.35
       p-retry: 4.6.2
-      webpack-dev-middleware: 7.4.2(webpack@5.95.0(esbuild@0.17.19))
-      webpack-dev-server: 5.0.4(webpack@5.95.0(esbuild@0.17.19))
+      webpack-dev-middleware: 7.4.2(webpack@5.95.0)
+      webpack-dev-server: 5.0.4(webpack@5.95.0)
       ws: 8.18.0
     transitivePeerDependencies:
       - '@types/express'
@@ -8170,7 +8170,7 @@ snapshots:
       semver: 7.6.3
       webpack: 5.95.0(webpack-cli@4.10.0)
 
-  postcss-loader@8.1.1(@rspack/core@1.0.4)(postcss@8.4.47)(typescript@5.6.3)(webpack@5.95.0(esbuild@0.17.19)):
+  postcss-loader@8.1.1(@rspack/core@1.0.4)(postcss@8.4.47)(typescript@5.6.3)(webpack@5.95.0):
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.6.3)
       jiti: 1.21.6
@@ -8178,7 +8178,7 @@ snapshots:
       semver: 7.6.3
     optionalDependencies:
       '@rspack/core': 1.0.4
-      webpack: 5.95.0(esbuild@0.17.19)
+      webpack: 5.95.0
     transitivePeerDependencies:
       - typescript
 
@@ -8733,17 +8733,6 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.25
-      jest-worker: 27.5.1
-      schema-utils: 3.3.0
-      serialize-javascript: 6.0.2
-      terser: 5.36.0
-      webpack: 5.95.0(esbuild@0.17.19)
-    optionalDependencies:
-      esbuild: 0.17.19
-
   terser-webpack-plugin@5.3.10(webpack@5.95.0(webpack-cli@4.10.0)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
@@ -8752,6 +8741,15 @@ snapshots:
       serialize-javascript: 6.0.2
       terser: 5.36.0
       webpack: 5.95.0(webpack-cli@4.10.0)
+
+  terser-webpack-plugin@5.3.10(webpack@5.95.0):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.36.0
+      webpack: 5.95.0
 
   terser@5.36.0:
     dependencies:
@@ -8910,7 +8908,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-zephyr@0.0.30(@types/node@22.8.5)(terser@5.36.0):
+  vite-plugin-zephyr@0.0.34(@types/node@22.8.5)(terser@5.36.0):
     dependencies:
       '@module-federation/runtime': 0.6.14
       '@module-federation/vite': 1.1.4(@types/node@22.8.5)(rollup@4.24.3)(terser@5.36.0)
@@ -8920,7 +8918,7 @@ snapshots:
       json5: 2.2.3
       rollup: 4.24.3
       vite: 5.4.10(@types/node@22.8.5)(terser@5.36.0)
-      zephyr-agent: 0.0.30
+      zephyr-agent: 0.0.34
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@edge-runtime/vm'
@@ -9044,7 +9042,7 @@ snapshots:
       schema-utils: 4.2.0
       webpack: 5.95.0(webpack-cli@4.10.0)
 
-  webpack-dev-middleware@7.4.2(webpack@5.95.0(esbuild@0.17.19)):
+  webpack-dev-middleware@7.4.2(webpack@5.95.0):
     dependencies:
       colorette: 2.0.19
       memfs: 4.14.0
@@ -9053,7 +9051,7 @@ snapshots:
       range-parser: 1.2.1
       schema-utils: 4.2.0
     optionalDependencies:
-      webpack: 5.95.0(esbuild@0.17.19)
+      webpack: 5.95.0
 
   webpack-dev-server@4.15.2(webpack-cli@4.10.0)(webpack@5.95.0):
     dependencies:
@@ -9096,7 +9094,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  webpack-dev-server@5.0.4(webpack@5.95.0(esbuild@0.17.19)):
+  webpack-dev-server@5.0.4(webpack@5.95.0):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -9126,10 +9124,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.95.0(esbuild@0.17.19))
+      webpack-dev-middleware: 7.4.2(webpack@5.95.0)
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.95.0(esbuild@0.17.19)
+      webpack: 5.95.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -9144,7 +9142,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.95.0(esbuild@0.17.19):
+  webpack@5.95.0:
     dependencies:
       '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
@@ -9166,7 +9164,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
+      terser-webpack-plugin: 5.3.10(webpack@5.95.0)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -9330,7 +9328,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.30:
+  zephyr-agent@0.0.34:
     dependencies:
       cloudflare: 3.5.0
       debug: 4.3.7
@@ -9342,7 +9340,7 @@ snapshots:
       socket.io-client: 4.8.1
       tslib: 2.8.0
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.30
+      zephyr-edge-contract: 0.0.34
     optionalDependencies:
       wrangler: 3.84.0
     transitivePeerDependencies:
@@ -9352,41 +9350,35 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.30:
+  zephyr-edge-contract@0.0.34:
     dependencies:
       tslib: 2.8.0
 
-  zephyr-rspack-plugin@0.0.30(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
+  zephyr-rspack-plugin@0.0.34(webpack@5.95.0):
     dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
+      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0)
       '@rspack/core': 1.1.3
       is-ci: 3.0.1
       tslib: 2.8.0
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(esbuild@0.17.19)
+      zephyr-agent: 0.0.34
+      zephyr-xpack-internal: 0.0.34(webpack@5.95.0)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
-      - '@swc/core'
       - '@swc/helpers'
       - bufferutil
       - encoding
-      - esbuild
       - supports-color
-      - uglify-js
       - utf-8-validate
       - webpack
-      - webpack-cli
 
-  zephyr-webpack-plugin@0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)):
+  zephyr-webpack-plugin@0.0.34(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(webpack-cli@4.10.0))
       is-ci: 3.0.1
       tslib: 2.8.0
       webpack: 5.95.0(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0))
+      zephyr-agent: 0.0.34
+      zephyr-xpack-internal: 0.0.34(webpack@5.95.0(webpack-cli@4.10.0))
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
@@ -9398,43 +9390,35 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-xpack-internal@0.0.30(esbuild@0.17.19):
-    dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
-      is-ci: 3.0.1
-      tslib: 2.8.0
-      webpack: 5.95.0(esbuild@0.17.19)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@swc/core'
-      - bufferutil
-      - encoding
-      - esbuild
-      - supports-color
-      - uglify-js
-      - utf-8-validate
-      - webpack-cli
-
-  zephyr-xpack-internal@0.0.30(webpack-cli@4.10.0(webpack-dev-server@4.15.2)(webpack@5.95.0)):
+  zephyr-xpack-internal@0.0.34(webpack@5.95.0(webpack-cli@4.10.0)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(webpack-cli@4.10.0))
       is-ci: 3.0.1
       tslib: 2.8.0
-      webpack: 5.95.0(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
+      zephyr-agent: 0.0.34
+      zephyr-edge-contract: 0.0.34
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
-      - '@swc/core'
       - bufferutil
       - encoding
-      - esbuild
       - supports-color
-      - uglify-js
       - utf-8-validate
-      - webpack-cli
+      - webpack
+
+  zephyr-xpack-internal@0.0.34(webpack@5.95.0):
+    dependencies:
+      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0)
+      is-ci: 3.0.1
+      tslib: 2.8.0
+      zephyr-agent: 0.0.34
+      zephyr-edge-contract: 0.0.34
+    transitivePeerDependencies:
+      - '@cloudflare/workers-types'
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
+      - webpack
 
   zod@3.23.8:
     optional: true

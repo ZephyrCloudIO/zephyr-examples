@@ -58,8 +58,8 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
       zephyr-rspack-plugin:
-        specifier: 0.0.30
-        version: 0.0.30(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
+        specifier: latest
+        version: 0.0.34(webpack@5.95.0(esbuild@0.17.19))
 
   apps/app: {}
 
@@ -315,7 +315,7 @@ packages:
   '@module-federation/automatic-vendor-federation@1.2.1':
     resolution: {integrity: sha512-73wxkXM7pbRZ6GGM90JP5IPTPvY3fvrhQyTVdMCUx85cQRWqnbzbibcsz3pkOMOeXyYAO4tXXsG13yNaEEGhJA==}
     peerDependencies:
-      webpack: ^5.0.0-beta.16
+      webpack: '>=5.94.0'
 
   '@module-federation/bridge-react-webpack-plugin@0.7.6':
     resolution: {integrity: sha512-eD1JZDQ+h5WLdA58MmAE1DzLwvFaGJeeam3Tswc/sEUb4QGT86X4Fme+dMTBRYRoAq/tRYql3DlVTFhdmrUVzg==}
@@ -546,9 +546,6 @@ packages:
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
-
-  '@types/qs@6.9.16':
-    resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
 
   '@types/qs@6.9.17':
     resolution: {integrity: sha512-rX4/bPcfmvxHDv0XjfJELTTr+iB+tn032nPILqHm5wbthUUUuVtNGGqzhya9XUxjTP8Fpr0qYgSZZKxGY++svQ==}
@@ -797,9 +794,6 @@ packages:
   call-bind@1.0.7:
     resolution: {integrity: sha512-GHTSNSYICQ7scH7sZ+M2rFopRoLh8t2bLSW6BbgrtLsahOIB5iyAVJf9GjWK3cYTDaMj4XdBpM1cA6pIS0Kv2w==}
     engines: {node: '>= 0.4'}
-
-  caniuse-lite@1.0.30001673:
-    resolution: {integrity: sha512-WTrjUCSMp3LYX0nE12ECkV0a+e6LC85E0Auz75555/qr78Oc8YWhEPNfDd6SHdtlCMSzqtuXY0uyEMNRcsKpKw==}
 
   caniuse-lite@1.0.30001683:
     resolution: {integrity: sha512-iqmNnThZ0n70mNwvxpEC2nBJ037ZHZUoBI5Gorh1Mw6IlEAZujEoU1tXA628iZfzm7R9FvFzxbfdgml82a3k8Q==}
@@ -2087,9 +2081,6 @@ packages:
     peerDependencies:
       tslib: '2'
 
-  tslib@2.8.0:
-    resolution: {integrity: sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA==}
-
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -2326,17 +2317,17 @@ packages:
   youch@3.3.4:
     resolution: {integrity: sha512-UeVBXie8cA35DS6+nBkls68xaBBXCye0CNznrhszZjTbRVnJKQuNsyLKBTTL4ln1o1rh2PKtv35twV7irj5SEg==}
 
-  zephyr-agent@0.0.30:
-    resolution: {integrity: sha512-m2+2FtviTZlXwmT4UGHMMu1n2HUHEMyzlD8LJNQUeD9h2peki2P2tIipHVgGu2Agp9WnM1Dj1caB7YLU34zFBA==}
+  zephyr-agent@0.0.34:
+    resolution: {integrity: sha512-q5cq7RCvQY4cmbee+GC3rSPV4NYD3CY/rwsWgAkgHAsS0SaOHXQ9Ns2V/6QV+n0WN9p1rBBQGxWGlSkHxlptNA==}
 
-  zephyr-edge-contract@0.0.30:
-    resolution: {integrity: sha512-GCA0s1sPhC7bNmv9ZRzGKoqqUAIa0TWEZ4un44UVUrieyUegNuuzOTXFqkOSiJXEM5Q9Pgo6MHT9sdbi39a1gQ==}
+  zephyr-edge-contract@0.0.34:
+    resolution: {integrity: sha512-x4t+ghhbMii3a/pCFApDLUNJ/iA59tRKExcgVgbhXCUUAlLOMCwLxlZbfOJdASBy098dJT8GnaqzTzqqqY2oEA==}
 
-  zephyr-rspack-plugin@0.0.30:
-    resolution: {integrity: sha512-4maZ9VE9n9mFWdV4LBSz7jxo1XCCMDxNQNcr4UuqFjqHayiBwDNJZXvyF1/0jwIzTar+YNGv038GeZK8ssu+LQ==}
+  zephyr-rspack-plugin@0.0.34:
+    resolution: {integrity: sha512-bh6fbDgVuqZzl27O2xZq7Z1CtVCCTGvaBPqED9KOn0DXcZUq6Q9aynqI64wEYRQ0s+66aK2ewlA4l7O3UJeg5A==}
 
-  zephyr-xpack-internal@0.0.30:
-    resolution: {integrity: sha512-mNL43/bSILyww3iIO5mhIr/US/1R3Bt63VP5Yqj4qY5FMmAHf1JlaJOUA3G+Z6HbobNkJoVhaegNsm1oMHNzAA==}
+  zephyr-xpack-internal@0.0.34:
+    resolution: {integrity: sha512-vDOIY0tttUy5xJjdeyZqHNCcq3N59Dq/Ky61xaNX/NmKZkZc2qfdGgTwFFA38CxyNnNjd8wYQAGQ/uLIO6jEsA==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -2839,8 +2830,6 @@ snapshots:
 
   '@types/prop-types@15.7.13': {}
 
-  '@types/qs@6.9.16': {}
-
   '@types/qs@6.9.17': {}
 
   '@types/range-parser@1.2.7': {}
@@ -3105,7 +3094,7 @@ snapshots:
 
   browserslist@4.24.2:
     dependencies:
-      caniuse-lite: 1.0.30001673
+      caniuse-lite: 1.0.30001683
       electron-to-chromium: 1.5.48
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
@@ -3133,8 +3122,6 @@ snapshots:
       get-intrinsic: 1.2.4
       set-function-length: 1.2.2
 
-  caniuse-lite@1.0.30001673: {}
-
   caniuse-lite@1.0.30001683: {}
 
   canvas-confetti@1.9.3: {}
@@ -3142,7 +3129,7 @@ snapshots:
   capnp-ts@0.7.0:
     dependencies:
       debug: 4.3.7
-      tslib: 2.8.0
+      tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -3183,7 +3170,7 @@ snapshots:
     dependencies:
       '@types/node': 18.19.64
       '@types/node-fetch': 2.6.11
-      '@types/qs': 6.9.16
+      '@types/qs': 6.9.17
       abort-controller: 3.0.0
       agentkeepalive: 4.5.0
       form-data-encoder: 1.7.2
@@ -4489,8 +4476,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  tslib@2.8.0: {}
-
   tslib@2.8.1: {}
 
   tsscmp@1.0.6: {}
@@ -4766,7 +4751,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.30:
+  zephyr-agent@0.0.34:
     dependencies:
       cloudflare: 3.5.0
       debug: 4.3.7
@@ -4776,9 +4761,9 @@ snapshots:
       node-persist: 4.0.3
       open: 10.1.0
       socket.io-client: 4.8.1
-      tslib: 2.8.0
+      tslib: 2.8.1
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.30
+      zephyr-edge-contract: 0.0.34
     optionalDependencies:
       wrangler: 3.83.0
     transitivePeerDependencies:
@@ -4788,50 +4773,41 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.30:
+  zephyr-edge-contract@0.0.34:
     dependencies:
-      tslib: 2.8.0
+      tslib: 2.8.1
 
-  zephyr-rspack-plugin@0.0.30(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
+  zephyr-rspack-plugin@0.0.34(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
       '@rspack/core': 1.1.3
       is-ci: 3.0.1
-      tslib: 2.8.0
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(esbuild@0.17.19)
+      tslib: 2.8.1
+      zephyr-agent: 0.0.34
+      zephyr-xpack-internal: 0.0.34(webpack@5.95.0(esbuild@0.17.19))
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
-      - '@swc/core'
       - '@swc/helpers'
       - bufferutil
       - encoding
-      - esbuild
       - supports-color
-      - uglify-js
       - utf-8-validate
       - webpack
-      - webpack-cli
 
-  zephyr-xpack-internal@0.0.30(esbuild@0.17.19):
+  zephyr-xpack-internal@0.0.34(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.95.0(esbuild@0.17.19))
       is-ci: 3.0.1
-      tslib: 2.8.0
-      webpack: 5.95.0(esbuild@0.17.19)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
+      tslib: 2.8.1
+      zephyr-agent: 0.0.34
+      zephyr-edge-contract: 0.0.34
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
-      - '@swc/core'
       - bufferutil
       - encoding
-      - esbuild
       - supports-color
-      - uglify-js
       - utf-8-validate
-      - webpack-cli
+      - webpack
 
   zod@3.23.8:
     optional: true

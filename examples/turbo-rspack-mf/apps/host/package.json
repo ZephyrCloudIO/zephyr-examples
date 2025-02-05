@@ -20,7 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router": "^7.0.1",
     "tailwindcss": "^3.4.1",
-    "zephyr-rspack-plugin": "0.0.30"
+    "zephyr-rspack-plugin": "latest"
   },
   "devDependencies": {
     "@rspack/cli": "^1.1.3",
