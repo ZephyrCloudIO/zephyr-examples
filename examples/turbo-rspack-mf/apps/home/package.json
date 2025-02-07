@@ -12,7 +12,7 @@
     "@repo/tailwind-config": "workspace:^",
     "@repo/typescript-config": "workspace:^",
     "autoprefixer": "^10.4.20",
-    "lucide-react": "^0.460.0",
+    "lucide-react": "^0.471.1",
     "postcss": "^8.4.49",
     "postcss-loader": "^8.1.1",
     "react": "^18.2.0",
