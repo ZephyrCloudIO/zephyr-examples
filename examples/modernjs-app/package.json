@@ -15,20 +15,20 @@
     "node": ">=16.18.1"
   },
   "dependencies": {
-    "@modern-js/runtime": "2.64.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@modern-js/runtime": "2.64.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@modern-js/app-tools": "2.64.1",
-    "@modern-js/tsconfig": "2.64.1",
+    "@modern-js/app-tools": "2.65.0",
+    "@modern-js/tsconfig": "2.65.0",
     "@biomejs/biome": "1.9.4",
     "typescript": "~5.7.3",
     "@types/jest": "~29.2.4",
     "@types/node": "~18.11.9",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "~18.3.1",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "~19.0.4",
     "rimraf": "^6.0.1",
-    "zephyr-modernjs-plugin": "canary"
+    "zephyr-modernjs-plugin": "0.0.35"
   }
 }
