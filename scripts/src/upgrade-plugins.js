@@ -5,11 +5,20 @@ const {
   green,
   blue,
   red,
-  yellow,
   getLogWriteStream,
   getDateString,
   orange,
 } = require("./utils");
+
+const pluginNames = [
+  "rollup-plugin-zephyr",
+  "vite-plugin-zephyr",
+  "zephyr-modernjs-plugin",
+  "zephyr-repack-plugin",
+  "zephyr-rolldown-plugin",
+  "zephyr-rspack-plugin",
+  "zephyr-webpack-plugin",
+];
 
 const upgradePlugins = async () => {
   const cmdEx = "'pnpm upgrade-plugins 0.0.1'";
@@ -21,7 +30,7 @@ const upgradePlugins = async () => {
   }
 
   if (!version) {
-    console.log(`\n${red('No version was provided.')} i.e.: ${cmdEx}\n`);
+    console.log(`\n${red("No version was provided.")} i.e.: ${cmdEx}\n`);
     process.exit(1);
   }
 
@@ -46,10 +55,21 @@ const upgradePlugins = async () => {
           return fails.push({ example, result: "No package.json found." });
         }
 
-        const plugins = getInstalledPlugins(packagePath);
+        const entries = getInstalledPlugins(packagePath);
+
+        if (!entries.length) {
+          return fails.push({ example, result: "No plugin installed." });
+        }
+
+        const plugins = entries
+          .filter(([_, depVersion]) => depVersion === version)
+          .map(([name]) => name);
 
         if (!plugins.length) {
-          return fails.push({ example, result: "No plugin installed." });
+          return success.push({
+            example,
+            result: `${plugins.join(", ")} already in version ${version}`,
+          });
         }
 
         const isPnpmWs = existsSync(join(folderPath, "pnpm-workspace.yaml"));
@@ -98,23 +118,11 @@ const upgradePlugins = async () => {
   console.log(`\nCheck all installation logs under: '${logFolder}'`);
 };
 
-const pluginNames = [
-  "rollup-plugin-zephyr",
-  "vite-plugin-zephyr",
-  "zephyr-repack-plugin",
-  "zephyr-rspack-plugin",
-  "zephyr-webpack-plugin",
-];
-
 const getInstalledPlugins = (packagePath) => {
   const package = JSON.parse(readFileSync(packagePath, "utf-8"));
   const { dependencies, devDependencies } = package;
-  let deps = [];
-  deps = deps.concat(
-    dependencies ? Object.keys(dependencies) : [],
-    devDependencies ? Object.keys(devDependencies) : []
-  );
-  return deps.filter((dep) => pluginNames.includes(dep));
+  const deps = { ...dependencies, ...devDependencies };
+  return Object.entries(deps).filter(([name]) => pluginNames.includes(name));
 };
 
 upgradePlugins();

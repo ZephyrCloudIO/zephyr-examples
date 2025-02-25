@@ -21,8 +21,8 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
       zephyr-rspack-plugin:
-        specifier: 0.0.0-canary-20250203225642
-        version: 0.0.0-canary-20250203225642(webpack@5.96.1(esbuild@0.17.19))
+        specifier: 0.0.35
+        version: 0.0.35(webpack@5.96.1(esbuild@0.17.19))
 
   apps/home:
     dependencies:
@@ -2059,6 +2059,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -3322,17 +3323,17 @@ packages:
   youch@3.3.4:
     resolution: {integrity: sha512-UeVBXie8cA35DS6+nBkls68xaBBXCye0CNznrhszZjTbRVnJKQuNsyLKBTTL4ln1o1rh2PKtv35twV7irj5SEg==}
 
-  zephyr-agent@0.0.0-canary-20250203225642:
-    resolution: {integrity: sha512-1ujGWegHOHmMDqNQ5fN1wJaLlSnvOBVWOXR+YBftkfghfyCaZcv0T3tybAe3kNw8B/D9scQtMGBaQ7yfNN365w==}
+  zephyr-agent@0.0.35:
+    resolution: {integrity: sha512-m4exurQyn7LFmFgcU1aY2LsLwDP/JJ/PmaqBrkcF47PWBh1kfJli+jSOUBr8EsKp9lZxiqKekEnnlLLjuhcDxg==}
 
-  zephyr-edge-contract@0.0.0-canary-20250203225642:
-    resolution: {integrity: sha512-t9YLyDuI+rQakUahypH+gG6jkBzdfg7JO45JKlbem79Ygp/9U0rd12bmwDLB8ZmNPzNpwXXOkHMJC803YFahuA==}
+  zephyr-edge-contract@0.0.35:
+    resolution: {integrity: sha512-sydoqBm6aiqN6kHiRs9AEll+xDHFEsjSYy0GisjrvhBJU4KoNbDPPpBWZifwqUoXMqrVjU9Epu+t/zheksYLZQ==}
 
-  zephyr-rspack-plugin@0.0.0-canary-20250203225642:
-    resolution: {integrity: sha512-QSpZMt2W3KqQLCCxsoo69B3FYukkS8xx2FK099Gro3PJpIQsu1PY3KR7hd5UvbxojGJ9z3Mmg3GCW1dPkU8AdA==}
+  zephyr-rspack-plugin@0.0.35:
+    resolution: {integrity: sha512-xJ8wKhwF4b5pgQcn1npz/FeCGaDvWdGJ87W0K4MbFD8M2bGxDCcT33hU+hXrkbeZMYs2R0Q9dcN++RPrdtv/OA==}
 
-  zephyr-xpack-internal@0.0.0-canary-20250203225642:
-    resolution: {integrity: sha512-zXYR5zFmrUm3/V8uC3zm7JufM7np/3X69Mo1quhLOCFmj9/kgzsM1BS5XldzEKemuXbkyu4iAr84omNxzX/L9A==}
+  zephyr-xpack-internal@0.0.35:
+    resolution: {integrity: sha512-sOzOdgxaPy3IIiNWvbG5BBFuYgOKAKbzQuqeZKpyhonwXSTSWvE52XrTe2XhjnzmNNzFev6XDnFFHhe7lNfUnQ==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -6672,7 +6673,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.0-canary-20250203225642:
+  zephyr-agent@0.0.35:
     dependencies:
       cloudflare: 3.5.0
       debug: 4.3.7
@@ -6684,7 +6685,7 @@ snapshots:
       socket.io-client: 4.8.1
       tslib: 2.8.1
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.0-canary-20250203225642
+      zephyr-edge-contract: 0.0.35
     optionalDependencies:
       wrangler: 3.90.0
     transitivePeerDependencies:
@@ -6694,18 +6695,18 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.0-canary-20250203225642:
+  zephyr-edge-contract@0.0.35:
     dependencies:
       tslib: 2.8.1
 
-  zephyr-rspack-plugin@0.0.0-canary-20250203225642(webpack@5.96.1(esbuild@0.17.19)):
+  zephyr-rspack-plugin@0.0.35(webpack@5.96.1(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1(esbuild@0.17.19))
       '@rspack/core': 1.1.3
       is-ci: 3.0.1
       tslib: 2.8.1
-      zephyr-agent: 0.0.0-canary-20250203225642
-      zephyr-xpack-internal: 0.0.0-canary-20250203225642(webpack@5.96.1(esbuild@0.17.19))
+      zephyr-agent: 0.0.35
+      zephyr-xpack-internal: 0.0.35(webpack@5.96.1(esbuild@0.17.19))
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/helpers'
@@ -6715,13 +6716,13 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-xpack-internal@0.0.0-canary-20250203225642(webpack@5.96.1(esbuild@0.17.19)):
+  zephyr-xpack-internal@0.0.35(webpack@5.96.1(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1(esbuild@0.17.19))
       is-ci: 3.0.1
       tslib: 2.8.1
-      zephyr-agent: 0.0.0-canary-20250203225642
-      zephyr-edge-contract: 0.0.0-canary-20250203225642
+      zephyr-agent: 0.0.35
+      zephyr-edge-contract: 0.0.35
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - bufferutil

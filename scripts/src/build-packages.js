@@ -43,8 +43,10 @@ const buildPackages = async () => {
         }
         const writeStream = await getLogWriteStream(example, logFolder);
 
+        const isNpm = existsSync(join(folderPath, "package-lock.json"));
+        const pm = isNpm ? "npm" : "pnpm";
         console.log(`Building [${blue(example)}] project...`);
-        execSync("npm run build", {
+        execSync(`${pm} run build`, {
           cwd: folderPath,
           stdio: [writeStream, writeStream, writeStream],
         });
@@ -91,7 +93,7 @@ const getDeployed = async () => {
     if (!key.startsWith("ze-app-deploy-result:")) return;
     deployed.push({ app: key.split(":")[1].split(".")[0], url: value.urls[0] });
   });
-  deployed.sort((a, b) => a.app > b.app ? 1 : -1)
+  deployed.sort((a, b) => (a.app > b.app ? 1 : -1));
   return deployed;
 };
 

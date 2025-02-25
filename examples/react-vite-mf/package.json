@@ -8,9 +8,9 @@
     "build": "pnpm -r build"
   },
   "devDependencies": {
-    "vite-plugin-zephyr": "0.0.0-canary-20250203225642",
-    "zephyr-rspack-plugin": "0.0.0-canary-20250203225642",
-    "zephyr-webpack-plugin": "0.0.0-canary-20250203225642"
+    "vite-plugin-zephyr": "0.0.35",
+    "zephyr-rspack-plugin": "0.0.35",
+    "zephyr-webpack-plugin": "0.0.35"
   },
   "keywords": [],
   "author": "",
