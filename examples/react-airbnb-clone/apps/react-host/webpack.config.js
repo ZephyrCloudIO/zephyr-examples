@@ -55,16 +55,16 @@ const config = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'react-host',
+      name: 'airbnb-react-host',
       filename: 'remoteEntry.js',
       dts: false,
       remotes: {
-        categories: `categories@http://localhost:3011/remoteEntry.js`,
-        home: `home@http://localhost:3012/remoteEntry.js`,
-        favorites: `favorites@http://localhost:3013/remoteEntry.js`,
-        trips: `trips@http://localhost:3014/remoteEntry.js`,
-        properties: `properties@http://localhost:3015/remoteEntry.js`,
-        reservations: `reservations@http://localhost:3016/remoteEntry.js`,
+        airbnb_categories: `airbnb_categories@http://localhost:3011/remoteEntry.js`,
+        airbnb_home: `airbnb_home@http://localhost:3012/remoteEntry.js`,
+        airbnb_favorites: `airbnb_favorites@http://localhost:3013/remoteEntry.js`,
+        airbnb_trips: `airbnb_trips@http://localhost:3014/remoteEntry.js`,
+        airbnb_properties: `airbnb_properties@http://localhost:3015/remoteEntry.js`,
+        airbnb_reservations: `airbnb_reservations@http://localhost:3016/remoteEntry.js`,
       },
       shared: {
         react: {

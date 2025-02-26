@@ -4,7 +4,7 @@ import useListings from '../../common/hooks/useListings';
 import { lazy } from 'react';
 import RemoteWrap from '../../components/RemoteWrap';
 
-const PropertiesClient = lazy(() => import('properties/Properties'));
+const PropertiesClient = lazy(() => import('airbnb_properties/Properties'));
 
 const PropertiesPage = () => {
   const { currentUser } = useCurrentUser();
