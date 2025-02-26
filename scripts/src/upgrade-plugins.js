@@ -62,19 +62,25 @@ const upgradePlugins = async () => {
         }
 
         const plugins = entries
-          .filter(([_, depVersion]) => depVersion === version)
+          .filter(([_, depVersion]) => !depVersion.includes(version))
           .map(([name]) => name);
 
+        const isNpm = existsSync(join(folderPath, "package-lock.json"));
+        const isPnpmWs = existsSync(join(folderPath, "pnpm-workspace.yaml"));
+        const writeStream = await getLogWriteStream(example, logFolder);
+
         if (!plugins.length) {
+          console.log(`[${blue(example)}] already in version ${version}. Checking dependencies...`);
+          execSync(`${isNpm ? "npm" : "pnpm"} i`, {
+            cwd: folderPath,
+            stdio: [writeStream, writeStream, writeStream],
+          });
           return success.push({
             example,
             result: `${plugins.join(", ")} already in version ${version}`,
           });
         }
 
-        const isPnpmWs = existsSync(join(folderPath, "pnpm-workspace.yaml"));
-        const isNpm = existsSync(join(folderPath, "package-lock.json"));
-        const writeStream = await getLogWriteStream(example, logFolder);
         const command =
           `${isNpm ? "npm" : "pnpm"} i -D ` +
           `${isPnpmWs ? "-w " : ""}` +
