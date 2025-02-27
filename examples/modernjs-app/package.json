@@ -1,5 +1,5 @@
 {
-  "name": "modernjs-app",
+  "name": "modern-js",
   "version": "0.1.0",
   "scripts": {
     "reset": "npx rimraf node_modules ./**/node_modules",
@@ -15,20 +15,22 @@
     "node": ">=16.18.1"
   },
   "dependencies": {
-    "@modern-js/runtime": "2.64.3",
+    "@modern-js/plugin-ssg": "^2.65.0",
+    "@modern-js/runtime": "^2.65.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@modern-js/app-tools": "2.65.0",
-    "@modern-js/tsconfig": "2.65.0",
     "@biomejs/biome": "1.9.4",
-    "typescript": "~5.7.3",
-    "@types/jest": "~29.2.4",
-    "@types/node": "~18.11.9",
+    "@modern-js/app-tools": "^2.65.0",
+    "@modern-js/tsconfig": "^2.65.0",
+    "@types/jest": "~29.5.14",
+    "@types/node": "~18.11.19",
     "@types/react": "^19.0.10",
     "@types/react-dom": "~19.0.4",
     "rimraf": "^6.0.1",
-    "zephyr-modernjs-plugin": "0.0.35"
+    "typescript": "~5.7.3",
+    "zephyr-modernjs-plugin": "0.0.35",
+    "zephyr-rspack-plugin": "0.0.35"
   }
 }
