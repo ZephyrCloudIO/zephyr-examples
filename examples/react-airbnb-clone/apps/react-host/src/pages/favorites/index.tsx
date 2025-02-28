@@ -4,7 +4,7 @@ import useFavorites from '../../common/hooks/useFavorites';
 import { lazy } from 'react';
 import RemoteWrap from '../../components/RemoteWrap';
 
-const FavoritesClient = lazy(() => import('favorites/Favorites'));
+const FavoritesClient = lazy(() => import('airbnb_favorites/Favorites'));
 
 const FavoritesPage = () => {
   const { favorites } = useFavorites();

@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm -r build"
+  },
+  "devDependencies": {
+    "vite-plugin-zephyr": "0.0.35",
+    "zephyr-rspack-plugin": "0.0.35",
+    "zephyr-webpack-plugin": "0.0.35"
   },
   "keywords": [],
   "author": "",

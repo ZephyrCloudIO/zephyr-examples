@@ -3,7 +3,7 @@ import { lazy } from 'react';
 import RemoteWrap from '../../components/RemoteWrap';
 import useShowRemotes from '../../common/hooks/useShowRemotes';
 
-const RemoteHome = lazy(() => import('home/Home'));
+const RemoteHome = lazy(() => import('airbnb_home/Home'));
 
 const Home = () => {
   const { show } = useShowRemotes();
