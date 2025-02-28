@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --mode development"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "react": "18.3.1",

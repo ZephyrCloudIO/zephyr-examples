@@ -8,7 +8,7 @@
     "url": "git+ssh://git@github.com:ZephyrCloudIO/zephyr-examples.git"
   },
   "scripts": {
-    "build": "pnpm run --parallel build",
+    "build": "WITH_ZE=true pnpm run --parallel build",
     "serve": "pnpm run --parallel serve"
   },
   "keywords": [

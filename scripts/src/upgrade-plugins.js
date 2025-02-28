@@ -11,9 +11,14 @@ const {
 } = require("./utils");
 
 const pluginNames = [
+  "parcel-reporter-zephyr",
   "rollup-plugin-zephyr",
   "vite-plugin-zephyr",
+  "zephyr-astro-plugin",
+  "zephyr-esbuild-plugin",
   "zephyr-modernjs-plugin",
+  "zephyr-nextjs-plugin",
+  "zephyr-nitro-plugin",
   "zephyr-repack-plugin",
   "zephyr-rolldown-plugin",
   "zephyr-rspack-plugin",
@@ -70,7 +75,11 @@ const upgradePlugins = async () => {
         const writeStream = await getLogWriteStream(example, logFolder);
 
         if (!plugins.length) {
-          console.log(`[${blue(example)}] already in version ${version}. Checking dependencies...`);
+          console.log(
+            `[${blue(
+              example
+            )}] already in version ${version}. Checking dependencies...`
+          );
           execSync(`${isNpm ? "npm" : "pnpm"} i`, {
             cwd: folderPath,
             stdio: [writeStream, writeStream, writeStream],
