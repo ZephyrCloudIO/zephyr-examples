@@ -13,7 +13,7 @@
   "devDependencies": {
     "@parcel/config-default": "2.13.3",
     "parcel": "2.13.3",
-    "parcel-reporter-zephyr": "latest",
+    "parcel-reporter-zephyr": "0.0.36",
     "typescript": "^5.7.3"
   }
 }
