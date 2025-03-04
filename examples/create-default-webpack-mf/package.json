@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0",
-    "zephyr-webpack-plugin": "^0.0.30"
+    "zephyr-webpack-plugin": "^0.0.35"
   }
 }

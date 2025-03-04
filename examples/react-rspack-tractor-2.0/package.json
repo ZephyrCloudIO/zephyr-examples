@@ -8,7 +8,7 @@
     "url": "git+ssh://git@github.com:ZephyrCloudIO/zephyr-examples.git"
   },
   "scripts": {
-    "build": "pnpm run --parallel build",
+    "build": "WITH_ZE=true pnpm run --parallel build",
     "serve": "pnpm run --parallel serve"
   },
   "keywords": [
@@ -42,6 +42,6 @@
     "@types/react-router-dom": "^5.3.3",
     "react-refresh": "^0.16.0",
     "typescript": "^5.7.3",
-    "zephyr-rspack-plugin": "0.0.34"
+    "zephyr-rspack-plugin": "0.0.35"
   }
 }

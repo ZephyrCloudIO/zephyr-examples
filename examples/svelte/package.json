@@ -15,9 +15,7 @@
     "svelte": "^5.15.0",
     "svelte-check": "^4.1.1",
     "typescript": "~5.6.2",
-    "vite": "^6.0.5"
-  },
-  "dependencies": {
-    "vite-plugin-zephyr": "^0.0.31"
+    "vite": "^6.0.5",
+    "vite-plugin-zephyr": "^0.0.35"
   }
 }

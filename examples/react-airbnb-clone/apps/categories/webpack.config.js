@@ -54,7 +54,7 @@ const config = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'categories',
+      name: 'airbnb_categories',
       filename: 'remoteEntry.js',
       dts: false,
       exposes: {

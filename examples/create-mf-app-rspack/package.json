@@ -24,11 +24,11 @@
     "postcss": "8.4.44",
     "postcss-loader": "8.1.1",
     "react-refresh": "0.14.2",
-    "style-loader": "^4.0.0"
+    "style-loader": "^4.0.0",
+    "zephyr-rspack-plugin": "^0.0.35"
   },
   "dependencies": {
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "zephyr-rspack-plugin": "^0.0.30"
+    "react-dom": "18.3.1"
   }
 }

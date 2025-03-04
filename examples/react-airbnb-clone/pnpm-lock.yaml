@@ -92,7 +92,7 @@ importers:
         version: 7.26.0(@babel/core@7.26.0)
       '@module-federation/enhanced':
         specifier: 0.7.7
-        version: 0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)(vue-tsc@1.8.27(typescript@5.7.2))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)(vue-tsc@1.8.27(typescript@5.7.2))(webpack@5.96.1)
       '@types/leaflet':
         specifier: ^1.9.14
         version: 1.9.14
@@ -113,22 +113,22 @@ importers:
         version: 10.0.0
       '@webpack-cli/serve':
         specifier: ^2.0.5
-        version: 2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack-dev-server@5.1.0(webpack-cli@5.1.4)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.1.0)(webpack@5.96.1)
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
       babel-loader:
         specifier: ^9.2.1
-        version: 9.2.1(@babel/core@7.26.0)(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 9.2.1(@babel/core@7.26.0)(webpack@5.96.1)
       css-loader:
         specifier: ^7.1.2
-        version: 7.1.2(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 7.1.2(webpack@5.96.1)
       file-loader:
         specifier: ^6.2.0
-        version: 6.2.0(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 6.2.0(webpack@5.96.1)
       html-webpack-plugin:
         specifier: ^5.6.3
-        version: 5.6.3(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 5.6.3(webpack@5.96.1)
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
@@ -137,13 +137,13 @@ importers:
         version: 8.4.49
       postcss-loader:
         specifier: ^8.1.1
-        version: 8.1.1(postcss@8.4.49)(typescript@5.7.2)(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 8.1.1(postcss@8.4.49)(typescript@5.7.2)(webpack@5.96.1)
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
       style-loader:
         specifier: ^4.0.0
-        version: 4.0.0(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+        version: 4.0.0(webpack@5.96.1)
       tailwindcss:
         specifier: ^3.4.15
         version: 3.4.15
@@ -163,8 +163,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(webpack-cli@5.1.4)(webpack@5.96.1)
       zephyr-webpack-plugin:
-        specifier: 0.0.30
-        version: 0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))
+        specifier: 0.0.35
+        version: 0.0.35(esbuild@0.17.19)(webpack-cli@5.1.4)
 
   apps/categories: {}
 
@@ -291,11 +291,6 @@ packages:
   '@babel/highlight@7.24.5':
     resolution: {integrity: sha512-8lLmua6AVh/8SLJRRVD6V8p73Hir9w5mJrhE+IPpILG31KKlI9iz5zmBYKcWPS59qSfgP9RaSBQSHHE81WKuEw==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.24.5':
-    resolution: {integrity: sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.26.2':
     resolution: {integrity: sha512-DWMCZH9WA4Maitz2q21SRKHo9QXZxkDsbNZoVD62gusNtNBBqDg9i7uOhASfTfIGNzW+O+r7+jAlM8dwphcJKQ==}
@@ -3221,10 +3216,6 @@ packages:
   sorted-array-functions@1.3.0:
     resolution: {integrity: sha512-2sqgzeFlid6N4Z2fUQ1cvFmTOLRi/sEDzSQ0OKYchqgoPmQBVyM3959qYx3fpS6Esef80KjmpgPeEr028dP3OA==}
 
-  source-map-js@1.2.0:
-    resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
-    engines: {node: '>=0.10.0'}
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -3731,17 +3722,17 @@ packages:
   youch@3.3.4:
     resolution: {integrity: sha512-UeVBXie8cA35DS6+nBkls68xaBBXCye0CNznrhszZjTbRVnJKQuNsyLKBTTL4ln1o1rh2PKtv35twV7irj5SEg==}
 
-  zephyr-agent@0.0.30:
-    resolution: {integrity: sha512-m2+2FtviTZlXwmT4UGHMMu1n2HUHEMyzlD8LJNQUeD9h2peki2P2tIipHVgGu2Agp9WnM1Dj1caB7YLU34zFBA==}
+  zephyr-agent@0.0.35:
+    resolution: {integrity: sha512-m4exurQyn7LFmFgcU1aY2LsLwDP/JJ/PmaqBrkcF47PWBh1kfJli+jSOUBr8EsKp9lZxiqKekEnnlLLjuhcDxg==}
 
-  zephyr-edge-contract@0.0.30:
-    resolution: {integrity: sha512-GCA0s1sPhC7bNmv9ZRzGKoqqUAIa0TWEZ4un44UVUrieyUegNuuzOTXFqkOSiJXEM5Q9Pgo6MHT9sdbi39a1gQ==}
+  zephyr-edge-contract@0.0.35:
+    resolution: {integrity: sha512-sydoqBm6aiqN6kHiRs9AEll+xDHFEsjSYy0GisjrvhBJU4KoNbDPPpBWZifwqUoXMqrVjU9Epu+t/zheksYLZQ==}
 
-  zephyr-webpack-plugin@0.0.30:
-    resolution: {integrity: sha512-/FY+RD12RmfWeh9bQr1rFyEJLuhQf1dvFZXe1Vke/RvQ7uC4g3/PVSSnT+jLvNM9L/jDehbGCLiwb5iNOhyJrg==}
+  zephyr-webpack-plugin@0.0.35:
+    resolution: {integrity: sha512-JyKBmpUEG7lT508enU2HG+H4UEAjQQIDrvwiAjLk8ooZlBhi0n/GK8XFi+xBjQRldjYO5GpfEH3nrIhxc4jx6g==}
 
-  zephyr-xpack-internal@0.0.30:
-    resolution: {integrity: sha512-mNL43/bSILyww3iIO5mhIr/US/1R3Bt63VP5Yqj4qY5FMmAHf1JlaJOUA3G+Z6HbobNkJoVhaegNsm1oMHNzAA==}
+  zephyr-xpack-internal@0.0.35:
+    resolution: {integrity: sha512-sOzOdgxaPy3IIiNWvbG5BBFuYgOKAKbzQuqeZKpyhonwXSTSWvE52XrTe2XhjnzmNNzFev6XDnFFHhe7lNfUnQ==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -3916,11 +3907,6 @@ snapshots:
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.0
-
-  '@babel/parser@7.24.5':
-    dependencies:
-      '@babel/types': 7.24.5
-    optional: true
 
   '@babel/parser@7.26.2':
     dependencies:
@@ -4333,7 +4319,7 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
-  '@module-federation/automatic-vendor-federation@1.2.1(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))':
+  '@module-federation/automatic-vendor-federation@1.2.1(webpack@5.96.1)':
     dependencies:
       find-package-json: 1.2.0
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
@@ -4379,7 +4365,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@module-federation/enhanced@0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)(vue-tsc@1.8.27(typescript@5.7.2))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))':
+  '@module-federation/enhanced@0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)(vue-tsc@1.8.27(typescript@5.7.2))(webpack@5.96.1)':
     dependencies:
       '@module-federation/bridge-react-webpack-plugin': 0.7.7
       '@module-federation/data-prefetch': 0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4643,11 +4629,11 @@ snapshots:
 
   '@vue/compiler-core@3.4.27':
     dependencies:
-      '@babel/parser': 7.24.5
+      '@babel/parser': 7.26.2
       '@vue/shared': 3.4.27
       entities: 4.5.0
       estree-walker: 2.0.2
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
     optional: true
 
   '@vue/compiler-dom@3.4.27':
@@ -4750,17 +4736,17 @@ snapshots:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.96.1)':
     dependencies:
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.96.1)':
     dependencies:
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack-dev-server@5.1.0(webpack-cli@5.1.4)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.1.0)(webpack@5.96.1)':
     dependencies:
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)
@@ -4890,7 +4876,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.96.1):
     dependencies:
       '@babel/core': 7.26.0
       find-cache-dir: 4.0.0
@@ -5206,7 +5192,7 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  css-loader@7.1.2(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  css-loader@7.1.2(webpack@5.96.1):
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.49)
       postcss: 8.4.49
@@ -5583,7 +5569,7 @@ snapshots:
     dependencies:
       flat-cache: 4.0.1
 
-  file-loader@6.2.0(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  file-loader@6.2.0(webpack@5.96.1):
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
@@ -5837,7 +5823,7 @@ snapshots:
       relateurl: 0.2.7
       terser: 5.31.0
 
-  html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  html-webpack-plugin@5.6.3(webpack@5.96.1):
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -6557,7 +6543,7 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.49
 
-  postcss-loader@8.1.1(postcss@8.4.49)(typescript@5.7.2)(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  postcss-loader@8.1.1(postcss@8.4.49)(typescript@5.7.2)(webpack@5.96.1):
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.7.2)
       jiti: 1.21.0
@@ -7037,9 +7023,6 @@ snapshots:
 
   sorted-array-functions@1.3.0: {}
 
-  source-map-js@1.2.0:
-    optional: true
-
   source-map-js@1.2.1: {}
 
   source-map-support@0.5.21:
@@ -7128,7 +7111,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  style-loader@4.0.0(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  style-loader@4.0.0(webpack@5.96.1):
     dependencies:
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
 
@@ -7193,7 +7176,7 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.96.1):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -7364,9 +7347,9 @@ snapshots:
   webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))(webpack-dev-server@5.1.0(webpack-cli@5.1.4)(webpack@5.96.1))(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.96.1)
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.96.1)
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.1.0)(webpack@5.96.1)
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.3
@@ -7380,7 +7363,7 @@ snapshots:
     optionalDependencies:
       webpack-dev-server: 5.1.0(webpack-cli@5.1.4)(webpack@5.96.1)
 
-  webpack-dev-middleware@7.4.2(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)):
+  webpack-dev-middleware@7.4.2(webpack@5.96.1):
     dependencies:
       colorette: 2.0.20
       memfs: 4.9.2
@@ -7419,7 +7402,7 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+      webpack-dev-middleware: 7.4.2(webpack@5.96.1)
       ws: 8.18.0
     optionalDependencies:
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
@@ -7460,7 +7443,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.96.1)
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     optionalDependencies:
@@ -7601,7 +7584,7 @@ snapshots:
       stacktracey: 2.1.8
     optional: true
 
-  zephyr-agent@0.0.30:
+  zephyr-agent@0.0.35:
     dependencies:
       cloudflare: 3.5.0
       debug: 4.3.4
@@ -7613,7 +7596,7 @@ snapshots:
       socket.io-client: 4.8.1
       tslib: 2.8.1
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.30
+      zephyr-edge-contract: 0.0.35
     optionalDependencies:
       wrangler: 3.90.0
     transitivePeerDependencies:
@@ -7623,19 +7606,18 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.30:
+  zephyr-edge-contract@0.0.35:
     dependencies:
       tslib: 2.8.1
 
-  zephyr-webpack-plugin@0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)):
+  zephyr-webpack-plugin@0.0.35(esbuild@0.17.19)(webpack-cli@5.1.4):
     dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1)
       is-ci: 3.0.1
       tslib: 2.8.1
       webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
-      zephyr-xpack-internal: 0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1))
+      zephyr-agent: 0.0.35
+      zephyr-xpack-internal: 0.0.35(webpack@5.96.1)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@swc/core'
@@ -7647,24 +7629,20 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-xpack-internal@0.0.30(esbuild@0.17.19)(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.96.1)):
+  zephyr-xpack-internal@0.0.35(webpack@5.96.1):
     dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4))
+      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.96.1)
       is-ci: 3.0.1
       tslib: 2.8.1
-      webpack: 5.96.1(esbuild@0.17.19)(webpack-cli@5.1.4)
-      zephyr-agent: 0.0.30
-      zephyr-edge-contract: 0.0.30
+      zephyr-agent: 0.0.35
+      zephyr-edge-contract: 0.0.35
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
-      - '@swc/core'
       - bufferutil
       - encoding
-      - esbuild
       - supports-color
-      - uglify-js
       - utf-8-validate
-      - webpack-cli
+      - webpack
 
   zod@3.23.8:
     optional: true

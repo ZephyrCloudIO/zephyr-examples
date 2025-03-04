@@ -5,7 +5,7 @@ import useReservations from '../../common/hooks/useReservations';
 import { lazy } from 'react';
 import RemoteWrap from '../../components/RemoteWrap';
 
-const ReservationsClient = lazy(() => import('reservations/Reservations'));
+const ReservationsClient = lazy(() => import('airbnb_reservations/Reservations'));
 
 const ReservationsPage = () => {
   const { currentUser } = useCurrentUser();
