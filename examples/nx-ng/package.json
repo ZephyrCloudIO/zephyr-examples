@@ -19,8 +19,8 @@
     "@nx/angular": "catalog:nx",
     "rxjs": "catalog:angular18",
     "tslib": "catalog:typescript",
-    "zone.js": "catalog:angular18",
-    "zephyr-webpack-plugin": "catalog:zephyr"
+    "zephyr-webpack-plugin": "catalog:zephyr",
+    "zone.js": "catalog:angular18"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^18.0.0",
