@@ -34,9 +34,9 @@ catalogs:
   cypress:
     cypress: ^13.17.0
   jest:
-    'babel-jest': ^29.7.0
+    babel-jest: ^29.7.0
     jest-preset-angular: ^14.1.1
-    'jest-environment-jsdom': ^29.7.0
+    jest-environment-jsdom: ^29.7.0
     '@types/jest': ^29.5.12
     ts-jest: ^29.2.5
     jest: ^29.7.0
@@ -59,17 +59,17 @@ catalogs:
     prettier: ^2.8.8
   eslint:
     '@types/eslint': ^8.56.12
-    'typescript-eslint': ^8.28.0
+    typescript-eslint: ^8.28.0
     eslint-plugin-cypress: ^4.2.0
     eslint: ^9.9.0
     '@eslint/js': ^9.9.0
-    'eslint-config-prettier': ^10.1.1
-    'eslint-plugin-react-hooks': ^5.2.0
-    'eslint-plugin-import': ^2.31.0
-    'eslint-plugin-jsx-a11y': ^6.10.2
-    'eslint-plugin-react': ^7.37.4
-    'eslint-plugin-qwik': ^1.5.2
-    'eslint-plugin-react-refresh': ^0.4.19
+    eslint-config-prettier: ^10.1.1
+    eslint-plugin-react-hooks: ^5.2.0
+    eslint-plugin-import: ^2.31.0
+    eslint-plugin-jsx-a11y: ^6.10.2
+    eslint-plugin-react: ^7.37.4
+    eslint-plugin-qwik: ^1.5.2
+    eslint-plugin-react-refresh: ^0.4.19
     '@typescript-eslint/eslint-plugin': ^8.28.0
     '@typescript-eslint/parser': ^8.28.0
     '@typescript-eslint/utils': ^8.28.0
@@ -108,10 +108,10 @@ catalogs:
     '@rspack/plugin-react-refresh': ^1.0.1
   vite5:
     vite: ^5.4.15
-    'vite-plugin-inspect': ^0.8.7
+    vite-plugin-inspect: ^0.8.7
     '@vitejs/plugin-react': ^4.3.4
-    'vite-tsconfig-paths': ^4.2.1
-    'globals': ^15.9.0
+    vite-tsconfig-paths: ^4.2.1
+    globals: ^15.9.0
   vite6:
     vite: ^6.2.3
   webpack5:
@@ -136,7 +136,7 @@ catalogs:
     '@angular/build': ^18.2.7
     '@analogjs/vite-plugin-angular': ^1.8.2
     rxjs: ^7.8.2
-    'zone.js': ^0.14.10
+    zone.js: ^0.14.10
   react18:
     react: ^18.3.1
     react-dom: ^18.3.1
@@ -146,15 +146,15 @@ catalogs:
     '@types/react-dom': ^18.3.5
     '@types/react-router-dom': ^5.3.3
     react-refresh: ^0.16.0
-    'lucide-react': ^0.484.0
+    lucide-react: ^0.484.0
     '@pmmmwh/react-refresh-webpack-plugin': ^0.5.15
     '@testing-library/react': ^16.2.0
   react19:
     react: ^19.0.0
     react-dom: ^19.0.0
   solid:
-    'solid-js': ^1.9.5
-    'vite-plugin-solid': ^2.11.6
+    solid-js: ^1.9.5
+    vite-plugin-solid: ^2.11.6
   svelte:
     svelte: ^5.25.3
     svelte-check: ^4.1.5
@@ -172,6 +172,7 @@ onlyBuiltDependencies:
   - '@netlify/esbuild'
   - '@parcel/watcher'
   - '@swc/core'
+  - core-js
   - core-js-pure
   - cypress
   - esbuild
