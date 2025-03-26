@@ -8,7 +8,7 @@
     "url": "git+ssh://git@github.com:ZephyrCloudIO/zephyr-examples.git"
   },
   "scripts": {
-    "build": "WITH_ZE=true pnpm run --parallel build",
+    "build": "pnpm run --parallel build",
     "serve": "pnpm run --parallel serve"
   },
   "keywords": [
@@ -25,23 +25,23 @@
   "homepage": "https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/react-rspack-tractor-2.0",
   "dependencies": {
     "canvas-confetti": "1.9.3",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-router": "^7.2.0",
-    "react-router-dom": "^7.2.0"
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "react-router": "catalog:react18",
+    "react-router-dom": "catalog:react18"
   },
   "devDependencies": {
-    "@module-federation/enhanced": "0.9.0",
-    "@rspack/cli": "^1.2.5",
-    "@rspack/core": "^1.2.5",
-    "@rspack/plugin-react-refresh": "^1.0.1",
-    "@types/canvas-confetti": "1.9.0",
-    "@types/node": "^22.13.5",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@types/react-router-dom": "^5.3.3",
-    "react-refresh": "^0.16.0",
-    "typescript": "^5.7.3",
-    "zephyr-rspack-plugin": "0.0.35"
+    "@module-federation/enhanced": "catalog:module-federation",
+    "@rspack/cli": "catalog:rspack",
+    "@rspack/core": "catalog:rspack",
+    "@rspack/plugin-react-refresh": "catalog:rspack",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "catalog:typescript",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "@types/react-router-dom": "catalog:react18",
+    "react-refresh": "catalog:react18",
+    "typescript": "catalog:typescript",
+    "zephyr-rspack-plugin": "catalog:zephyr"
   }
 }

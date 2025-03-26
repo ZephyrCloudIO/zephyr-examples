@@ -11,8 +11,10 @@
     "start": "lerna run --parallel start",
     "build": "lerna run build --scope=default_webpack_mf_second --scope=default_webpack_mf_first"
   },
+  "dependencies": {
+    "zephyr-webpack-plugin": "catalog:zephyr"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0",
-    "zephyr-webpack-plugin": "^0.0.35"
+    "lerna": "^4.0.0"
   }
 }
