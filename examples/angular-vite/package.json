@@ -18,8 +18,8 @@
     "@angular/router": "catalog:angular18",
     "rxjs": "catalog:angular18",
     "tslib": "catalog:typescript",
-    "zone.js": "catalog:angular18",
-    "vite-plugin-zephyr": "catalog:zephyr"
+    "vite-plugin-zephyr": "catalog:zephyr",
+    "zone.js": "catalog:angular18"
   },
   "devDependencies": {
     "@analogjs/vite-plugin-angular": "catalog:angular18",

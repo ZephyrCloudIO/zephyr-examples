@@ -2,8 +2,11 @@
   "name": "zephyr-examples",
   "version": "0.0.1",
   "license": "Apache-2.0",
+  "packageManager": "pnpm@10.6.3",
   "scripts": {
     "remove-all-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + ",
-    "remove-all-dist": "find . -name 'dist' -type d -prune -exec rm -rf '{}' + "
-  }
+    "remove-all-dist": "find . -name 'dist' -type d -prune -exec rm -rf '{}' + ",
+    "run-sherif": "pnpm dlx sherif@latest"
+  },
+  "private": true
 }

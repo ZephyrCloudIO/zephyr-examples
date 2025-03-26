@@ -36,8 +36,8 @@
     "util": "^0.12.5",
     "uuid": "^11.0.3",
     "world-countries": "^5.0.0",
-    "zustand": "^5.0.1",
-    "zephyr-webpack-plugin": "catalog:zephyr"
+    "zephyr-webpack-plugin": "catalog:zephyr",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "catalog:babel",
