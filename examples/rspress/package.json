@@ -8,12 +8,10 @@
     "preview": "rspress preview"
   },
   "dependencies": {
-    "@rspack/binding-darwin-x64": "^1.1.5",
-    "@rspress/mdx-rs-darwin-x64": "^0.6.4",
-    "rspress": "^1.37.3"
+    "rspress": "catalog:rspress"
   },
   "devDependencies": {
-    "@types/node": "^16",
-    "zephyr-rspack-plugin": "^0.0.30"
+    "@types/node": "^24.1.0",
+    "zephyr-rspack-plugin": "catalog:zephyr"
   }
 }

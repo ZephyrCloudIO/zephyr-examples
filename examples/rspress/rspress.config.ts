@@ -1,6 +1,6 @@
 import * as path from 'path';
-import { defineConfig } from 'rspress/config';
-import { withZephyr } from "zephyr-rspack-plugin";
+import {defineConfig} from 'rspress/config';
+import {withZephyr} from "zephyr-rspack-plugin";
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -13,7 +13,7 @@ export default defineConfig({
   },
   themeConfig: {
     socialLinks: [
-      { icon: 'github', mode: 'link', content: 'https://github.com/web-infra-dev/rspress' },
+      {icon: 'github', mode: 'link', content: 'https://github.com/web-infra-dev/rspress'},
     ],
   },
   builderConfig: {
