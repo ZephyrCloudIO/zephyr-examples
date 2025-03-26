@@ -8,6 +8,7 @@
     "format": "biome format --write",
     "lint": "turbo lint"
   },
+  "packageManager": "pnpm@10.6.3",
   "devDependencies": {
     "@biomejs/biome": "catalog:biome",
     "turbo": "catalog:turbo",

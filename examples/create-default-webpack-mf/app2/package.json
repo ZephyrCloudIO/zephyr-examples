@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "react": "catalog:react18",
-    "react-dom": "catalog:react18"
+    "react-dom": "catalog:react18",
+    "zephyr-webpack-plugin": "catalog:zephyr"
   },
   "devDependencies": {
     "@babel/core": "catalog:babel",

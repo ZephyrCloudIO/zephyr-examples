@@ -8,8 +8,8 @@
     "url": "git+ssh://git@github.com:ZephyrCloudIO/zephyr-examples.git"
   },
   "scripts": {
-    "build": "pnpm run --parallel build",
-    "serve": "pnpm run --parallel serve"
+    "build": "WITH_ZE=true pnpm --filter 'tractor_v2*' build",
+    "serve": "WITH_ZE=true pnpm run --parallel serve"
   },
   "keywords": [
     "react",
