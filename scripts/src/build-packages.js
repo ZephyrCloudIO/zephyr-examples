@@ -36,11 +36,6 @@ const buildPackages = async () => {
         if (!package.scripts?.build) {
           return fails.push({ example, result: "No build script." });
         }
-        const isDepsInstalled = existsSync(join(folderPath, "node_modules"));
-
-        if (!isDepsInstalled) {
-          return fails.push({ example, result: "Missing node dependencies." });
-        }
         const writeStream = await getLogWriteStream(example, logFolder);
 
         const isNpm = existsSync(join(folderPath, "package-lock.json"));

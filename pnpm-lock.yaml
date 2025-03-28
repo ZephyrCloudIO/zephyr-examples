@@ -443,7 +443,11 @@ catalogs:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      process:
+        specifier: ^0.11.10
+        version: 0.11.10
 
   examples/angular-vite:
     dependencies:
@@ -1598,17 +1602,7 @@ importers:
 
   examples/react-tractor-sample/apps/team-red: {}
 
-  examples/react-vite-mf:
-    devDependencies:
-      vite-plugin-zephyr:
-        specifier: 0.0.35
-        version: 0.0.35(@types/node@22.13.13)(encoding@0.1.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)
-      zephyr-rspack-plugin:
-        specifier: 0.0.35
-        version: 0.0.35(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
-      zephyr-webpack-plugin:
-        specifier: 0.0.35
-        version: 0.0.35(encoding@0.1.13)
+  examples/react-vite-mf: {}
 
   examples/react-vite-mf/host:
     dependencies:
@@ -5388,9 +5382,6 @@ packages:
   '@module-federation/error-codes@0.11.2':
     resolution: {integrity: sha512-ik1Qnn0I+WyEdprTck9WGlH41vGsVdUg8cfO+ZM02qOb2cZm5Vu3SlxGAobj6g7uAj0g8yINnd7h7Dci40BxQA==}
 
-  '@module-federation/error-codes@0.6.14':
-    resolution: {integrity: sha512-ik+ezloFkxmE5atqTUG9lRr9xV5EcKDjH+MZba2IJQT5cZIM6o2ThTC45E013N4SCleaGxBtIGoPLZJzT4xa0Q==}
-
   '@module-federation/error-codes@0.8.12':
     resolution: {integrity: sha512-K+F4iiV62KY+IpjK6ggn3vI5Yt/T/LUb6xuazY78bhAGwLaHe1DYr7BfSutKMpiB+Dcs6U4dYOBogSMnnl0j4Q==}
 
@@ -5545,9 +5536,6 @@ packages:
   '@module-federation/runtime@0.11.2':
     resolution: {integrity: sha512-Ya9u/L6z2LvhgpqxuKCB7LcigIIRf1BbaxAZIH7mzbq/A7rZtTP7v+73E433jvgiAlbAfPSZkeoYGele6hfRwA==}
 
-  '@module-federation/runtime@0.6.16':
-    resolution: {integrity: sha512-3oFDRkolGwiXuQz+wzX3YzBWI9so0+K05YRf0TEdJguj3W/v/AMrBCz7W4c4O/wSK45Kuqd4lHKhCyKWRPyhOw==}
-
   '@module-federation/runtime@0.8.12':
     resolution: {integrity: sha512-eYohRfambj/qzxz6tEakDn459ROcixWO4zL5gmTEOmwG+jCDnxGR14j1guopyrrpjb6EKFNrPVWtYZTPPfGdQQ==}
 
@@ -5559,9 +5547,6 @@ packages:
 
   '@module-federation/sdk@0.11.2':
     resolution: {integrity: sha512-SBFe5xOamluT900J4AGBx+2/kCH/JbfqXoUwPSAC6PRzb8Y7LB0posnOGzmqYsLZXT37vp3d6AmJDsVoajDqxw==}
-
-  '@module-federation/sdk@0.6.16':
-    resolution: {integrity: sha512-rzQH/v9bVc032lzV4j1IGYRc5gszwzBevYBBDJf3oNLwkY2kIDUJ99OWvq3aaPJoE0jEWPVe3K5iNc+dZe4tMQ==}
 
   '@module-federation/sdk@0.8.12':
     resolution: {integrity: sha512-zFgXYBHbzwIqlrLfn6ewIRXDZCctDDQT2nFhbsZr29yWQgpmW1fm2kJCxQsG0DENGGN1KpzfDoxjjvSKJS/ZHA==}
@@ -12811,10 +12796,6 @@ packages:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
 
-  isomorphic-rslog@0.0.5:
-    resolution: {integrity: sha512-pkU3vvajRJ0LKLaMFy8Cj7ElbFUdkQKVhUk+DQsVCYsLW4uulU65C2s3l+Sm5OtiOwprzkYYcAIJa/COwCYHWA==}
-    engines: {node: '>=14.17.6'}
-
   isomorphic-rslog@0.0.6:
     resolution: {integrity: sha512-HM0q6XqQ93psDlqvuViNs/Ea3hAyGDkIdVAHlrEocjjAwGrs1fZ+EdQjS9eUPacnYB7Y8SoDdSY3H8p3ce205A==}
     engines: {node: '>=14.17.6'}
@@ -18126,9 +18107,6 @@ packages:
       '@testing-library/jest-dom':
         optional: true
 
-  vite-plugin-zephyr@0.0.35:
-    resolution: {integrity: sha512-cbmuXIqQ51aq2N/daTl/perT7efCXRBQ2DH0OdrH2W54lQtE518xx8wBdUZhx6CH/Mn+FVWXVwffrZ2Hebs6RA==}
-
   vite-plugin-zephyr@0.0.38:
     resolution: {integrity: sha512-2oNqHh2H5o4DaJ0cae48qgJNaJ9EeCPyeUoF80pYYbQAVZ4xFGj6CqyI6vwS7P9OQYU5gWPHBp9knTeFZtdhLw==}
 
@@ -22629,8 +22607,6 @@ snapshots:
 
   '@module-federation/error-codes@0.11.2': {}
 
-  '@module-federation/error-codes@0.6.14': {}
-
   '@module-federation/error-codes@0.8.12': {}
 
   '@module-federation/error-codes@0.8.4': {}
@@ -22939,11 +22915,6 @@ snapshots:
       '@module-federation/runtime-core': 0.11.2
       '@module-federation/sdk': 0.11.2
 
-  '@module-federation/runtime@0.6.16':
-    dependencies:
-      '@module-federation/error-codes': 0.6.14
-      '@module-federation/sdk': 0.6.16
-
   '@module-federation/runtime@0.8.12':
     dependencies:
       '@module-federation/error-codes': 0.8.12
@@ -22962,10 +22933,6 @@ snapshots:
       '@module-federation/sdk': 0.9.1
 
   '@module-federation/sdk@0.11.2': {}
-
-  '@module-federation/sdk@0.6.16':
-    dependencies:
-      isomorphic-rslog: 0.0.5
 
   '@module-federation/sdk@0.8.12':
     dependencies:
@@ -32937,8 +32904,6 @@ snapshots:
 
   isobject@3.0.1: {}
 
-  isomorphic-rslog@0.0.5: {}
-
   isomorphic-rslog@0.0.6: {}
 
   isomorphic-rslog@0.0.7: {}
@@ -39691,32 +39656,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-zephyr@0.0.35(@types/node@22.13.13)(encoding@0.1.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0):
-    dependencies:
-      '@module-federation/runtime': 0.6.16
-      '@module-federation/vite': 1.2.6(rollup@4.37.0)
-      acorn: 8.14.1
-      acorn-walk: 8.3.4
-      is-ci: 3.0.1
-      json5: 2.2.3
-      rollup: 4.37.0
-      vite: 5.4.15(@types/node@22.13.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)
-      zephyr-agent: 0.0.35(encoding@0.1.13)
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@types/node'
-      - bufferutil
-      - encoding
-      - less
-      - lightningcss
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - utf-8-validate
-
   vite-plugin-zephyr@0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0):
     dependencies:
       '@module-federation/runtime': 0.11.2
@@ -40973,24 +40912,6 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-rspack-plugin@0.0.35(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0):
-    dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
-      '@rspack/core': 1.2.8(@swc/helpers@0.5.15)
-      is-ci: 3.0.1
-      tslib: 2.8.1
-      zephyr-agent: 0.0.35(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.35(encoding@0.1.13)(webpack@5.98.0)
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@rspack/tracing'
-      - '@swc/helpers'
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-      - webpack
-
   zephyr-rspack-plugin@0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
@@ -41044,25 +40965,6 @@ snapshots:
       - utf-8-validate
       - webpack-cli
     optional: true
-
-  zephyr-webpack-plugin@0.0.35(encoding@0.1.13):
-    dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
-      is-ci: 3.0.1
-      tslib: 2.8.1
-      webpack: 5.98.0(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.35(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.35(encoding@0.1.13)(webpack@5.98.0)
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@swc/core'
-      - bufferutil
-      - encoding
-      - esbuild
-      - supports-color
-      - uglify-js
-      - utf-8-validate
-      - webpack-cli
 
   zephyr-webpack-plugin@0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13):
     dependencies:
@@ -41121,21 +41023,6 @@ snapshots:
   zephyr-xpack-internal@0.0.35(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
-      is-ci: 3.0.1
-      tslib: 2.8.1
-      zephyr-agent: 0.0.35(encoding@0.1.13)
-      zephyr-edge-contract: 0.0.35
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-      - webpack
-
-  zephyr-xpack-internal@0.0.35(encoding@0.1.13)(webpack@5.98.0):
-    dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
       is-ci: 3.0.1
       tslib: 2.8.1
       zephyr-agent: 0.0.35(encoding@0.1.13)
