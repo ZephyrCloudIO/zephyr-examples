@@ -1,6 +1,7 @@
 packages:
   - examples/**
   - '!**/dist/**'
+  - scripts
 installOptions:
   preferOnline: false
   frozenLockfile: true
@@ -19,6 +20,7 @@ catalogs:
     '@nx/webpack': ^20.6.4
     '@nx/web': ^20.6.4
     '@nx/workspace': ^20.6.4
+    '@nx/module-federation': ^20.6.4
   common:
     cross-env: ^7.0.3
     style-loader: ^4.0.0

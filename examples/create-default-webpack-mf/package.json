@@ -1,4 +1,7 @@
 {
   "name": "module-federation",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "scripts": {
+    "build": "pnpm --filter=./* --parallel run build "
+  }
 }

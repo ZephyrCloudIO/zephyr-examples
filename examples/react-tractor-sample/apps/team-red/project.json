@@ -1,5 +1,5 @@
 {
-  "name": "team-red",
+  "name": "team_red",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/team-red/src",
   "projectType": "application",
@@ -51,15 +51,15 @@
       "defaultConfiguration": "development",
       "options": {
         "port": 4500,
-        "buildTarget": "team-red:build",
+        "buildTarget": "team_red:build",
         "hmr": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "team-red:build:development"
+          "buildTarget": "team_red:build:development"
         },
         "production": {
-          "buildTarget": "team-red:build:production",
+          "buildTarget": "team_red:build:production",
           "hmr": false
         }
       }
