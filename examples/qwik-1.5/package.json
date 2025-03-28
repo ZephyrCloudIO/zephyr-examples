@@ -28,24 +28,26 @@
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
+  "dependencies": {
+    "vite-plugin-zephyr": "catalog:zephyr"
+  },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.2",
     "@builder.io/qwik-city": "^1.5.2",
     "@netlify/edge-functions": "^2.0.0",
-    "@types/eslint": "^8.56.6",
-    "@types/node": "^20.11.30",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-qwik": "^1.5.2",
+    "@types/eslint": "catalog:eslint",
+    "@types/node": "catalog:typescript",
+    "@typescript-eslint/eslint-plugin": "catalog:eslint",
+    "@typescript-eslint/parser": "catalog:eslint",
+    "eslint": "catalog:eslint",
+    "eslint-plugin-qwik": "catalog:eslint",
     "netlify-cli": "^15.0.0",
-    "open": "^10.1.0",
-    "prettier": "^3.2.5",
-    "typescript": "5.3.3",
-    "undici": "*",
-    "vite": "^5.1.6",
-    "vite-plugin-inspect": "^0.8.4",
-    "vite-plugin-zephyr": "^0.0.35",
-    "vite-tsconfig-paths": "^4.2.1"
+    "open": "catalog:common",
+    "prettier": "catalog:prettier3",
+    "typescript": "catalog:typescript",
+    "undici": "catalog:common",
+    "vite": "catalog:vite5",
+    "vite-plugin-inspect": "catalog:vite5",
+    "vite-tsconfig-paths": "catalog:vite5"
   }
 }

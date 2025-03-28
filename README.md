@@ -60,3 +60,42 @@ For more information on using Zephyr Cloud, visit the [official documentation][d
 
 ## Contributors
 ![Alt](https://repobeats.axiom.co/api/embed/9d3af925eba49c0dd8ddd8ee144443242fba9b6a.svg "Repobeats analytics image")
+
+## TODO:
+- [ ] Remove `@rspack/plugin-minify` in favor of `terser-webpack-plugin`
+- [ ] Move to consistent build command
+- [ ] Create testing matrix that can run with every canary of plugins
+
+## Status
+angular-vite: **broken**
+create-default-webpack-mf: working
+create-mf-app-rspack: working
+create-nx-rspack-workspace-mf: working
+create-nx-workspace-mf: working
+nx-ng: **broken**
+qwik-1.5: **broken**
+react-airbnb-clone: **broken**
+  - categories: working
+  - favorites: working
+- home: working
+- properties: working
+- react-host: **broken** 
+- reservations: working
+- trips: working
+react-rollup-ts: working
+react-rspack-tractor-2.0: working
+react-tractor-sample: **broken**
+  - team-blue: working
+  - team-green: working
+  - team-red: broken
+react-vite-mf: **broken**
+  - host:broken
+  - remote:working
+  - rspack:working
+  - webpack:working
+react-vite-nx: **broken**
+react-vite-ts: working
+rspack-project: working
+solid: working
+svelte: working
+turbo-rspack-mf: **broken**

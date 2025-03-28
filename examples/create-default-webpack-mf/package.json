@@ -1,18 +1,4 @@
 {
   "name": "module-federation",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "app1",
-      "app2"
-    ]
-  },
-  "scripts": {
-    "start": "lerna run --parallel start",
-    "build": "lerna run build --scope=default_webpack_mf_second --scope=default_webpack_mf_first"
-  },
-  "devDependencies": {
-    "lerna": "^4.0.0",
-    "zephyr-webpack-plugin": "^0.0.35"
-  }
+  "version": "0.0.1"
 }
