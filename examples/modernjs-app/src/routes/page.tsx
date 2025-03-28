@@ -3,6 +3,7 @@ import './index.css';
 
 const Index = () => (
   <div className="container-box">
+    {/* @ts-expect-error https://github.com/nfl/react-helmet/issues/646 */}
     <Helmet>
       <link
         rel="icon"

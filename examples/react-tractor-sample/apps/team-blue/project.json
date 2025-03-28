@@ -1,5 +1,5 @@
 {
-  "name": "team-blue",
+  "name": "team_blue",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/team-blue/src",
   "projectType": "application",
@@ -51,15 +51,15 @@
       "defaultConfiguration": "development",
       "options": {
         "port": 4300,
-        "buildTarget": "team-blue:build",
+        "buildTarget": "team_blue:build",
         "hmr": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "team-blue:build:development"
+          "buildTarget": "team_blue:build:development"
         },
         "production": {
-          "buildTarget": "team-blue:build:production",
+          "buildTarget": "team_blue:build:production",
           "hmr": false
         }
       }
