@@ -9,22 +9,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@angular/animations": "catalog:angular18",
-    "@angular/common": "catalog:angular18",
-    "@angular/compiler": "catalog:angular18",
-    "@angular/core": "catalog:angular18",
-    "@angular/platform-browser": "catalog:angular18",
-    "@angular/platform-browser-dynamic": "catalog:angular18",
-    "@angular/router": "catalog:angular18",
-    "rxjs": "catalog:angular18",
+    "@angular/animations": "catalog:angular19",
+    "@angular/common": "catalog:angular19",
+    "@angular/compiler": "catalog:angular19",
+    "@angular/core": "catalog:angular19",
+    "@angular/platform-browser": "catalog:angular19",
+    "@angular/platform-browser-dynamic": "catalog:angular19",
+    "@angular/router": "catalog:angular19",
+    "rxjs": "catalog:angular19",
     "tslib": "catalog:typescript",
     "vite-plugin-zephyr": "catalog:zephyr",
-    "zone.js": "catalog:angular18"
+    "zone.js": "catalog:angular19"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "catalog:angular18",
-    "@angular/build": "catalog:angular18",
-    "@angular/compiler-cli": "catalog:angular18",
+    "@analogjs/vite-plugin-angular": "catalog:angular19",
+    "@angular/build": "catalog:angular19",
+    "@angular/compiler-cli": "catalog:angular19",
     "typescript": "catalog:typescript",
     "vite": "catalog:vite5"
   }
