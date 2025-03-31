@@ -96,7 +96,10 @@ module.exports = withZephyr()({
       exposes: {
         './Image': './src/Image',
       },
-      shared: ['react', 'react-dom'],
+      shared: {
+        react: { singleton: true },
+        'react-dom': { singleton: true },
+      },
     }),
     new rspack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
