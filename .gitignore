@@ -19,6 +19,7 @@ dist
 */dist
 
 # Module Federation Enhanced generated types
-@mf-types
 */.__mf__temp
 */**/.__mf__temp
+
+.parcel-cache

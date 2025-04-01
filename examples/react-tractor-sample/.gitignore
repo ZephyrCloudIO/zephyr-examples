@@ -44,6 +44,3 @@ Thumbs.db
 # nx
 .nx/cache
 migrations.json
-
-# Module Federation
-@mf-types

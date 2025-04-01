@@ -4,13 +4,13 @@
     "./apps/*"
   ],
   "scripts": {
-    "dev": "pnpm run --parallel dev",
-    "build": "pnpm run --parallel build",
-    "build-remotes": "pnpm --filter \"!airbnb-react-host\" run --parallel build",
-    "build-host": "pnpm --filter \"airbnb-react-host\" run build",
-    "start": "pnpm run --parallel start",
-    "start-remotes": "pnpm --filter \"!airbnb-react-host\" run --parallel start",
-    "start-host": "pnpm --filter \"airbnb-react-host\" run start"
+    "dev": "pnpm --filter=./apps/* --parallel run dev",
+    "build": "pnpm --filter=./apps/* --parallel run build ",
+    "build-remotes": "pnpm --filter=./apps/* --filter=!airbnb-react-host --parallel run build",
+    "build-host": "pnpm --filter=airbnb-react-host run build",
+    "start": "pnpm --filter=./apps/* --parallel run start",
+    "start-remotes": "pnpm --filter=./apps/* --filter=!airbnb-react-host --parallel run start",
+    "start-host": "pnpm --filter=airbnb-react-host run start"
   },
   "dependencies": {
     "concurrently": "^9.1.0",

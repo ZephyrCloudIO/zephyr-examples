@@ -75,12 +75,8 @@ module.exports = (_, argv) =>
           './Image': './src/Image',
         },
         shared: {
-          react: {
-            singleton: true,
-          },
-          'react-dom': {
-            singleton: true,
-          },
+          react: { singleton: true },
+          'react-dom': { singleton: true },
         },
       }),
       new HtmlWebPackPlugin({

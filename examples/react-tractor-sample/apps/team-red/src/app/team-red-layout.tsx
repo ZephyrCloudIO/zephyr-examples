@@ -1,15 +1,8 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 
-const GreenRecos =
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  lazy(() => import('team-green/GreenRecos'));
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const BlueBasket = lazy(() => import('team-blue/BlueBasket'));
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const BlueBuy = lazy(() => import('team-blue/BlueBuy'));
+const GreenRecos = lazy(() => import('team_green/GreenRecos'));
+const BlueBasket = lazy(() => import('team_blue/BlueBasket'));
+const BlueBuy = lazy(() => import('team_blue/BlueBuy'));
 
 interface VariantOption {
   sku: string;
