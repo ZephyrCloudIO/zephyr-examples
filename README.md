@@ -29,7 +29,7 @@ Once you've forked this repository, you can clone it and follow the instructions
 *   __[`react-rollup-ts`](./examples/react-rollup-ts)__  
     A React and rollup application.
 *   __[`react-rspack-tractor-2.0`](./examples/react-rspack-tractor-2.0)__  
-    A monorepo using pnpm workspace, React, and Webpack as the bundler.
+    A monorepo using pnpm workspace, React, and Rspack as the bundler.
 *   __[`react-tractor-sample`](./examples/react-tractor-sample)__  
     A monorepo using Nx, React, and Webpack as the bundler.
 *   __[`react-vite-mf`](./examples/react-vite-mf)__  
