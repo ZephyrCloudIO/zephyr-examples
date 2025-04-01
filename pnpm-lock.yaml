@@ -1189,8 +1189,6 @@ importers:
         specifier: catalog:vite5
         version: 4.3.2(typescript@5.8.2)(vite@5.4.15(@types/node@22.13.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0))
 
-  examples/qwik-1.5/server: {}
-
   examples/react-airbnb-clone:
     dependencies:
       concurrently:
