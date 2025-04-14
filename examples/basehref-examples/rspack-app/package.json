@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
-    "zephyr-rspack-plugin": "workspace:*"
+    "zephyr-rspack-plugin": "catalog:zephyr"
   },
   "devDependencies": {
     "@rspack/cli": "catalog:rspack",

@@ -21,6 +21,6 @@
     "@vitejs/plugin-react": "catalog:vite5",
     "typescript": "catalog:typescript",
     "vite": "catalog:vite5",
-    "vite-plugin-zephyr": "workspace:*"
+    "vite-plugin-zephyr": "catalog:zephyr"
   }
 }

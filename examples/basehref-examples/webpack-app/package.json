@@ -27,6 +27,6 @@
     "webpack": "catalog:webpack5",
     "webpack-cli": "catalog:webpack5",
     "webpack-dev-server": "catalog:webpack5",
-    "zephyr-webpack-plugin": "workspace:*"
+    "zephyr-webpack-plugin": "catalog:zephyr"
   }
 }
