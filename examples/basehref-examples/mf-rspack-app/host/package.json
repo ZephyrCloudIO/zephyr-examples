@@ -4,6 +4,7 @@
   "scripts": {
     "build": "NODE_ENV=production rspack build",
     "build:dev": "NODE_ENV=development rspack build",
+    "build:base": "PUBLIC_PATH=/app/ rspack build",
     "build:start": "cd dist && rspack serve",
     "start": "NODE_ENV=development rspack serve"
   },
