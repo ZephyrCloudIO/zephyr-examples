@@ -26,6 +26,6 @@
     "@module-federation/enhanced": "catalog:module-federation",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
-    "zephyr-rspack-plugin": "catalog:zephyr"
+    "zephyr-rspack-plugin": "0.0.38"
   }
 }

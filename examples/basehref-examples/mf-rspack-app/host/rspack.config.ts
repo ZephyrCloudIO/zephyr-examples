@@ -5,8 +5,6 @@ import * as RefreshPlugin from "@rspack/plugin-react-refresh";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import { withZephyr } from "zephyr-rspack-plugin";
 
-import { mfConfig } from "./module-federation.config";
-
 const publicPath = process.env.PUBLIC_PATH || "/";
 const isDev = process.env.NODE_ENV === "development";
 
@@ -78,7 +76,15 @@ export default withZephyr()(
       new rspack.HtmlRspackPlugin({
         template: "./index.html",
       }),
-      new ModuleFederationPlugin(mfConfig),
+      new ModuleFederationPlugin({
+        name: "host",
+        exposes: {},
+        filename: "remoteEntry.js",
+        remotes: {
+          remote: `remote@${publicPath}/remoteEntry.js`,
+        },
+        shared: ["react", "react-dom"],
+      }),
       isDev ? new RefreshPlugin() : null,
     ].filter(Boolean),
     optimization: {
