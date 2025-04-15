@@ -6,7 +6,7 @@ import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import { withZephyr } from "zephyr-rspack-plugin";
 
 const isDev = process.env.NODE_ENV === "development";
-const publicPath = process.env.PUBLIC_PATH || "/";
+const publicPath = process.env.PUBLIC_PATH || "auto";
 
 // Target browsers, see: https://github.com/browserslist/browserslist
 const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
