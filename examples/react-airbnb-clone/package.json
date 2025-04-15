@@ -61,7 +61,7 @@
     "postcss-loader": "catalog:postcss",
     "rimraf": "^6.0.1",
     "style-loader": "catalog:common",
-    "tailwindcss": "catalog:tailwind3",
+    "tailwindcss": "catalog:tailwind4",
     "tslib": "catalog:typescript",
     "typescript": "catalog:typescript",
     "webpack": "catalog:webpack5",

@@ -265,12 +265,21 @@ catalogs:
       specifier: ^6.30.0
       version: 6.30.0
   react19:
+    '@types/react':
+      specifier: ^19.0.0
+      version: 19.0.12
+    '@types/react-dom':
+      specifier: ^19.0.0
+      version: 19.0.4
     react:
       specifier: ^19.0.0
       version: 19.0.0
     react-dom:
       specifier: ^19.0.0
       version: 19.0.0
+    react-refresh:
+      specifier: ^0.9.0
+      version: 0.9.0
   rollup:
     '@rollup/plugin-babel':
       specifier: ^6.0.4
@@ -355,6 +364,10 @@ catalogs:
     tailwindcss:
       specifier: ^3.4.17
       version: 3.4.17
+  tailwind4:
+    tailwindcss:
+      specifier: ^4.0.3
+      version: 4.1.4
   turbo:
     '@turbo/gen':
       specifier: ^1.13.4
@@ -409,6 +422,9 @@ catalogs:
     '@svgr/webpack':
       specifier: ^8.1.0
       version: 8.1.0
+    css-loader:
+      specifier: ^5.0.0
+      version: 5.2.7
     dotenv-webpack:
       specifier: ^8.0.1
       version: 8.1.0
@@ -483,10 +499,10 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: catalog:angular19
-        version: 1.14.1(c890dc5150e7cb2d0b55abf55cb499c0)
+        version: 1.14.1(@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2))(@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0))
       '@angular/build':
         specifier: catalog:angular19
-        version: 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
+        version: 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
       '@angular/compiler-cli':
         specifier: catalog:angular19
         version: 19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2)
@@ -496,6 +512,230 @@ importers:
       vite:
         specifier: catalog:vite5
         version: 5.4.15(@types/node@22.13.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)
+
+  examples/basehref-examples/mf-rspack-app/host:
+    dependencies:
+      '@module-federation/enhanced':
+        specifier: catalog:module-federation
+        version: 0.11.2(@rspack/core@1.2.8(@swc/helpers@0.5.15))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.2)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      react:
+        specifier: catalog:react18
+        version: 18.3.1
+      react-dom:
+        specifier: catalog:react18
+        version: 18.3.1(react@18.3.1)
+      zephyr-rspack-plugin:
+        specifier: catalog:zephyr
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+    devDependencies:
+      '@rspack/cli':
+        specifier: catalog:rspack
+        version: 1.2.8(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@types/express@4.17.21)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      '@rspack/core':
+        specifier: catalog:rspack
+        version: 1.2.8(@swc/helpers@0.5.15)
+      '@rspack/plugin-react-refresh':
+        specifier: catalog:rspack
+        version: 1.0.1(react-refresh@0.16.0)
+      '@types/react':
+        specifier: catalog:react18
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: catalog:react18
+        version: 18.3.5(@types/react@18.3.20)
+      autoprefixer:
+        specifier: catalog:postcss
+        version: 10.4.21(postcss@8.5.3)
+      css-loader:
+        specifier: catalog:webpack5
+        version: 5.2.7(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      postcss:
+        specifier: catalog:postcss
+        version: 8.5.3
+      postcss-loader:
+        specifier: catalog:postcss
+        version: 8.1.1(@rspack/core@1.2.8(@swc/helpers@0.5.15))(postcss@8.5.3)(typescript@5.8.2)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      react-refresh:
+        specifier: catalog:react18
+        version: 0.16.0
+      ts-node:
+        specifier: catalog:typescript
+        version: 10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)
+      typescript:
+        specifier: catalog:typescript
+        version: 5.8.2
+
+  examples/basehref-examples/mf-rspack-app/remote:
+    dependencies:
+      '@module-federation/enhanced':
+        specifier: catalog:module-federation
+        version: 0.11.2(@rspack/core@1.2.8(@swc/helpers@0.5.15))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.2)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      react:
+        specifier: catalog:react18
+        version: 18.3.1
+      react-dom:
+        specifier: catalog:react18
+        version: 18.3.1(react@18.3.1)
+      zephyr-rspack-plugin:
+        specifier: catalog:zephyr
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+    devDependencies:
+      '@rspack/cli':
+        specifier: catalog:rspack
+        version: 1.2.8(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@types/express@4.17.21)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      '@rspack/core':
+        specifier: catalog:rspack
+        version: 1.2.8(@swc/helpers@0.5.15)
+      '@rspack/plugin-react-refresh':
+        specifier: catalog:rspack
+        version: 1.0.1(react-refresh@0.16.0)
+      '@types/react':
+        specifier: catalog:react18
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: catalog:react18
+        version: 18.3.5(@types/react@18.3.20)
+      autoprefixer:
+        specifier: catalog:postcss
+        version: 10.4.21(postcss@8.5.3)
+      css-loader:
+        specifier: catalog:webpack5
+        version: 5.2.7(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      postcss:
+        specifier: catalog:postcss
+        version: 8.5.3
+      postcss-loader:
+        specifier: catalog:postcss
+        version: 8.1.1(@rspack/core@1.2.8(@swc/helpers@0.5.15))(postcss@8.5.3)(typescript@5.8.2)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      react-refresh:
+        specifier: catalog:react18
+        version: 0.16.0
+      ts-node:
+        specifier: catalog:typescript
+        version: 10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)
+      typescript:
+        specifier: catalog:typescript
+        version: 5.8.2
+
+  examples/basehref-examples/rspack-app:
+    dependencies:
+      react:
+        specifier: catalog:react19
+        version: 19.0.0
+      react-dom:
+        specifier: catalog:react19
+        version: 19.0.0(react@19.0.0)
+      zephyr-rspack-plugin:
+        specifier: catalog:zephyr
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+    devDependencies:
+      '@rspack/cli':
+        specifier: catalog:rspack
+        version: 1.2.8(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@types/express@4.17.21)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      '@rspack/core':
+        specifier: catalog:rspack
+        version: 1.2.8(@swc/helpers@0.5.15)
+      '@rspack/plugin-react-refresh':
+        specifier: catalog:rspack
+        version: 1.0.1(react-refresh@0.9.0)
+      '@types/react':
+        specifier: catalog:react19
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: catalog:react19
+        version: 19.0.4(@types/react@19.0.12)
+      react-refresh:
+        specifier: catalog:react19
+        version: 0.9.0
+      ts-node:
+        specifier: catalog:typescript
+        version: 10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)
+      typescript:
+        specifier: catalog:typescript
+        version: 5.8.2
+
+  examples/basehref-examples/vite-app:
+    dependencies:
+      react:
+        specifier: catalog:react18
+        version: 18.3.1
+      react-dom:
+        specifier: catalog:react18
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/react':
+        specifier: catalog:react18
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: catalog:react18
+        version: 18.3.5(@types/react@18.3.20)
+      '@vitejs/plugin-react':
+        specifier: catalog:vite5
+        version: 4.3.4(vite@5.4.15(@types/node@22.13.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0))
+      typescript:
+        specifier: catalog:typescript
+        version: 5.8.2
+      vite:
+        specifier: catalog:vite5
+        version: 5.4.15(@types/node@22.13.13)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)
+      vite-plugin-zephyr:
+        specifier: catalog:zephyr
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+
+  examples/basehref-examples/webpack-app:
+    dependencies:
+      react:
+        specifier: catalog:react18
+        version: 18.3.1
+      react-dom:
+        specifier: catalog:react18
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@babel/core':
+        specifier: catalog:babel
+        version: 7.26.10
+      '@babel/preset-env':
+        specifier: catalog:babel
+        version: 7.26.9(@babel/core@7.26.10)
+      '@babel/preset-react':
+        specifier: catalog:babel
+        version: 7.26.3(@babel/core@7.26.10)
+      '@babel/preset-typescript':
+        specifier: catalog:babel
+        version: 7.27.0(@babel/core@7.26.10)
+      '@types/react':
+        specifier: catalog:react18
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: catalog:react18
+        version: 18.3.5(@types/react@18.3.20)
+      babel-loader:
+        specifier: catalog:babel
+        version: 8.4.1(@babel/core@7.26.10)(webpack@5.98.0)
+      css-loader:
+        specifier: catalog:webpack5
+        version: 5.2.7(webpack@5.98.0)
+      html-webpack-plugin:
+        specifier: catalog:webpack5
+        version: 5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0)
+      style-loader:
+        specifier: ^3.3.3
+        version: 3.3.4(webpack@5.98.0)
+      typescript:
+        specifier: catalog:typescript
+        version: 5.8.2
+      webpack:
+        specifier: catalog:webpack5
+        version: 5.98.0(webpack-cli@4.10.0)
+      webpack-cli:
+        specifier: catalog:webpack5
+        version: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.98.0)
+      webpack-dev-server:
+        specifier: catalog:webpack5
+        version: 4.15.2(webpack-cli@4.10.0)(webpack@5.98.0)
+      zephyr-webpack-plugin:
+        specifier: catalog:zephyr
+        version: 0.0.38(encoding@0.1.13)(webpack-cli@4.10.0)
 
   examples/create-default-webpack-mf: {}
 
@@ -1262,7 +1502,7 @@ importers:
         version: 5.1.0
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)(webpack-cli@4.10.0)
+        version: 0.0.38(encoding@0.1.13)(webpack-cli@4.10.0)
       zustand:
         specifier: ^5.0.1
         version: 5.0.3(@types/react@18.3.20)(immer@9.0.21)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
@@ -1331,8 +1571,8 @@ importers:
         specifier: catalog:common
         version: 4.0.0(webpack@5.98.0)
       tailwindcss:
-        specifier: catalog:tailwind3
-        version: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+        specifier: catalog:tailwind4
+        version: 4.1.4
       tslib:
         specifier: catalog:typescript
         version: 2.8.1
@@ -1341,7 +1581,7 @@ importers:
         version: 5.8.2
       webpack:
         specifier: catalog:webpack5
-        version: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+        version: 5.98.0(webpack-cli@4.10.0)
       webpack-cli:
         specifier: catalog:webpack5
         version: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.98.0)
@@ -10172,6 +10412,12 @@ packages:
     peerDependencies:
       postcss: ^8.0.9
 
+  css-loader@5.2.7:
+    resolution: {integrity: sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.27.0 || ^5.0.0
+
   css-loader@6.11.0:
     resolution: {integrity: sha512-CTJ+AEQJjq5NzLga5pE39qdiSV56F8ywCIsqNIRF0r7BDgWsN25aazToqAFg7ZrtA/U016xudB3ffgweORxX7g==}
     engines: {node: '>= 12.13.0'}
@@ -15813,6 +16059,10 @@ packages:
     resolution: {integrity: sha512-FPvF2XxTSikpJxcr+bHut2H4gJ17+18Uy20D5/F+SKzFap62R3cM5wH6b8WN3LyGSYeQilLEcJcR1fjBSI2S1A==}
     engines: {node: '>=0.10.0'}
 
+  react-refresh@0.9.0:
+    resolution: {integrity: sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==}
+    engines: {node: '>=0.10.0'}
+
   react-router-dom@6.27.0:
     resolution: {integrity: sha512-+bvtFWMC0DgAFrfKXKG9Fc+BcXWRUO1aJIihbB79xaeq0v5UzfvnM5houGUm1Y461WVRcgAQ+Clh5rdb1eCx4g==}
     engines: {node: '>=14.0.0'}
@@ -17243,6 +17493,9 @@ packages:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  tailwindcss@4.1.4:
+    resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -18799,13 +19052,13 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@analogjs/vite-plugin-angular@1.14.1(c890dc5150e7cb2d0b55abf55cb499c0)':
+  '@analogjs/vite-plugin-angular@1.14.1(@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2))(@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
       ts-morph: 21.0.1
       vfile: 6.0.3
     optionalDependencies:
-      '@angular-devkit/build-angular': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(typescript@5.8.2)
-      '@angular/build': 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
+      '@angular-devkit/build-angular': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2)
+      '@angular/build': 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
 
   '@angular-builders/common@2.0.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)':
     dependencies:
@@ -18873,13 +19126,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(typescript@5.8.2)':
+  '@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.16(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.1802.16(chokidar@4.0.3)(webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(esbuild@0.23.0)))(webpack@5.94.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(esbuild@0.23.0))
       '@angular-devkit/core': 18.2.16(chokidar@4.0.3)
-      '@angular/build': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.31.6)(typescript@5.8.2)
+      '@angular/build': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.31.6)(typescript@5.8.2)
       '@angular/compiler-cli': 19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2)
       '@babel/core': 7.26.10
       '@babel/generator': 7.26.10
@@ -18941,7 +19194,7 @@ snapshots:
       esbuild: 0.23.0
       jest: 29.7.0(@types/node@22.13.13)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
       jest-environment-jsdom: 29.7.0
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+      tailwindcss: 4.1.4
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -19149,7 +19402,7 @@ snapshots:
       '@angular/core': 19.2.4(rxjs@7.8.2)(zone.js@0.15.0)
       tslib: 2.8.1
 
-  '@angular/build@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.31.6)(typescript@5.8.2)':
+  '@angular/build@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.31.6)(typescript@5.8.2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.16(chokidar@4.0.3)
@@ -19181,7 +19434,7 @@ snapshots:
     optionalDependencies:
       less: 4.2.0
       postcss: 8.4.41
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+      tailwindcss: 4.1.4
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -19236,7 +19489,7 @@ snapshots:
       - supports-color
       - terser
 
-  '@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)':
+  '@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1902.5(chokidar@4.0.3)
@@ -19271,7 +19524,7 @@ snapshots:
       less: 4.2.0
       lmdb: 3.2.6
       postcss: 8.5.3
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+      tailwindcss: 4.1.4
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -22473,7 +22726,7 @@ snapshots:
       upath: 2.0.1
     optionalDependencies:
       typescript: 5.8.2
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - '@rspack/core'
       - bufferutil
@@ -24026,7 +24279,7 @@ snapshots:
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.8.2)
       '@rspack/core': 1.2.8(@swc/helpers@0.5.15)
       '@rspack/dev-server': 1.1.0(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@types/express@4.17.21)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
-      '@rspack/plugin-react-refresh': 1.0.1(react-refresh@0.16.0)
+      '@rspack/plugin-react-refresh': 1.0.1(react-refresh@0.9.0)
       autoprefixer: 10.4.21(postcss@8.5.3)
       browserslist: 4.24.4
       css-loader: 6.11.0(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
@@ -26461,6 +26714,13 @@ snapshots:
     optionalDependencies:
       react-refresh: 0.16.0
 
+  '@rspack/plugin-react-refresh@1.0.1(react-refresh@0.9.0)':
+    dependencies:
+      error-stack-parser: 2.1.4
+      html-entities: 2.5.3
+    optionalDependencies:
+      react-refresh: 0.9.0
+
   '@rtsao/scc@1.1.0': {}
 
   '@samverschueren/stream-to-observable@0.3.1(rxjs@6.6.7)':
@@ -27683,7 +27943,7 @@ snapshots:
 
   '@webpack-cli/serve@2.0.5(webpack-cli@4.10.0)(webpack-dev-server@4.15.2)(webpack@5.98.0)':
     dependencies:
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.98.0)
     optionalDependencies:
       webpack-dev-server: 4.15.2(webpack-cli@4.10.0)(webpack@5.98.0)
@@ -29594,6 +29854,34 @@ snapshots:
     dependencies:
       postcss: 8.5.3
 
+  css-loader@5.2.7(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
+    dependencies:
+      icss-utils: 5.1.0(postcss@8.5.3)
+      loader-utils: 2.0.4
+      postcss: 8.5.3
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
+      postcss-modules-scope: 3.2.1(postcss@8.5.3)
+      postcss-modules-values: 4.0.0(postcss@8.5.3)
+      postcss-value-parser: 4.2.0
+      schema-utils: 3.3.0
+      semver: 7.7.1
+      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))
+
+  css-loader@5.2.7(webpack@5.98.0):
+    dependencies:
+      icss-utils: 5.1.0(postcss@8.5.3)
+      loader-utils: 2.0.4
+      postcss: 8.5.3
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
+      postcss-modules-scope: 3.2.1(postcss@8.5.3)
+      postcss-modules-values: 4.0.0(postcss@8.5.3)
+      postcss-value-parser: 4.2.0
+      schema-utils: 3.3.0
+      semver: 7.7.1
+      webpack: 5.98.0(webpack-cli@4.10.0)
+
   css-loader@6.11.0(@rspack/core@1.2.8(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.3)
@@ -29930,11 +30218,9 @@ snapshots:
     optionalDependencies:
       supports-color: 8.1.1
 
-  debug@4.3.4(supports-color@9.4.0):
+  debug@4.3.4:
     dependencies:
       ms: 2.1.2
-    optionalDependencies:
-      supports-color: 9.4.0
 
   debug@4.3.7:
     dependencies:
@@ -31342,7 +31628,7 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
 
   file-type@18.7.0:
     dependencies:
@@ -31494,7 +31780,7 @@ snapshots:
 
   follow-redirects@1.15.9(debug@4.3.4):
     optionalDependencies:
-      debug: 4.3.4(supports-color@9.4.0)
+      debug: 4.3.4
 
   follow-redirects@1.15.9(debug@4.4.0):
     optionalDependencies:
@@ -32384,7 +32670,7 @@ snapshots:
   https-proxy-agent@5.0.1(supports-color@9.4.0):
     dependencies:
       agent-base: 6.0.2(supports-color@9.4.0)
-      debug: 4.3.4(supports-color@9.4.0)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -34904,7 +35190,7 @@ snapshots:
       cookie: 0.5.0
       copy-template-dir: 1.4.0
       cron-parser: 4.8.1
-      debug: 4.3.4(supports-color@9.4.0)
+      debug: 4.3.4
       decache: 4.6.2
       dot-prop: 7.2.0
       dotenv: 16.0.3
@@ -36857,6 +37143,8 @@ snapshots:
 
   react-refresh@0.16.0: {}
 
+  react-refresh@0.9.0: {}
+
   react-router-dom@6.27.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@remix-run/router': 1.20.0
@@ -38438,6 +38726,10 @@ snapshots:
     dependencies:
       webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))
 
+  style-loader@3.3.4(webpack@5.98.0):
+    dependencies:
+      webpack: 5.98.0(webpack-cli@4.10.0)
+
   style-loader@4.0.0(webpack@5.98.0):
     dependencies:
       webpack: 5.98.0(webpack-cli@4.10.0)
@@ -38614,7 +38906,7 @@ snapshots:
 
   tabtab@3.0.2:
     dependencies:
-      debug: 4.3.4(supports-color@9.4.0)
+      debug: 4.4.0(supports-color@9.4.0)
       es6-promisify: 6.1.1
       inquirer: 6.5.2
       minimist: 1.2.8
@@ -38649,6 +38941,8 @@ snapshots:
       sucrase: 3.35.0
     transitivePeerDependencies:
       - ts-node
+
+  tailwindcss@4.1.4: {}
 
   tapable@2.2.1: {}
 
@@ -39864,7 +40158,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       commander: 9.5.0
-      debug: 4.3.4(supports-color@9.4.0)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
