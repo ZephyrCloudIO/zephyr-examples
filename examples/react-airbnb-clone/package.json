@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "pnpm --filter=./apps/* --parallel run dev",
-    "build": "pnpm --filter=./apps/* --parallel run build ",
+    "build": "pnpm build-remotes && pnpm build-host",
     "build-remotes": "pnpm --filter=./apps/* --filter=!airbnb-react-host --parallel run build",
     "build-host": "pnpm --filter=airbnb-react-host run build",
     "start": "pnpm --filter=./apps/* --parallel run start",
