@@ -5,7 +5,7 @@ import { lazy } from 'react';
 import { Suspense } from 'react';
 import './App.css';
 //@ts-expect-error - Remote
-const RemoteButton = lazy(() => import('vite-remote/Button'));
+const RemoteButton = lazy(() => import('vite_remote/Button'));
 //@ts-expect-error - Remote
 const WebpackImage = lazy(() => import('vite_webpack/Image'));
 //@ts-expect-error - Remote

@@ -6,8 +6,8 @@ const mfConfig: ModuleFederationOptions = {
   name: 'vite-host',
   filename: 'remoteEntry.js',
   remotes: {
-    'vite-remote': {
-      name: 'vite-remote',
+    'vite_remote': {
+      name: 'vite_remote',
       entry: 'http://localhost:5174/remoteEntry.js',
       type: 'module',
     },
