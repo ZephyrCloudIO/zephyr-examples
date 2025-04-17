@@ -8,5 +8,8 @@
     "remove-all-dist": "find . -name 'dist' -type d -prune -exec rm -rf '{}' + ",
     "run-sherif": "pnpm dlx sherif@latest"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
 }
