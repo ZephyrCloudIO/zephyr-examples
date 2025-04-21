@@ -59,3 +59,12 @@ Currently testing:
 - 0.0.36
 - 0.0.38
 - 0.0.39
+
+## Adding New Versions to the Testing Matrix
+
+A new version should be added to the testing matrix when:
+
+1. It is a non-canary release
+2. It has reached more than 10 downloads on npm
+
+We track version adoption to ensure we're focusing testing resources on versions that are being used in the community. You can check download statistics on the [npm package page](https://www.npmjs.com/package/zephyr-rspack-plugin?activeTab=versions).
