@@ -1,0 +1,32 @@
+{
+  "name": "host",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "NODE_ENV=production rspack build",
+    "build:dev": "NODE_ENV=development rspack build",
+    "build:base": "PUBLIC_PATH=/app/ rspack build",
+    "build:start": "cd dist && rspack serve",
+    "start": "NODE_ENV=development rspack serve",
+    "start:base": "PUBLIC_PATH=/app/ NODE_ENV=development rspack serve"
+  },
+  "devDependencies": {
+    "@rspack/cli": "catalog:rspack",
+    "@rspack/core": "catalog:rspack",
+    "@rspack/plugin-react-refresh": "catalog:rspack",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "autoprefixer": "catalog:postcss",
+    "css-loader": "catalog:webpack5",
+    "postcss": "catalog:postcss",
+    "postcss-loader": "catalog:postcss",
+    "react-refresh": "catalog:react18",
+    "ts-node": "catalog:typescript",
+    "typescript": "catalog:typescript"
+  },
+  "dependencies": {
+    "@module-federation/enhanced": "^0.12.0",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "zephyr-rspack-plugin": "0.0.0-canary-20250414122517"
+  }
+}
