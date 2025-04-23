@@ -355,6 +355,10 @@ catalogs:
     tailwindcss:
       specifier: ^3.4.17
       version: 3.4.17
+  tailwind4:
+    tailwindcss:
+      specifier: ^4.0.3
+      version: 4.1.4
   turbo:
     '@turbo/gen':
       specifier: ^1.13.4
@@ -429,26 +433,26 @@ catalogs:
       version: 4.15.2
   zephyr:
     parcel-reporter-zephyr:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
     rollup-plugin-zephyr:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
     vite-plugin-zephyr:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
     zephyr-modernjs-plugin:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
     zephyr-rolldown-plugin:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
     zephyr-rspack-plugin:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
     zephyr-webpack-plugin:
-      specifier: ^0.0.39
-      version: 0.0.39
+      specifier: ^0.0.38
+      version: 0.0.38
 
 importers:
 
@@ -489,17 +493,17 @@ importers:
         version: 2.8.1
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
       zone.js:
         specifier: catalog:angular19
         version: 0.15.0
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: catalog:angular19
-        version: 1.14.1(c1c133d6bd367d6aec08c5edb8ef5ed4)
+        version: 1.14.1(@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.3.3(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.3.3(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2))(@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0))
       '@angular/build':
         specifier: catalog:angular19
-        version: 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
+        version: 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
       '@angular/compiler-cli':
         specifier: catalog:angular19
         version: 19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2)
@@ -525,7 +529,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(encoding@0.1.13)(webpack-cli@4.10.0)
+        version: 0.0.38(encoding@0.1.13)(webpack-cli@4.10.0)
     devDependencies:
       '@babel/core':
         specifier: catalog:babel
@@ -559,7 +563,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(encoding@0.1.13)(webpack-cli@4.10.0)
+        version: 0.0.38(encoding@0.1.13)(webpack-cli@4.10.0)
     devDependencies:
       '@babel/core':
         specifier: catalog:babel
@@ -593,7 +597,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
     devDependencies:
       '@rspack/cli':
         specifier: catalog:rspack
@@ -648,7 +652,7 @@ importers:
         version: 2.8.1
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     devDependencies:
       '@module-federation/enhanced':
         specifier: catalog:module-federation
@@ -802,7 +806,7 @@ importers:
         version: 2.8.1
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)
+        version: 0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)
     devDependencies:
       '@babel/core':
         specifier: catalog:babel
@@ -972,10 +976,10 @@ importers:
         version: 5.7.3
       zephyr-modernjs-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@rspack/core@1.3.3(@swc/helpers@0.5.13))(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@5.3.11(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0))(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.13))(@types/node@18.11.19)(typescript@5.7.3))(tsconfig-paths@4.2.0)(type-fest@4.38.0)(typescript@5.7.3)(webpack-dev-server@5.2.0(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))(zephyr-rspack-plugin@0.0.39(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(zephyr-webpack-plugin@0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19))
+        version: 0.0.38(@rspack/core@1.3.3(@swc/helpers@0.5.13))(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@5.3.11(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0))(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.13))(@types/node@18.11.19)(typescript@5.7.3))(tsconfig-paths@4.2.0)(type-fest@4.38.0)(typescript@5.7.3)(webpack-dev-server@5.2.0(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))(zephyr-rspack-plugin@0.0.38(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(zephyr-webpack-plugin@0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19))
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
+        version: 0.0.38(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
 
   examples/nx-ng:
     dependencies:
@@ -1011,7 +1015,7 @@ importers:
         version: 2.8.1
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)
+        version: 0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)
       zone.js:
         specifier: catalog:angular19
         version: 0.15.0
@@ -1139,7 +1143,7 @@ importers:
         version: 2.13.3(@swc/helpers@0.5.15)(postcss@8.5.3)(relateurl@0.2.7)(svgo@3.3.2)(terser@5.39.0)(typescript@5.7.3)
       parcel-reporter-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -1148,7 +1152,7 @@ importers:
     dependencies:
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       '@builder.io/qwik':
         specifier: ^1.5.2
@@ -1275,7 +1279,7 @@ importers:
         version: 5.1.0
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)(webpack-cli@4.10.0)
+        version: 0.0.38(encoding@0.1.13)(webpack-cli@4.10.0)
       zustand:
         specifier: ^5.0.1
         version: 5.0.3(@types/react@18.3.20)(immer@9.0.21)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
@@ -1344,8 +1348,8 @@ importers:
         specifier: catalog:common
         version: 4.0.0(webpack@5.98.0)
       tailwindcss:
-        specifier: catalog:tailwind3
-        version: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+        specifier: catalog:tailwind4
+        version: 4.1.4
       tslib:
         specifier: catalog:typescript
         version: 2.8.1
@@ -1354,7 +1358,7 @@ importers:
         version: 5.8.2
       webpack:
         specifier: catalog:webpack5
-        version: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+        version: 5.98.0(webpack-cli@4.10.0)
       webpack-cli:
         specifier: catalog:webpack5
         version: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.98.0)
@@ -1386,7 +1390,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       rollup-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(encoding@0.1.13)
+        version: 0.0.38(encoding@0.1.13)
     devDependencies:
       '@babel/preset-react':
         specifier: catalog:babel
@@ -1481,7 +1485,7 @@ importers:
         version: 5.8.2
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
 
   examples/react-rspack-tractor-2.0/apps/app: {}
 
@@ -1504,7 +1508,7 @@ importers:
         version: 2.8.1
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)
+        version: 0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)
     devDependencies:
       '@babel/core':
         specifier: catalog:babel
@@ -1624,7 +1628,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       '@eslint/js':
         specifier: catalog:eslint
@@ -1673,7 +1677,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       '@eslint/js':
         specifier: catalog:eslint
@@ -1719,7 +1723,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     devDependencies:
       '@rspack/cli':
         specifier: catalog:rspack
@@ -1765,7 +1769,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       zephyr-webpack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)(webpack-cli@4.10.0)
+        version: 0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)(webpack-cli@4.10.0)
     devDependencies:
       '@babel/core':
         specifier: catalog:babel
@@ -1844,7 +1848,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       '@eslint/js':
         specifier: catalog:eslint
@@ -1956,7 +1960,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       '@types/react':
         specifier: catalog:react18
@@ -2012,7 +2016,7 @@ importers:
         version: 1.0.0-beta.3(@babel/runtime@7.26.10)(typescript@5.8.2)
       zephyr-rolldown-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@babel/runtime@7.26.10)(encoding@0.1.13)(typescript@5.8.2)
+        version: 0.0.38(@babel/runtime@7.26.10)(encoding@0.1.13)(typescript@5.8.2)
 
   examples/rspack-project:
     dependencies:
@@ -2024,7 +2028,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0)
     devDependencies:
       '@rspack/cli':
         specifier: catalog:rspack
@@ -2055,7 +2059,7 @@ importers:
         version: 1.9.5
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       typescript:
         specifier: catalog:typescript
@@ -2071,7 +2075,7 @@ importers:
     dependencies:
       vite-plugin-zephyr:
         specifier: catalog:zephyr
-        version: 0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
+        version: 0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
     devDependencies:
       '@sveltejs/vite-plugin-svelte':
         specifier: catalog:svelte
@@ -2138,7 +2142,7 @@ importers:
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     devDependencies:
       '@rspack/cli':
         specifier: catalog:rspack
@@ -2205,7 +2209,7 @@ importers:
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     devDependencies:
       '@rspack/cli':
         specifier: catalog:rspack
@@ -2269,7 +2273,7 @@ importers:
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
-        version: 0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+        version: 0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     devDependencies:
       '@biomejs/biome':
         specifier: catalog:biome
@@ -14771,8 +14775,8 @@ packages:
   param-case@3.0.4:
     resolution: {integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==}
 
-  parcel-reporter-zephyr@0.0.39:
-    resolution: {integrity: sha512-llzy3CN8/dCj2FbxVcH4/K/eHLdtUHcgpt+hSUJFqsr5eaUBXIT14ayZ9Nw/V2CVlkcWYwn44B+oGfSHMLEgcQ==}
+  parcel-reporter-zephyr@0.0.38:
+    resolution: {integrity: sha512-AQ3MWSDV54ki8KA6w5GzPf2C9/jL2j8WVWhU+FGr2Ygd3CalsZkbgxTItYic5nQfbwL7Xo9ll7fUgDeC+E2AsA==}
 
   parcel@2.13.3:
     resolution: {integrity: sha512-8GrC8C7J8mwRpAlk7EJ7lwdFTbCN+dcXH2gy5AsEs9pLfzo9wvxOTx6W0fzSlvCOvZOita+8GdfYlGfEt0tRgA==}
@@ -16220,8 +16224,8 @@ packages:
     peerDependencies:
       postcss: 8.x
 
-  rollup-plugin-zephyr@0.0.39:
-    resolution: {integrity: sha512-V6RYdTDICn9y3eQsKRrmlASqkGQli+yDzaN2PymLTL9Aei8Y2bmUfGxBNip5KFPczvfjx16hatbmRaNGWDltbw==}
+  rollup-plugin-zephyr@0.0.38:
+    resolution: {integrity: sha512-tnA4c+mHQN4zqhod6FCfKOmgl2o2aTOCQW2RYguolG7Zkq7qyzLTpEy3JBXTyea9aqG+hmau0KWwn0pTImoXgg==}
 
   rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
@@ -17263,6 +17267,9 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
+  tailwindcss@4.1.4:
+    resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
+
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
@@ -18122,8 +18129,8 @@ packages:
       '@testing-library/jest-dom':
         optional: true
 
-  vite-plugin-zephyr@0.0.39:
-    resolution: {integrity: sha512-j5j8OjXU/wTrMjCeNMz1w3VQFNmXYtep+XE4r/LZXAgqFsRjiujqj9i8r34pjoYNCBSq/yIyv26/IKIGO2+j+g==}
+  vite-plugin-zephyr@0.0.38:
+    resolution: {integrity: sha512-2oNqHh2H5o4DaJ0cae48qgJNaJ9EeCPyeUoF80pYYbQAVZ4xFGj6CqyI6vwS7P9OQYU5gWPHBp9knTeFZtdhLw==}
 
   vite-tsconfig-paths@4.3.2:
     resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
@@ -18728,34 +18735,34 @@ packages:
     resolution: {integrity: sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==}
     engines: {node: '>=18'}
 
-  zephyr-agent@0.0.39:
-    resolution: {integrity: sha512-M/s+1VMZzgjAZPXyM9bnaXc30Z0SR6oo7gqHnroHv8/HwH1AYgSnQzc4LQk/UL0bsM42CA9kRkfKGCUHpJUvNw==}
+  zephyr-agent@0.0.38:
+    resolution: {integrity: sha512-8+jLc0i/fjOhro6Thknl5g1c2bJ5Ds+557l3fWbLuJ7pgdHew7uV5bC6QYh0dJ2qMcfDj2RWMylGr4wzvNr49Q==}
 
-  zephyr-edge-contract@0.0.39:
-    resolution: {integrity: sha512-jgurm4ZpLYGeLZTpkfp1+ypGUPceFRTuEHp//OMN6AgVKuQM0XiSr+gqH68usel/BU04Yq3Cmwfjacm5HSeIag==}
+  zephyr-edge-contract@0.0.38:
+    resolution: {integrity: sha512-R8aOKrsKjUYLfdWa0YiV71cneV13Oii6TT4COvVpVd7n8yLUgSLqfvDnNCrUi9equaYLh4YA0wYlO5JtiWquNw==}
 
-  zephyr-modernjs-plugin@0.0.39:
-    resolution: {integrity: sha512-W+BwiR2N+3U32dBm5/xGh0wQkdp6ljfuy+lYqPEWxgsd/ijozCgxf0raAe4Md6Eyl4vksIqGNGiSrqOUrhDn/Q==}
+  zephyr-modernjs-plugin@0.0.38:
+    resolution: {integrity: sha512-SmQ23sC9DBiPeWhmaZQkbJcZxk1UTnfzz5s3mMzsJyQxjmWb/Uxg+0NLCgnZkyrQIzZ8a9y7IOa0doaLGomohw==}
     peerDependencies:
-      zephyr-rspack-plugin: 0.0.39
-      zephyr-webpack-plugin: 0.0.39
+      zephyr-rspack-plugin: 0.0.38
+      zephyr-webpack-plugin: 0.0.38
     peerDependenciesMeta:
       zephyr-rspack-plugin:
         optional: true
       zephyr-webpack-plugin:
         optional: true
 
-  zephyr-rolldown-plugin@0.0.39:
-    resolution: {integrity: sha512-RQTpIQr4L94CIsvbQAi+oq+Qf79c7XJf/CZVagd7V/J5MwjFjozof970Yf/b67uSmEWScUtEEB7uyBXa95oSww==}
+  zephyr-rolldown-plugin@0.0.38:
+    resolution: {integrity: sha512-OJP7SwBLUVBPvN+JK9onKQL5UztjKcRPP2xxNhlW6HT4Vo0cU/vt/m77br8Qqk0QooNkL/LEr20K0WJEbqCjnQ==}
 
-  zephyr-rspack-plugin@0.0.39:
-    resolution: {integrity: sha512-c5FRK5GG8cXML/ksqOosbeETSr7jbggiY15+jBfm0Ud1bhUn5fVLsVLCSe4XMm2UxhO51hkAbHvgba+0Bv8mZg==}
+  zephyr-rspack-plugin@0.0.38:
+    resolution: {integrity: sha512-hPdgMSN7h+97aJl/krTaCsY6HQhniANQNPTw1UHpPttny+OVNfirmXzo0kOvY3I0c9XP00u3GPiJhuwlivouXQ==}
 
-  zephyr-webpack-plugin@0.0.39:
-    resolution: {integrity: sha512-mTZUTAuqjYpQJs+3uWdluMX6qvGM7Xn35DXDU4jc8v4mVF2vZ/Dykj8vWEQJUdYhdjrbVoDEKi7XCsqkZbzvmQ==}
+  zephyr-webpack-plugin@0.0.38:
+    resolution: {integrity: sha512-75tVfZTe2tfL2ZUhUBmc5roOvQgnzO+7H+CUqpNIWz97bskAjGco7Cfw5o/a46SAn3FLPFzfT5QkvS3HgIQ0nA==}
 
-  zephyr-xpack-internal@0.0.39:
-    resolution: {integrity: sha512-s3X7CprwUjgZ3/YIMa1cBoC3x/Zak8d+Ar+nO8DeMWclqc0K4SIj1qJh0QtslYbtfB88hrsDmRr5iXDIdLEEWw==}
+  zephyr-xpack-internal@0.0.38:
+    resolution: {integrity: sha512-eVzNotAgLKkQpewercH2PJ3Qc1ZNMc7SwKZ49vFvLAXzh8eGvdak5I+dZNQwdrjDRAeg4yYWuiuXzFqmw3SUZw==}
 
   zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
@@ -18809,13 +18816,13 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@analogjs/vite-plugin-angular@1.14.1(c1c133d6bd367d6aec08c5edb8ef5ed4)':
+  '@analogjs/vite-plugin-angular@1.14.1(@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.3.3(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.3.3(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2))(@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
       ts-morph: 21.0.1
       vfile: 6.0.3
     optionalDependencies:
-      '@angular-devkit/build-angular': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.3.3(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.3.3(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(typescript@5.8.2)
-      '@angular/build': 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
+      '@angular-devkit/build-angular': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.3.3(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.3.3(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2)
+      '@angular/build': 19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)
 
   '@angular-builders/common@2.0.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)':
     dependencies:
@@ -18883,13 +18890,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.3.3(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.3.3(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(typescript@5.8.2)':
+  '@angular-devkit/build-angular@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@rspack/core@1.3.3(@swc/helpers@0.5.15))(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(@rspack/core@1.3.3(@swc/helpers@0.5.15))(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.13.13)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(lightningcss@1.29.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(typescript@5.8.2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.16(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.1802.16(chokidar@4.0.3)(webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(esbuild@0.23.0)))(webpack@5.94.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(esbuild@0.23.0))
       '@angular-devkit/core': 18.2.16(chokidar@4.0.3)
-      '@angular/build': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.31.6)(typescript@5.8.2)
+      '@angular/build': 18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.31.6)(typescript@5.8.2)
       '@angular/compiler-cli': 19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2)
       '@babel/core': 7.26.10
       '@babel/generator': 7.26.10
@@ -18951,7 +18958,7 @@ snapshots:
       esbuild: 0.23.0
       jest: 29.7.0(@types/node@22.13.13)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
       jest-environment-jsdom: 29.7.0
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+      tailwindcss: 4.1.4
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -19159,7 +19166,7 @@ snapshots:
       '@angular/core': 19.2.4(rxjs@7.8.2)(zone.js@0.15.0)
       tslib: 2.8.1
 
-  '@angular/build@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.31.6)(typescript@5.8.2)':
+  '@angular/build@18.2.16(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@types/node@22.13.13)(chokidar@4.0.3)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.4.41)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.31.6)(typescript@5.8.2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.16(chokidar@4.0.3)
@@ -19191,7 +19198,7 @@ snapshots:
     optionalDependencies:
       less: 4.2.0
       postcss: 8.4.41
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+      tailwindcss: 4.1.4
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -19246,7 +19253,7 @@ snapshots:
       - supports-color
       - terser
 
-  '@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2)))(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)':
+  '@angular/build@19.2.5(@angular/compiler-cli@19.2.4(@angular/compiler@19.2.4)(typescript@5.8.2))(@angular/compiler@19.2.4)(@types/node@22.13.13)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(postcss@8.5.3)(sass-embedded@1.86.0)(stylus@0.64.0)(tailwindcss@4.1.4)(terser@5.39.0)(typescript@5.8.2)(yaml@2.7.0)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1902.5(chokidar@4.0.3)
@@ -19281,7 +19288,7 @@ snapshots:
       less: 4.2.0
       lmdb: 3.2.6
       postcss: 8.5.3
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@22.13.13)(typescript@5.8.2))
+      tailwindcss: 4.1.4
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -22802,7 +22809,7 @@ snapshots:
       upath: 2.0.1
     optionalDependencies:
       typescript: 5.8.2
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - '@rspack/core'
       - bufferutil
@@ -26191,7 +26198,7 @@ snapshots:
       ansi-html: 0.0.9
       core-js-pure: 3.41.0
       error-stack-parser: 2.1.4
-      html-entities: 2.5.3
+      html-entities: 2.6.0
       loader-utils: 2.0.4
       react-refresh: 0.14.2
       schema-utils: 4.3.0
@@ -28366,7 +28373,7 @@ snapshots:
 
   '@webpack-cli/serve@2.0.5(webpack-cli@4.10.0)(webpack-dev-server@4.15.2)(webpack@5.98.0)':
     dependencies:
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.98.0)
     optionalDependencies:
       webpack-dev-server: 4.15.2(webpack-cli@4.10.0)(webpack@5.98.0)
@@ -30331,7 +30338,7 @@ snapshots:
       semver: 7.7.1
     optionalDependencies:
       '@rspack/core': 1.3.3(@swc/helpers@0.5.15)
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
 
   css-minimizer-webpack-plugin@5.0.1(esbuild@0.17.19)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)):
     dependencies:
@@ -32030,7 +32037,7 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
 
   file-type@18.7.0:
     dependencies:
@@ -36343,13 +36350,13 @@ snapshots:
       dot-case: 3.0.4
       tslib: 2.8.1
 
-  parcel-reporter-zephyr@0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13):
+  parcel-reporter-zephyr@0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13):
     dependencies:
       '@parcel/core': 2.14.2(@swc/helpers@0.5.15)
       '@parcel/plugin': 2.14.2(@parcel/core@2.14.2(@swc/helpers@0.5.15))
       '@parcel/types': 2.14.2(@parcel/core@2.14.2(@swc/helpers@0.5.15))
       is-ci: 4.1.0
-      zephyr-agent: 0.0.39(encoding@0.1.13)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
     transitivePeerDependencies:
       - '@swc/helpers'
       - bufferutil
@@ -36801,7 +36808,7 @@ snapshots:
       semver: 7.7.1
     optionalDependencies:
       '@rspack/core': 1.3.3(@swc/helpers@0.5.15)
-      webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+      webpack: 5.98.0(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - typescript
 
@@ -37993,12 +38000,12 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  rollup-plugin-zephyr@0.0.39(encoding@0.1.13):
+  rollup-plugin-zephyr@0.0.38(encoding@0.1.13):
     dependencies:
       is-ci: 4.1.0
       rollup: 4.37.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -39292,6 +39299,8 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
+  tailwindcss@4.1.4: {}
+
   tapable@2.2.1: {}
 
   tar-stream@2.2.0:
@@ -40294,7 +40303,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-zephyr@0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0):
+  vite-plugin-zephyr@0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0):
     dependencies:
       '@module-federation/runtime': 0.11.2
       '@module-federation/vite': 1.2.6(rollup@4.37.0)
@@ -40304,7 +40313,7 @@ snapshots:
       json5: 2.2.3
       rollup: 4.37.0
       vite: 6.3.0(@types/node@22.13.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.85.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
-      zephyr-agent: 0.0.39(encoding@0.1.13)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -40322,7 +40331,7 @@ snapshots:
       - utf-8-validate
       - yaml
 
-  vite-plugin-zephyr@0.0.39(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0):
+  vite-plugin-zephyr@0.0.38(@types/node@22.13.13)(encoding@0.1.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0):
     dependencies:
       '@module-federation/runtime': 0.11.2
       '@module-federation/vite': 1.2.6(rollup@4.37.0)
@@ -40332,7 +40341,7 @@ snapshots:
       json5: 2.2.3
       rollup: 4.37.0
       vite: 6.3.0(@types/node@22.13.13)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.3)(sass-embedded@1.86.0)(sass@1.86.0)(stylus@0.64.0)(terser@5.39.0)(yaml@2.7.0)
-      zephyr-agent: 0.0.39(encoding@0.1.13)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -41400,7 +41409,7 @@ snapshots:
 
   yoctocolors-cjs@2.1.2: {}
 
-  zephyr-agent@0.0.39(encoding@0.1.13):
+  zephyr-agent@0.0.38(encoding@0.1.13):
     dependencies:
       cloudflare: 3.5.0(encoding@0.1.13)
       debug: 4.4.0(supports-color@9.4.0)
@@ -41412,28 +41421,28 @@ snapshots:
       socket.io-client: 4.8.1
       tslib: 2.8.1
       uuid: 8.3.2
-      zephyr-edge-contract: 0.0.39
+      zephyr-edge-contract: 0.0.38
     transitivePeerDependencies:
       - bufferutil
       - encoding
       - supports-color
       - utf-8-validate
 
-  zephyr-edge-contract@0.0.39:
+  zephyr-edge-contract@0.0.38:
     dependencies:
       tslib: 2.8.1
 
-  zephyr-modernjs-plugin@0.0.39(@rspack/core@1.3.3(@swc/helpers@0.5.13))(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@5.3.11(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0))(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.13))(@types/node@18.11.19)(typescript@5.7.3))(tsconfig-paths@4.2.0)(type-fest@4.38.0)(typescript@5.7.3)(webpack-dev-server@5.2.0(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))(zephyr-rspack-plugin@0.0.39(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(zephyr-webpack-plugin@0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19)):
+  zephyr-modernjs-plugin@0.0.38(@rspack/core@1.3.3(@swc/helpers@0.5.13))(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@5.3.11(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0))(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.13))(@types/node@18.11.19)(typescript@5.7.3))(tsconfig-paths@4.2.0)(type-fest@4.38.0)(typescript@5.7.3)(webpack-dev-server@5.2.0(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))(zephyr-rspack-plugin@0.0.38(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))(zephyr-webpack-plugin@0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19)):
     dependencies:
       '@modern-js/app-tools': 2.67.1(@rspack/core@1.3.3(@swc/helpers@0.5.13))(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@5.3.11(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0))(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.13))(@types/node@18.11.19)(typescript@5.7.3))(tsconfig-paths@4.2.0)(type-fest@4.38.0)(typescript@5.7.3)(webpack-dev-server@5.2.0(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)))
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-edge-contract: 0.0.39
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-edge-contract: 0.0.38
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
     optionalDependencies:
-      zephyr-rspack-plugin: 0.0.39(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
-      zephyr-webpack-plugin: 0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19)
+      zephyr-rspack-plugin: 0.0.38(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
+      zephyr-webpack-plugin: 0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19)
     transitivePeerDependencies:
       - '@parcel/css'
       - '@rspack/core'
@@ -41465,11 +41474,11 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  zephyr-rolldown-plugin@0.0.39(@babel/runtime@7.26.10)(encoding@0.1.13)(typescript@5.8.2):
+  zephyr-rolldown-plugin@0.0.38(@babel/runtime@7.26.10)(encoding@0.1.13)(typescript@5.8.2):
     dependencies:
       is-ci: 4.1.0
       rolldown: 1.0.0-beta.3(@babel/runtime@7.26.10)(typescript@5.8.2)
-      zephyr-agent: 0.0.39(encoding@0.1.13)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
     transitivePeerDependencies:
       - '@babel/runtime'
       - bufferutil
@@ -41478,14 +41487,14 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  zephyr-rspack-plugin@0.0.39(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)):
+  zephyr-rspack-plugin@0.0.38(@swc/helpers@0.5.13)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
       '@rspack/core': 1.2.8(@swc/helpers@0.5.13)
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
     transitivePeerDependencies:
       - '@rspack/tracing'
       - '@swc/helpers'
@@ -41495,14 +41504,14 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-rspack-plugin@0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
+  zephyr-rspack-plugin@0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
       '@rspack/core': 1.2.8(@swc/helpers@0.5.15)
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     transitivePeerDependencies:
       - '@rspack/tracing'
       - '@swc/helpers'
@@ -41512,14 +41521,14 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-rspack-plugin@0.0.39(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0):
+  zephyr-rspack-plugin@0.0.38(@swc/helpers@0.5.15)(encoding@0.1.13)(webpack@5.98.0):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
       '@rspack/core': 1.2.8(@swc/helpers@0.5.15)
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0)
     transitivePeerDependencies:
       - '@rspack/tracing'
       - '@swc/helpers'
@@ -41529,14 +41538,14 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-webpack-plugin@0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19):
+  zephyr-webpack-plugin@0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.13))(encoding@0.1.13)(esbuild@0.17.19):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
       is-ci: 4.1.0
       tslib: 2.8.1
       webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.13))(esbuild@0.17.19)
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
     transitivePeerDependencies:
       - '@swc/core'
       - bufferutil
@@ -41548,14 +41557,14 @@ snapshots:
       - webpack-cli
     optional: true
 
-  zephyr-webpack-plugin@0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13):
+  zephyr-webpack-plugin@0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
       is-ci: 4.1.0
       tslib: 2.8.1
       webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
     transitivePeerDependencies:
       - '@swc/core'
       - bufferutil
@@ -41566,14 +41575,14 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-webpack-plugin@0.0.39(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)(webpack-cli@4.10.0):
+  zephyr-webpack-plugin@0.0.38(@swc/core@1.11.13(@swc/helpers@0.5.15))(encoding@0.1.13)(webpack-cli@4.10.0):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
       is-ci: 4.1.0
       tslib: 2.8.1
       webpack: 5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0)
     transitivePeerDependencies:
       - '@swc/core'
       - bufferutil
@@ -41584,14 +41593,14 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-webpack-plugin@0.0.39(encoding@0.1.13)(webpack-cli@4.10.0):
+  zephyr-webpack-plugin@0.0.38(encoding@0.1.13)(webpack-cli@4.10.0):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
       is-ci: 4.1.0
       tslib: 2.8.1
       webpack: 5.98.0(webpack-cli@4.10.0)
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-xpack-internal: 0.0.39(encoding@0.1.13)(webpack@5.98.0)
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-xpack-internal: 0.0.38(encoding@0.1.13)(webpack@5.98.0)
     transitivePeerDependencies:
       - '@swc/core'
       - bufferutil
@@ -41602,13 +41611,13 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  zephyr-xpack-internal@0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)):
+  zephyr-xpack-internal@0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.10.18(@swc/helpers@0.5.13))(esbuild@0.17.19))
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-edge-contract: 0.0.39
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-edge-contract: 0.0.38
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -41616,13 +41625,13 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-xpack-internal@0.0.39(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
+  zephyr-xpack-internal@0.0.38(encoding@0.1.13)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15)))
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-edge-contract: 0.0.39
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-edge-contract: 0.0.38
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -41630,13 +41639,13 @@ snapshots:
       - utf-8-validate
       - webpack
 
-  zephyr-xpack-internal@0.0.39(encoding@0.1.13)(webpack@5.98.0):
+  zephyr-xpack-internal@0.0.38(encoding@0.1.13)(webpack@5.98.0):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.98.0)
       is-ci: 4.1.0
       tslib: 2.8.1
-      zephyr-agent: 0.0.39(encoding@0.1.13)
-      zephyr-edge-contract: 0.0.39
+      zephyr-agent: 0.0.38(encoding@0.1.13)
+      zephyr-edge-contract: 0.0.38
     transitivePeerDependencies:
       - bufferutil
       - encoding
