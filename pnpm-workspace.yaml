@@ -76,17 +76,13 @@ catalogs:
     "@typescript-eslint/parser": ^8.28.0
     "@typescript-eslint/utils": ^8.28.0
   zephyr:
-    vite-plugin-zephyr: ^0.0.38
-    zephyr-webpack-plugin: ^0.0.38
-    zephyr-rspack-plugin: ^0.0.38
-    rollup-plugin-zephyr: ^0.0.38
-    zephyr-modernjs-plugin: ^0.0.38
-    zephyr-modernjs-plugin-webpack: ^0.0.38
-    zephyr-modernjs-plugin-vite: ^0.0.38
-    zephyr-modernjs-plugin-rspack: ^0.0.38
-    parcel-reporter-zephyr: ^0.0.38
-    zephyr-rolldown-plugin: ^0.0.38
-    zephyr-compiler: ^0.0.38
+    parcel-reporter-zephyr: ^0.0.39
+    rollup-plugin-zephyr: ^0.0.39
+    vite-plugin-zephyr: ^0.0.39
+    zephyr-modernjs-plugin: ^0.0.39
+    zephyr-rolldown-plugin: ^0.0.39
+    zephyr-rspack-plugin: ^0.0.39
+    zephyr-webpack-plugin: ^0.0.39
   rollup:
     rollup: ^4.37.0
     rollup-plugin-postcss: ^4.0.2
