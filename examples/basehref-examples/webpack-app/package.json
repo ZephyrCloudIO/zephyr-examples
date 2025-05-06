@@ -1,0 +1,32 @@
+{
+  "name": "basehref-webpack-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "start:base": "webpack serve --env publicPath=/app/",
+    "build": "webpack --mode=production",
+    "build:base": "webpack --mode=production --env publicPath=/app/"
+  },
+  "dependencies": {
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
+  },
+  "devDependencies": {
+    "@babel/core": "catalog:babel",
+    "@babel/preset-env": "catalog:babel",
+    "@babel/preset-react": "catalog:babel",
+    "@babel/preset-typescript": "catalog:babel",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "babel-loader": "catalog:babel",
+    "css-loader": "catalog:webpack5",
+    "html-webpack-plugin": "catalog:webpack5",
+    "style-loader": "^3.3.3",
+    "typescript": "catalog:typescript",
+    "webpack": "catalog:webpack5",
+    "webpack-cli": "catalog:webpack5",
+    "webpack-dev-server": "catalog:webpack5",
+    "zephyr-webpack-plugin": "catalog:zephyr"
+  }
+}

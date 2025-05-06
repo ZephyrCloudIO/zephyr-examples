@@ -1,0 +1,26 @@
+{
+  "name": "basehref-rspack-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rspack dev",
+    "build": "rspack build",
+    "build:base": "PUBLIC_PATH=/app/ rspack build",
+    "preview": "rspack preview"
+  },
+  "dependencies": {
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "zephyr-rspack-plugin": "catalog:zephyr"
+  },
+  "devDependencies": {
+    "@rspack/cli": "catalog:rspack",
+    "@rspack/core": "catalog:rspack",
+    "@rspack/plugin-react-refresh": "catalog:rspack",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "react-refresh": "catalog:react19",
+    "ts-node": "catalog:typescript",
+    "typescript": "catalog:typescript"
+  }
+}

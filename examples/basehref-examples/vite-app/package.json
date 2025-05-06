@@ -1,0 +1,26 @@
+{
+  "name": "basehref-vite-app",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:base": "vite --base=/app/",
+    "build": "tsc && vite build",
+    "build:base": "tsc && vite build --base=/app/",
+    "preview": "vite preview",
+    "preview:base": "vite preview --base=/app/"
+  },
+  "dependencies": {
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "@vitejs/plugin-react": "catalog:vite5",
+    "typescript": "catalog:typescript",
+    "vite": "catalog:vite5",
+    "vite-plugin-zephyr": "catalog:zephyr"
+  }
+}
