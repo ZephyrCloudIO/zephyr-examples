@@ -13,6 +13,15 @@
     "zephyr-webpack-plugin": "catalog:zephyr",
     "external-remotes-plugin": "^1.0.0"
   },
+  "devDependencies": {
+    "@babel/core": "catalog:babel",
+    "@babel/preset-react": "catalog:babel",
+    "babel-loader": "catalog:babel",
+    "html-webpack-plugin": "catalog:webpack5",
+    "webpack": "catalog:webpack5",
+    "webpack-cli": "catalog:webpack5",
+    "webpack-dev-server": "catalog:webpack5"
+  },
   "zephyr:dependencies": {
     "default_webpack_mf_second": "zephyr:default_webpack_mf_second@*"
   }

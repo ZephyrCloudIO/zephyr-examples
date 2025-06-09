@@ -16,7 +16,6 @@ const mfConfig = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // @ts-expect-error type mismatch
   plugins: [react(), withZephyr({ mfConfig })],
   experimental: {
     renderBuiltUrl() {
