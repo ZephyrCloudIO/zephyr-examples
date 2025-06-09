@@ -1,4 +1,8 @@
 {
   "name": "host",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "zephyr:dependencies": {
+    "remote1": "zephyr:remote1@*",
+    "remote2": "zephyr:remote2@*"
+  }
 }

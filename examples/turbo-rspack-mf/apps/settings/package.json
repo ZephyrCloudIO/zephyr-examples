@@ -1,5 +1,5 @@
 {
-  "name": "settings",
+  "name": "turbo_settings",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -15,9 +15,9 @@
     "autoprefixer": "catalog:postcss",
     "postcss": "catalog:postcss",
     "postcss-loader": "catalog:postcss",
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
-    "react-router": "catalog:react18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^6.30.0",
     "tailwindcss": "catalog:tailwind3",
     "zephyr-rspack-plugin": "catalog:zephyr"
   },
@@ -26,11 +26,14 @@
     "@rspack/cli": "catalog:rspack",
     "@rspack/core": "catalog:rspack",
     "@rspack/plugin-react-refresh": "catalog:rspack",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.5",
     "cross-env": "catalog:common",
     "react-refresh": "catalog:react18",
     "ts-node": "catalog:typescript",
     "typescript": "catalog:typescript"
+  },
+  "zephyr:dependencies": {
+    "turbo_host": "zephyr:turbo_host@*"
   }
 }

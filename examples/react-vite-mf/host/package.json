@@ -27,5 +27,10 @@
     "typescript": "catalog:typescript",
     "typescript-eslint": "catalog:eslint",
     "vite": "catalog:vite5"
+  },
+  "zephyr:dependencies": {
+    "vite_remote": "zephyr:vite_remote@*",
+    "vite_rspack": "zephyr:vite_rspack@*",
+    "vite_webpack": "zephyr:vite_webpack@*"
   }
 }
