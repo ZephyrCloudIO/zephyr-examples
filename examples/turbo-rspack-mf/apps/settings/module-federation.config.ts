@@ -1,13 +1,13 @@
 import type { ModuleFederationPluginOptions } from "@rspack/core";
 
 export const mfConfig: ModuleFederationPluginOptions = {
-  name: "settings",
+  name: "turbo_settings",
   filename: "remoteEntry.js",
   exposes: {
     "./RemoteEntry": "./src/RemoteEntry.tsx"
   },
   remotes: {
-    host: "host@http://localhost:3000/remoteEntry.js"
+    turbo_host: "turbo_host@http://localhost:3000/remoteEntry.js"
   },
   shared: ["react", "react-dom", "react-router"]
 };
