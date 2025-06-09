@@ -21,5 +21,8 @@
     "webpack": "catalog:webpack5",
     "webpack-cli": "catalog:webpack5",
     "webpack-dev-server": "catalog:webpack5"
+  },
+  "zephyr:dependencies": {
+    "default_webpack_mf_second": "zephyr:default_webpack_mf_second@*"
   }
 }

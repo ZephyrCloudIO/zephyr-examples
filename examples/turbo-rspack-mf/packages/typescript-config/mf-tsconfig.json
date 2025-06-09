@@ -3,9 +3,9 @@
   "extends": "./base.json",
   "compilerOptions": {
     "paths": {
-      "host/RemoteEntry": ["../../apps/host/src/App.tsx"],
-      "home/RemoteEntry": ["../../apps/home/src/RemoteEntry.tsx"],
-      "settings/RemoteEntry": ["../../apps/settings/src/RemoteEntry.tsx"]
+      "turbo_host/RemoteEntry": ["../../apps/host/src/App.tsx"],
+      "turbo_home/RemoteEntry": ["../../apps/home/src/RemoteEntry.tsx"],
+      "turbo_settings/RemoteEntry": ["../../apps/settings/src/RemoteEntry.tsx"]
     }
   }
 }

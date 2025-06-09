@@ -15,5 +15,9 @@
     "inherit": [
       "app"
     ]
+  },
+  "zephyr:dependencies": {
+    "tractor_v2_checkout": "zephyr:tractor_v2_checkout@*",
+    "tractor_v2_explore": "zephyr:tractor_v2_explore@*"
   }
 }

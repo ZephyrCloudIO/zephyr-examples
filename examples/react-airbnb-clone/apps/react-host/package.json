@@ -6,5 +6,13 @@
     "dev": "webpack serve",
     "build": "rimraf dist && webpack --mode production",
     "start": "http-server dist -p 3010"
+  },
+  "zephyr:dependencies": {
+    "airbnb_categories": "zephyr:airbnb_categories@*",
+    "airbnb_home": "zephyr:airbnb_home@*",
+    "airbnb_favorites": "zephyr:airbnb_favorites@*",
+    "airbnb_trips": "zephyr:airbnb_trips@*",
+    "airbnb_properties": "zephyr:airbnb_properties@*",
+    "airbnb_reservations": "zephyr:airbnb_reservations@*"
   }
 }
