@@ -11,25 +11,22 @@
     "lint": "biome check",
     "upgrade": "modern upgrade"
   },
-  "engines": {
-    "node": ">=16.18.1"
-  },
   "dependencies": {
-    "@modern-js/plugin-ssg": "^2.65.0",
-    "@modern-js/runtime": "^2.65.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@modern-js/plugin-ssg": "^2.67.8",
+    "@modern-js/runtime": "^2.67.8",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@modern-js/app-tools": "^2.65.0",
-    "@modern-js/tsconfig": "^2.65.0",
+    "@modern-js/app-tools": "^2.67.8",
+    "@modern-js/tsconfig": "^2.67.8",
     "@types/jest": "~29.5.14",
-    "@types/node": "~18.11.19",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "~19.0.4",
+    "@types/node": "catalog:typescript",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "rimraf": "^6.0.1",
-    "typescript": "~5.7.3",
+    "typescript": "catalog:typescript",
     "zephyr-modernjs-plugin": "catalog:zephyr",
     "zephyr-rspack-plugin": "catalog:zephyr"
   }
