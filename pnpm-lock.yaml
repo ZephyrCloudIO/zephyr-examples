@@ -239,10 +239,10 @@ catalogs:
       version: 0.484.0
     react:
       specifier: ^18.3.1
-      version: 18.3.1
+      version: 19.1.0
     react-dom:
       specifier: ^18.3.1
-      version: 18.3.1
+      version: 19.1.0
     react-refresh:
       specifier: ^0.16.0
       version: 0.16.0
@@ -2142,11 +2142,11 @@ importers:
   examples/rspack-project:
     dependencies:
       react:
-        specifier: catalog:react18
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: catalog:react18
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
       zephyr-rspack-plugin:
         specifier: catalog:zephyr
         version: 0.0.53(@swc/helpers@0.5.17)(encoding@0.1.13)(webpack@5.99.9)
@@ -2159,19 +2159,19 @@ importers:
         version: 1.3.15(@swc/helpers@0.5.17)
       '@rspack/plugin-react-refresh':
         specifier: catalog:rspack
-        version: 1.4.3(react-refresh@0.16.0)
+        version: 1.4.3(react-refresh@0.17.0)
       '@types/react':
-        specifier: catalog:react18
-        version: 18.3.23
+        specifier: catalog:react19
+        version: 19.1.7
       '@types/react-dom':
-        specifier: catalog:react18
-        version: 18.3.7(@types/react@18.3.23)
+        specifier: catalog:react19
+        version: 19.0.6(@types/react@19.1.7)
       cross-env:
         specifier: catalog:common
         version: 7.0.3
       react-refresh:
-        specifier: catalog:react18
-        version: 0.16.0
+        specifier: catalog:react19
+        version: 0.17.0
 
   examples/solid:
     dependencies:
