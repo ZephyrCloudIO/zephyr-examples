@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import data from './data/db.json';
 import { src, srcset } from './js/utils';
 import Header from './Header';

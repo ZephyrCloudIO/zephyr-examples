@@ -28,12 +28,20 @@ export const router = createBrowserRouter([
         <Link to="/products/:category?">Category Page</Link>
         <Link to="/stores">Stores Page</Link>
         <h2>Exported Components</h2>
-        <Header />
+        <Suspense fallback={'Loading...'}>
+          <Header />
+        </Suspense>
         <div style={{ maxWidth: '64rem' }}>
-          <Recommendations skus={[]} />
+        <Suspense fallback={'Loading...'}>
+          {/* <Recommendations skus={[]} /> */}
+        </Suspense>
         </div>
-        <StorePicker />
-        <Footer />
+        <Suspense fallback={'Loading...'}>
+          {/* <StorePicker /> */}
+        </Suspense>
+        <Suspense fallback={'Loading...'}>
+          {/* <Footer /> */}
+        </Suspense>
       </div>
     ),
   },

@@ -7,8 +7,8 @@
     "build:watch": "rollup -c --watch"
   },
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
     "rollup-plugin-zephyr": "catalog:zephyr"
   },
   "devDependencies": {
@@ -20,8 +20,8 @@
     "@rollup/plugin-replace": "catalog:rollup",
     "@rollup/plugin-typescript": "catalog:rollup",
     "@svgr/rollup": "catalog:rollup",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "rollup": "catalog:rollup",
     "rollup-plugin-postcss": "catalog:rollup",
     "typescript": "catalog:typescript"
