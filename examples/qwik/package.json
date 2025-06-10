@@ -2,9 +2,6 @@
   "name": "qwik-starter",
   "version": "0.1.0",
   "description": "Demo App with Routing built-in (recommended)",
-  "engines": {
-    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
-  },
   "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
   "private": true,
   "trustedDependencies": [
@@ -32,8 +29,8 @@
     "vite-plugin-zephyr": "catalog:zephyr"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.5.2",
-    "@builder.io/qwik-city": "^1.5.2",
+    "@builder.io/qwik": "^1.14.1",
+    "@builder.io/qwik-city": "^1.14.1",
     "@netlify/edge-functions": "^2.0.0",
     "@types/eslint": "catalog:eslint",
     "@types/node": "catalog:typescript",
@@ -46,8 +43,8 @@
     "prettier": "catalog:prettier3",
     "typescript": "catalog:typescript",
     "undici": "catalog:common",
-    "vite": "catalog:vite5",
-    "vite-plugin-inspect": "catalog:vite5",
-    "vite-tsconfig-paths": "catalog:vite5"
+    "vite": "catalog:vite6",
+    "vite-plugin-inspect": "catalog:vite6",
+    "vite-tsconfig-paths": "catalog:vite6"
   }
 }
