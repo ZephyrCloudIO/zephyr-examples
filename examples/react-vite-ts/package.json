@@ -10,21 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
     "vite-plugin-zephyr": "catalog:zephyr"
   },
   "devDependencies": {
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "@typescript-eslint/eslint-plugin": "catalog:eslint",
     "@typescript-eslint/parser": "catalog:eslint",
-    "@vitejs/plugin-react": "catalog:vite5",
+    "@vitejs/plugin-react": "catalog:vite6",
     "eslint": "catalog:eslint",
     "eslint-plugin-react-hooks": "catalog:eslint",
     "eslint-plugin-react-refresh": "catalog:eslint",
     "typescript": "catalog:typescript",
-    "vite": "catalog:vite5",
-    "vite-plugin-inspect": "catalog:vite5"
+    "vite": "catalog:vite6",
+    "vite-plugin-inspect": "catalog:vite6"
   }
 }

@@ -9,16 +9,16 @@
     "build:base": "webpack --mode=production --env publicPath=/app/"
   },
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18"
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19"
   },
   "devDependencies": {
     "@babel/core": "catalog:babel",
     "@babel/preset-env": "catalog:babel",
     "@babel/preset-react": "catalog:babel",
     "@babel/preset-typescript": "catalog:babel",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "babel-loader": "catalog:babel",
     "css-loader": "catalog:webpack5",
     "html-webpack-plugin": "catalog:webpack5",

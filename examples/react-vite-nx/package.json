@@ -9,8 +9,8 @@
   },
   "private": true,
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
     "vite-plugin-zephyr": "catalog:zephyr"
   },
   "devDependencies": {
@@ -26,11 +26,11 @@
     "@swc/cli": "catalog:swc",
     "@swc/core": "catalog:swc",
     "@swc/helpers": "catalog:swc",
-    "@testing-library/react": "catalog:react18",
+    "@testing-library/react": "catalog:react19",
     "@types/node": "catalog:typescript",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
-    "@vitejs/plugin-react": "catalog:vite5",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "@vitejs/plugin-react": "catalog:vite6",
     "@vitest/coverage-v8": "catalog:vitest1",
     "@vitest/ui": "catalog:vitest1",
     "eslint": "catalog:eslint",
@@ -45,7 +45,7 @@
     "tslib": "catalog:typescript",
     "typescript": "catalog:typescript",
     "typescript-eslint": "catalog:eslint",
-    "vite": "^5.4.15",
+    "vite": "catalog:vite6",
     "vitest": "catalog:vitest1"
   },
   "nx": {

@@ -5,7 +5,7 @@ import Filter from './components/Filter';
 import Header from './Header';
 import Footer from './Footer';
 import './css/CategoryPage.css';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 const CategoryPage: React.FC = () => {
   const { category } = useParams();
