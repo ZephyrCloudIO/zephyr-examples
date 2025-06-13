@@ -1,30 +1,72 @@
-# Solid Zephyr Template
+# SolidJS + TypeScript + Vite
 
-## Usage
+A SolidJS application built with Vite bundler and TypeScript, providing fast development experience with fine-grained reactivity and modern tooling.
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+## Technology Stack
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+- **Framework**: SolidJS
+- **Bundler**: Vite 6
+- **Language**: TypeScript
+- **Development**: Hot Module Replacement (HMR)
+- **Build Plugin**: vite-plugin-solid
+- **Deployment**: Zephyr Cloud (via vite-plugin-zephyr)
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+- Node.js (version 16 or higher)
+- pnpm (recommended) or npm
 
-### `npm run dev`
+## Getting Started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+1. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
 
-### `npm run build`
+2. **Start development server**
+   ```bash
+   pnpm dev
+   ```
+   
+   Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+3. **Build for production**
+   ```bash
+   pnpm build
+   ```
+   
+   Builds the app for production to the `dist` folder. It correctly bundles SolidJS in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+4. **Preview production build**
+   ```bash
+   pnpm preview
+   ```
 
-## Deployment
+## Zephyr Cloud Integration
 
-Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
+This example is configured to deploy to Zephyr Cloud automatically when built. The `vite-plugin-zephyr` handles the deployment process seamlessly.
+
+## About SolidJS
+
+SolidJS is a declarative, efficient, and flexible JavaScript library for building user interfaces. It offers:
+- **Fine-grained reactivity**: Only updates what actually changes
+- **No Virtual DOM**: Direct DOM updates for better performance
+- **Familiar syntax**: JSX-based with React-like patterns
+
+Learn more on the [SolidJS Website](https://solidjs.com) and join the community on [Discord](https://discord.com/invite/solidjs).
+
+## About Zephyr Cloud
+
+Zephyr Cloud is a micro-frontend deployment platform that provides:
+- **Auto-deployment**: Seamless deployment from your build process
+- **Live preview links**: Instant preview URLs for your applications
+- **SemVer versioning**: Semantic versioning for your frontend modules
+- **Rollback capabilities**: Easy rollback to previous versions
+- **Enterprise-scale orchestration**: Built for composable frontend systems
+
+## Learn More
+
+- [SolidJS Documentation](https://solidjs.com/)
+- [Vite Documentation](https://vitejs.dev/)
+- [TypeScript Documentation](https://www.typescriptlang.org/)
+- [Zephyr Cloud Documentation](https://docs.zephyr-cloud.io)
