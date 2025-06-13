@@ -1,15 +1,13 @@
-# Angular + Vite
+# React + Rollup + TypeScript
 
-An Angular application built with Vite bundler, showcasing fast development experience with modern tooling and Zephyr Cloud integration.
+A React application built with Rollup bundler and TypeScript, showcasing efficient bundling and tree-shaking capabilities.
 
 ## Technology Stack
 
-- **Framework**: Angular 19
-- **Bundler**: Vite 5
+- **Framework**: React
+- **Bundler**: Rollup
 - **Language**: TypeScript
-- **Development**: Hot Module Replacement (HMR)
-- **Build Plugin**: @analogjs/vite-plugin-angular
-- **Deployment**: Zephyr Cloud (via vite-plugin-zephyr)
+- **Deployment**: Zephyr Cloud
 
 ## Prerequisites
 
@@ -27,22 +25,15 @@ An Angular application built with Vite bundler, showcasing fast development expe
    ```bash
    pnpm dev
    ```
-   
-   Navigate to `http://localhost:5173` to see the running application
 
 3. **Build for production**
    ```bash
    pnpm build
    ```
 
-4. **Preview production build**
-   ```bash
-   pnpm preview
-   ```
-
 ## Zephyr Cloud Integration
 
-This example is configured to deploy to Zephyr Cloud automatically when built. The `vite-plugin-zephyr` handles the deployment process seamlessly.
+This example is configured to deploy to Zephyr Cloud automatically when built. After running the build command, your application will be deployed and a preview URL will be provided.
 
 ## About Zephyr Cloud
 
@@ -55,7 +46,6 @@ Zephyr Cloud is a micro-frontend deployment platform that provides:
 
 ## Learn More
 
-- [Angular Documentation](https://angular.io/)
-- [Vite Documentation](https://vitejs.dev/)
-- [AnalogJS Vite Plugin](https://analogjs.org/)
+- [Rollup Documentation](https://rollupjs.org/)
+- [React Documentation](https://reactjs.org/)
 - [Zephyr Cloud Documentation](https://docs.zephyr-cloud.io)

@@ -1,34 +1,62 @@
-# ReactViteNx
+# React + Vite + Nx
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+A React application built with Vite and managed by Nx, demonstrating monorepo tooling with modern development practices.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Technology Stack
 
-## Run tasks
+- **Framework**: React 18
+- **Bundler**: Vite
+- **Monorepo**: Nx
+- **Language**: TypeScript
+- **Testing**: Jest + Testing Library
+- **Linting**: ESLint
+- **Deployment**: Zephyr Cloud
 
-To run the dev server for your app, use:
+## Prerequisites
 
-```sh
-npx nx serve react-vite-nx
-```
+- Node.js (version 16 or higher)
+- pnpm (recommended) or npm
 
-To create a production bundle:
+[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created.
 
-```sh
-npx nx build react-vite-nx
-```
+## Getting Started
 
-To see all available targets to run for a project, run:
+1. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
 
-```sh
-npx nx show project react-vite-nx
-```
+2. **Start development server**
+   ```bash
+   npx nx serve react-vite-nx
+   ```
+
+3. **Build for production**
+   ```bash
+   npx nx build react-vite-nx
+   ```
+
+4. **Run tests**
+   ```bash
+   npx nx test react-vite-nx
+   ```
+
+5. **Show project details**
+   ```bash
+   npx nx show project react-vite-nx
+   ```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Nx Features
+
+This workspace demonstrates key Nx capabilities:
+- **Task caching**: Intelligent caching of build artifacts
+- **Task dependencies**: Automatic task orchestration
+- **Code generation**: Scaffolding with generators
+- **Dependency graph**: Visual project relationships
 
 ## Add new projects
 
@@ -94,7 +122,27 @@ Learn more:
 - [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-And join the Nx community:
+## Zephyr Cloud Integration
+
+This example is configured to deploy to Zephyr Cloud automatically when built, demonstrating how Nx monorepos can be deployed with modern deployment platforms.
+
+## About Zephyr Cloud
+
+Zephyr Cloud is a micro-frontend deployment platform that provides:
+- **Auto-deployment**: Seamless deployment from your build process
+- **Live preview links**: Instant preview URLs for your applications
+- **SemVer versioning**: Semantic versioning for your frontend modules
+- **Rollback capabilities**: Easy rollback to previous versions
+- **Enterprise-scale orchestration**: Built for composable frontend systems
+
+## Learn More
+
+- [Nx Documentation](https://nx.dev)
+- [Vite Documentation](https://vitejs.dev/)
+- [React Documentation](https://reactjs.org/)
+- [Zephyr Cloud Documentation](https://docs.zephyr-cloud.io)
+
+Join the Nx community:
 - [Discord](https://go.nx.dev/community)
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
