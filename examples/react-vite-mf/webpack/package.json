@@ -21,8 +21,8 @@
     "@babel/preset-typescript": "catalog:babel",
     "@babel/runtime": "catalog:babel",
     "@module-federation/enhanced": "catalog:module-federation",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "autoprefixer": "catalog:postcss",
     "babel-loader": "catalog:babel",
     "css-loader": "catalog:common",
@@ -39,8 +39,8 @@
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "catalog:babel",
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
     "zephyr-webpack-plugin": "catalog:zephyr"
   }
 }

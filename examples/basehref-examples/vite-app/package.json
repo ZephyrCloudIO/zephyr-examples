@@ -16,8 +16,8 @@
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "@vitejs/plugin-react": "catalog:vite5",
     "typescript": "catalog:typescript",
     "vite": "catalog:vite5",

@@ -11,21 +11,21 @@
   },
   "dependencies": {
     "@module-federation/runtime": "catalog:module-federation",
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
     "vite-plugin-zephyr": "catalog:zephyr"
   },
   "devDependencies": {
     "@eslint/js": "catalog:eslint",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
-    "@vitejs/plugin-react": "catalog:vite5",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "@vitejs/plugin-react": "catalog:vite6",
     "eslint": "catalog:eslint",
     "eslint-plugin-react-hooks": "catalog:eslint",
     "eslint-plugin-react-refresh": "catalog:eslint",
-    "globals": "catalog:vite5",
+    "globals": "catalog:vite6",
     "typescript": "catalog:typescript",
     "typescript-eslint": "catalog:eslint",
-    "vite": "catalog:vite5"
+    "vite": "catalog:vite6"
   }
 }
