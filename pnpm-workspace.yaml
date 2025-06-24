@@ -83,6 +83,7 @@ catalogs:
     zephyr-rolldown-plugin: ^0.0.53
     zephyr-rspack-plugin: ^0.0.53
     zephyr-webpack-plugin: ^0.0.53
+    zephyr-rspress-plugin: ^0.0.53
   rollup:
     rollup: ^4.37.0
     rollup-plugin-postcss: ^4.0.2
@@ -115,6 +116,9 @@ catalogs:
     "@rspack/dev-server": ^1.1.0
     "@rspack/plugin-minify": ^0.7.5
     "@rspack/plugin-react-refresh": ^1.0.1
+  rspress:
+    "rspress": ^1.44.0
+    "@rspress/shared": ^1.44.0
   vite5:
     vite: ^5.4.15
     vite-plugin-inspect: ^0.8.7
