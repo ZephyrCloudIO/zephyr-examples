@@ -34,8 +34,7 @@ title: Hello world
 ```
 
 > Note: By default, Rspress uses h1 headings as html headings.
-
-You can also access properties defined in Front Matter in the body, for example:
+> You can also access properties defined in Front Matter in the body, for example:
 
 ```markdown
 ---

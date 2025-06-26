@@ -6,8 +6,8 @@
   },
   {
     "text": "Hello world",
-    "link": "/hello/",
-    "activeMatch": "/hello/"
+    "link": "/hello",
+    "activeMatch": "/hello"
   },
   {
     "text": "API",
