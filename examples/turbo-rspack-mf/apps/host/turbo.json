@@ -3,9 +3,9 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["settings#build", "home#build"],
+      "dependsOn": ["turbo_settings#build", "turbo_home#build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     }
   }
 }

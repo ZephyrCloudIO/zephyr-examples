@@ -9,5 +9,5 @@ export const mfConfig: ModuleFederationPluginOptions = {
   remotes: {
     turbo_host: "turbo_host@http://localhost:3000/remoteEntry.js"
   },
-  shared: ["react", "react-dom", "react-router"]
+  shared: ["react", "react-dom", "react-router", "react-router-dom"]
 };
