@@ -4,7 +4,7 @@
     "./apps/*"
   ],
   "scripts": {
-    "dev": "pnpm --filter=./apps/* --parallel run dev",
+    "dev": "pnpm -r --parallel run dev",
     "build": "pnpm build-remotes && pnpm build-host",
     "build-remotes": "pnpm --filter=./apps/* --filter=!airbnb-react-host --parallel run build",
     "build-host": "pnpm --filter=airbnb-react-host run build",

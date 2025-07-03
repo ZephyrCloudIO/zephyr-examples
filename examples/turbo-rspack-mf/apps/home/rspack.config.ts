@@ -15,21 +15,21 @@ export default withZephyr()({
     historyApiFallback: true,
   },
   entry: {
-    main: "./src/main.tsx"
+    main: "./src/main.tsx",
   },
   resolve: {
-    extensions: ["...", ".ts", ".tsx", ".jsx"]
+    extensions: ["...", ".ts", ".tsx", ".jsx"],
   },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: ["postcss-loader"],
-        type: "css"
+        type: "css",
       },
       {
         test: /\.svg$/,
-        type: "asset"
+        type: "asset",
       },
       {
         test: /\.(jsx?|tsx?)$/,
@@ -40,39 +40,49 @@ export default withZephyr()({
               jsc: {
                 parser: {
                   syntax: "typescript",
-                  tsx: true
+                  tsx: true,
                 },
                 transform: {
                   react: {
                     runtime: "automatic",
                     development: isDev,
-                    refresh: isDev
-                  }
-                }
+                    refresh: isDev,
+                  },
+                },
               },
-              env: { targets }
-            }
-          }
-        ]
-      }
-    ]
+              env: { targets },
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new rspack.HtmlRspackPlugin({
-      template: "./index.html"
+      template: "./index.html",
     }),
     isDev ? new RefreshPlugin() : null,
-    new rspack.container.ModuleFederationPlugin(mfConfig)
+    new rspack.container.ModuleFederationPlugin({
+      name: "home",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./RemoteEntry": "./src/RemoteEntry.tsx",
+      },
+      remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
+      },
+      shared: ["react", "react-dom", "react-router"],
+    }),
   ].filter(Boolean),
   optimization: {
     minimizer: [
       new rspack.SwcJsMinimizerRspackPlugin(),
       new rspack.LightningCssMinimizerRspackPlugin({
-        minimizerOptions: { targets }
-      })
-    ]
+        minimizerOptions: { targets },
+      }),
+    ],
   },
   experiments: {
-    css: true
-  }
+    css: true,
+  },
 });
