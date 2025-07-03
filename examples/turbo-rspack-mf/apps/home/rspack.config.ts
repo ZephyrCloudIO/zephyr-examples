@@ -62,17 +62,7 @@ export default withZephyr()({
       template: "./index.html",
     }),
     isDev ? new RefreshPlugin() : null,
-    new rspack.container.ModuleFederationPlugin({
-      name: "home",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./RemoteEntry": "./src/RemoteEntry.tsx",
-      },
-      remotes: {
-        host: "host@http://localhost:3000/remoteEntry.js",
-      },
-      shared: ["react", "react-dom", "react-router"],
-    }),
+    new rspack.container.ModuleFederationPlugin(mfConfig),
   ].filter(Boolean),
   optimization: {
     minimizer: [
