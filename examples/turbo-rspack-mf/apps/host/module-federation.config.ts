@@ -10,5 +10,5 @@ export const mfConfig: ModuleFederationPluginOptions = {
   exposes: {
     "./RemoteEntry": "./src/App.tsx"
   },
-  shared: ["react", "react-dom", "react-router"]
+  shared: ["react", "react-dom", "react-router", "react-router-dom"]
 };

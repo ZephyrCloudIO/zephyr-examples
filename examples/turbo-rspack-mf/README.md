@@ -32,8 +32,9 @@ npx create-turbo@latest --example https://github.com/swalker326/ze-starter-turbo
    ```bash
    pnpm install
    ```
-
-2. **Development mode**
+2. **Zephyr Setup**
+   Update all the occurences of `zephyr:turbo_host@*` to be `zephyr:turbo_host.[your_project_name].[your_organiztion]@*` where your `your_project_name` and `your_organization` are from zephyr cloud
+3. **Development mode**
    ```bash
    pnpm dev
    ```
@@ -43,7 +44,7 @@ npx create-turbo@latest --example https://github.com/swalker326/ze-starter-turbo
    - **Home**: http://localhost:3001 (remote micro-frontend)
    - **Settings**: http://localhost:3002 (remote micro-frontend)
 
-3. **Build for production**
+4. **Build for production**
    ```bash
    pnpm build
    ```
@@ -53,7 +54,7 @@ npx create-turbo@latest --example https://github.com/swalker326/ze-starter-turbo
    turbo build
    ```
 
-4. **Other commands**
+5. **Other commands**
    ```bash
    pnpm lint     # Lint all packages
    pnpm check    # Run Biome checks
