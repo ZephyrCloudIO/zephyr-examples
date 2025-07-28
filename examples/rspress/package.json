@@ -1,0 +1,17 @@
+{
+  "name": "rspress-doc-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "rspress": "catalog:rspress"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "zephyr-rspack-plugin": "catalog:zephyr"
+  }
+}
