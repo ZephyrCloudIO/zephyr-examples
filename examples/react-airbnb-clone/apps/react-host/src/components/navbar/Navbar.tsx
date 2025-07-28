@@ -12,7 +12,7 @@ interface NavbarProps {
   currentUser?: User | null;
 }
 
-const Categories = lazy(() => import('categories/Categories'));
+const Categories = lazy(() => import('airbnb_categories/Categories'));
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   const location = useLocation();

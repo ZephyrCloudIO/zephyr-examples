@@ -1,12 +1,16 @@
 {
-  "name": "team-red",
+  "name": "team_red",
   "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/valorkin/zephyr-mono.git"
   },
   "scripts": {
-    "build": "nx run team-red:build --skip-nx-cache"
+    "build": "nx run team_red:build --skip-nx-cache"
   },
-  "private": true
+  "private": true,
+  "zephyr:dependencies": {
+    "team_green": "zephyr:team_green@*",
+    "team_blue": "zephyr:team_blue@*"
+  }
 }

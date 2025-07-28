@@ -1,18 +1,11 @@
 {
-  "name": "module-federation",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "app1",
-      "app2"
-    ]
-  },
+  "name": "create-default-webpack-mf",
+  "version": "0.0.1",
   "scripts": {
-    "start": "lerna run --parallel start",
-    "build": "lerna run build --scope=default_webpack_mf_second --scope=default_webpack_mf_first"
+    "start": "concurrently \"pnpm --filter=./app2 start\" \"pnpm --filter=./app1 start\"",
+    "build": "pnpm --filter=./app2 build && pnpm --filter=./app1 build"
   },
   "devDependencies": {
-    "lerna": "^4.0.0",
-    "zephyr-webpack-plugin": "^0.0.30"
+    "concurrently": "^8.2.2"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "team-green",
+  "name": "team_green",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/team-green/src",
   "projectType": "application",
@@ -51,15 +51,15 @@
       "defaultConfiguration": "development",
       "options": {
         "port": 4400,
-        "buildTarget": "team-green:build",
+        "buildTarget": "team_green:build",
         "hmr": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "team-green:build:development"
+          "buildTarget": "team_green:build:development"
         },
         "production": {
-          "buildTarget": "team-green:build:production",
+          "buildTarget": "team_green:build:production",
           "hmr": false
         }
       }

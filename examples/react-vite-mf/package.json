@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm build-webpack && pnpm build-rspack && pnpm build-remote && pnpm build-host",
+    "build-host": "pnpm --filter=vite-host build",
+    "build-remote": "pnpm --filter=vite_remote build",
+    "build-rspack": "pnpm --filter=vite_rspack build",
+    "build-webpack": "pnpm --filter=vite_webpack build"
   },
   "keywords": [],
   "author": "",

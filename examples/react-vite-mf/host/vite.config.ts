@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { withZephyr } from 'vite-plugin-zephyr';
+import { withZephyr, ModuleFederationOptions } from 'vite-plugin-zephyr';
 
-const mfConfig = {
+const mfConfig: ModuleFederationOptions = {
   name: 'vite-host',
   filename: 'remoteEntry.js',
   remotes: {
-    'vite-remote': {
-      name: 'vite-remote',
+    'vite_remote': {
+      name: 'vite_remote',
       entry: 'http://localhost:5174/remoteEntry.js',
       type: 'module',
     },
@@ -23,12 +23,8 @@ const mfConfig = {
     },
   },
   shared: {
-    react: {
-      singleton: true,
-    },
-    'react-dom': {
-      singleton: true,
-    },
+    react: { singleton: true },
+    'react-dom': { singleton: true },
   },
 };
 

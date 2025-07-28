@@ -8,10 +8,10 @@ import { Component, signal } from '@angular/core';
 		<div class="root">
 			<div>
 				<a href="https://vitejs.dev" target="_blank">
-					<img src="./vite.svg" class="logo" alt="Vite logo" />
+					<img src="/vite.svg" class="logo" alt="Vite logo" />
 				</a>
 				<a href="https://angular.dev" target="_blank">
-					<img src="/angular.png" class="logo angular" alt="Angular logo" />
+					<img src="/angular.svg" class="logo angular" alt="Angular logo" />
 				</a>
 			</div>
 			<h1>Vite + Angular</h1>
