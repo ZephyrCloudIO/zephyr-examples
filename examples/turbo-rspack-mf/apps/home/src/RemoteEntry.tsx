@@ -1,5 +1,5 @@
 import { Cloud, Book, Link2Icon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 function RemoteEntry() {
   return (

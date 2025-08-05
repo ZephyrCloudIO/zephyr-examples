@@ -1,6 +1,6 @@
 import Settings from 'turbo_settings/RemoteEntry';
 import Home from 'turbo_home/RemoteEntry';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import AppLayout from './components/AppLayout';
 import { useLocalStorage } from './useLocalStorage';
 
