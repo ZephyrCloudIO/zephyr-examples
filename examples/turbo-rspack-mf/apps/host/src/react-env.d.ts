@@ -211,3 +211,14 @@ declare module '*.txt' {
   const src: string;
   export default src;
 }
+
+// Module Federation remotes
+declare module 'turbo_home/RemoteEntry' {
+  const Home: React.ComponentType;
+  export default Home;
+}
+
+declare module 'turbo_settings/RemoteEntry' {
+  const Settings: React.ComponentType;
+  export default Settings;
+}
