@@ -38,6 +38,8 @@ Once you've forked this repository, you can clone it and follow the instructions
     A monorepo using Nx, React, and Vite as the bundler.
 *   __[`react-vite-ts`](./examples/react-vite-ts)__  
     A React application built in TypeScript, using Vite as the bundler.
+*   __[`rspress`](./examples/rspress)__  
+    A Rspress application.
 *   __[`rolldown-react`](./examples/rolldown-react)__  
     A React app with Rolldown as the bundler.
 *   __[`rspack-project`](./examples/rspack-project)__  
