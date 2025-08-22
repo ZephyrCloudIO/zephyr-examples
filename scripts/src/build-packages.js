@@ -1,4 +1,3 @@
-const persist = require("node-persist");
 const { execSync } = require("node:child_process");
 const { readdirSync, readFileSync, existsSync } = require("node:fs");
 const { join } = require("node:path");
@@ -10,7 +9,7 @@ const {
   orange,
   getDateString,
 } = require("./utils");
-const { homedir } = require("node:os");
+const { getAllAppDeployResults } = require("zephyr-agent");
 
 const buildPackages = async () => {
   console.log(`\n${orange("-- Building all examples ")}\n`);
@@ -79,14 +78,18 @@ const buildPackages = async () => {
 };
 
 const getDeployed = async () => {
-  await persist.init({ dir: join(homedir(), ".zephyr") });
-  const deployed = [];
-  await persist.forEach(async ({ key, value }) => {
-    if (!key.startsWith("ze-app-deploy-result:")) return;
-    deployed.push({ app: key.split(":")[1].split(".")[0], url: value.urls[0] });
-  });
-  deployed.sort((a, b) => (a.app > b.app ? 1 : -1));
-  return deployed;
+  try {
+    const deployResults = await getAllAppDeployResults();
+    const deployed = Object.entries(deployResults).map(([app, result]) => ({
+      app: app.replace('.', ''),
+      url: result.urls[0]
+    }));
+    deployed.sort((a, b) => (a.app > b.app ? 1 : -1));
+    return deployed;
+  } catch (error) {
+    console.log(`${red("Failed to get deployment results:")} ${error.message}`);
+    return [];
+  }
 };
 
 buildPackages();

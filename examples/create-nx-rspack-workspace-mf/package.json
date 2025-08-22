@@ -29,8 +29,8 @@
     "@testing-library/react": "catalog:react18",
     "@types/jest": "catalog:jest",
     "@types/node": "catalog:typescript",
-    "@types/react": "^18.3.20",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
     "@typescript-eslint/eslint-plugin": "catalog:eslint",
     "@typescript-eslint/parser": "catalog:eslint",
     "babel-jest": "catalog:jest",
@@ -52,9 +52,9 @@
     "typescript": "catalog:typescript"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.30.0",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "react-router-dom": "catalog:react18",
     "tslib": "catalog:typescript",
     "zephyr-rspack-plugin": "catalog:zephyr"
   }
