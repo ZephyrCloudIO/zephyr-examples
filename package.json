@@ -18,6 +18,7 @@
     "zephyr-agent": "catalog:zephyr"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "p-limit": "^7.1.0"
   }
 }
