@@ -23,3 +23,5 @@ dist
 */**/.__mf__temp
 
 .parcel-cache
+
+tmp

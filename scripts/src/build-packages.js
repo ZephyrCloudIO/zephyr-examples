@@ -3,7 +3,6 @@ const { execSync } = require("node:child_process");
 const { readdirSync, readFileSync, existsSync } = require("node:fs");
 const { join } = require("node:path");
 const {
-  yellow,
   red,
   blue,
   green,
@@ -38,10 +37,8 @@ const buildPackages = async () => {
         }
         const writeStream = await getLogWriteStream(example, logFolder);
 
-        const isNpm = existsSync(join(folderPath, "package-lock.json"));
-        const pm = isNpm ? "npm" : "pnpm";
         console.log(`Building [${blue(example)}] project...`);
-        execSync(`${pm} run build`, {
+        execSync(`pnpm run build`, {
           cwd: folderPath,
           stdio: [writeStream, writeStream, writeStream],
         });

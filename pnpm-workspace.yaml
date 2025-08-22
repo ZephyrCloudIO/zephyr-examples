@@ -76,14 +76,15 @@ catalogs:
     "@typescript-eslint/parser": ^8.28.0
     "@typescript-eslint/utils": ^8.28.0
   zephyr:
-    parcel-reporter-zephyr: ^0.0.54
-    rollup-plugin-zephyr: ^0.0.54
-    vite-plugin-zephyr: ^0.0.54
-    zephyr-modernjs-plugin: ^0.0.54
-    zephyr-rolldown-plugin: ^0.0.54
-    zephyr-rspack-plugin: ^0.0.54
-    zephyr-webpack-plugin: ^0.0.54
-    zephyr-rspress-plugin: ^0.0.54
+    parcel-reporter-zephyr: ^0.0.57
+    rollup-plugin-zephyr: ^0.0.57
+    vite-plugin-zephyr: ^0.0.57
+    zephyr-agent: ^0.0.57
+    zephyr-modernjs-plugin: ^0.0.57
+    zephyr-rolldown-plugin: ^0.0.57
+    zephyr-rspack-plugin: ^0.0.57
+    zephyr-webpack-plugin: ^0.0.57
+    zephyr-rspress-plugin: ^0.0.57
   rollup:
     rollup: ^4.37.0
     rollup-plugin-postcss: ^4.0.2
@@ -109,7 +110,7 @@ catalogs:
     "@tailwindcss/postcss": ^3.4.17
   tailwind4:
     tailwindcss: ^4.0.3
-    "@tailwindcss/postcss": "^4.1.4"
+    "@tailwindcss/postcss": ^4.1.4
   rspack:
     "@rspack/cli": ^1.2.8
     "@rspack/core": ^1.2.8
@@ -117,7 +118,7 @@ catalogs:
     "@rspack/plugin-minify": ^0.7.5
     "@rspack/plugin-react-refresh": ^1.0.1
   rspress:
-    "rspress": ^1.44.0
+    rspress: ^1.44.0
     "@rspress/shared": ^1.44.0
   vite5:
     vite: ^5.4.15
@@ -135,7 +136,7 @@ catalogs:
     html-webpack-plugin: ^5.3.2
     "@svgr/webpack": ^8.1.0
     url-loader: ^4.1.1
-    css-loader: "^5.0.0"
+    css-loader: ^5.0.0
   angular19:
     "@angular/animations": ^19.2.4
     "@angular/common": ^19.2.4
@@ -169,8 +170,8 @@ catalogs:
     react-router: ^6.30.0
     react-router-dom: ^6.30.0
     "@types/react": ^19.0.0
-    "@types/react-dom": "^19.0.0"
-    react-refresh: "^0.9.0"
+    "@types/react-dom": ^19.0.0
+    react-refresh: ^0.9.0
   solid:
     solid-js: ^1.9.5
     vite-plugin-solid: ^2.11.6

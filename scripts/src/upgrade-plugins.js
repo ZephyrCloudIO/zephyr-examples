@@ -1,143 +1,108 @@
 const { execSync } = require("node:child_process");
-const { readdirSync, readFileSync, existsSync } = require("node:fs");
+const { readFileSync, writeFileSync, existsSync } = require("node:fs");
 const { join } = require("node:path");
-const {
-  green,
-  blue,
-  red,
-  getLogWriteStream,
-  getDateString,
-  orange,
-} = require("./utils");
+const { green, red, orange } = require("./utils");
+const { load, dump } = require("js-yaml");
 
-const pluginNames = [
-  "parcel-reporter-zephyr",
-  "rollup-plugin-zephyr",
-  "vite-plugin-zephyr",
-  "zephyr-astro-plugin",
-  "zephyr-esbuild-plugin",
-  "zephyr-modernjs-plugin",
-  "zephyr-nextjs-plugin",
-  "zephyr-nitro-plugin",
-  "zephyr-repack-plugin",
-  "zephyr-rolldown-plugin",
-  "zephyr-rspack-plugin",
-  "zephyr-webpack-plugin",
-];
+const log = {
+  success: (message) => console.log(green(message)),
+  error: (message) => console.error(red(message)),
+  warning: (message) => console.warn(orange(message)),
+};
 
-const upgradePlugins = async () => {
-  const cmdEx = "'pnpm upgrade-plugins 0.0.1'";
-  const version = process.argv[2];
 
-  if (["--help", "-h"].includes(version)) {
-    console.log(`\nExecute script and provide a version. i.e.: ${cmdEx}`);
-    process.exit();
+const getNextVersion = async () => {
+  try {
+    log.warning("Fetching next tag version for zephyr-rspack-plugin...");
+    const result = execSync("npm view zephyr-rspack-plugin dist-tags.next", {
+      encoding: "utf-8",
+    });
+    return result.trim();
+  } catch (error) {
+    log.error("Failed to fetch next version, falling back to latest...");
+    try {
+      const result = execSync("npm view zephyr-rspack-plugin version", {
+        encoding: "utf-8",
+      });
+      return result.trim();
+    } catch (fallbackError) {
+      log.error("Failed to fetch any version information.");
+      process.exit(1);
+    }
   }
+};
 
-  if (!version) {
-    console.log(`\n${red("No version was provided.")} i.e.: ${cmdEx}\n`);
+const updateWorkspaceCatalog = (version) => {
+  const workspacePath = join(__dirname, "../../pnpm-workspace.yaml");
+
+  if (!existsSync(workspacePath)) {
+    log.error("pnpm-workspace.yaml not found!");
     process.exit(1);
   }
 
-  console.log(
-    `\n${orange("-- Upgrading plugins to version: ")}${green(version)}\n`
-  );
-  const logFolder = join(__dirname, "../tmp/upgrade", getDateString());
-  const examplesFolder = join(__dirname, "../../examples");
-  const examples = readdirSync(examplesFolder);
+  try {
+    const content = readFileSync(workspacePath, "utf-8");
+    /** @type {any} */
+    const doc = load(content);
 
-  const success = [];
-  const fails = [];
+    if (!doc.catalogs || !doc.catalogs.zephyr) {
+      log.error("No zephyr catalog found in pnpm-workspace.yaml");
+      process.exit(1);
+    }
 
-  await Promise.all(
-    examples.map(async (example) => {
-      try {
-        const folderPath = join(examplesFolder, example);
-        const packagePath = join(folderPath, "package.json");
-        const packageExists = existsSync(packagePath);
-
-        if (!packageExists) {
-          return fails.push({ example, result: "No package.json found." });
-        }
-
-        const entries = getInstalledPlugins(packagePath);
-
-        if (!entries.length) {
-          return fails.push({ example, result: "No plugin installed." });
-        }
-
-        const plugins = entries
-          .filter(([_, depVersion]) => !depVersion.includes(version))
-          .map(([name]) => name);
-
-        const isNpm = existsSync(join(folderPath, "package-lock.json"));
-        const isPnpmWs = existsSync(join(folderPath, "pnpm-workspace.yaml"));
-        const writeStream = await getLogWriteStream(example, logFolder);
-
-        if (!plugins.length) {
-          console.log(
-            `[${blue(
-              example
-            )}] already in version ${version}. Checking dependencies...`
-          );
-          execSync(`${isNpm ? "npm" : "pnpm"} i`, {
-            cwd: folderPath,
-            stdio: [writeStream, writeStream, writeStream],
-          });
-          return success.push({
-            example,
-            result: `${plugins.join(", ")} already in version ${version}`,
-          });
-        }
-
-        const command =
-          `${isNpm ? "npm" : "pnpm"} i -D ` +
-          `${isPnpmWs ? "-w " : ""}` +
-          plugins.map((plugin) => `${plugin}@${version}`).join(" ");
-
-        console.log(`Upgrading [${blue(example)}] project...`);
-        execSync(command, {
-          cwd: folderPath,
-          stdio: [writeStream, writeStream, writeStream],
-        });
-        console.log(`[${blue(example)}] ${green("successfully upgraded!")}`);
-
-        success.push({
-          example,
-          result: `${plugins.join(", ")} upgraded to ${version}`,
-        });
-      } catch (e) {
-        console.log(`[${blue(example)}] ${red("failed to upgrade.")}`);
-        fails.push({
-          example,
-          result: `Unexpected error: ${JSON.stringify(e)}`,
-        });
-      }
-    })
-  );
-
-  if (success.length) {
-    console.log(`\n${green("-- Successfully upgraded plugins:")}`);
-    success.forEach(({ example, result }) =>
-      console.log(`[${blue(example)}]: ${result}`)
+    const zephyrPlugins = Object.keys(doc.catalogs.zephyr);
+    console.log(
+      `Found ${
+        zephyrPlugins.length
+      } plugins in zephyr catalog: ${zephyrPlugins.join(", ")}`
     );
-  }
 
-  if (fails.length) {
-    console.log(`\n${red("-- Failed to upgrade projects:")}`);
-    fails.forEach(({ example, result }) =>
-      console.log(`[${orange(example)}]: ${result}`)
-    );
-  }
+    // Update all zephyr plugin versions
+    zephyrPlugins.forEach((plugin) => {
+      doc.catalogs.zephyr[plugin] = `^${version}`;
+    });
 
-  console.log(`\nCheck all installation logs under: '${logFolder}'`);
+    const updatedYaml = dump(doc, {
+      lineWidth: -1,
+      noRefs: true,
+      quotingType: '"',
+      forceQuotes: false,
+    });
+
+    writeFileSync(workspacePath, updatedYaml, "utf-8");
+    log.success(`Updated pnpm-workspace.yaml catalog with version ${version}`);
+  } catch (error) {
+    log.error(`Failed to update pnpm-workspace.yaml: ${error.message}`);
+    process.exit(1);
+  }
 };
 
-const getInstalledPlugins = (packagePath) => {
-  const package = JSON.parse(readFileSync(packagePath, "utf-8"));
-  const { dependencies, devDependencies } = package;
-  const deps = { ...dependencies, ...devDependencies };
-  return Object.entries(deps).filter(([name]) => pluginNames.includes(name));
+const upgradePlugins = async () => {
+  if (["--help", "-h"].includes(process.argv[2])) {
+    console.log(
+      `\nExecute script to upgrade zephyr plugins to next tag version: 'pnpm upgrade-plugins'\n`
+    );
+    process.exit();
+  }
+
+  const version = await getNextVersion();
+  console.log(`\n-- Upgrading plugins to version: ${version}\n`);
+
+  updateWorkspaceCatalog(version);
+
+  // Run pnpm install to update all dependencies
+  log.warning("Running pnpm install to update dependencies...");
+  try {
+    execSync("pnpm install", {
+      cwd: join(__dirname, "../.."),
+      stdio: "inherit",
+    });
+    log.success("Successfully updated all dependencies!");
+  } catch (error) {
+    log.error("Failed to run pnpm install:");
+    console.error(error.message);
+    process.exit(1);
+  }
 };
 
 upgradePlugins();
