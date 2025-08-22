@@ -5,9 +5,10 @@ const getDateString = () =>
 
 const getLogWriteStream = (folderName, logFolder) => {
   mkdirSync(logFolder, { recursive: true });
-  writeFileSync(`${logFolder}/${folderName}.txt`, "utf-8");
+  writeFileSync(`${logFolder}/${folderName}.txt`, "");
   return new Promise((resolve) => {
-    createWriteStream(`${logFolder}/${folderName}.txt`).on("open", resolve);
+    const stream = createWriteStream(`${logFolder}/${folderName}.txt`);
+    stream.on("open", () => resolve(stream));
   });
 };
 
