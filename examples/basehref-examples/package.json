@@ -1,0 +1,29 @@
+{
+  "name": "basehref-examples",
+  "version": "1.0.0",
+  "description": "Examples demonstrating base href configuration with different bundlers",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter basehref-rspack-app build && pnpm --filter basehref-vite-app build && pnpm --filter basehref-webpack-app build",
+    "build:rspack": "pnpm --filter basehref-rspack-app build",
+    "build:vite": "pnpm --filter basehref-vite-app build", 
+    "build:webpack": "pnpm --filter basehref-webpack-app build",
+    "build:base": "pnpm --filter basehref-rspack-app build:base && pnpm --filter basehref-vite-app build:base && pnpm --filter basehref-webpack-app build:base",
+    "build:base:rspack": "pnpm --filter basehref-rspack-app build:base",
+    "build:base:vite": "pnpm --filter basehref-vite-app build:base",
+    "build:base:webpack": "pnpm --filter basehref-webpack-app build:base"
+  },
+  "keywords": [
+    "basehref",
+    "rspack", 
+    "vite",
+    "webpack",
+    "react",
+    "zephyr"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zephyrcloud/zephyr-examples",
+    "directory": "examples/basehref-examples"
+  }
+}

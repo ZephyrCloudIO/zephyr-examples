@@ -15,138 +15,158 @@ interface AppValidation {
 const APP_VALIDATIONS: Record<string, AppValidation> = {
   // Framework-specific apps
   "angular-vite-zephyr-template": {
-    uniqueText: ["Angular", "Vite", "Welcome", "Hello"],
-  },
-  "qwik-starter": {
-    uniqueText: ["Qwik", "Welcome to Qwik", "City", "Welcome"],
+    uniqueText: ["Angular", "Vite"],
   },
   "react-vite-ts": {
-    uniqueText: ["Vite", "React", "Click", "count", "Edit"],
+    uniqueText: ["Vite", "React"],
   },
   "solid-zephyr-template": {
-    uniqueText: ["Solid", "SolidJS", "Hello", "World"],
+    uniqueText: ["Solid", "Vite"],
   },
   "svelte-zephyr-template": {
-    uniqueText: ["Svelte", "SvelteKit", "Welcome", "Hello"],
+    uniqueText: ["Svelte", "Vite"],
   },
   "modern-js": {
-    uniqueText: ["Modern.js", "Modern", "Get Started", "Welcome"],
+    uniqueText: ["Modern.js", "Get Started"],
   },
   "nx-ng": {
-    uniqueText: ["Nx", "Angular", "Welcome", "Hello World"],
+    uniqueText: ["Welcome", "Hello there"],
   },
   "parcel-react": {
-    uniqueText: ["Parcel", "React", "Hello", "World"],
+    uniqueText: ["Hello", "Zephyr", "Parcel"],
   },
   "rspack-react-starter": {
-    uniqueText: ["Rspack", "React", "Hello", "World"],
+    uniqueText: ["Rspack", "React"],
   },
   "rolldown-react": {
-    uniqueText: ["Rolldown", "React", "Hello", "World"],
+    uniqueText: ["Rolldown", "React"],
+  },
+  "rollup-react-ts": {
+    uniqueText: ["Rollup", "React"],
   },
   "rspress-ssg": {
-    uniqueText: ["Rspress", "Getting Started", "Documentation", "Guide"],
+    uniqueText: ["My Site", "A cool website!"],
   },
 
   // Module Federation apps
   "create-mf-app-rspack-host": {
-    uniqueText: ["Module Federation", "Host", "Remote", "Micro"],
+    uniqueText: ["with zephyr", "react", "TypeScript"],
   },
   "default-webpack-mf-first": {
-    uniqueText: ["Webpack", "Module Federation", "Remote", "Host"],
+    uniqueText: ["App1", "App 2"],
   },
   "default-webpack-mf-second": {
-    uniqueText: ["Webpack", "Module Federation", "Remote", "Host"],
+    uniqueText: ["App 2"],
   },
   host: {
-    uniqueText: ["Host", "Module Federation", "Remote", "Micro"],
+    uniqueText: ["Hello there", "Welcome host", "Remote1", "Remote2"],
   },
   shell: {
-    uniqueText: ["Shell", "Module Federation", "Remote", "Micro"],
+    uniqueText: ["Hello there", "Welcome shell"],
   },
   remote1: {
-    uniqueText: ["Remote", "Module Federation", "Remote1", "Micro"],
+    uniqueText: ["Hello there", "Welcome remote1"],
   },
   remote2: {
-    uniqueText: ["Remote", "Module Federation", "Remote2", "Micro"],
+    uniqueText: ["Hello there", "Welcome remote2"],
   },
 
   // Airbnb clone microfrontends
   "airbnb-react-host": {
-    uniqueText: ["Airbnb", "Home", "Properties", "Welcome"],
+    uniqueText: ["Airbnb", "your home"],
   },
   "airbnb-categories": {
-    uniqueText: ["Beach", "Windmills", "Modern", "Countryside"],
+    uniqueText: ["Beach", "Windmills"],
   },
   "airbnb-favorites": {
-    uniqueText: ["Favorites", "Airbnb", "Saved", "Wishlist"],
+    uniqueText: ["Favorites", "favorited"],
   },
   "airbnb-home": {
-    uniqueText: ["Home", "Airbnb", "Welcome", "Search"],
+    uniqueText: ["Americas", "Europe"],
   },
   "airbnb-properties": {
-    uniqueText: ["Properties", "Airbnb", "Listings", "Available"],
+    uniqueText: ["Properties", "List of your properties"],
   },
   "airbnb-reservations": {
-    uniqueText: ["Reservations", "Airbnb", "Bookings", "Trips"],
+    uniqueText: ["Reservations", "Bookings on your properties"],
   },
   "airbnb-trips": {
-    uniqueText: ["Trips", "Airbnb", "Travel", "Journey"],
+    uniqueText: ["Trips", "Where you've been and where you're going"],
+  },
+
+  // Basehref examples
+  "basehref-rspack-app": {
+    uniqueText: ["Rspack", "React", "TypeScript"],
+  },
+  "basehref-vite-app": {
+    uniqueText: ["BaseHref Vite Example", "Configuration Info"],
+  },
+  "basehref-webpack-app": {
+    uniqueText: ["BaseHref Webpack Example", "Navigation"],
   },
 
   // Tractor v2 microfrontends
   "tractor-v2-app": {
-    uniqueText: ["Tractor", "Welcome", "App", "Home"],
+    uniqueText: [
+      "Machines",
+      "Stores",
+      "Classic Tractors",
+      "Autonomous Tractors",
+    ],
   },
   "tractor-v2-checkout": {
-    uniqueText: ["Checkout", "Tractor", "Cart", "Purchase"],
+    uniqueText: ["Checkout Remote", "Cart Page"],
   },
   "tractor-v2-decide": {
-    uniqueText: ["Decide", "Tractor", "Choose", "Select"],
+    uniqueText: ["Decide Remote", "Product Page"],
   },
   "tractor-v2-explore": {
-    uniqueText: ["Explore", "Tractor", "Discover", "Browse"],
+    uniqueText: ["Explore Remote", "Home Page"],
   },
 
   // Team microfrontends
   "team-blue": {
-    uniqueText: ["Blue", "Team", "Welcome", "Hello"],
+    uniqueText: ["basket", "item"],
   },
   "team-green": {
-    uniqueText: ["Green", "Team", "Welcome", "Hello"],
+    uniqueText: ["Related", "Products"],
   },
   "team-red": {
-    uniqueText: ["Red", "Team", "Welcome", "Hello"],
+    uniqueText: ["The Model Store", "Tractor"],
   },
 
   // Vite microfrontends
   "vite-host": {
-    uniqueText: ["Vite", "Host", "Module Federation", "Remote"],
+    uniqueText: ["Vite remote", "from Webpack", "from Rspack", "Vite + React"],
   },
   "vite-remote": {
-    uniqueText: ["Vite", "Remote", "Module Federation", "Component"],
+    uniqueText: ["Vite + React", "button"],
   },
   "vite-rspack": {
-    uniqueText: ["Vite", "Rspack", "Bundle", "Build"],
+    uniqueText: ["This is a component from Rspack.", "react"],
   },
   "vite-webpack": {
-    uniqueText: ["Vite", "Webpack", "Bundle", "Build"],
+    uniqueText: ["This is a component from Webpack.", "Button"],
+  },
+
+  // Additional apps found in deployment
+  "-react-vite-nx-source": {
+    uniqueText: ["Welcome react-vite-nx", "Hello there"],
   },
 
   // Turbo apps - currently disabled due to deployment issues
   // "turbo-host": {
-  //   uniqueText: ["Turbo", "Host", "Module Federation", "Remote"],
+  //   uniqueText: ["Turbo", "Host"],
   // },
   // "turbo-home": {
-  //   uniqueText: ["Turbo", "Home", "Welcome", "App"],
+  //   uniqueText: ["Turbo", "Home"],
   // },
   // "turbo-settings": {
-  //   uniqueText: ["Turbo", "Settings", "Configuration", "Options"],
+  //   uniqueText: ["Turbo", "Settings"],
   // },
 
-  // Generic fallback
   default: {
-    uniqueText: ["Welcome", "Hello", "Home", "App", "Component", "React", "Vue", "Angular"],
+    uniqueText: ["Add your test validation to ./scripts/tests"],
   },
 };
 
@@ -180,11 +200,14 @@ test.describe("Deployment Validation", () => {
 
       // Skip turbo apps for now as they're known to be problematic
       if (app.name.includes("turbo-")) {
-        console.log(`  ⏭️  Skipping ${app.name} - turbo apps are currently disabled`);
+        console.log(
+          `  ⏭️  Skipping ${app.name} - turbo apps are currently disabled`
+        );
         continue;
       }
 
-      const validation = APP_VALIDATIONS[app.name] || APP_VALIDATIONS["default"];
+      const validation =
+        APP_VALIDATIONS[app.name] || APP_VALIDATIONS["default"];
 
       // Navigate to the app - HARD FAIL if this doesn't work
       const response = await page.goto(app.url, {
@@ -199,32 +222,33 @@ test.describe("Deployment Validation", () => {
       // Wait for content to render
       await page.waitForTimeout(3000);
 
-      // HARD FAIL: Page must have content
       const bodyText = await page.textContent("body");
-      expect(
-        bodyText?.trim().length,
-        `${app.name} has no content (${bodyText?.trim().length} chars)`
-      ).toBeGreaterThan(20);
 
-      // HARD FAIL: Must find expected text content
-      let foundUniqueText = false;
+      // HARD FAIL: Must find ALL expected text content
+      const foundTexts: string[] = [];
+      const missingTexts: string[] = [];
+
       for (const text of validation.uniqueText) {
         if (bodyText?.toLowerCase().includes(text.toLowerCase())) {
           console.log(`  ✓ Found expected text: "${text}"`);
-          foundUniqueText = true;
-          break;
+          foundTexts.push(text);
+        } else {
+          missingTexts.push(text);
         }
       }
 
-      if (!foundUniqueText) {
-        console.log(`  ❌ Expected text not found. Looking for: ${validation.uniqueText.join(", ")}`);
+      if (missingTexts.length > 0) {
+        console.log(`  ❌ Missing text(s): ${missingTexts.join(", ")}`);
+        console.log(`  ✓ Found text(s): ${foundTexts.join(", ")}`);
         console.log(`  📄 Page content: "${bodyText?.slice(0, 300)}..."`);
       }
 
       expect(
-        foundUniqueText,
-        `${app.name} does not contain expected text. Expected one of: ${validation.uniqueText.join(", ")}`
-      ).toBe(true);
+        missingTexts.length,
+        `${app.name} is missing required text(s): ${missingTexts.join(
+          ", "
+        )}. Found: ${foundTexts.join(", ")}`
+      ).toBe(0);
 
       // Check for critical console errors
       const errorLogs: string[] = [];
@@ -245,8 +269,8 @@ test.describe("Deployment Validation", () => {
 
       if (criticalErrors.length > 0) {
         console.log(`  ⚠️  Critical console errors found for ${app.name}:`);
-        criticalErrors.forEach(error => console.log(`    - ${error}`));
-        
+        criticalErrors.forEach((error) => console.log(`    - ${error}`));
+
         // HARD FAIL if too many critical errors
         expect(
           criticalErrors.length,
@@ -257,21 +281,29 @@ test.describe("Deployment Validation", () => {
       console.log(`  ✅ ${app.name} validation passed`);
     }
 
-    const testedApps = deployedApps.filter(app => !app.name.includes("turbo-")).length;
+    const testedApps = deployedApps.filter(
+      (app) => !app.name.includes("turbo-")
+    ).length;
     console.log(`\n🎉 All ${testedApps} applications validated successfully!`);
   });
 
   test("deployment summary", async () => {
     const totalApps = deployedApps.length;
-    const turboApps = deployedApps.filter(app => app.name.includes("turbo-")).length;
+    const turboApps = deployedApps.filter((app) =>
+      app.name.includes("turbo-")
+    ).length;
     const activeApps = totalApps - turboApps;
-    
+
     console.log(`\n📊 Deployment Summary:`);
     console.log(`   Total applications: ${totalApps}`);
     console.log(`   Validated applications: ${activeApps}`);
     console.log(`   Turbo apps (skipped): ${turboApps}`);
-    console.log(`   Apps with custom validation: ${Object.keys(APP_VALIDATIONS).filter(k => k !== 'default').length}`);
-    
+    console.log(
+      `   Apps with custom validation: ${
+        Object.keys(APP_VALIDATIONS).filter((k) => k !== "default").length
+      }`
+    );
+
     expect(totalApps).toBeGreaterThan(0);
     expect(activeApps).toBeGreaterThan(0);
   });
