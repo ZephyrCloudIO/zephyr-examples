@@ -1,7 +1,13 @@
 import { test, expect } from "@playwright/test";
 import { getDeployedApps } from "./test-helper.js";
 
-let deployedApps = [];
+interface DeployedApp {
+  app: string;
+  name: string;
+  url: string;
+}
+
+let deployedApps: DeployedApp[] = [];
 
 test.describe("Deployment Validation", () => {
   test.beforeAll(async () => {
@@ -61,7 +67,7 @@ test.describe("Deployment Validation", () => {
         });
 
         console.log(`✅ ${app.name} - Status: ${status}, Title: "${title}"`);
-      } catch (error) {
+      } catch (error: any) {
         console.error(`❌ ${app.name} failed:`, error.message);
         results.push({
           name: app.name,

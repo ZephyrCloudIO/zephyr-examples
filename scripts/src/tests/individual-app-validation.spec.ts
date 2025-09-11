@@ -1,8 +1,20 @@
-const { test, expect } = require('@playwright/test');
-const { getDeployedApps } = require('./test-helper');
+import { test, expect } from '@playwright/test';
+import { getDeployedApps } from './test-helper.js';
+
+interface DeployedApp {
+  app: string;
+  name: string;
+  url: string;
+}
+
+interface AppValidation {
+  title: RegExp;
+  uniqueText: string[];
+  selectors: string[];
+}
 
 // App-specific validation rules with unique content to verify correct deployment
-const APP_VALIDATIONS = {
+const APP_VALIDATIONS: Record<string, AppValidation> = {
   // Framework-specific apps
   'angular-vite-zephyr-template': {
     title: /angular/i,
@@ -221,7 +233,7 @@ const APP_VALIDATIONS = {
 };
 
 test.describe('Individual App Deployment Validation', () => {
-  let deployedApps = [];
+  let deployedApps: DeployedApp[] = [];
 
   test.beforeAll(async () => {
     console.log('Fetching deployed applications...');
@@ -316,7 +328,7 @@ test.describe('Individual App Deployment Validation', () => {
         });
         console.log(`    ✅ ${app.name} validation passed`);
         
-      } catch (error) {
+      } catch (error: any) {
         console.error(`    ❌ ${app.name} failed:`, error.message);
         
         // Try to get some debug info
@@ -325,7 +337,7 @@ test.describe('Individual App Deployment Validation', () => {
           const bodyText = await page.textContent('body');
           console.log(`    🔍 Debug - Title: "${title}"`);
           console.log(`    📄 Page content snippet: "${bodyText?.slice(0, 200)}..."`);
-        } catch (debugError) {
+        } catch (debugError: any) {
           console.log(`    🔍 Debug failed: ${debugError.message}`);
         }
         
