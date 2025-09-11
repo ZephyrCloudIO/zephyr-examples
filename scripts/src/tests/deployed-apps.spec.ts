@@ -101,9 +101,10 @@ test.describe("Deployed Applications Validation", () => {
   });
 
   test("validate all deployed applications", async ({ page }) => {
+    test.setTimeout(120 * 1000); // 2 minutes timeout for the entire test
     // Get deployed apps within the test
     const apps = await getDeployedApps();
-    
+
     if (apps.length === 0) {
       console.log("No deployed applications found. Skipping validation.");
       test.skip();

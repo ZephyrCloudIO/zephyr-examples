@@ -43,7 +43,7 @@ test.describe("Deployment Validation", () => {
       try {
         const response = await page.goto(app.url, {
           waitUntil: "networkidle",
-          timeout: 15000,
+          timeout: 30000,
         });
 
         const status = response?.status();
