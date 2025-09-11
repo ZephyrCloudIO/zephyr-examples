@@ -75,15 +75,23 @@ const updateWorkspaceCatalog = (version: string): void => {
   }
 };
 
+const parseVersion = (): string | null => {
+  const versionArg = process.argv.find(arg => arg.startsWith('--version='));
+  return versionArg ? versionArg.split('=')[1] : null;
+};
+
 const upgradePlugins = async (): Promise<void> => {
   if (["--help", "-h"].includes(process.argv[2])) {
     console.log(
-      `\nExecute script to upgrade zephyr plugins to next tag version: 'pnpm upgrade-plugins'\n`
+      `\nExecute script to upgrade zephyr plugins to next tag version: 'pnpm upgrade-plugins'\n` +
+      `Options:\n` +
+      `  --version=X.X.X  Specify version to upgrade to (default: next tag)\n`
     );
     process.exit();
   }
 
-  const version = await getNextVersion();
+  const specifiedVersion = parseVersion();
+  const version = specifiedVersion || await getNextVersion();
   console.log(`\n-- Upgrading plugins to version: ${version}\n`);
 
   updateWorkspaceCatalog(version);
