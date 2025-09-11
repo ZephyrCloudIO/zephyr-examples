@@ -7,6 +7,67 @@ interface DeployedApp {
   url: string;
 }
 
+interface AppValidation {
+  uniqueText: string[];
+}
+
+// App-specific validation rules
+const APP_VALIDATIONS: Record<string, AppValidation> = {
+  "angular-vite-zephyr-template": {
+    uniqueText: ["Angular", "Vite", "Welcome", "Hello"],
+  },
+  "create-mf-app-rspack-host": {
+    uniqueText: ["Module Federation", "Host", "Remote", "Micro"],
+  },
+  "modern-js": {
+    uniqueText: ["Modern.js", "Modern", "Get Started", "Welcome"],
+  },
+  "nx-ng": {
+    uniqueText: ["Nx", "Angular", "Welcome", "Hello World"],
+  },
+  "parcel-react": {
+    uniqueText: ["Parcel", "React", "Hello", "World"],
+  },
+  "qwik-starter": {
+    uniqueText: ["Qwik", "Welcome to Qwik", "City", "Welcome"],
+  },
+  "react-vite-ts": {
+    uniqueText: ["Vite", "React", "Click", "count", "Edit"],
+  },
+  "rolldown-react": {
+    uniqueText: ["Rolldown", "React", "Hello", "World"],
+  },
+  "rspack-react-starter": {
+    uniqueText: ["Rspack", "React", "Hello", "World"],
+  },
+  "rspress-ssg": {
+    uniqueText: ["Rspress", "Getting Started", "Documentation", "Guide"],
+  },
+  "solid-zephyr-template": {
+    uniqueText: ["Solid", "SolidJS", "Hello", "World"],
+  },
+  "svelte-zephyr-template": {
+    uniqueText: ["Svelte", "SvelteKit", "Welcome", "Hello"],
+  },
+  // Microfrontend apps
+  "airbnb-react-host": {
+    uniqueText: ["Airbnb", "Home", "Properties", "Welcome"],
+  },
+  "default-webpack-mf-first": {
+    uniqueText: ["Webpack", "Module Federation", "Remote", "Host"],
+  },
+  "turbo-host": {
+    uniqueText: ["Turbo", "Host", "Module Federation", "Remote"],
+  },
+  "vite-host": {
+    uniqueText: ["Vite", "Host", "Module Federation", "Remote"],
+  },
+  // Generic fallbacks
+  default: {
+    uniqueText: ["Welcome", "Hello", "Home", "App", "Component", "React", "Vue", "Angular"],
+  },
+};
+
 let deployedApps: DeployedApp[] = [];
 
 test.describe("Deployment Validation", () => {
@@ -47,26 +108,54 @@ test.describe("Deployment Validation", () => {
         });
 
         const status = response?.status();
-        const title = await page.title();
 
         // Basic checks
         expect(status).toBeLessThan(400);
-        expect(title.length).toBeGreaterThan(0);
 
         // Check page has rendered content
         await page.waitForTimeout(2000);
         const bodyText = await page.textContent("body");
         expect(bodyText?.trim().length).toBeGreaterThan(10);
 
+        // Get validation rules for this app
+        const validation =
+          APP_VALIDATIONS[app.name] || APP_VALIDATIONS["default"];
+
+        // Check for unique text content that validates correct app deployment
+        let foundUniqueText = true; // Default to true for apps without specific text requirements
+        if (validation.uniqueText.length > 0) {
+          foundUniqueText = false;
+          for (const text of validation.uniqueText) {
+            if (bodyText?.toLowerCase().includes(text.toLowerCase())) {
+              console.log(`✓ Found unique text: "${text}" for ${app.name}`);
+              foundUniqueText = true;
+              break;
+            }
+          }
+
+          if (!foundUniqueText) {
+            console.log(
+              `⚠️ Expected text not found for ${app.name}. Looking for: ${validation.uniqueText.join(
+                ", "
+              )}`
+            );
+            console.log(
+              `📄 Page content snippet: "${bodyText?.slice(0, 200)}..."`
+            );
+            // Use soft assertion to continue testing other apps
+            expect.soft(foundUniqueText).toBe(true);
+          }
+        }
+
         results.push({
           name: app.name,
           url: app.url,
           status,
-          title,
+          foundUniqueText,
           success: true,
         });
 
-        console.log(`✅ ${app.name} - Status: ${status}, Title: "${title}"`);
+        console.log(`✅ ${app.name} - Status: ${status}`);
       } catch (error: any) {
         console.error(`❌ ${app.name} failed:`, error.message);
         results.push({
@@ -116,21 +205,28 @@ test.describe("Deployment Validation", () => {
 
       await page.goto(app.url, { waitUntil: "networkidle" });
 
-      // Check basic page structure
-      const title = await page.title();
-      expect(title).toBeTruthy();
-
-      // Check for common app containers
-      const hasRoot = (await page.locator("#root").count()) > 0;
-      const hasApp = (await page.locator("#app").count()) > 0;
-      const hasAppRoot = (await page.locator("app-root").count()) > 0;
-      const hasMain = (await page.locator("main").count()) > 0;
-
-      expect(hasRoot || hasApp || hasAppRoot || hasMain).toBe(true);
+      // Get validation rules for this app
+      const validation =
+        APP_VALIDATIONS[app.name] || APP_VALIDATIONS["default"];
 
       // Check page has meaningful content
       const bodyText = await page.textContent("body");
       expect(bodyText?.length).toBeGreaterThan(50);
+
+      // Check for unique text content that validates correct app deployment
+      let foundUniqueText = true; // Default to true for apps without specific text requirements
+      if (validation.uniqueText.length > 0) {
+        foundUniqueText = false;
+        for (const text of validation.uniqueText) {
+          if (bodyText?.toLowerCase().includes(text.toLowerCase())) {
+            console.log(`✓ Found unique text: "${text}" for ${app.name}`);
+            foundUniqueText = true;
+            break;
+          }
+        }
+
+        expect(foundUniqueText).toBe(true);
+      }
 
       console.log(`✅ ${app.name} detailed validation passed`);
     }

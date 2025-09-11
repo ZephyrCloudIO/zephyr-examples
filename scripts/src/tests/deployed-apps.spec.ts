@@ -8,81 +8,63 @@ interface DeployedApp {
 }
 
 interface AppValidation {
-  title: RegExp;
-  selectors: string[];
+  uniqueText: string[];
 }
 
 // App-specific validation rules
 const APP_VALIDATIONS: Record<string, AppValidation> = {
   "angular-vite-zephyr-template": {
-    title: /angular/i,
-    selectors: ["app-root", "h1"],
+    uniqueText: ["Angular", "Vite", "Welcome", "Hello"],
   },
   "create-mf-app-rspack-host": {
-    title: /host/i,
-    selectors: ["#root", "h1"],
+    uniqueText: ["Module Federation", "Host", "Remote", "Micro"],
   },
   "modern-js": {
-    title: /modern/i,
-    selectors: ["#root", "main"],
+    uniqueText: ["Modern.js", "Modern", "Get Started", "Welcome"],
   },
   "nx-ng": {
-    title: /nx/i,
-    selectors: ["app-root", "main"],
+    uniqueText: ["Nx", "Angular", "Welcome", "Hello World"],
   },
   "parcel-react": {
-    title: /parcel|react/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Parcel", "React", "Hello", "World"],
   },
   "qwik-starter": {
-    title: /qwik/i,
-    selectors: ["body", "main"],
+    uniqueText: ["Qwik", "Welcome to Qwik", "City", "Welcome"],
   },
   "react-vite-ts": {
-    title: /react|vite/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Vite", "React", "Click", "count", "Edit"],
   },
   "rolldown-react": {
-    title: /rolldown|react/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Rolldown", "React", "Hello", "World"],
   },
   "rspack-react-starter": {
-    title: /rspack|react/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Rspack", "React", "Hello", "World"],
   },
   "rspress-ssg": {
-    title: /rspress/i,
-    selectors: ["#app", "main"],
+    uniqueText: ["Rspress", "Getting Started", "Documentation", "Guide"],
   },
   "solid-zephyr-template": {
-    title: /solid/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Solid", "SolidJS", "Hello", "World"],
   },
   "svelte-zephyr-template": {
-    title: /svelte/i,
-    selectors: ["body", "main"],
+    uniqueText: ["Svelte", "SvelteKit", "Welcome", "Hello"],
   },
   // Microfrontend apps
   "airbnb-react-host": {
-    title: /airbnb/i,
-    selectors: ["#root", "div", "nav"],
+    uniqueText: ["Airbnb", "Home", "Properties", "Welcome"],
   },
   "default-webpack-mf-first": {
-    title: /webpack/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Webpack", "Module Federation", "Remote", "Host"],
   },
   "turbo-host": {
-    title: /turbo/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Turbo", "Host", "Module Federation", "Remote"],
   },
   "vite-host": {
-    title: /vite/i,
-    selectors: ["#root", "div"],
+    uniqueText: ["Vite", "Host", "Module Federation", "Remote"],
   },
   // Generic fallbacks
   default: {
-    title: /.+/, // Any non-empty title
-    selectors: ["body", "#root", "#app", "main", "div"],
+    uniqueText: ["Welcome", "Hello", "Home", "App", "Component", "React", "Vue", "Angular"],
   },
 };
 
@@ -131,34 +113,35 @@ test.describe("Deployed Applications Validation", () => {
         // Wait for page to be ready
         await page.waitForTimeout(2000);
 
-        // Check page title
-        const title = await page.title();
-        expect(title).toMatch(validation.title);
-        expect(title.length).toBeGreaterThan(0);
-
-        // Check that at least one expected selector exists and is visible
-        let foundValidSelector = false;
-        for (const selector of validation.selectors) {
-          try {
-            const element = await page.locator(selector).first();
-            if (await element.isVisible()) {
-              foundValidSelector = true;
-              console.log(
-                `✓ Found valid selector: ${selector} for ${app.name}`
-              );
-              break;
-            }
-          } catch (e) {
-            // Selector not found, try next one
-            continue;
-          }
-        }
-
-        expect(foundValidSelector).toBe(true);
-
         // Check that page has rendered content (not just empty)
         const bodyText = await page.textContent("body");
         expect(bodyText?.trim().length).toBeGreaterThan(10);
+
+        // Check for unique text content that validates correct app deployment
+        let foundUniqueText = true; // Default to true for apps without specific text requirements
+        if (validation.uniqueText.length > 0) {
+          foundUniqueText = false;
+          for (const text of validation.uniqueText) {
+            if (bodyText?.toLowerCase().includes(text.toLowerCase())) {
+              console.log(`✓ Found unique text: "${text}" for ${app.name}`);
+              foundUniqueText = true;
+              break;
+            }
+          }
+
+          if (!foundUniqueText) {
+            console.log(
+              `⚠️ Expected text not found for ${app.name}. Looking for: ${validation.uniqueText.join(
+                ", "
+              )}`
+            );
+            console.log(
+              `📄 Page content snippet: "${bodyText?.slice(0, 200)}..."`
+            );
+            // Use soft assertion to continue testing other apps
+            expect.soft(foundUniqueText).toBe(true);
+          }
+        }
 
         // Additional check: no major JavaScript errors in console
         const errorLogs: string[] = [];

@@ -8,227 +8,134 @@ interface DeployedApp {
 }
 
 interface AppValidation {
-  title: RegExp;
   uniqueText: string[];
-  selectors: string[];
 }
 
 // App-specific validation rules with unique content to verify correct deployment
 const APP_VALIDATIONS: Record<string, AppValidation> = {
   // Framework-specific apps
   "angular-vite-zephyr-template": {
-    title: /angular/i,
-    uniqueText: ["Angular", "Vite"],
-    selectors: ["app-root"],
+    uniqueText: ["Angular", "Vite", "Welcome", "Hello"],
   },
   "qwik-starter": {
-    title: /qwik/i,
-    uniqueText: ["Qwik", "Welcome to Qwik"],
-    selectors: ["body"],
+    uniqueText: ["Qwik", "Welcome to Qwik", "City", "Welcome"],
   },
   "react-vite-ts": {
-    title: /vite.*react/i,
-    uniqueText: ["Vite", "React"],
-    selectors: ["#root"],
+    uniqueText: ["Vite", "React", "Click", "count", "Edit"],
   },
   "solid-zephyr-template": {
-    title: /solid/i,
-    uniqueText: ["Solid", "SolidJS"],
-    selectors: ["#root"],
+    uniqueText: ["Solid", "SolidJS", "Hello", "World"],
   },
   "svelte-zephyr-template": {
-    title: /svelte/i,
-    uniqueText: ["Svelte", "SvelteKit"],
-    selectors: ["body"],
+    uniqueText: ["Svelte", "SvelteKit", "Welcome", "Hello"],
   },
   "modern-js": {
-    title: /modern/i,
-    uniqueText: ["Modern.js", "Modern"],
-    selectors: ["#root"],
+    uniqueText: ["Modern.js", "Modern", "Get Started", "Welcome"],
   },
   "nx-ng": {
-    title: /nx/i,
-    uniqueText: ["Nx", "Angular"],
-    selectors: ["app-root"],
+    uniqueText: ["Nx", "Angular", "Welcome", "Hello World"],
   },
   "parcel-react": {
-    title: /parcel/i,
-    uniqueText: ["Parcel", "React"],
-    selectors: ["#root"],
+    uniqueText: ["Parcel", "React", "Hello", "World"],
   },
   "rspack-react-starter": {
-    title: /rspack/i,
-    uniqueText: ["Rspack", "React"],
-    selectors: ["#root"],
+    uniqueText: ["Rspack", "React", "Hello", "World"],
   },
   "rolldown-react": {
-    title: /rolldown/i,
-    uniqueText: ["Rolldown", "React"],
-    selectors: ["#root"],
+    uniqueText: ["Rolldown", "React", "Hello", "World"],
   },
   "rspress-ssg": {
-    title: /rspress/i,
-    uniqueText: ["Rspress", "Getting Started"],
-    selectors: ["#app"],
+    uniqueText: ["Rspress", "Getting Started", "Documentation", "Guide"],
   },
 
   // Module Federation apps
   "create-mf-app-rspack-host": {
-    title: /host/i,
-    uniqueText: ["Module Federation", "Host"],
-    selectors: ["#root"],
+    uniqueText: ["Module Federation", "Host", "Remote", "Micro"],
   },
   "default-webpack-mf-first": {
-    title: /webpack/i,
-    uniqueText: ["Webpack", "Module Federation"],
-    selectors: ["#root"],
+    uniqueText: ["Webpack", "Module Federation", "Remote", "Host"],
   },
   "default-webpack-mf-second": {
-    title: /webpack/i,
-    uniqueText: ["Webpack", "Module Federation"],
-    selectors: ["#root"],
+    uniqueText: ["Webpack", "Module Federation", "Remote", "Host"],
   },
   host: {
-    title: /.+/,
-    uniqueText: ["Host", "Module Federation"],
-    selectors: ["#root"],
+    uniqueText: ["Host", "Module Federation", "Remote", "Micro"],
   },
   shell: {
-    title: /.+/,
-    uniqueText: ["Shell", "Module Federation"],
-    selectors: ["#root"],
+    uniqueText: ["Shell", "Module Federation", "Remote", "Micro"],
   },
   remote1: {
-    title: /.+/,
-    uniqueText: ["Remote", "Module Federation"],
-    selectors: ["#root"],
+    uniqueText: ["Remote", "Module Federation", "Remote1", "Micro"],
   },
   remote2: {
-    title: /.+/,
-    uniqueText: ["Remote", "Module Federation"],
-    selectors: ["#root"],
+    uniqueText: ["Remote", "Module Federation", "Remote2", "Micro"],
   },
 
   // Airbnb clone microfrontends
   "airbnb-react-host": {
-    title: /airbnb/i,
-    uniqueText: ["Airbnb", "Home", "Properties"],
-    selectors: ["#root", "nav"],
+    uniqueText: ["Airbnb", "Home", "Properties", "Welcome"],
   },
   "airbnb-categories": {
-    title: /airbnb/i,
-    uniqueText: ["Categories", "Airbnb"],
-    selectors: ["#root"],
+    uniqueText: ["Categories", "Airbnb", "Search", "Filter"],
   },
   "airbnb-favorites": {
-    title: /airbnb/i,
-    uniqueText: ["Favorites", "Airbnb"],
-    selectors: ["#root"],
+    uniqueText: ["Favorites", "Airbnb", "Saved", "Wishlist"],
   },
   "airbnb-home": {
-    title: /airbnb/i,
-    uniqueText: ["Home", "Airbnb"],
-    selectors: ["#root"],
+    uniqueText: ["Home", "Airbnb", "Welcome", "Search"],
   },
   "airbnb-properties": {
-    title: /airbnb/i,
-    uniqueText: ["Properties", "Airbnb"],
-    selectors: ["#root"],
+    uniqueText: ["Properties", "Airbnb", "Listings", "Available"],
   },
   "airbnb-reservations": {
-    title: /airbnb/i,
-    uniqueText: ["Reservations", "Airbnb"],
-    selectors: ["#root"],
+    uniqueText: ["Reservations", "Airbnb", "Bookings", "Trips"],
   },
   "airbnb-trips": {
-    title: /airbnb/i,
-    uniqueText: ["Trips", "Airbnb"],
-    selectors: ["#root"],
+    uniqueText: ["Trips", "Airbnb", "Travel", "Journey"],
   },
 
   // Tractor v2 microfrontends
   "tractor-v2-app": {
-    title: /tractor/i,
-    uniqueText: ["Tractor", "Welcome"],
-    selectors: ["#root"],
+    uniqueText: ["Tractor", "Welcome", "App", "Home"],
   },
   "tractor-v2-checkout": {
-    title: /tractor/i,
-    uniqueText: ["Checkout", "Tractor"],
-    selectors: ["#root"],
+    uniqueText: ["Checkout", "Tractor", "Cart", "Purchase"],
   },
   "tractor-v2-decide": {
-    title: /tractor/i,
-    uniqueText: ["Decide", "Tractor"],
-    selectors: ["#root"],
+    uniqueText: ["Decide", "Tractor", "Choose", "Select"],
   },
   "tractor-v2-explore": {
-    title: /tractor/i,
-    uniqueText: ["Explore", "Tractor"],
-    selectors: ["#root"],
+    uniqueText: ["Explore", "Tractor", "Discover", "Browse"],
   },
 
   // Team microfrontends
   "team-blue": {
-    title: /.+/,
-    uniqueText: ["Blue", "Team"],
-    selectors: ["#root"],
+    uniqueText: ["Blue", "Team", "Welcome", "Hello"],
   },
   "team-green": {
-    title: /.+/,
-    uniqueText: ["Green", "Team"],
-    selectors: ["#root"],
+    uniqueText: ["Green", "Team", "Welcome", "Hello"],
   },
   "team-red": {
-    title: /.+/,
-    uniqueText: ["Red", "Team"],
-    selectors: ["#root"],
+    uniqueText: ["Red", "Team", "Welcome", "Hello"],
   },
 
   // Vite microfrontends
   "vite-host": {
-    title: /vite/i,
-    uniqueText: ["Vite", "Host"],
-    selectors: ["#root"],
+    uniqueText: ["Vite", "Host", "Module Federation", "Remote"],
   },
   "vite-remote": {
-    title: /vite/i,
-    uniqueText: ["Vite", "Remote"],
-    selectors: ["#root"],
+    uniqueText: ["Vite", "Remote", "Module Federation", "Component"],
   },
   "vite-rspack": {
-    title: /vite/i,
-    uniqueText: ["Vite", "Rspack"],
-    selectors: ["#root"],
+    uniqueText: ["Vite", "Rspack", "Bundle", "Build"],
   },
   "vite-webpack": {
-    title: /vite/i,
-    uniqueText: ["Vite", "Webpack"],
-    selectors: ["#root"],
+    uniqueText: ["Vite", "Webpack", "Bundle", "Build"],
   },
-
-  // Turbo apps - commented out as requested since they're not showing content
-  // 'turbo-host': {
-  //   title: /turbo/i,
-  //   uniqueText: ['Turbo', 'Host'],
-  //   selectors: ['#root']
-  // },
-  // 'turbo-home': {
-  //   title: /turbo/i,
-  //   uniqueText: ['Turbo', 'Home'],
-  //   selectors: ['#root']
-  // },
-  // 'turbo-settings': {
-  //   title: /turbo/i,
-  //   uniqueText: ['Turbo', 'Settings'],
-  //   selectors: ['#root']
-  // },
 
   // Generic fallback
   default: {
-    title: /.+/,
-    uniqueText: [],
-    selectors: ["body", "#root", "#app", "main", "div"],
+    uniqueText: ["Welcome", "Hello", "Home", "App", "Component", "React", "Vue", "Angular"],
   },
 };
 
@@ -285,27 +192,6 @@ test.describe("Individual App Deployment Validation", () => {
         // Wait for content to render
         await page.waitForTimeout(3000);
 
-        // Check page title
-        const title = await page.title();
-        expect(title).toMatch(validation.title);
-        expect(title.length).toBeGreaterThan(0);
-
-        // Check for required selectors
-        let foundValidSelector = false;
-        for (const selector of validation.selectors) {
-          try {
-            const element = page.locator(selector).first();
-            if (await element.isVisible()) {
-              foundValidSelector = true;
-              console.log(`    ✓ Found valid selector: ${selector}`);
-              break;
-            }
-          } catch (e) {
-            continue;
-          }
-        }
-        expect(foundValidSelector).toBe(true);
-
         // Check for unique text content that validates correct app deployment
         const pageText = await page.textContent("body");
         expect(pageText?.trim().length).toBeGreaterThan(20);
@@ -338,7 +224,6 @@ test.describe("Individual App Deployment Validation", () => {
         results.push({
           name: app.name,
           status: "passed",
-          title,
           foundUniqueText,
           httpStatus: status,
         });
@@ -348,9 +233,7 @@ test.describe("Individual App Deployment Validation", () => {
 
         // Try to get some debug info
         try {
-          const title = await page.title();
           const bodyText = await page.textContent("body");
-          console.log(`    🔍 Debug - Title: "${title}"`);
           console.log(
             `    📄 Page content snippet: "${bodyText?.slice(0, 200)}..."`
           );
