@@ -1,5 +1,5 @@
-const { test, expect } = require("@playwright/test");
-const { getDeployedApps } = require("./test-helper");
+import { test, expect } from "@playwright/test";
+import { getDeployedApps } from "./test-helper.js";
 
 let deployedApps = [];
 

@@ -1,21 +1,23 @@
-const { getAllAppDeployResults } = require('zephyr-agent');
+import { getAllAppDeployResults } from 'zephyr-agent';
 
-const getDeployedApps = async () => {
+interface DeployedApp {
+  app: string;
+  name: string;
+  url: string;
+}
+
+export const getDeployedApps = async (): Promise<DeployedApp[]> => {
   try {
     const deployResults = await getAllAppDeployResults();
-    const deployed = Object.entries(deployResults).map(([app, result]) => ({
+    const deployed = Object.entries(deployResults).map(([app, result]: [string, any]) => ({
       app: app.replace('.', ''),
       name: app.replace('.', ''),
       url: result.urls[0]
     }));
     deployed.sort((a, b) => (a.app > b.app ? 1 : -1));
     return deployed;
-  } catch (error) {
+  } catch (error: any) {
     console.log(`Failed to get deployment results: ${error.message}`);
     return [];
   }
-};
-
-module.exports = {
-  getDeployedApps
 };

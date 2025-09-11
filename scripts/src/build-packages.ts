@@ -1,19 +1,20 @@
-const { exec } = require("node:child_process");
-const { promisify } = require("node:util");
-const { readdirSync, readFileSync, existsSync, statSync } = require("node:fs");
-const { join } = require("node:path");
-const { cpus } = require("node:os");
-const pLimit = require("p-limit").default || require("p-limit");
-const execAsync = promisify(exec);
-const {
+import { exec } from "node:child_process";
+import { promisify } from "node:util";
+import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
+import { join } from "node:path";
+import { cpus } from "node:os";
+import pLimit from "p-limit";
+import {
   red,
   blue,
   green,
   getLogWriteStream,
   orange,
   getDateString,
-} = require("./utils");
-const { getAllAppDeployResults } = require("zephyr-agent");
+} from "./utils.js";
+import { getAllAppDeployResults } from "zephyr-agent";
+
+const execAsync = promisify(exec);
 
 // Concurrency control - limit parallel builds to prevent resource exhaustion
 const MAX_CONCURRENT_BUILDS = Math.min(cpus().length, 4);
@@ -23,7 +24,7 @@ const BUILD_TIMEOUT = 5 * 60 * 1000; // 5 minutes
 const limit = pLimit(MAX_CONCURRENT_BUILDS);
 
 // Check if build is needed based on file timestamps
-function needsBuild(folderPath, skipCache = false) {
+function needsBuild(folderPath: string, skipCache: boolean = false): boolean {
   if (skipCache) return true;
   
   try {
@@ -42,7 +43,12 @@ function needsBuild(folderPath, skipCache = false) {
   }
 }
 
-const buildPackages = async () => {
+interface BuildResult {
+  example: string;
+  result: string;
+}
+
+const buildPackages = async (): Promise<void> => {
   // Parse command line arguments
   const args = process.argv.slice(2);
   const skipCache = args.includes('--skip-cache');
@@ -57,9 +63,9 @@ const buildPackages = async () => {
   const logFolder = join(__dirname, "../tmp/build", getDateString());
   const examplesFolder = join(__dirname, "../../examples");
   const examples = readdirSync(examplesFolder);
-  const success = [];
-  const fails = [];
-  const skipped = [];
+  const success: BuildResult[] = [];
+  const fails: BuildResult[] = [];
+  const skipped: BuildResult[] = [];
 
   const startTime = Date.now();
 
@@ -75,8 +81,8 @@ const buildPackages = async () => {
           return;
         }
 
-        const package = JSON.parse(readFileSync(packagePath, "utf-8"));
-        if (!package.scripts?.build) {
+        const packageJson = JSON.parse(readFileSync(packagePath, "utf-8")) as { scripts?: { build?: string } };
+        if (!packageJson.scripts?.build) {
           fails.push({ example, result: "No build script." });
           return;
         }
@@ -115,7 +121,7 @@ const buildPackages = async () => {
             example,
             result: `Successfully built in ${buildTime}ms`,
           });
-        } catch (e) {
+        } catch (e: any) {
           // Write error output to log file
           if (e.stdout) writeStream.write(e.stdout);
           if (e.stderr) writeStream.write(e.stderr);
@@ -168,16 +174,21 @@ const buildPackages = async () => {
   console.log(`\nCheck build run logs under '${logFolder}'`);
 };
 
-const getDeployed = async () => {
+interface DeployedApp {
+  app: string;
+  url: string;
+}
+
+const getDeployed = async (): Promise<DeployedApp[]> => {
   try {
     const deployResults = await getAllAppDeployResults();
-    const deployed = Object.entries(deployResults).map(([app, result]) => ({
+    const deployed = Object.entries(deployResults).map(([app, result]: [string, any]) => ({
       app: app.split('.')[0],
       url: result.urls[0],
     }));
     deployed.sort((a, b) => (a.app > b.app ? 1 : -1));
     return deployed;
-  } catch (error) {
+  } catch (error: any) {
     console.log(`${red("Failed to get deployment results:")} ${error.message}`);
     return [];
   }

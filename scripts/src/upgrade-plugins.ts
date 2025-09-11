@@ -1,17 +1,16 @@
-const { execSync } = require("node:child_process");
-const { readFileSync, writeFileSync, existsSync } = require("node:fs");
-const { join } = require("node:path");
-const { green, red, orange } = require("./utils");
-const { load, dump } = require("js-yaml");
+import { execSync } from "node:child_process";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import { green, red, orange } from "./utils.js";
+import { load, dump } from "js-yaml";
 
 const log = {
-  success: (message) => console.log(green(message)),
-  error: (message) => console.error(red(message)),
-  warning: (message) => console.warn(orange(message)),
+  success: (message: string) => console.log(green(message)),
+  error: (message: string) => console.error(red(message)),
+  warning: (message: string) => console.warn(orange(message)),
 };
 
-
-const getNextVersion = async () => {
+const getNextVersion = async (): Promise<string> => {
   try {
     log.warning("Fetching next tag version for zephyr-rspack-plugin...");
     const result = execSync("npm view zephyr-rspack-plugin dist-tags.next", {
@@ -32,7 +31,7 @@ const getNextVersion = async () => {
   }
 };
 
-const updateWorkspaceCatalog = (version) => {
+const updateWorkspaceCatalog = (version: string): void => {
   const workspacePath = join(__dirname, "../../pnpm-workspace.yaml");
 
   if (!existsSync(workspacePath)) {
@@ -42,8 +41,7 @@ const updateWorkspaceCatalog = (version) => {
 
   try {
     const content = readFileSync(workspacePath, "utf-8");
-    /** @type {any} */
-    const doc = load(content);
+    const doc = load(content) as any;
 
     if (!doc.catalogs || !doc.catalogs.zephyr) {
       log.error("No zephyr catalog found in pnpm-workspace.yaml");
@@ -71,13 +69,13 @@ const updateWorkspaceCatalog = (version) => {
 
     writeFileSync(workspacePath, updatedYaml, "utf-8");
     log.success(`Updated pnpm-workspace.yaml catalog with version ${version}`);
-  } catch (error) {
+  } catch (error: any) {
     log.error(`Failed to update pnpm-workspace.yaml: ${error.message}`);
     process.exit(1);
   }
 };
 
-const upgradePlugins = async () => {
+const upgradePlugins = async (): Promise<void> => {
   if (["--help", "-h"].includes(process.argv[2])) {
     console.log(
       `\nExecute script to upgrade zephyr plugins to next tag version: 'pnpm upgrade-plugins'\n`
@@ -98,7 +96,7 @@ const upgradePlugins = async () => {
       stdio: "inherit",
     });
     log.success("Successfully updated all dependencies!");
-  } catch (error) {
+  } catch (error: any) {
     log.error("Failed to run pnpm install:");
     console.error(error.message);
     process.exit(1);
