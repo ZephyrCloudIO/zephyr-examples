@@ -23,7 +23,9 @@ const BUILD_TIMEOUT = 5 * 60 * 1000; // 5 minutes
 const limit = pLimit(MAX_CONCURRENT_BUILDS);
 
 // Check if build is needed based on file timestamps
-function needsBuild(folderPath) {
+function needsBuild(folderPath, skipCache = false) {
+  if (skipCache) return true;
+  
   try {
     const packagePath = join(folderPath, "package.json");
     const distPath = join(folderPath, "dist");
@@ -41,8 +43,16 @@ function needsBuild(folderPath) {
 }
 
 const buildPackages = async () => {
+  // Parse command line arguments
+  const args = process.argv.slice(2);
+  const skipCache = args.includes('--skip-cache');
+  
   console.log(`\n${orange("-- Building all examples ")}`);
-  console.log(`${blue("Max concurrent builds:")} ${MAX_CONCURRENT_BUILDS}\n`);
+  console.log(`${blue("Max concurrent builds:")} ${MAX_CONCURRENT_BUILDS}`);
+  if (skipCache) {
+    console.log(`${orange("Cache skipped - forcing rebuild of all packages")}`);
+  }
+  console.log();
 
   const logFolder = join(__dirname, "../tmp/build", getDateString());
   const examplesFolder = join(__dirname, "../../examples");
@@ -72,7 +82,7 @@ const buildPackages = async () => {
         }
 
         // Check if build is needed (simple caching)
-        if (!needsBuild(folderPath)) {
+        if (!needsBuild(folderPath, skipCache)) {
           console.log(`[${blue(example)}] ${green("skipped - up to date")}`);
           skipped.push({ example, result: "Build cache hit" });
           return;
@@ -162,7 +172,7 @@ const getDeployed = async () => {
   try {
     const deployResults = await getAllAppDeployResults();
     const deployed = Object.entries(deployResults).map(([app, result]) => ({
-      app: app.replace(".", ""),
+      app: app.split('.')[0],
       url: result.urls[0],
     }));
     deployed.sort((a, b) => (a.app > b.app ? 1 : -1));

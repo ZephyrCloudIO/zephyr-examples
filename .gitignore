@@ -25,3 +25,9 @@ dist
 .parcel-cache
 
 tmp
+
+# Playwright test results
+scripts/test-results/
+scripts/playwright-report/
+test-results/
+playwright-report/
