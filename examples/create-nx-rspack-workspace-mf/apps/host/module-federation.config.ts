@@ -14,7 +14,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['remote1', 'remote2'],
+  remotes: ['rspack_remote1', 'rspack_remote2'],
 };
 
 export default config;

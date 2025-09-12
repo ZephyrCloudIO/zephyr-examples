@@ -6,7 +6,7 @@ import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <div>
-      <NxWelcome title="remote1" />
+      <NxWelcome title="rspack_remote2" />
     </div>
   );
 }

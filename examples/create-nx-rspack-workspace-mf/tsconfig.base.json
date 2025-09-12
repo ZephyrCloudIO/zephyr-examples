@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "remote1/Module": ["apps/remote1/src/remote-entry.ts"],
-      "remote2/Module": ["apps/remote2/src/remote-entry.ts"]
+      "rspack_remote1/Module": ["apps/rspack_remote1/src/remote-entry.ts"],
+      "rspack_remote2/Module": ["apps/rspack_remote2/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

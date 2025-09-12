@@ -9,8 +9,30 @@
     "lint": "turbo lint"
   },
   "packageManager": "pnpm@10.6.3",
+  "dependencies": {
+    "@repo/tailwind-config": "workspace:^",
+    "@repo/typescript-config": "workspace:^",
+    "@repo/ui": "workspace:^",
+    "autoprefixer": "catalog:postcss",
+    "lucide-react": "catalog:react18",
+    "postcss-loader": "catalog:postcss",
+    "postcss": "catalog:postcss",
+    "react-dom": "^18.3.1",
+    "react-router": "^6.30.0",
+    "react": "^18.3.1",
+    "tailwindcss": "catalog:tailwind3",
+    "zephyr-rspack-plugin": "catalog:zephyr"
+  },
   "devDependencies": {
     "@biomejs/biome": "catalog:biome",
+    "@rspack/cli": "catalog:rspack",
+    "@rspack/core": "catalog:rspack",
+    "@rspack/plugin-react-refresh": "catalog:rspack",
+    "@types/react-dom": "^18.3.5",
+    "@types/react": "^18.3.20",
+    "cross-env": "catalog:common",
+    "react-refresh": "catalog:react18",
+    "ts-node": "catalog:typescript",
     "turbo": "catalog:turbo",
     "typescript": "catalog:typescript"
   }

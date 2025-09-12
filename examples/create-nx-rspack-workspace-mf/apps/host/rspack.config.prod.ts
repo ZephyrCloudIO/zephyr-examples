@@ -26,8 +26,8 @@ const prodConfig: ModuleFederationConfig = {
    * ]
    */
   remotes: [
-    ['remote1', 'http://localhost:4201/'],
-    ['remote2', 'http://localhost:4202/'],
+    ['rspack_remote1', 'http://localhost:4201/'],
+    ['rspack_remote2', 'http://localhost:4202/'],
   ],
 };
 

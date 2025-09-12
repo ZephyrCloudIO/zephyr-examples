@@ -10,6 +10,6 @@ describe('App', () => {
 
   it('should have a greeting as the title', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/Welcome remote2/gi)).toBeTruthy();
+    expect(getByText(/Welcome rspack_remote1/gi)).toBeTruthy();
   });
 });

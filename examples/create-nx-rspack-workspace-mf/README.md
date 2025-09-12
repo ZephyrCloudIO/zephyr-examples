@@ -22,8 +22,8 @@ A comprehensive Nx workspace demonstrating Module Federation architecture with R
 This Nx workspace consists of three federated applications:
 
 - **`host/`** - Host application that orchestrates the micro-frontends
-- **`remote1/`** - Remote application exposing shared components
-- **`remote2/`** - Another remote application with independent functionality
+- **`rspack_remote1/`** - Remote application exposing shared components
+- **`rspack_remote2/`** - Another remote application with independent functionality
 
 ## Getting Started
 
@@ -36,13 +36,13 @@ This Nx workspace consists of three federated applications:
    
    Start all applications concurrently:
    ```bash
-   npx nx run-many --target=serve --projects=remote1,remote2,host --parallel
+   npx nx run-many --target=serve --projects=rspack_remote1,rspack_remote2,host --parallel
    ```
    
    Or start individually:
    ```bash
-   npx nx serve remote1
-   npx nx serve remote2
+   npx nx serve rspack_remote1
+   npx nx serve rspack_remote2
    npx nx serve host
    ```
 
@@ -51,8 +51,8 @@ This Nx workspace consists of three federated applications:
    Because this is a Module Federation setup, remotes must be built before the host:
    
    ```bash
-   npx nx run remote1:build
-   npx nx run remote2:build
+   npx nx run rspack_remote1:build
+   npx nx run rspack_remote2:build
    npx nx run host:build
    ```
    

@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('remote1-e2e', () => {
+describe('rspack_remote2-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
