@@ -1,0 +1,120 @@
+name: Build, Deploy, and Test All Examples
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_cache:
+        description: "Skip build cache and force rebuild all packages"
+        required: false
+        default: true
+        type: boolean
+      plugin_version:
+        description: "Zephyr plugin version to upgrade to (default: next)"
+        required: false
+        default: "next"
+        type: string
+  repository_dispatch:
+    types: [build-deploy-test]
+
+env:
+  NODE_VERSION: "20"
+  PNPM_VERSION: "10.6.3"
+
+jobs:
+  build-deploy-test:
+    name: Build, Deploy, and Test All Examples
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Upgrade Zephyr plugins
+        run: |
+          cd scripts
+          if [ -n "${{ github.event.inputs.plugin_version }}" ]; then
+            echo "Upgrading plugins to version: ${{ github.event.inputs.plugin_version }}"
+            pnpm upgrade-plugins --version=${{ github.event.inputs.plugin_version }}
+          elif [ -n "${{ github.event.client_payload.plugin_version }}" ]; then
+            echo "Upgrading plugins to version: ${{ github.event.client_payload.plugin_version }}"
+            pnpm upgrade-plugins --version=${{ github.event.client_payload.plugin_version }}
+          else
+            echo "Upgrading plugins to latest (next)"
+            pnpm upgrade-plugins
+          fi
+
+      - name: Install dependencies after upgrade
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all examples
+        run: |
+          cd scripts
+          if [ "${{ github.event.inputs.skip_cache }}" == "true" ] || [ "${{ github.event.client_payload.skip_cache }}" == "true" ]; then
+            echo "Building with --skip-cache flag"
+            pnpm build-packages:force
+          else
+            echo "Building with cache enabled"
+            pnpm build-packages
+          fi
+        env:
+          NODE_ENV: production
+
+      - name: Wait for deployments to be ready
+        run: |
+          echo "Waiting 60 seconds for all deployments to propagate..."
+          sleep 60
+
+      - name: Install Playwright browsers
+        run: |
+          cd scripts
+          npx playwright install chromium
+
+      - name: Run deployment validation tests
+        run: |
+          cd scripts
+          pnpm test
+        env:
+          CI: true
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: |
+            scripts/test-results/
+            scripts/playwright-report/
+          retention-days: 7
+
+      - name: Upload build logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-logs
+          path: |
+            scripts/tmp/build/
+          retention-days: 3

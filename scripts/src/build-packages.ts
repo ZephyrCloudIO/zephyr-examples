@@ -52,8 +52,31 @@ const buildPackages = async (): Promise<void> => {
   // Parse command line arguments
   const args = process.argv.slice(2);
   const skipCache = args.includes('--skip-cache');
+  const packagesArg = args.find(arg => arg.startsWith('--packages='));
   
-  console.log(`\n${orange("-- Building all examples ")}`);
+  let examples: string[];
+  let buildType: string;
+  
+  if (packagesArg) {
+    // Parse comma-separated list of packages
+    const packagesList = packagesArg.split('=')[1];
+    examples = packagesList ? packagesList.split(',').filter(Boolean) : [];
+    buildType = "specified examples";
+    
+    if (examples.length === 0) {
+      console.log(`\n${green("No examples specified - nothing to build.")}`);
+      return;
+    }
+    
+    console.log(`\n${orange("-- Building specified examples only ")}`);
+    console.log(`${blue("Examples:")} ${examples.join(', ')}`);
+  } else {
+    const examplesFolder = join(__dirname, "../../examples");
+    examples = readdirSync(examplesFolder);
+    buildType = "all examples";
+    console.log(`\n${orange("-- Building all examples ")}`);
+  }
+  
   console.log(`${blue("Max concurrent builds:")} ${MAX_CONCURRENT_BUILDS}`);
   if (skipCache) {
     console.log(`${orange("Cache skipped - forcing rebuild of all packages")}`);
@@ -62,7 +85,6 @@ const buildPackages = async (): Promise<void> => {
 
   const logFolder = join(__dirname, "../tmp/build", getDateString());
   const examplesFolder = join(__dirname, "../../examples");
-  const examples = readdirSync(examplesFolder);
   const success: BuildResult[] = [];
   const fails: BuildResult[] = [];
   const skipped: BuildResult[] = [];
@@ -145,16 +167,18 @@ const buildPackages = async (): Promise<void> => {
   console.log(`\n${green(`-- Build completed in ${totalTime}ms --`)}`);
 
   if (success.length) {
-    console.log(`\n${green("-- Successfully built examples:")}`);
+    console.log(`\n${green(`-- Successfully built ${buildType}:`)}`);
     success.forEach(({ example, result }) =>
       console.log(`[${blue(example)}]: ${result}`)
     );
 
-    const deployed = await getDeployed();
-    console.log(`\n${green("-- Applications deployed:")}`);
-    deployed.forEach(({ app, url }) => {
-      console.log(`[${blue(app)}]: ${url}`);
-    });
+    if (buildType === "all examples") {
+      const deployed = await getDeployed();
+      console.log(`\n${green("-- Applications deployed:")}`);
+      deployed.forEach(({ app, url }) => {
+        console.log(`[${blue(app)}]: ${url}`);
+      });
+    }
   }
 
   if (skipped.length) {
