@@ -23,7 +23,7 @@ dist
 */**/.__mf__temp
 
 .parcel-cache
-
+*.tsbuildinfo
 tmp
 
 # Playwright test results
