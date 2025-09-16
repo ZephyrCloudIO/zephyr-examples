@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run-many -t build --parallel=1 --skip-nx-cache -p team_blue team_green team_red --verbose",
+    "build": "nx reset && nx run-many -t build --parallel=1 --skip-nx-cache -p team_blue team_green team_red --verbose",
     "build:team-red": "nx run team_red:build:production --skip-nx-cache",
     "build:team-blue": "nx run team_blue:build:production --skip-nx-cache",
     "build:team-green": "nx run team_green:build:production --skip-nx-cache  --watch"

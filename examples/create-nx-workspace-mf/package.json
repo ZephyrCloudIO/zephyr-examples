@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run-many --target=build --projects=remote1,remote2,shell --parallel=1 --verbose --skip-nx-cache",
+    "build": "nx reset && nx run-many --target=build --projects=remote1,remote2,shell --parallel=1 --verbose --skip-nx-cache",
     "build:remote1": "npx nx run remote1:build",
     "build:remote2": "npx nx run remote2:build",
     "build:shell": "npx nx run shell:build"

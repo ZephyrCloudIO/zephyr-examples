@@ -14,4 +14,13 @@ export default defineConfig({
     }),
     withZephyr(),
   ],
+  resolve: {
+    preserveSymlinks: false,
+  },
+  optimizeDeps: {
+    disabled: false,
+    esbuildOptions: {
+      preserveSymlinks: false,
+    },
+  },
 });

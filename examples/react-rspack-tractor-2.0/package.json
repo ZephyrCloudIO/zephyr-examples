@@ -9,11 +9,11 @@
   },
   "scripts": {
     "build": "pnpm build-explore && pnpm build-checkout && pnpm build-decide && pnpm build-app",
-    "build-app": "WITH_ZE=true pnpm --filter=tractor_v2_app build",
-    "build-checkout": "WITH_ZE=true pnpm --filter=tractor_v2_checkout build",
-    "build-decide": "WITH_ZE=true pnpm --filter=tractor_v2_decide build",
-    "build-explore": "WITH_ZE=true pnpm --filter=tractor_v2_explore build",
-    "serve": "WITH_ZE=true pnpm --filter 'tractor_v2*' serve"
+    "build-app": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_app build",
+    "build-checkout": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_checkout build",
+    "build-decide": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_decide build",
+    "build-explore": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_explore build",
+    "serve": "cross-env WITH_ZE=true pnpm --filter 'tractor_v2*' serve"
   },
   "keywords": [
     "react",
@@ -43,6 +43,7 @@
     "@types/node": "catalog:typescript",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
+    "cross-env": "catalog:common",
     "react-refresh": "catalog:react18",
     "typescript": "catalog:typescript",
     "zephyr-rspack-plugin": "catalog:zephyr"
