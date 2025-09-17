@@ -128,7 +128,7 @@ catalogs:
   vite6:
     vite: ^6.2.3
   webpack5:
-    webpack: ^5.98.0
+    webpack: ^5.99.9
     webpack-cli: ^4.10.0
     webpack-dev-server: ^4.3.1
     dotenv-webpack: ^8.0.1

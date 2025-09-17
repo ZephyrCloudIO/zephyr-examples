@@ -1,4 +1,3 @@
-
 interface AppValidation {
   uniqueText: string[];
 }

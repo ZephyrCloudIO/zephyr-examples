@@ -28,7 +28,7 @@ test.describe("Deployment Validation", () => {
     });
   });
 
-  test.skip("all deployed applications must load successfully", async ({ page }) => {
+  test("all deployed applications must load successfully", async ({ page }) => {
     test.setTimeout(240000); // 4 minutes for all apps
 
     expect(deployedApps.length).toBeGreaterThan(0);
@@ -79,29 +79,28 @@ test.describe("Deployment Validation", () => {
           throw new Error(`HTTP ${status}`);
         }
 
-        // Reduced wait time for content rendering
-        await page.waitForTimeout(1500); // Reduced from 3s to 1.5s
-
-        const bodyText = await page.textContent("body");
-        if (!bodyText) {
-          throw new Error(`No body content (body: ${bodyText})`);
-        }
-
-        // Validate required text content
+        // Wait for required text content to appear (instead of fixed timeout)
         const foundTexts: string[] = [];
         const missingTexts: string[] = [];
 
         for (const text of validation.uniqueText) {
-          if (bodyText?.toLowerCase().includes(text.toLowerCase())) {
+          try {
+            // Wait for text content using case-insensitive partial matching with timeout
+            await expect(page.locator('body')).toContainText(text, {
+              timeout: 5000,
+              ignoreCase: true
+            });
             console.log(`  ✓ Found expected text: "${text}"`);
             foundTexts.push(text);
-          } else {
+          } catch (error) {
+            // Text didn't appear within timeout
             missingTexts.push(text);
           }
         }
 
         if (missingTexts.length > 0) {
           const error = `Missing required text(s): ${missingTexts.join(", ")}. Found: ${foundTexts.join(", ")}`;
+          const bodyText = await page.textContent("body");
           const details = `Page content: "${bodyText?.slice(0, 300)}..."`;
           
           console.log(`  ❌ ${error}`);
@@ -197,7 +196,6 @@ test.describe("Deployment Validation", () => {
         Object.keys(APP_VALIDATIONS).filter((k) => k !== "default").length
       }`
     );
-    console.log('---------- deployedApps: ', deployedApps.map((app) => app.name))
 
     expect(totalApps).toBeGreaterThan(0);
     expect(activeApps).toBeGreaterThan(0);
