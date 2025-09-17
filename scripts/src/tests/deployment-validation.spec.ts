@@ -64,7 +64,7 @@ test.describe("Deployment Validation", () => {
       }
 
       const validation =
-        APP_VALIDATIONS[app.name] || APP_VALIDATIONS["default"];
+        APP_VALIDATIONS[app.name] || APP_VALIDATIONS.default;
 
       try {
         // Optimized navigation - reduced timeout and waitUntil strategy
@@ -154,7 +154,7 @@ test.describe("Deployment Validation", () => {
     const failed = results.filter((r) => r.status === "failed").length;
     const skipped = results.filter((r) => r.status === "skipped").length;
 
-    console.log(`\n📊 Deployment Validation Results:`);
+    console.log("\n📊 Deployment Validation Results:");
     console.log(`    ✅ Passed: ${passed}`);
     console.log(`    ❌ Failed: ${failed}`);
     console.log(`    ⏭️  Skipped: ${skipped}`);
@@ -187,7 +187,7 @@ test.describe("Deployment Validation", () => {
     ).length;
     const activeApps = totalApps - turboApps;
 
-    console.log(`\n📊 Deployment Summary:`);
+    console.log("\n📊 Deployment Summary:");
     console.log(`   Total applications: ${totalApps}`);
     console.log(`   Validated applications: ${activeApps}`);
     console.log(`   Turbo apps (skipped): ${turboApps}`);
