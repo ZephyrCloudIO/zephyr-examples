@@ -15,8 +15,5 @@
     "test:debug": "pnpm --filter @zephyr-examples/scripts run test:debug",
     "test:report": "pnpm --filter @zephyr-examples/scripts run test:report"
   },
-  "private": false,
-  "devDependencies": {
-    "process": "^0.11.10"
-  }
+  "private": false
 }
