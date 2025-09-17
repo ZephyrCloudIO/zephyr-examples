@@ -21,6 +21,7 @@
     "@nx/webpack": "catalog:nx",
     "@nx/workspace": "catalog:nx",
     "@pmmmwh/react-refresh-webpack-plugin": "catalog:react18",
+    "@rspack/core": "catalog:rspack",
     "@svgr/webpack": "catalog:webpack5",
     "@swc-node/register": "catalog:swc",
     "@swc/cli": "catalog:swc",

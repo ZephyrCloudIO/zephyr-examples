@@ -27,7 +27,7 @@
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/js-yaml": "^4.0.9",
-    "typescript": "^5.6.3",
+    "typescript": "catalog:typescript",
     "tsx": "^4.19.2"
   }
 }
