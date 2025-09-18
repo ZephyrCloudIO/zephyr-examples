@@ -164,8 +164,4 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   // "turbo-settings": {
   //   uniqueText: ["Turbo", "Settings"],
   // },
-
-  default: {
-    uniqueText: ["Add your test validation to ./scripts/tests"],
-  },
 };

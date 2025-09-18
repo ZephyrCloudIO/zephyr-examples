@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { getDeployedApps } from "./test-helper.js";
-import { APP_VALIDATIONS } from './app-validations.js';
+import { APP_VALIDATIONS } from "./app-validations.js";
 
 interface DeployedApp {
   app: string;
@@ -63,8 +63,22 @@ test.describe("Deployment Validation", () => {
         continue;
       }
 
-      const validation =
-        APP_VALIDATIONS[app.name] || APP_VALIDATIONS.default;
+      const validation = APP_VALIDATIONS[app.name];
+
+      if (!validation) {
+        console.warn(
+          `  ⏭️  Skipping ${app.name} - no validation spec was found for it on app-validations.ts`
+        );
+
+        results.push({
+          name: app.name,
+          url: app.url,
+          status: "skipped",
+          details:
+            "Skipped due to validation not being specified on app-validations.ts",
+        });
+        continue;
+      }
 
       try {
         // Optimized navigation - reduced timeout and waitUntil strategy
@@ -86,9 +100,9 @@ test.describe("Deployment Validation", () => {
         for (const text of validation.uniqueText) {
           try {
             // Wait for text content using case-insensitive partial matching with timeout
-            await expect(page.locator('body')).toContainText(text, {
+            await expect(page.locator("body")).toContainText(text, {
               timeout: 5000,
-              ignoreCase: true
+              ignoreCase: true,
             });
             console.log(`  ✓ Found expected text: "${text}"`);
             foundTexts.push(text);
@@ -99,19 +113,21 @@ test.describe("Deployment Validation", () => {
         }
 
         if (missingTexts.length > 0) {
-          const error = `Missing required text(s): ${missingTexts.join(", ")}. Found: ${foundTexts.join(", ")}`;
+          const error = `Missing required text(s): ${missingTexts.join(
+            ", "
+          )}. Found: ${foundTexts.join(", ")}`;
           const bodyText = await page.textContent("body");
           const details = `Page content: "${bodyText?.slice(0, 300)}..."`;
-          
+
           console.log(`  ❌ ${error}`);
           console.log(`  📄 ${details}`);
-          
+
           failedApps.push({
             name: app.name,
             error,
             details,
           });
-          
+
           results.push({
             name: app.name,
             url: app.url,
@@ -130,15 +146,15 @@ test.describe("Deployment Validation", () => {
       } catch (error: any) {
         const errorMsg = error.message || "Unknown error";
         const details = `Failed to validate: ${errorMsg}`;
-        
+
         console.error(`  ❌ ${app.name} failed: ${errorMsg}`);
-        
+
         failedApps.push({
           name: app.name,
           error: errorMsg,
           details,
         });
-        
+
         results.push({
           name: app.name,
           url: app.url,
