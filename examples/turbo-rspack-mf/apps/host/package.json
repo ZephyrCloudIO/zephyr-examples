@@ -8,31 +8,6 @@
     "dev": "cross-env NODE_ENV=development rspack serve",
     "format": "biome format --write"
   },
-  "dependencies": {
-    "@repo/tailwind-config": "workspace:^",
-    "@repo/typescript-config": "workspace:^",
-    "@repo/ui": "workspace:^",
-    "autoprefixer": "catalog:postcss",
-    "lucide-react": "catalog:react18",
-    "postcss": "catalog:postcss",
-    "postcss-loader": "catalog:postcss",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router": "^6.30.0",
-    "tailwindcss": "catalog:tailwind3",
-    "zephyr-rspack-plugin": "catalog:zephyr"
-  },
-  "devDependencies": {
-    "@rspack/cli": "catalog:rspack",
-    "@rspack/core": "catalog:rspack",
-    "@rspack/plugin-react-refresh": "catalog:rspack",
-    "@types/react": "^18.3.20",
-    "@types/react-dom": "^18.3.5",
-    "cross-env": "catalog:common",
-    "react-refresh": "catalog:react18",
-    "ts-node": "catalog:typescript",
-    "typescript": "catalog:typescript"
-  },
   "zephyr:dependencies": {
     "turbo_home": "zephyr:turbo_home@*",
     "turbo_settings": "zephyr:turbo_settings@*"

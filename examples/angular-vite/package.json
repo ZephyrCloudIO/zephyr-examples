@@ -26,6 +26,6 @@
     "@angular/build": "catalog:angular19",
     "@angular/compiler-cli": "catalog:angular19",
     "typescript": "catalog:typescript",
-    "vite": "catalog:vite5"
+    "vite": "catalog:vite6"
   }
 }

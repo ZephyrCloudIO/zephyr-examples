@@ -2,8 +2,8 @@
   "name": "tractor_v2_checkout",
   "version": "1.0.0",
   "scripts": {
-    "serve": "NODE_ENV=development rspack serve",
-    "build": "NODE_ENV=production rspack build"
+    "serve": "cross-env NODE_ENV=development rspack serve",
+    "build": "cross-env NODE_ENV=production rspack build"
   },
   "source": "src/index.tsx",
   "main": "dist/index.js",

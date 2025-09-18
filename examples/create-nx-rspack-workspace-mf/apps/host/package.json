@@ -2,7 +2,7 @@
   "name": "host",
   "version": "0.0.0",
   "zephyr:dependencies": {
-    "remote1": "zephyr:remote1@*",
-    "remote2": "zephyr:remote2@*"
+    "rspack_remote1": "zephyr:rspack_remote1@*",
+    "rspack_remote2": "zephyr:rspack_remote2@*"
   }
 }

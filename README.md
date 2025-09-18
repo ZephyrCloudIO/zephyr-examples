@@ -22,8 +22,6 @@ Once you've forked this repository, you can clone it and follow the instructions
     A monorepo using Nx, Angular v15, and Webpack as the bundler.
 *   __[`parce-react`](./examples/parcel-react)__  
     A parcel and react application.
-*   __[`qwik-1.5`](./examples/qwik-1.5)__  
-    A Qwik v1.5 app using Vite as the bundler.
 *   __[`react-airbnb-clone`](./examples/react-airbnb-clone)__  
     An AirBnb clone using React, Module Federation and Rspack as the bundler.
 *   __[`react-rollup-ts`](./examples/react-rollup-ts)__  
@@ -85,7 +83,6 @@ For more information on using Zephyr Cloud, visit the [official documentation][d
 :white_check_mark: `create-nx-rspack-workspace-mf`  
 :white_check_mark: `create-nx-workspace-mf`  
 :white_check_mark: `nx-ng`  
-:x: `qwik-1.5` - rework plugin support   
 :white_check_mark: `react-airbnb-clone`  
 :white_check_mark: `react-rollup-ts`  
 :white_check_mark: `react-rspack-tractor-2.0`  

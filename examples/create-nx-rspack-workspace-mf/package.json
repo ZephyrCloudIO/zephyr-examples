@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run-many --target=build --projects=remote1,remote2,host --parallel=1 --verbose --skip-nx-cache"
+    "build": "nx reset && nx run-many --target=build --projects=rspack_remote1,rspack_remote2,host --parallel=1 --verbose --skip-nx-cache"
   },
   "private": true,
   "devDependencies": {
