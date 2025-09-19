@@ -3,6 +3,15 @@ name: Build, Deploy, and Test All Examples
 on:
   workflow_dispatch:
     inputs:
+      environment:
+        description: "Deployment environment (dev, staging, prod)"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
       skip_cache:
         description: "Skip build cache and force rebuild all packages"
         required: false
@@ -17,7 +26,13 @@ on:
     types: [build-deploy-test]
 
 env:
-  NODE_VERSION: "20"
+  NODE_VERSION: "22"
+  ZE_SECRET_TOKEN: |
+    ${{
+      github.event.inputs.environment == 'prod' && secrets.ZE_SECRET_TOKEN_PROD ||
+      github.event.inputs.environment == 'staging' && secrets.ZE_SECRET_TOKEN_STAGING ||
+      secrets.ZE_SECRET_TOKEN_DEV
+    }}
 
 jobs:
   build-deploy-test:
