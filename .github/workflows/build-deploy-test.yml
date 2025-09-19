@@ -26,7 +26,7 @@ on:
     types: [build-deploy-test]
 
 env:
-  NODE_VERSION: "22"
+  NODE_VERSION: "24"
   ZE_SECRET_TOKEN: |
     ${{
       github.event.inputs.environment == 'prod' && secrets.ZE_SECRET_TOKEN_PROD ||
