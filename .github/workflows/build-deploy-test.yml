@@ -3,6 +3,15 @@ name: Build, Deploy, and Test All Examples
 on:
   workflow_dispatch:
     inputs:
+      environment:
+        description: "Deployment environment (dev, staging, prod)"
+        required: true
+        default: "prod"
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
       skip_cache:
         description: "Skip build cache and force rebuild all packages"
         required: false
@@ -17,7 +26,25 @@ on:
     types: [build-deploy-test]
 
 env:
-  NODE_VERSION: "20"
+  NODE_VERSION: "24"
+  ZE_SECRET_TOKEN: |
+    ${{
+      github.event.inputs.environment == 'dev' && secrets.ZE_SECRET_TOKEN_DEV ||
+      github.event.inputs.environment == 'staging' && secrets.ZE_SECRET_TOKEN_STAGING ||
+      secrets.ZE_SECRET_TOKEN_PROD
+    }}
+  ZE_API_GATE: |
+    ${{
+      github.event.inputs.environment == 'dev' && 'https://zeapi.zephyrcloudapp.dev' ||
+      github.event.inputs.environment == 'staging' && 'https://zeapi.zephyrcloudapp.xyz' ||
+      'https://zeapi.zephyrcloud.app'
+    }}
+  ZE_API: |
+    ${{
+      github.event.inputs.environment == 'dev' && 'https://api-dev.zephyr-cloud.io' ||
+      github.event.inputs.environment == 'staging' && 'https://zephyr-api-prerelease-1a6b535d0499.herokuapp.com' ||
+      'https://api.zephyr-cloud.io'
+    }}
 
 jobs:
   build-deploy-test:
