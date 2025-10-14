@@ -1,26 +1,13 @@
 packages:
   - examples/**
   - "!**/dist/**"
-  - scripts
 installOptions:
   preferOnline: false
   frozenLockfile: true
 catalogs:
-  nx:
-    "@nx/eslint": ^20.6.4
-    nx: ^20.6.4
-    "@nx/cypress": ^20.6.4
-    "@nx/jest": ^20.6.4
-    "@nx/angular": ^20.6.4
-    "@nx/eslint-plugin": ^20.6.4
-    "@nx/js": ^20.6.4
-    "@nx/react": ^20.6.4
-    "@nx/vite": ^20.6.4
-    "@nx/rspack": ^20.6.4
-    "@nx/webpack": ^20.6.4
-    "@nx/web": ^20.6.4
-    "@nx/workspace": ^20.6.4
-    "@nx/module-federation": ^20.6.4
+  turbo:
+    turbo: ^2.4.4
+    "@turbo/gen": ^1.13.4
   common:
     cross-env: ^7.0.3
     style-loader: ^4.0.0
@@ -179,9 +166,6 @@ catalogs:
     svelte-check: ^4.1.5
     "@tsconfig/svelte": ^5.0.4
     "@sveltejs/vite-plugin-svelte": ^5.0.3
-  turbo:
-    turbo: ^2.4.4
-    "@turbo/gen": ^1.13.4
   vitest1:
     vitest: ^1.3.1
     "@vitest/coverage-v8": ^1.0.4
@@ -199,7 +183,6 @@ onlyBuiltDependencies:
   - msgpackr-extract
   - netlify-cli
   - nice-napi
-  - nx
   - protobufjs
   - sharp
   - unix-dgram
