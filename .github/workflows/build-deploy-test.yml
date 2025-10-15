@@ -24,6 +24,26 @@ on:
         type: string
   repository_dispatch:
     types: [build-deploy-test]
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'nx/**'
+      - 'vanilla/**'
+      - 'turborepo/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - '.github/actions/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'nx/**'
+      - 'vanilla/**'
+      - 'turborepo/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - '.github/actions/**'
 
 env:
   NODE_VERSION: "24"
@@ -47,18 +67,45 @@ env:
     }}
 
 jobs:
-  build-deploy-test:
-    name: Build, Deploy, and Test All Examples
+  setup-and-upgrade:
+    name: Setup and Upgrade Plugins
     runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.key }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.3
+          run_install: false
+
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-${{ runner.os }}-
+
+      - name: Install scripts dependencies
+        run: |
+          cd scripts
+          pnpm install --prefer-offline
 
       - name: Upgrade Zephyr plugins
+        if: github.event_name != 'pull_request' && github.event_name != 'push'
         run: |
           cd scripts
           if [ -n "${{ github.event.inputs.plugin_version }}" ]; then
@@ -72,27 +119,122 @@ jobs:
             pnpm upgrade-plugins
           fi
 
-      - name: Install dependencies after upgrade
+      - name: Generate cache key
+        id: cache-key
         run: |
-          echo "Installing in nx workspace..."
-          cd nx && pnpm install --prefer-offline
-          echo "Installing in vanilla workspace..."
-          cd ../vanilla && pnpm install --prefer-offline
-          echo "Installing in turborepo workspace..."
-          cd ../turborepo && pnpm install --prefer-offline
+          echo "key=pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}" >> $GITHUB_OUTPUT
 
-      - name: Build all examples
+      - name: Upload workspace files
+        uses: actions/upload-artifact@v4
+        with:
+          name: workspace-files
+          path: |
+            nx/
+            vanilla/
+            turborepo/
+            scripts/
+            .github/
+          retention-days: 1
+
+  build-workspace:
+    name: Build ${{ matrix.workspace }}
+    needs: setup-and-upgrade
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        workspace: [nx, vanilla, turborepo]
+    steps:
+      - name: Download workspace files
+        uses: actions/download-artifact@v4
+        with:
+          name: workspace-files
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.3
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ needs.setup-and-upgrade.outputs.cache-key }}
+          restore-keys: |
+            pnpm-store-${{ runner.os }}-
+
+      - name: Install ${{ matrix.workspace }} dependencies
+        run: |
+          cd ${{ matrix.workspace }}
+          pnpm install --prefer-offline
+
+      - name: Install scripts dependencies
+        run: |
+          cd scripts
+          pnpm install --prefer-offline
+
+      - name: Get workspace examples
+        id: get-examples
+        run: |
+          cd ${{ matrix.workspace }}/examples
+          examples=$(ls -d */ 2>/dev/null | sed 's/\///g' | tr '\n' ',' | sed 's/,$//')
+          echo "examples=$examples" >> $GITHUB_OUTPUT
+          echo "Found examples: $examples"
+
+      - name: Build ${{ matrix.workspace }} examples
         run: |
           cd scripts
           if [ "${{ github.event.inputs.skip_cache }}" == "true" ] || [ "${{ github.event.client_payload.skip_cache }}" == "true" ]; then
-            echo "Building with --skip-cache flag"
-            pnpm build-packages:force
+            echo "Building ${{ matrix.workspace }} with --skip-cache flag"
+            pnpm build-packages --skip-cache --packages=${{ steps.get-examples.outputs.examples }}
           else
-            echo "Building with cache enabled"
-            pnpm build-packages
+            echo "Building ${{ matrix.workspace }} with cache enabled"
+            pnpm build-packages --packages=${{ steps.get-examples.outputs.examples }}
           fi
         env:
           NODE_ENV: production
+
+      - name: Upload ${{ matrix.workspace }} build logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-logs-${{ matrix.workspace }}
+          path: scripts/tmp/build/
+          retention-days: 3
+
+  test-deployments:
+    name: Test All Deployments
+    needs: [build-workspace]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download workspace files
+        uses: actions/download-artifact@v4
+        with:
+          name: workspace-files
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.3
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install scripts dependencies
+        run: |
+          cd scripts
+          pnpm install --prefer-offline
 
       - name: Wait for deployments to be ready
         run: |
@@ -120,12 +262,3 @@ jobs:
             scripts/test-results/
             scripts/playwright-report/
           retention-days: 7
-
-      - name: Upload build logs
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: build-logs
-          path: |
-            scripts/tmp/build/
-          retention-days: 3
