@@ -1,6 +1,3 @@
-# Zephyr Examples Justfile
-# Manage vanilla, nx, and turborepo directories independently
-
 # List all available commands
 default:
     @just --list
@@ -28,7 +25,7 @@ install-turborepo:
     cd turborepo && pnpm install
 
 # Clean all node_modules in all directories
-clean-all:
+clean:
     @echo "Cleaning vanilla..."
     cd vanilla && pnpm remove-all-node-modules
     @echo "Cleaning nx..."
@@ -71,61 +68,17 @@ clean-dist-nx:
 clean-dist-turborepo:
     cd turborepo && pnpm remove-all-dist
 
-# Run sherif dependency checker in vanilla
-sherif-vanilla:
-    cd vanilla && pnpm run-sherif
-
-# Run sherif dependency checker in nx
-sherif-nx:
-    cd nx && pnpm run-sherif
-
-# Run sherif dependency checker in turborepo
-sherif-turborepo:
-    cd turborepo && pnpm run-sherif
-
-# Run sherif in all directories
-sherif-all:
-    @echo "Checking vanilla..."
-    cd vanilla && pnpm run-sherif
-    @echo "Checking nx..."
-    cd nx && pnpm run-sherif
-    @echo "Checking turborepo..."
-    cd turborepo && pnpm run-sherif
-
 # Build a specific example in vanilla directory
 build-vanilla example:
-    cd vanilla/examples/{{example}} && pnpm build
+    cd vanilla/examples/{{ example }} && pnpm build
 
 # Build a specific example in nx directory
 build-nx example:
-    cd nx/examples/{{example}} && pnpm build
+    cd nx/examples/{{ example }} && pnpm build
 
 # Build a specific example in turborepo directory
 build-turborepo example:
-    cd turborepo/examples/{{example}} && pnpm build
-
-# List all vanilla examples
-list-vanilla:
-    @echo "Vanilla examples:"
-    @ls -1 vanilla/examples/
-
-# List all nx examples
-list-nx:
-    @echo "NX examples:"
-    @ls -1 nx/examples/
-
-# List all turborepo examples
-list-turborepo:
-    @echo "Turborepo examples:"
-    @ls -1 turborepo/examples/
-
-# List all examples from all directories
-list-all:
-    @just list-vanilla
-    @echo ""
-    @just list-nx
-    @echo ""
-    @just list-turborepo
+    cd turborepo/examples/{{ example }} && pnpm build
 
 # Full reset - clean everything and reinstall
 reset-all: clean-all clean-dist-all install-all
@@ -142,22 +95,3 @@ reset-nx: clean-nx clean-dist-nx install-nx
 # Reset turborepo directory
 reset-turborepo: clean-turborepo clean-dist-turborepo install-turborepo
     @echo "✓ Turborepo reset complete"
-
-# Show repository structure
-tree:
-    @echo "Repository structure:"
-    @tree -L 2 -d -I 'node_modules|dist|.git|.nx|.turbo' .
-
-# Show status of all directories
-status:
-    @echo "=== Vanilla ==="
-    @echo "Examples: $(ls vanilla/examples | wc -l | xargs)"
-    @echo "Has node_modules: $([ -d vanilla/node_modules ] && echo 'Yes' || echo 'No')"
-    @echo ""
-    @echo "=== NX ==="
-    @echo "Examples: $(ls nx/examples | wc -l | xargs)"
-    @echo "Has node_modules: $([ -d nx/node_modules ] && echo 'Yes' || echo 'No')"
-    @echo ""
-    @echo "=== Turborepo ==="
-    @echo "Examples: $(ls turborepo/examples | wc -l | xargs)"
-    @echo "Has node_modules: $([ -d turborepo/node_modules ] && echo 'Yes' || echo 'No')"
