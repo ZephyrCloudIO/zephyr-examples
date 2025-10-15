@@ -81,7 +81,7 @@ build-turborepo example:
     cd turborepo/examples/{{ example }} && pnpm build
 
 # Full reset - clean everything and reinstall
-reset-all: clean-all clean-dist-all install-all
+reset-all: clean clean-dist-all install-all
     @echo "✓ Full reset complete"
 
 # Reset vanilla directory
