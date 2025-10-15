@@ -73,7 +73,13 @@ jobs:
           fi
 
       - name: Install dependencies after upgrade
-        run: pnpm install --prefer-offline
+        run: |
+          echo "Installing in nx workspace..."
+          cd nx && pnpm install --prefer-offline
+          echo "Installing in vanilla workspace..."
+          cd ../vanilla && pnpm install --prefer-offline
+          echo "Installing in turborepo workspace..."
+          cd ../turborepo && pnpm install --prefer-offline
 
       - name: Build all examples
         run: |

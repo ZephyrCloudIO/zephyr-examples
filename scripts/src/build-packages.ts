@@ -23,10 +23,13 @@ const BUILD_TIMEOUT = 5 * 60 * 1000; // 5 minutes
 // Create concurrency limiter
 const limit = pLimit(MAX_CONCURRENT_BUILDS);
 
+// Workspace directories containing examples
+const WORKSPACES = ['nx', 'vanilla', 'turborepo'];
+
 // Check if build is needed based on file timestamps
 function needsBuild(folderPath: string, skipCache: boolean = false): boolean {
   if (skipCache) return true;
-  
+
   try {
     const packagePath = join(folderPath, "package.json");
     const distPath = join(folderPath, "dist");
@@ -45,7 +48,48 @@ function needsBuild(folderPath: string, skipCache: boolean = false): boolean {
 
 interface BuildResult {
   example: string;
+  workspace: string;
   result: string;
+}
+
+interface ExampleInfo {
+  name: string;
+  workspace: string;
+  path: string;
+}
+
+// Discover all examples across all workspaces
+function discoverExamples(): ExampleInfo[] {
+  const rootPath = join(__dirname, "../..");
+  const allExamples: ExampleInfo[] = [];
+
+  for (const workspace of WORKSPACES) {
+    const workspacePath = join(rootPath, workspace);
+    const examplesPath = join(workspacePath, "examples");
+
+    if (!existsSync(examplesPath)) {
+      console.log(`${orange(`Warning: ${workspace}/examples not found, skipping...`)}`);
+      continue;
+    }
+
+    const examples = readdirSync(examplesPath);
+
+    for (const example of examples) {
+      const examplePath = join(examplesPath, example);
+      const packagePath = join(examplePath, "package.json");
+
+      // Only include if it has a package.json
+      if (existsSync(packagePath)) {
+        allExamples.push({
+          name: example,
+          workspace,
+          path: examplePath,
+        });
+      }
+    }
+  }
+
+  return allExamples;
 }
 
 const buildPackages = async (): Promise<void> => {
@@ -53,30 +97,46 @@ const buildPackages = async (): Promise<void> => {
   const args = process.argv.slice(2);
   const skipCache = args.includes('--skip-cache');
   const packagesArg = args.find(arg => arg.startsWith('--packages='));
-  
-  let examples: string[];
+
+  let examplesToBuild: ExampleInfo[];
   let buildType: string;
-  
+
+  // Discover all examples
+  const allExamples = discoverExamples();
+
   if (packagesArg) {
     // Parse comma-separated list of packages
     const packagesList = packagesArg.split('=')[1];
-    examples = packagesList ? packagesList.split(',').filter(Boolean) : [];
-    buildType = "specified examples";
-    
-    if (examples.length === 0) {
+    const requestedExamples = packagesList ? packagesList.split(',').filter(Boolean) : [];
+
+    if (requestedExamples.length === 0) {
       console.log(`\n${green("No examples specified - nothing to build.")}`);
       return;
     }
-    
+
+    // Filter examples by requested names
+    examplesToBuild = allExamples.filter(ex => requestedExamples.includes(ex.name));
+    buildType = "specified examples";
+
     console.log(`\n${orange("-- Building specified examples only ")}`);
-    console.log(`${blue("Examples:")} ${examples.join(', ')}`);
+    console.log(`${blue("Examples:")} ${examplesToBuild.map(ex => `${ex.workspace}/${ex.name}`).join(', ')}`);
   } else {
-    const examplesFolder = join(__dirname, "../../examples");
-    examples = readdirSync(examplesFolder);
+    examplesToBuild = allExamples;
     buildType = "all examples";
     console.log(`\n${orange("-- Building all examples ")}`);
+    console.log(`${blue("Total examples found:")} ${examplesToBuild.length}`);
+
+    // Show breakdown by workspace
+    const byWorkspace = examplesToBuild.reduce((acc, ex) => {
+      acc[ex.workspace] = (acc[ex.workspace] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    Object.entries(byWorkspace).forEach(([workspace, count]) => {
+      console.log(`  ${blue(workspace)}: ${count} examples`);
+    });
   }
-  
+
   console.log(`${blue("Max concurrent builds:")} ${MAX_CONCURRENT_BUILDS}`);
   if (skipCache) {
     console.log(`${orange("Cache skipped - forcing rebuild of all packages")}`);
@@ -84,7 +144,6 @@ const buildPackages = async (): Promise<void> => {
   console.log();
 
   const logFolder = join(__dirname, "../tmp/build", getDateString());
-  const examplesFolder = join(__dirname, "../../examples");
   const success: BuildResult[] = [];
   const fails: BuildResult[] = [];
   const skipped: BuildResult[] = [];
@@ -92,32 +151,27 @@ const buildPackages = async (): Promise<void> => {
   const startTime = Date.now();
 
   await Promise.all(
-    examples.map((example) =>
+    examplesToBuild.map((example) =>
       limit(async () => {
-        const folderPath = join(examplesFolder, example);
+        const { name, workspace, path: folderPath } = example;
+        const displayName = `${workspace}/${name}`;
         const packagePath = join(folderPath, "package.json");
-        const packageExists = existsSync(packagePath);
-
-        if (!packageExists) {
-          fails.push({ example, result: "No package.json found." });
-          return;
-        }
 
         const packageJson = JSON.parse(readFileSync(packagePath, "utf-8")) as { scripts?: { build?: string } };
         if (!packageJson.scripts?.build) {
-          fails.push({ example, result: "No build script." });
+          fails.push({ example: displayName, workspace, result: "No build script." });
           return;
         }
 
         // Check if build is needed (simple caching)
         if (!needsBuild(folderPath, skipCache)) {
-          console.log(`[${blue(example)}] ${green("skipped - up to date")}`);
-          skipped.push({ example, result: "Build cache hit" });
+          console.log(`[${blue(displayName)}] ${green("skipped - up to date")}`);
+          skipped.push({ example: displayName, workspace, result: "Build cache hit" });
           return;
         }
 
-        const writeStream = await getLogWriteStream(example, logFolder);
-        console.log(`Building [${blue(example)}] project...`);
+        const writeStream = await getLogWriteStream(`${workspace}-${name}`, logFolder);
+        console.log(`Building [${blue(displayName)}] project...`);
 
         const buildStart = Date.now();
 
@@ -135,12 +189,13 @@ const buildPackages = async (): Promise<void> => {
 
           const buildTime = Date.now() - buildStart;
           console.log(
-            `[${blue(example)}] ${green(
+            `[${blue(displayName)}] ${green(
               "successfully built!"
             )} (${buildTime}ms)`
           );
           success.push({
-            example,
+            example: displayName,
+            workspace,
             result: `Successfully built in ${buildTime}ms`,
           });
         } catch (e: any) {
@@ -150,9 +205,10 @@ const buildPackages = async (): Promise<void> => {
           writeStream.write(`\nError: ${e.message}\n`);
           writeStream.end();
 
-          console.log(`[${blue(example)}] ${red("failed to build.")}`);
+          console.log(`[${blue(displayName)}] ${red("failed to build.")}`);
           fails.push({
-            example,
+            example: displayName,
+            workspace,
             result:
               e.code === "ETIMEDOUT"
                 ? "Build timeout"
