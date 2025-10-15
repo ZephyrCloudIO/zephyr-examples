@@ -13,27 +13,27 @@
     "@repo/tailwind-config": "workspace:^",
     "@repo/typescript-config": "workspace:^",
     "@repo/ui": "workspace:^",
-    "autoprefixer": "catalog:postcss",
-    "lucide-react": "catalog:react18",
-    "postcss-loader": "catalog:postcss",
-    "postcss": "catalog:postcss",
+    "autoprefixer": "^10.4.21",
+    "lucide-react": "^0.484.0",
+    "postcss-loader": "^8.1.1",
+    "postcss": "^8.5.3",
     "react-dom": "^18.3.1",
     "react-router": "^6.30.0",
     "react": "^18.3.1",
-    "tailwindcss": "catalog:tailwind3",
-    "zephyr-rspack-plugin": "catalog:zephyr"
+    "tailwindcss": "^3.4.17",
+    "zephyr-rspack-plugin": "latest"
   },
   "devDependencies": {
-    "@biomejs/biome": "catalog:biome",
-    "@rspack/cli": "catalog:rspack",
-    "@rspack/core": "catalog:rspack",
-    "@rspack/plugin-react-refresh": "catalog:rspack",
+    "@biomejs/biome": "^1.9.4",
+    "@rspack/cli": "^1.2.8",
+    "@rspack/core": "^1.2.8",
+    "@rspack/plugin-react-refresh": "^1.0.1",
     "@types/react-dom": "^18.3.5",
     "@types/react": "^18.3.20",
-    "cross-env": "catalog:common",
-    "react-refresh": "catalog:react18",
-    "ts-node": "catalog:typescript",
-    "turbo": "catalog:turbo",
-    "typescript": "catalog:typescript"
+    "cross-env": "^7.0.3",
+    "react-refresh": "^0.16.0",
+    "ts-node": "^10.9.2",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2"
   }
 }

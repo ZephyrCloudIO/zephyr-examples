@@ -35,17 +35,17 @@
     "react-router-dom": "^6.30.0"
   },
   "devDependencies": {
-    "@module-federation/enhanced": "catalog:module-federation",
-    "@rspack/cli": "catalog:rspack",
-    "@rspack/core": "catalog:rspack",
-    "@rspack/plugin-react-refresh": "catalog:rspack",
+    "@module-federation/enhanced": "^0.11.2",
+    "@rspack/cli": "^1.2.8",
+    "@rspack/core": "^1.2.8",
+    "@rspack/plugin-react-refresh": "^1.0.1",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "catalog:typescript",
+    "@types/node": "^22.13.13",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
-    "cross-env": "catalog:common",
-    "react-refresh": "catalog:react18",
-    "typescript": "catalog:typescript",
-    "zephyr-rspack-plugin": "catalog:zephyr"
+    "cross-env": "^7.0.3",
+    "react-refresh": "^0.16.0",
+    "typescript": "^5.8.2",
+    "zephyr-rspack-plugin": "latest"
   }
 }

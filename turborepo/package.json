@@ -10,7 +10,7 @@
   },
   "private": true,
   "devDependencies": {
-    "turbo": "catalog:turbo",
+    "turbo": "^2.4.4",
     "process": "^0.11.10"
   }
 }

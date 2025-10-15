@@ -10,7 +10,7 @@
   },
   "private": true,
   "devDependencies": {
-    "nx": "catalog:nx",
+    "nx": "^20.6.4",
     "process": "^0.11.10"
   }
 }

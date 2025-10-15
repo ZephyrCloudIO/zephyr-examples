@@ -8,19 +8,19 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
-    "zephyr-webpack-plugin": "catalog:zephyr",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zephyr-webpack-plugin": "latest",
     "external-remotes-plugin": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "catalog:babel",
-    "@babel/preset-react": "catalog:babel",
-    "babel-loader": "catalog:babel",
-    "html-webpack-plugin": "catalog:webpack5",
-    "webpack": "catalog:webpack5",
-    "webpack-cli": "catalog:webpack5",
-    "webpack-dev-server": "catalog:webpack5"
+    "@babel/core": "^7.25.2",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.2",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.3.1"
   },
   "zephyr:dependencies": {
     "default_webpack_mf_second": "zephyr:default_webpack_mf_second@*"

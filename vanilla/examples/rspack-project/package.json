@@ -7,17 +7,17 @@
     "build": "cross-env NODE_ENV=production rspack build"
   },
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
-    "zephyr-rspack-plugin": "catalog:zephyr"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zephyr-rspack-plugin": "latest"
   },
   "devDependencies": {
-    "@rspack/cli": "catalog:rspack",
-    "@rspack/core": "catalog:rspack",
-    "@rspack/plugin-react-refresh": "catalog:rspack",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
-    "cross-env": "catalog:common",
-    "react-refresh": "catalog:react18"
+    "@rspack/cli": "^1.2.8",
+    "@rspack/core": "^1.2.8",
+    "@rspack/plugin-react-refresh": "^1.0.1",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.5",
+    "cross-env": "^7.0.3",
+    "react-refresh": "^0.16.0"
   }
 }

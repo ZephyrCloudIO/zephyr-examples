@@ -9,18 +9,18 @@
     "preview": "rspack preview"
   },
   "dependencies": {
-    "react": "catalog:react19",
-    "react-dom": "catalog:react19",
-    "zephyr-rspack-plugin": "catalog:zephyr"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zephyr-rspack-plugin": "latest"
   },
   "devDependencies": {
     "@rspack/cli": "1.5.5",
     "@rspack/core": "1.5.5",
-    "@rspack/plugin-react-refresh": "catalog:rspack",
-    "@types/react": "catalog:react19",
-    "@types/react-dom": "catalog:react19",
-    "react-refresh": "catalog:react19",
-    "ts-node": "catalog:typescript",
-    "typescript": "catalog:typescript"
+    "@rspack/plugin-react-refresh": "^1.0.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react-refresh": "^0.9.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }

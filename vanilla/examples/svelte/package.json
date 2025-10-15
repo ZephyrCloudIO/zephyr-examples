@@ -10,14 +10,14 @@
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "catalog:svelte",
-    "@tsconfig/svelte": "catalog:svelte",
-    "svelte": "catalog:svelte",
-    "svelte-check": "catalog:svelte",
-    "typescript": "catalog:typescript",
-    "vite": "catalog:vite6"
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tsconfig/svelte": "^5.0.4",
+    "svelte": "^5.25.3",
+    "svelte-check": "^4.1.5",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.3"
   },
   "dependencies": {
-    "vite-plugin-zephyr": "catalog:zephyr"
+    "vite-plugin-zephyr": "latest"
   }
 }

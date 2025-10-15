@@ -7,23 +7,23 @@
     "build:watch": "rollup -c --watch"
   },
   "dependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
-    "rollup-plugin-zephyr": "catalog:zephyr"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup-plugin-zephyr": "latest"
   },
   "devDependencies": {
-    "@babel/preset-react": "catalog:babel",
-    "@rollup/plugin-babel": "catalog:rollup",
-    "@rollup/plugin-commonjs": "catalog:rollup",
-    "@rollup/plugin-html": "catalog:rollup",
-    "@rollup/plugin-node-resolve": "catalog:rollup",
-    "@rollup/plugin-replace": "catalog:rollup",
-    "@rollup/plugin-typescript": "catalog:rollup",
-    "@svgr/rollup": "catalog:rollup",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
-    "rollup": "catalog:rollup",
-    "rollup-plugin-postcss": "catalog:rollup",
-    "typescript": "catalog:typescript"
+    "@babel/preset-react": "^7.26.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-html": "^1.0.4",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-replace": "^6.0.1",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@svgr/rollup": "^8.1.0",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.5",
+    "rollup": "^4.37.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.8.2"
   }
 }

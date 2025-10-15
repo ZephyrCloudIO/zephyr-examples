@@ -15,20 +15,20 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "catalog:turbo",
-    "@types/eslint": "catalog:eslint",
-    "@types/node": "catalog:typescript",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
-    "autoprefixer": "catalog:postcss",
-    "eslint": "catalog:eslint",
-    "postcss": "catalog:postcss",
-    "postcss-loader": "catalog:postcss",
-    "tailwindcss": "catalog:tailwind3",
-    "typescript": "catalog:typescript"
+    "@turbo/gen": "^1.13.4",
+    "@types/eslint": "^8.56.12",
+    "@types/node": "^22.13.13",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.9.0",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2"
   },
   "dependencies": {
-    "react": "catalog:react19",
-    "react-dom": "catalog:react19"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
