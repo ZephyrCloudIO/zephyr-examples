@@ -6,6 +6,6 @@
     "build": "pnpm --filter=./app2 build && pnpm --filter=./app1 build"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^9.2.1"
   }
 }
