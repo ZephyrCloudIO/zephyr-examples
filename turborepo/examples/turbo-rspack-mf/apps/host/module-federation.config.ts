@@ -10,5 +10,21 @@ export const mfConfig: ModuleFederationPluginOptions = {
   exposes: {
     "./RemoteEntry": "./src/App.tsx"
   },
-  shared: ["react", "react-dom", "react-router"]
+  shared: {
+    react: {
+      singleton: true,
+      eager: true,
+      requiredVersion: "^19.2.0"
+    },
+    "react-dom": {
+      singleton: true,
+      eager: true,
+      requiredVersion: "^19.2.0"
+    },
+    "react-router": {
+      singleton: true,
+      eager: true,
+      requiredVersion: "^7.9.5"
+    }
+  }
 };

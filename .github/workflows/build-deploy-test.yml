@@ -28,22 +28,22 @@ on:
     branches:
       - main
     paths:
-      - 'nx/**'
-      - 'vanilla/**'
-      - 'turborepo/**'
-      - 'scripts/**'
-      - '.github/workflows/**'
-      - '.github/actions/**'
+      - "nx/**"
+      - "vanilla/**"
+      - "turborepo/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/actions/**"
   push:
     branches:
       - main
     paths:
-      - 'nx/**'
-      - 'vanilla/**'
-      - 'turborepo/**'
-      - 'scripts/**'
-      - '.github/workflows/**'
-      - '.github/actions/**'
+      - "nx/**"
+      - "vanilla/**"
+      - "turborepo/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/actions/**"
 
 env:
   NODE_VERSION: "24"
@@ -84,7 +84,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Get pnpm store directory
         shell: bash
@@ -158,7 +158,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Get pnpm store directory
         shell: bash

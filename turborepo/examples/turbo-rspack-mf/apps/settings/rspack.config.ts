@@ -1,6 +1,6 @@
 import { defineConfig } from "@rspack/cli";
 import { rspack } from "@rspack/core";
-import * as RefreshPlugin from "@rspack/plugin-react-refresh";
+import { ReactRefreshRspackPlugin } from "@rspack/plugin-react-refresh";
 import { withZephyr } from "zephyr-rspack-plugin";
 import { mfConfig } from "./module-federation.config";
 
@@ -61,7 +61,7 @@ export default withZephyr()({
     new rspack.HtmlRspackPlugin({
       template: "./index.html"
     }),
-    isDev ? new RefreshPlugin() : null,
+    isDev ? new ReactRefreshRspackPlugin() : null,
     new rspack.container.ModuleFederationPlugin(mfConfig)
   ].filter(Boolean),
   optimization: {
