@@ -2,13 +2,17 @@
   "name": "@mf-nx-rsbuild/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --projects=remote1,remote2,host --parallel=1 --skip-nx-cache",
+    "reset": "nx reset"
+  },
   "private": true,
   "dependencies": {
     "@module-federation/rsbuild-plugin": "^0.21.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "6.29.0"
+    "react-router-dom": "6.29.0",
+    "zephyr-rsbuild-plugin": "latest"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",

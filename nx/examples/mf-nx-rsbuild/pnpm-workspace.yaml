@@ -1,6 +1,3 @@
 packages:
   - 'apps/*'
-  - 'remote1'
-  - 'remote2'
-  - 'host1'
 autoInstallPeers: true
