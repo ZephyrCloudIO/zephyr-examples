@@ -6,32 +6,34 @@ default:
 install-all:
     @echo "Installing vanilla dependencies..."
     cd vanilla && pnpm install
-    @echo "Installing nx dependencies..."
-    cd nx && pnpm install
-    @echo "Installing turborepo dependencies..."
-    cd turborepo && pnpm install
+    @echo "Installing nx examples..."
+    cd nx/examples/mf-nx-rspack && pnpm install
+    @echo "Installing turborepo examples..."
+    cd turborepo/examples/mf-turbo-rspack && pnpm install
+    @echo "Installing scripts dependencies..."
+    cd scripts && pnpm install
     @echo "✓ All dependencies installed"
 
 # Install dependencies in vanilla directory
 install-vanilla:
     cd vanilla && pnpm install
 
-# Install dependencies in nx directory
+# Install dependencies in nx examples
 install-nx:
-    cd nx && pnpm install
+    cd nx/examples/mf-nx-rspack && pnpm install
 
-# Install dependencies in turborepo directory
+# Install dependencies in turborepo examples
 install-turborepo:
-    cd turborepo && pnpm install
+    cd turborepo/examples/mf-turbo-rspack && pnpm install
 
 # Clean all node_modules in all directories
 clean:
     @echo "Cleaning vanilla..."
     cd vanilla && pnpm remove-all-node-modules
     @echo "Cleaning nx..."
-    cd nx && pnpm remove-all-node-modules
+    cd nx && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
     @echo "Cleaning turborepo..."
-    cd turborepo && pnpm remove-all-node-modules
+    cd turborepo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
     @echo "✓ All node_modules removed"
 
 # Clean node_modules in vanilla directory
@@ -40,20 +42,20 @@ clean-vanilla:
 
 # Clean node_modules in nx directory
 clean-nx:
-    cd nx && pnpm remove-all-node-modules
+    cd nx && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 
 # Clean node_modules in turborepo directory
 clean-turborepo:
-    cd turborepo && pnpm remove-all-node-modules
+    cd turborepo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 
 # Clean all dist folders in all directories
 clean-dist-all:
     @echo "Cleaning vanilla dist..."
     cd vanilla && pnpm remove-all-dist
     @echo "Cleaning nx dist..."
-    cd nx && pnpm remove-all-dist
+    cd nx && find . -name 'dist' -type d -prune -exec rm -rf '{}' +
     @echo "Cleaning turborepo dist..."
-    cd turborepo && pnpm remove-all-dist
+    cd turborepo && find . -name 'dist' -type d -prune -exec rm -rf '{}' +
     @echo "✓ All dist folders removed"
 
 # Clean dist folders in vanilla directory
@@ -62,11 +64,11 @@ clean-dist-vanilla:
 
 # Clean dist folders in nx directory
 clean-dist-nx:
-    cd nx && pnpm remove-all-dist
+    cd nx && find . -name 'dist' -type d -prune -exec rm -rf '{}' +
 
 # Clean dist folders in turborepo directory
 clean-dist-turborepo:
-    cd turborepo && pnpm remove-all-dist
+    cd turborepo && find . -name 'dist' -type d -prune -exec rm -rf '{}' +
 
 # Build a specific example in vanilla directory
 build-vanilla example:

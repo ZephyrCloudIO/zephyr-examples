@@ -51,7 +51,7 @@ Examples built with NX monorepo system.
 Examples built with Turborepo monorepo system.
 
 **Examples:**
-- `turbo-rspack-mf` - Turborepo with React and Rspack
+- `mf-turbo-rspack` - Turborepo with React and Rspack
 
 ## Working with Examples
 
@@ -79,7 +79,7 @@ just install-turborepo
 # Build a specific example
 just build-vanilla react-vite-ts
 just build-nx create-nx-workspace-mf
-just build-turborepo turbo-rspack-mf
+just build-turborepo mf-turbo-rspack
 
 # List all examples
 just list-all

@@ -36,7 +36,7 @@ This document catalogs all examples across the three directories (vanilla, nx, t
 4. react-vite-nx
 
 ### Turborepo (1 example)
-1. turbo-rspack-mf
+1. mf-turbo-rspack
 
 ---
 
@@ -62,7 +62,7 @@ This document catalogs all examples across the three directories (vanilla, nx, t
 - `react-vite-nx` - React + Vite + NX
 
 #### Turborepo
-- `turbo-rspack-mf` - React + Rspack + Module Federation + Turborepo
+- `mf-turbo-rspack` - React + Rspack + Module Federation + Turborepo
 
 ### Angular Examples
 
@@ -104,9 +104,9 @@ This document catalogs all examples across the three directories (vanilla, nx, t
 ### ✅ Already Standardized Across All Three
 
 **React + Rspack + Module Federation**
-- ✅ Vanilla: `turbo-rspack-mf` equivalent exists as multiple examples
+- ✅ Vanilla: `mf-turbo-rspack` equivalent exists as multiple examples
 - ✅ NX: `create-nx-rspack-workspace-mf`
-- ✅ Turborepo: `turbo-rspack-mf`
+- ✅ Turborepo: `mf-turbo-rspack`
 
 ### 🎯 Should Be Standardized (High Priority)
 
@@ -218,7 +218,7 @@ Keep these specialized examples in vanilla only:
 6. `turbo-svelte-vite` - Svelte example
 
 **Rename/Refactor:**
-1. `turbo-rspack-mf` → `turbo-react-rspack-mf` (more explicit about React)
+1. `mf-turbo-rspack` → `turbo-react-rspack-mf` (more explicit about React)
 
 ### For Vanilla Directory
 
