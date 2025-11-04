@@ -1,9 +1,10 @@
 {
-  "name": "@create-nx-rspack-workspace-mf/source",
+  "name": "nx-rspack-workspace-mf",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx reset && nx run-many --target=build --projects=rspack_remote1,rspack_remote2,host --parallel=1 --verbose --skip-nx-cache"
+    "build": "nx run-many --target=build --projects=rspack_remote1,rspack_remote2,host --parallel=1 --skip-nx-cache",
+    "reset": "nx reset"
   },
   "private": true,
   "devDependencies": {
