@@ -182,6 +182,19 @@ jobs:
           cd ${{ matrix.workspace }}
           pnpm install --prefer-offline
 
+      - name: Install example dependencies for nx and turborepo
+        if: matrix.workspace == 'nx' || matrix.workspace == 'turborepo'
+        run: |
+          cd ${{ matrix.workspace }}/examples
+          for example in */; do
+            if [ -f "${example}package.json" ]; then
+              echo "Installing dependencies for ${example}"
+              cd "$example"
+              pnpm install --prefer-offline
+              cd ..
+            fi
+          done
+
       - name: Install scripts dependencies
         run: |
           cd scripts
