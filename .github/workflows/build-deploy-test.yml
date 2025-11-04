@@ -232,6 +232,27 @@ jobs:
           path: scripts/tmp/build/
           retention-days: 3
 
+      - name: Check zephyr deployment cache
+        if: always()
+        run: |
+          echo "Checking zephyr cache directory..."
+          echo "HOME is: $HOME"
+          if [ -d $HOME/.zephyr ]; then
+            echo "$HOME/.zephyr exists"
+            echo "Files in cache: $(ls -1 $HOME/.zephyr | wc -l)"
+            ls -lah $HOME/.zephyr | head -20
+          else
+            echo "$HOME/.zephyr does not exist!"
+          fi
+
+      - name: Upload zephyr deployment cache
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zephyr-cache-${{ matrix.workspace }}
+          path: /home/runner/.zephyr/
+          retention-days: 1
+
   test-deployments:
     name: Test All Deployments
     needs: [build-workspace]
@@ -241,6 +262,33 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: workspace-files
+
+      - name: Download zephyr deployment caches
+        uses: actions/download-artifact@v4
+        with:
+          pattern: zephyr-cache-*
+          path: zephyr-caches
+          merge-multiple: false
+
+      - name: Restore zephyr cache
+        run: |
+          mkdir -p $HOME/.zephyr
+          echo "Downloaded cache directories:"
+          ls -lah zephyr-caches/ || echo "No zephyr-caches directory"
+
+          if [ -d "zephyr-caches" ]; then
+            for cache_dir in zephyr-caches/zephyr-cache-*/; do
+              if [ -d "$cache_dir" ]; then
+                echo "Merging cache from $cache_dir"
+                echo "Files in $cache_dir: $(ls -1 "$cache_dir" 2>/dev/null | wc -l)"
+                cp -r "$cache_dir"* $HOME/.zephyr/ 2>/dev/null || true
+              fi
+            done
+          fi
+
+          echo "Final $HOME/.zephyr contents:"
+          ls -lah $HOME/.zephyr/ || echo "$HOME/.zephyr is empty or doesn't exist"
+          echo "Total files in zephyr cache: $(ls -1 $HOME/.zephyr/ 2>/dev/null | wc -l)"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -255,6 +303,23 @@ jobs:
         run: |
           cd scripts
           pnpm install --prefer-offline
+
+      - name: Debug deployment results
+        run: |
+          cd scripts
+          node -e "
+          const { getAllAppDeployResults } = require('zephyr-agent');
+          getAllAppDeployResults().then(results => {
+            console.log('Deployment results:', JSON.stringify(results, null, 2));
+            console.log('Number of apps:', Object.keys(results).length);
+          }).catch(err => {
+            console.error('Error getting deployment results:', err.message);
+          });
+          "
+        env:
+          ZE_SECRET_TOKEN: ${{ env.ZE_SECRET_TOKEN }}
+          ZE_API_GATE: ${{ env.ZE_API_GATE }}
+          ZE_API: ${{ env.ZE_API }}
 
       - name: Wait for deployments to be ready
         run: |
