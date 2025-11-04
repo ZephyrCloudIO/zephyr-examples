@@ -1,5 +1,5 @@
-import Application from 'ember-vite/app';
-import config from 'ember-vite/config/environment';
+import Application from 'vite-ember/app';
+import config from 'vite-ember/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

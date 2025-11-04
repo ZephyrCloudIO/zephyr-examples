@@ -1,12 +1,12 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
 
 <template>
-  {{pageTitle "MyApp"}}
-  
-  {{outlet}}
+  {{pageTitle "Vite Ember"}}
 
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage />
-  {{! Feel free to remove this! }}
+  <div style="padding: 2rem; font-family: sans-serif;">
+    <h1>Welcome to Ember + Vite</h1>
+    <p>This example demonstrates Ember.js with Vite and Zephyr Cloud.</p>
+  </div>
+
+  {{outlet}}
 </template>

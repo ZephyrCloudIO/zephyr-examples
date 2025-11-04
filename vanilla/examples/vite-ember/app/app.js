@@ -2,7 +2,7 @@ import Application from '@ember/application';
 import compatModules from '@embroider/virtual/compat-modules';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
-import config from 'ember-vite/config/environment';
+import config from 'vite-ember/config/environment';
 import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
 
 if (macroCondition(isDevelopingApp())) {

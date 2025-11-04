@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'ember-vite',
+    modulePrefix: 'vite-ember',
     environment,
     rootURL: '/',
     locationType: 'history',
