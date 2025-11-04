@@ -12,7 +12,6 @@ import {
   orange,
   getDateString,
 } from "./utils.js";
-import { getAllAppDeployResults } from "zephyr-agent";
 
 const execAsync = promisify(exec);
 
@@ -227,14 +226,6 @@ const buildPackages = async (): Promise<void> => {
     success.forEach(({ example, result }) =>
       console.log(`[${blue(example)}]: ${result}`)
     );
-
-    if (buildType === "all examples") {
-      const deployed = await getDeployed();
-      console.log(`\n${green("-- Applications deployed:")}`);
-      deployed.forEach(({ app, url }) => {
-        console.log(`[${blue(app)}]: ${url}`);
-      });
-    }
   }
 
   if (skipped.length) {
@@ -252,26 +243,6 @@ const buildPackages = async (): Promise<void> => {
   }
 
   console.log(`\nCheck build run logs under '${logFolder}'`);
-};
-
-interface DeployedApp {
-  app: string;
-  url: string;
-}
-
-const getDeployed = async (): Promise<DeployedApp[]> => {
-  try {
-    const deployResults = await getAllAppDeployResults();
-    const deployed = Object.entries(deployResults).map(([app, result]: [string, any]) => ({
-      app: app.split('.')[0],
-      url: result.urls[0],
-    }));
-    deployed.sort((a, b) => (a.app > b.app ? 1 : -1));
-    return deployed;
-  } catch (error: any) {
-    console.log(`${red("Failed to get deployment results:")} ${error.message}`);
-    return [];
-  }
 };
 
 buildPackages();

@@ -8,12 +8,24 @@ interface DeployedApp {
   url: string;
 }
 
+// Handle unhandled promise rejections to prevent crashes
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
 test.describe("Deployment Validation", () => {
   let deployedApps: DeployedApp[] = [];
 
   test.beforeAll(async () => {
     console.log("Fetching deployed applications...");
-    deployedApps = await getDeployedApps();
+
+    try {
+      deployedApps = await getDeployedApps();
+    } catch (error: any) {
+      console.error("Error fetching deployed apps:", error);
+      deployedApps = [];
+    }
+
     console.log(`Found ${deployedApps.length} deployed applications`);
 
     if (deployedApps.length === 0) {

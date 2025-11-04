@@ -67,11 +67,9 @@ env:
     }}
 
 jobs:
-  setup-and-upgrade:
-    name: Setup and Upgrade Plugins
+  build-deploy-test:
+    name: Build, Deploy, and Test All Examples
     runs-on: ubuntu-latest
-    outputs:
-      cache-key: ${{ steps.cache-key.outputs.key }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -119,104 +117,56 @@ jobs:
             pnpm upgrade-plugins
           fi
 
-      - name: Generate cache key
-        id: cache-key
+      - name: Install vanilla dependencies
         run: |
-          echo "key=pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}" >> $GITHUB_OUTPUT
-
-      - name: Upload workspace files
-        uses: actions/upload-artifact@v4
-        with:
-          name: workspace-files
-          path: |
-            nx/
-            vanilla/
-            turborepo/
-            scripts/
-            .github/
-          retention-days: 1
-
-  build-workspace:
-    name: Build ${{ matrix.workspace }}
-    needs: setup-and-upgrade
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        workspace: [nx, vanilla, turborepo]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download workspace files
-        uses: actions/download-artifact@v4
-        with:
-          name: workspace-files
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.6.3
-          run_install: false
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ needs.setup-and-upgrade.outputs.cache-key }}
-          restore-keys: |
-            pnpm-store-${{ runner.os }}-
-
-      - name: Install ${{ matrix.workspace }} dependencies
-        if: matrix.workspace == 'vanilla'
-        run: |
-          cd ${{ matrix.workspace }}
+          cd vanilla
           pnpm install --prefer-offline
 
-      - name: Install example dependencies for nx and turborepo
-        if: matrix.workspace == 'nx' || matrix.workspace == 'turborepo'
+      - name: Install nx example dependencies
         run: |
-          cd ${{ matrix.workspace }}/examples
+          cd nx/examples
           for example in */; do
             if [ -f "${example}package.json" ]; then
-              echo "Installing dependencies for ${example}"
+              echo "Installing dependencies for nx/${example}"
               cd "$example"
               pnpm install --prefer-offline
               cd ..
             fi
           done
 
-      - name: Install scripts dependencies
+      - name: Install turborepo example dependencies
         run: |
-          cd scripts
-          pnpm install --prefer-offline
+          cd turborepo/examples
+          for example in */; do
+            if [ -f "${example}package.json" ]; then
+              echo "Installing dependencies for turborepo/${example}"
+              cd "$example"
+              pnpm install --prefer-offline
+              cd ..
+            fi
+          done
 
-      - name: Get workspace examples
-        id: get-examples
+      - name: Clean zephyr cache before build
         run: |
-          cd ${{ matrix.workspace }}/examples
-          examples=$(ls -d */ 2>/dev/null | sed 's/\///g' | tr '\n' ',' | sed 's/,$//')
-          echo "examples=$examples" >> $GITHUB_OUTPUT
-          echo "Found examples: $examples"
+          echo "Cleaning $HOME/.zephyr directory..."
+          if [ -d "$HOME/.zephyr" ]; then
+            echo "Found existing .zephyr directory, checking contents:"
+            ls -lah "$HOME/.zephyr/" || true
+            echo "Removing .zephyr directory..."
+            rm -rf "$HOME/.zephyr"
+          fi
+          echo "Creating fresh .zephyr directory..."
+          mkdir -p "$HOME/.zephyr"
 
-      - name: Build ${{ matrix.workspace }} examples
+      - name: Build all examples
         run: |
           cd scripts
           if [ "${{ github.event.inputs.skip_cache }}" == "true" ] || [ "${{ github.event.client_payload.skip_cache }}" == "true" ]; then
-            echo "Building ${{ matrix.workspace }} with --skip-cache flag"
-            pnpm build-packages --skip-cache --packages=${{ steps.get-examples.outputs.examples }}
+            echo "Building all examples with --skip-cache flag"
+            pnpm build-packages --skip-cache
           else
-            echo "Building ${{ matrix.workspace }} with cache enabled"
-            pnpm build-packages --packages=${{ steps.get-examples.outputs.examples }}
+            echo "Building all examples with cache enabled"
+            pnpm build-packages
           fi
         env:
           NODE_ENV: production
@@ -224,102 +174,41 @@ jobs:
           ZE_API_GATE: ${{ env.ZE_API_GATE }}
           ZE_API: ${{ env.ZE_API }}
 
-      - name: Upload ${{ matrix.workspace }} build logs
+      - name: Check zephyr cache after build
+        if: always()
+        run: |
+          echo "Checking $HOME/.zephyr after build..."
+          if [ -d "$HOME/.zephyr" ]; then
+            echo "Total files: $(ls -1 "$HOME/.zephyr" 2>/dev/null | wc -l)"
+            echo "Checking for subdirectories that might cause EISDIR error:"
+            find "$HOME/.zephyr" -type d 2>/dev/null || echo "No subdirectories found"
+            echo ""
+            echo "Files and directories in .zephyr:"
+            ls -lah "$HOME/.zephyr/" 2>/dev/null | head -30 || echo "Cannot list directory"
+          else
+            echo "$HOME/.zephyr does not exist"
+          fi
+
+      - name: Upload build logs
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: build-logs-${{ matrix.workspace }}
+          name: build-logs
           path: scripts/tmp/build/
           retention-days: 3
 
-      - name: Check zephyr deployment cache
-        if: always()
+      - name: Check zephyr cache contents
         run: |
-          echo "Checking zephyr cache directory..."
-          echo "HOME is: $HOME"
-          if [ -d $HOME/.zephyr ]; then
-            echo "$HOME/.zephyr exists"
-            echo "Files in cache: $(ls -1 $HOME/.zephyr | wc -l)"
-            ls -lah $HOME/.zephyr | head -20
+          echo "Checking $HOME/.zephyr directory..."
+          if [ -d "$HOME/.zephyr" ]; then
+            echo "Files and directories in .zephyr:"
+            ls -lah "$HOME/.zephyr/" | head -30
+            echo ""
+            echo "Checking for subdirectories:"
+            find "$HOME/.zephyr" -type d | head -10
           else
-            echo "$HOME/.zephyr does not exist!"
+            echo "$HOME/.zephyr does not exist"
           fi
-
-      - name: Upload zephyr deployment cache
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: zephyr-cache-${{ matrix.workspace }}
-          path: /home/runner/.zephyr/
-          retention-days: 1
-
-  test-deployments:
-    name: Test All Deployments
-    needs: [build-workspace]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download workspace files
-        uses: actions/download-artifact@v4
-        with:
-          name: workspace-files
-
-      - name: Download zephyr deployment caches
-        uses: actions/download-artifact@v4
-        with:
-          pattern: zephyr-cache-*
-          path: zephyr-caches
-          merge-multiple: false
-
-      - name: Restore zephyr cache
-        run: |
-          mkdir -p $HOME/.zephyr
-          echo "Downloaded cache directories:"
-          ls -lah zephyr-caches/ || echo "No zephyr-caches directory"
-
-          if [ -d "zephyr-caches" ]; then
-            for cache_dir in zephyr-caches/zephyr-cache-*/; do
-              if [ -d "$cache_dir" ]; then
-                echo "Merging cache from $cache_dir"
-                echo "Files in $cache_dir: $(ls -1 "$cache_dir" 2>/dev/null | wc -l)"
-                cp -r "$cache_dir"* $HOME/.zephyr/ 2>/dev/null || true
-              fi
-            done
-          fi
-
-          echo "Final $HOME/.zephyr contents:"
-          ls -lah $HOME/.zephyr/ || echo "$HOME/.zephyr is empty or doesn't exist"
-          echo "Total files in zephyr cache: $(ls -1 $HOME/.zephyr/ 2>/dev/null | wc -l)"
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.6.3
-          run_install: false
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install scripts dependencies
-        run: |
-          cd scripts
-          pnpm install --prefer-offline
-
-      - name: Debug deployment results
-        run: |
-          cd scripts
-          node -e "
-          const { getAllAppDeployResults } = require('zephyr-agent');
-          getAllAppDeployResults().then(results => {
-            console.log('Deployment results:', JSON.stringify(results, null, 2));
-            console.log('Number of apps:', Object.keys(results).length);
-          }).catch(err => {
-            console.error('Error getting deployment results:', err.message);
-          });
-          "
-        env:
-          ZE_SECRET_TOKEN: ${{ env.ZE_SECRET_TOKEN }}
-          ZE_API_GATE: ${{ env.ZE_API_GATE }}
-          ZE_API: ${{ env.ZE_API }}
 
       - name: Wait for deployments to be ready
         run: |
