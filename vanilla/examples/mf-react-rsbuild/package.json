@@ -1,0 +1,15 @@
+{
+  "name": "mf-react-rsbuild",
+  "version": "1.0.0",
+  "description": "Rsbuild Module Federation example with Zephyr",
+  "private": true,
+  "scripts": {
+    "build": "pnpm build-provider && pnpm build-consumer",
+    "build-provider": "pnpm --filter=mf-react-rsbuild-provider build",
+    "build-consumer": "pnpm --filter=mf-react-rsbuild-consumer build",
+    "dev": "pnpm --filter=mf-react-rsbuild-provider dev & pnpm --filter=mf-react-rsbuild-consumer dev"
+  },
+  "keywords": ["rsbuild", "module-federation", "zephyr"],
+  "author": "",
+  "license": "MIT"
+}
