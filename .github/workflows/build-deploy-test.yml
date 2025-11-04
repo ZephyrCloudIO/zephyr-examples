@@ -177,6 +177,7 @@ jobs:
             pnpm-store-${{ runner.os }}-
 
       - name: Install ${{ matrix.workspace }} dependencies
+        if: matrix.workspace == 'vanilla'
         run: |
           cd ${{ matrix.workspace }}
           pnpm install --prefer-offline
