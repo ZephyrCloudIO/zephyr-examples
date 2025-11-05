@@ -1,8 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { withZephyr } = require("zephyr-webpack-plugin");
-const {ModuleFederationPlugin} = require("webpack").container;
-const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
+const { ModuleFederationPlugin } = require("@module-federation/enhanced/webpack");
 const path = require("path");
+const mfConfig = require("./module-federation.config");
 
 module.exports = withZephyr()({
   entry: "./src/index",
@@ -27,17 +27,9 @@ module.exports = withZephyr()({
     ],
   },
   plugins: [
-    new ModuleFederationPlugin({
-      name: "default_webpack_mf_first",
-      remotes: {
-        "default_webpack_mf_second": "default_webpack_mf_second@[app2Url]/remoteEntry.js",
-      },
-      shared: {react: {singleton: true}, "react-dom": {singleton: true}},
-    }),
-    new ExternalTemplateRemotesPlugin(),
+    new ModuleFederationPlugin(mfConfig),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
   ],
 });
-

@@ -11,7 +11,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "zephyr-webpack-plugin": "latest",
-    "external-remotes-plugin": "^1.0.0"
+    "@module-federation/enhanced": "^0.21.2"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
