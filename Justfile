@@ -97,3 +97,38 @@ reset-nx: clean-nx clean-dist-nx install-nx
 # Reset turborepo directory
 reset-turborepo: clean-turborepo clean-dist-turborepo install-turborepo
     @echo "✓ Turborepo reset complete"
+
+# Build all examples in every environment
+build-all:
+	#!/usr/bin/env bash
+	set -euo pipefail
+
+	echo "Building all vanilla examples..."
+	cd vanilla/examples
+	for d in */; do
+	  [ -d "$d" ] || continue
+	  echo "→ Building $d"
+	  (cd "$d" && pnpm build)
+	done
+	cd ../..
+
+	echo "Building all nx examples..."
+	cd nx/examples
+	for d in */; do
+	  [ -d "$d" ] || continue
+	  echo "→ Building $d"
+	  (cd "$d" && pnpm build)
+	done
+	cd ../..
+
+	echo "Building all turborepo examples..."
+	cd turborepo/examples
+	for d in */; do
+	  [ -d "$d" ] || continue
+	  echo "→ Building $d"
+	  (cd "$d" && pnpm build)
+	done
+	cd ../..
+
+	echo "✓ All examples built successfully"
+
