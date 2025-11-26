@@ -9,8 +9,7 @@
         ".env*"
       ],
       "outputs": [
-        ".next/**",
-        "!.next/cache/**"
+        "dist/**"
       ],
       "env": [
         "ZE_API",
