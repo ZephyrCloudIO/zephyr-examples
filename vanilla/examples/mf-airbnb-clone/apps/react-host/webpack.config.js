@@ -26,6 +26,7 @@ const config = {
     open: true,
   },
   output: {
+    publicPath: 'auto',
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
     assetModuleFilename: 'images/[hash][ext][query]',

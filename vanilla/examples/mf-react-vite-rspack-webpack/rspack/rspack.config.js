@@ -12,6 +12,9 @@ module.exports = withZephyr()({
   entry: {
     main: './src/index.tsx',
   },
+  output: {
+    publicPath: 'auto',
+  },
 
   devServer: {
     port: 8081,

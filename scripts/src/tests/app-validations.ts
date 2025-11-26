@@ -137,7 +137,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
 
   // Vite microfrontends
   "vite-host": {
-    uniqueText: ["Vite remote", "from Webpack", "from Rspack", "Vite + React"],
+    uniqueText: ["button from Vite remote", "component from Webpack", "component from Rspack", "Vite + React"],
   },
   "vite-remote": {
     uniqueText: ["Vite + React", "button"],

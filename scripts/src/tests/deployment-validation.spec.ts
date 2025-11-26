@@ -39,7 +39,7 @@ test.describe("Deployment Validation", () => {
   });
 
   test("all deployed applications must load successfully", async ({ page }) => {
-    test.setTimeout(240_000);
+    test.setTimeout(360_000); // 6 minutes for ~36 apps
 
     expect(deployedApps.length).toBeGreaterThan(0);
 
@@ -72,28 +72,14 @@ test.describe("Deployment Validation", () => {
       let response;
       let navigationError;
 
-      // ---------- 1) First attempt: fast navigation ----------
+      // Navigate and wait for network to be idle (handles defer scripts)
       try {
         response = await page.goto(app.url, {
-          waitUntil: "domcontentloaded",
-          timeout: 20_000,
+          waitUntil: "networkidle",
+          timeout: 30_000,
         });
       } catch (e) {
         navigationError = e;
-      }
-
-      // ---------- 2) If failed, retry with networkidle (slower but reliable) ----------
-      if (!response || response.status() >= 400) {
-        console.log("  🔄 Retrying navigation with networkidle…");
-
-        try {
-          response = await page.goto(app.url, {
-            waitUntil: "networkidle",
-            timeout: 30_000,
-          });
-        } catch (e) {
-          navigationError = e;
-        }
       }
 
       if (!response || response.status() >= 400) {
@@ -116,11 +102,59 @@ test.describe("Deployment Validation", () => {
         continue;
       }
 
-      // ---------- 3) Extract full text once for stable matching ----------
-      const bodyText = ((await page.textContent("body")) ?? "").replace(
-        /\s+/g,
-        " "
-      );
+      // ---------- 3) Extract text with smart waiting and timeout protection ----------
+      let bodyText = "";
+
+      try {
+        // Set a page-level timeout for this operation
+        page.setDefaultTimeout(10_000);
+
+        // First, try to get text immediately using innerText (which excludes hidden elements and styles)
+        bodyText = await page.evaluate(() => {
+          // Use innerText which excludes script/style tags and hidden elements
+          return document.body.innerText || "";
+        });
+        bodyText = bodyText.replace(/\s+/g, " ");
+
+        // If body is essentially empty or shows "Loading", wait for JS to render content
+        if (bodyText.trim().length < 50 || bodyText.includes("Loading")) {
+          try {
+            await page.waitForFunction(
+              () => {
+                const body = document.body;
+                const text = body.innerText || "";
+                // Wait until body has content AND no longer shows "Loading"
+                return text.trim().length > 50 && !text.includes("Loading");
+              },
+              { timeout: 10_000 } // Longer timeout for module federation apps
+            );
+            // Re-extract text after waiting
+            bodyText = await page.evaluate(() => {
+              return document.body.innerText || "";
+            });
+            bodyText = bodyText.replace(/\s+/g, " ");
+          } catch (e) {
+            // Timeout - proceed anyway, might be a slow loading app
+          }
+        }
+      } catch (e) {
+        console.log(`  ⚠️  Error extracting text: ${e.message}`);
+        // If text extraction fails entirely, mark as failed
+        failedApps.push({
+          name: app.name,
+          error: "Text extraction timeout",
+          details: `Failed to extract page content within timeout`,
+        });
+
+        results.push({
+          name: app.name,
+          url: app.url,
+          status: "failed",
+          error: "Text extraction timeout",
+        });
+
+        continue;
+      }
 
       const missingTexts: string[] = [];
 
