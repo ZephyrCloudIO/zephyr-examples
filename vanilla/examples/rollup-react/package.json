@@ -1,0 +1,29 @@
+{
+  "name": "rollup-react-ts",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rollup -c --environment NODE_ENV:production",
+    "build:watch": "rollup -c --watch"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rollup-plugin-zephyr": "latest"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.28.5",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-html": "^2.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@svgr/rollup": "^8.1.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "rollup": "^4.52.5",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.9.3"
+  }
+}

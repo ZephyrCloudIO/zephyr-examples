@@ -8,12 +8,23 @@ interface DeployedApp {
   url: string;
 }
 
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection at:", promise, "reason:", reason);
+});
+
 test.describe("Deployment Validation", () => {
   let deployedApps: DeployedApp[] = [];
 
   test.beforeAll(async () => {
     console.log("Fetching deployed applications...");
-    deployedApps = await getDeployedApps();
+
+    try {
+      deployedApps = await getDeployedApps();
+    } catch (error: any) {
+      console.error("Error fetching deployed apps:", error);
+      deployedApps = [];
+    }
+
     console.log(`Found ${deployedApps.length} deployed applications`);
 
     if (deployedApps.length === 0) {
@@ -22,198 +33,203 @@ test.describe("Deployment Validation", () => {
       );
     }
 
-    // Log all found apps
     deployedApps.forEach((app) => {
       console.log(`- ${app.name}: ${app.url}`);
     });
   });
 
   test("all deployed applications must load successfully", async ({ page }) => {
-    test.setTimeout(240000); // 4 minutes for all apps
+    test.setTimeout(360_000); // 6 minutes for ~36 apps
 
     expect(deployedApps.length).toBeGreaterThan(0);
 
-    const results: Array<{
-      name: string;
-      url: string;
-      status: "passed" | "failed" | "skipped";
-      error?: string;
-      details?: string;
-    }> = [];
-
-    const failedApps: Array<{
-      name: string;
-      error: string;
-      details: string;
-    }> = [];
+    const results = [];
+    const failedApps: Array<{ name: string; error: string; details: string }> =
+      [];
 
     for (const app of deployedApps) {
       console.log(`\n🧪 Validating ${app.name}: ${app.url}`);
 
-      // Skip turbo apps for now as they're known to be problematic
+      // Skip turbo apps
       if (app.name.includes("turbo-")) {
-        console.log(
-          `  ⏭️  Skipping ${app.name} - turbo apps are currently disabled`
-        );
-        results.push({
-          name: app.name,
-          url: app.url,
-          status: "skipped",
-        });
+        console.log(`  ⏭️  Skipping ${app.name} (turbo app)`);
+        results.push({ name: app.name, url: app.url, status: "skipped" });
         continue;
       }
 
       const validation = APP_VALIDATIONS[app.name];
-
       if (!validation) {
-        console.warn(
-          `  ⏭️  Skipping ${app.name} - no validation spec was found for it on app-validations.ts`
-        );
-
+        console.log(`  ⏭️  Skipping ${app.name} - no validation rule provided`);
         results.push({
           name: app.name,
           url: app.url,
           status: "skipped",
-          details:
-            "Skipped due to validation not being specified on app-validations.ts",
+          details: "No validation defined in app-validations.ts",
         });
         continue;
       }
 
+      let response;
+      let navigationError;
+
+      // Navigate and wait for network to be idle (handles defer scripts)
       try {
-        // Optimized navigation - reduced timeout and waitUntil strategy
-        const response = await page.goto(app.url, {
-          waitUntil: "domcontentloaded", // Faster than networkidle
-          timeout: 20000, // Reduced from 30s to 20s
+        response = await page.goto(app.url, {
+          waitUntil: "networkidle",
+          timeout: 30_000,
         });
+      } catch (e) {
+        navigationError = e;
+      }
 
-        // Check HTTP status
-        const status = response?.status();
-        if (!status || status >= 400) {
-          throw new Error(`HTTP ${status}`);
-        }
-
-        // Wait for required text content to appear (instead of fixed timeout)
-        const foundTexts: string[] = [];
-        const missingTexts: string[] = [];
-
-        for (const text of validation.uniqueText) {
-          try {
-            // Wait for text content using case-insensitive partial matching with timeout
-            await expect(page.locator("body")).toContainText(text, {
-              timeout: 5000,
-              ignoreCase: true,
-            });
-            console.log(`  ✓ Found expected text: "${text}"`);
-            foundTexts.push(text);
-          } catch (error) {
-            // Text didn't appear within timeout
-            missingTexts.push(text);
-          }
-        }
-
-        if (missingTexts.length > 0) {
-          const error = `Missing required text(s): ${missingTexts.join(
-            ", "
-          )}. Found: ${foundTexts.join(", ")}`;
-          const bodyText = await page.textContent("body");
-          const details = `Page content: "${bodyText?.slice(0, 300)}..."`;
-
-          console.log(`  ❌ ${error}`);
-          console.log(`  📄 ${details}`);
-
-          failedApps.push({
-            name: app.name,
-            error,
-            details,
-          });
-
-          results.push({
-            name: app.name,
-            url: app.url,
-            status: "failed",
-            error,
-            details,
-          });
-        } else {
-          console.log(`  ✅ ${app.name} validation passed`);
-          results.push({
-            name: app.name,
-            url: app.url,
-            status: "passed",
-          });
-        }
-      } catch (error: any) {
-        const errorMsg = error.message || "Unknown error";
-        const details = `Failed to validate: ${errorMsg}`;
-
-        console.error(`  ❌ ${app.name} failed: ${errorMsg}`);
+      if (!response || response.status() >= 400) {
+        const err = navigationError?.message || `HTTP ${response?.status()}`;
+        console.error(`  ❌ Navigation failed: ${err}`);
 
         failedApps.push({
           name: app.name,
-          error: errorMsg,
-          details,
+          error: err,
+          details: `Navigation failed for ${app.url}`,
         });
 
         results.push({
           name: app.name,
           url: app.url,
           status: "failed",
-          error: errorMsg,
-          details,
+          error: err,
         });
+
+        continue;
       }
+
+      // ---------- 3) Extract text with smart waiting and timeout protection ----------
+      let bodyText = "";
+
+      try {
+        // Set a page-level timeout for this operation
+        page.setDefaultTimeout(10_000);
+
+        // First, try to get text immediately using innerText (which excludes hidden elements and styles)
+        bodyText = await page.evaluate(() => {
+          // Use innerText which excludes script/style tags and hidden elements
+          return document.body.innerText || "";
+        });
+        bodyText = bodyText.replace(/\s+/g, " ");
+
+        // If body is essentially empty or shows "Loading", wait for JS to render content
+        if (bodyText.trim().length < 50 || bodyText.includes("Loading")) {
+          try {
+            await page.waitForFunction(
+              () => {
+                const body = document.body;
+                const text = body.innerText || "";
+                // Wait until body has content AND no longer shows "Loading"
+                return text.trim().length > 50 && !text.includes("Loading");
+              },
+              { timeout: 10_000 } // Longer timeout for module federation apps
+            );
+            // Re-extract text after waiting
+            bodyText = await page.evaluate(() => {
+              return document.body.innerText || "";
+            });
+            bodyText = bodyText.replace(/\s+/g, " ");
+          } catch (e) {
+            // Timeout - proceed anyway, might be a slow loading app
+          }
+        }
+      } catch (e) {
+        console.log(`  ⚠️  Error extracting text: ${e.message}`);
+        // If text extraction fails entirely, mark as failed
+        failedApps.push({
+          name: app.name,
+          error: "Text extraction timeout",
+          details: `Failed to extract page content within timeout`,
+        });
+
+        results.push({
+          name: app.name,
+          url: app.url,
+          status: "failed",
+          error: "Text extraction timeout",
+        });
+
+        continue;
+      }
+
+      const missingTexts: string[] = [];
+
+      for (const expected of validation.uniqueText) {
+        if (!bodyText.toLowerCase().includes(expected.toLowerCase())) {
+          missingTexts.push(expected);
+        } else {
+          console.log(`  ✓ Found: "${expected}"`);
+        }
+      }
+
+      if (missingTexts.length > 0) {
+        const shortPreview = bodyText.slice(0, 500);
+
+        const error = `Missing text: ${missingTexts.join(", ")}`;
+        console.log(`  ❌ ${error}`);
+        console.log(`  📄 Body Preview: "${shortPreview}..."`);
+
+        failedApps.push({
+          name: app.name,
+          error,
+          details: shortPreview,
+        });
+
+        results.push({
+          name: app.name,
+          url: app.url,
+          status: "failed",
+          error,
+          details: shortPreview,
+        });
+
+        continue;
+      }
+
+      // ---------- Passed ----------
+      console.log(`  ✅ ${app.name} validation passed`);
+
+      results.push({
+        name: app.name,
+        url: app.url,
+        status: "passed",
+      });
     }
 
-    // Summary and final validation
+    // ---------- Summary ----------
+    console.log("\n📊 Deployment Validation Results:");
     const passed = results.filter((r) => r.status === "passed").length;
     const failed = results.filter((r) => r.status === "failed").length;
     const skipped = results.filter((r) => r.status === "skipped").length;
 
-    console.log("\n📊 Deployment Validation Results:");
     console.log(`    ✅ Passed: ${passed}`);
     console.log(`    ❌ Failed: ${failed}`);
     console.log(`    ⏭️  Skipped: ${skipped}`);
     console.log(`    📊 Total: ${results.length}`);
 
-    // Display all failures at the end
     if (failedApps.length > 0) {
       console.log(`\n💥 FAILED APPLICATIONS (${failedApps.length}):`);
-      failedApps.forEach((failure, index) => {
-        console.log(`\n${index + 1}. ${failure.name}:`);
-        console.log(`   Error: ${failure.error}`);
-        console.log(`   Details: ${failure.details}`);
-      });
+      for (const f of failedApps) {
+        console.log(`\n- ${f.name}`);
+        console.log(`  Error: ${f.error}`);
+        console.log(`  Details: ${f.details}`);
+      }
     }
 
-    // Final assertion - fail if ANY apps failed (but we've collected all failures)
-    if (failedApps.length > 0) {
-      throw new Error(
-        `${failedApps.length} applications failed validation. See details above.`
-      );
-    }
-
-    console.log(`\n🎉 All ${passed} applications validated successfully!`);
+    expect(failedApps.length, "some apps failed validation").toBe(0);
   });
 
   test("deployment summary", async () => {
     const totalApps = deployedApps.length;
-    const turboApps = deployedApps.filter((app) =>
-      app.name.includes("turbo-")
+    const turboApps = deployedApps.filter((a) =>
+      a.name.includes("turbo-")
     ).length;
-    const activeApps = totalApps - turboApps;
-
-    console.log("\n📊 Deployment Summary:");
-    console.log(`   Total applications: ${totalApps}`);
-    console.log(`   Validated applications: ${activeApps}`);
-    console.log(`   Turbo apps (skipped): ${turboApps}`);
-    console.log(
-      `   Apps with custom validation: ${
-        Object.keys(APP_VALIDATIONS).filter((k) => k !== "default").length
-      }`
-    );
 
     expect(totalApps).toBeGreaterThan(0);
-    expect(activeApps).toBeGreaterThan(0);
+    expect(totalApps - turboApps).toBeGreaterThan(0);
   });
 });

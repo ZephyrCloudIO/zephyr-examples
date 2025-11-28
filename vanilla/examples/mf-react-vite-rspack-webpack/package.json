@@ -1,0 +1,16 @@
+{
+  "name": "mf-react-vite-rspack-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm build-webpack && pnpm build-rspack && pnpm build-remote && pnpm build-host",
+    "build-host": "pnpm --filter=vite-host build",
+    "build-remote": "pnpm --filter=vite_remote build",
+    "build-rspack": "pnpm --filter=vite_rspack build",
+    "build-webpack": "pnpm --filter=vite_webpack build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -24,6 +24,26 @@ on:
         type: string
   repository_dispatch:
     types: [build-deploy-test]
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "nx/**"
+      - "vanilla/**"
+      - "turborepo/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/actions/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "nx/**"
+      - "vanilla/**"
+      - "turborepo/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/actions/**"
 
 env:
   NODE_VERSION: "24"
@@ -54,11 +74,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.3
+          run_install: false
+
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-${{ runner.os }}-
+
+      - name: Install scripts dependencies
+        run: |
+          cd scripts
+          pnpm install --prefer-offline
 
       - name: Upgrade Zephyr plugins
+        if: github.event_name != 'pull_request' && github.event_name != 'push'
         run: |
           cd scripts
           if [ -n "${{ github.event.inputs.plugin_version }}" ]; then
@@ -72,21 +117,98 @@ jobs:
             pnpm upgrade-plugins
           fi
 
-      - name: Install dependencies after upgrade
-        run: pnpm install --prefer-offline
+      - name: Install vanilla dependencies
+        run: |
+          cd vanilla
+          pnpm install --prefer-offline
+
+      - name: Install nx example dependencies
+        run: |
+          cd nx/examples
+          for example in */; do
+            if [ -f "${example}package.json" ]; then
+              echo "Installing dependencies for nx/${example}"
+              cd "$example"
+              pnpm install --prefer-offline
+              cd ..
+            fi
+          done
+
+      - name: Install turborepo example dependencies
+        run: |
+          cd turborepo/examples
+          for example in */; do
+            if [ -f "${example}package.json" ]; then
+              echo "Installing dependencies for turborepo/${example}"
+              cd "$example"
+              pnpm install --prefer-offline
+              cd ..
+            fi
+          done
+
+      - name: Clean zephyr cache before build
+        run: |
+          echo "Cleaning $HOME/.zephyr directory..."
+          if [ -d "$HOME/.zephyr" ]; then
+            echo "Found existing .zephyr directory, checking contents:"
+            ls -lah "$HOME/.zephyr/" || true
+            echo "Removing .zephyr directory..."
+            rm -rf "$HOME/.zephyr"
+          fi
+          echo "Creating fresh .zephyr directory..."
+          mkdir -p "$HOME/.zephyr"
 
       - name: Build all examples
         run: |
           cd scripts
           if [ "${{ github.event.inputs.skip_cache }}" == "true" ] || [ "${{ github.event.client_payload.skip_cache }}" == "true" ]; then
-            echo "Building with --skip-cache flag"
-            pnpm build-packages:force
+            echo "Building all examples with --skip-cache flag"
+            pnpm build-packages --skip-cache
           else
-            echo "Building with cache enabled"
+            echo "Building all examples with cache enabled"
             pnpm build-packages
           fi
         env:
           NODE_ENV: production
+          ZE_SECRET_TOKEN: ${{ env.ZE_SECRET_TOKEN }}
+          ZE_API_GATE: ${{ env.ZE_API_GATE }}
+          ZE_API: ${{ env.ZE_API }}
+
+      - name: Check zephyr cache after build
+        if: always()
+        run: |
+          echo "Checking $HOME/.zephyr after build..."
+          if [ -d "$HOME/.zephyr" ]; then
+            echo "Total files: $(ls -1 "$HOME/.zephyr" 2>/dev/null | wc -l)"
+            echo "Checking for subdirectories that might cause EISDIR error:"
+            find "$HOME/.zephyr" -type d 2>/dev/null || echo "No subdirectories found"
+            echo ""
+            echo "Files and directories in .zephyr:"
+            ls -lah "$HOME/.zephyr/" 2>/dev/null | head -30 || echo "Cannot list directory"
+          else
+            echo "$HOME/.zephyr does not exist"
+          fi
+
+      - name: Upload build logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-logs
+          path: scripts/tmp/build/
+          retention-days: 3
+
+      - name: Check zephyr cache contents
+        run: |
+          echo "Checking $HOME/.zephyr directory..."
+          if [ -d "$HOME/.zephyr" ]; then
+            echo "Files and directories in .zephyr:"
+            ls -lah "$HOME/.zephyr/" | head -30
+            echo ""
+            echo "Checking for subdirectories:"
+            find "$HOME/.zephyr" -type d | head -10
+          else
+            echo "$HOME/.zephyr does not exist"
+          fi
 
       - name: Wait for deployments to be ready
         run: |
@@ -104,6 +226,9 @@ jobs:
           pnpm test
         env:
           CI: true
+          ZE_SECRET_TOKEN: ${{ env.ZE_SECRET_TOKEN }}
+          ZE_API_GATE: ${{ env.ZE_API_GATE }}
+          ZE_API: ${{ env.ZE_API }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -114,12 +239,3 @@ jobs:
             scripts/test-results/
             scripts/playwright-report/
           retention-days: 7
-
-      - name: Upload build logs
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: build-logs
-          path: |
-            scripts/tmp/build/
-          retention-days: 3

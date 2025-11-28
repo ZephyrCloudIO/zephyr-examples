@@ -65,10 +65,10 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Hello there", "Welcome shell"],
   },
   remote1: {
-    uniqueText: ["Hello there", "Welcome remote1"],
+    uniqueText: ["Remote 1", "Module Federation"],
   },
   remote2: {
-    uniqueText: ["Hello there", "Welcome remote2"],
+    uniqueText: ["Remote 2", "Module Federation"],
   },
 
   // Airbnb clone microfrontends
@@ -137,7 +137,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
 
   // Vite microfrontends
   "vite-host": {
-    uniqueText: ["Vite remote", "from Webpack", "from Rspack", "Vite + React"],
+    uniqueText: ["button from Vite remote", "component from Webpack", "component from Rspack", "Vite + React"],
   },
   "vite-remote": {
     uniqueText: ["Vite + React", "button"],
