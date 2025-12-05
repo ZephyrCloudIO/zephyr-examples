@@ -1,0 +1,28 @@
+{
+  "name": "default_webpack_mf_first",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zephyr-webpack-plugin": "latest",
+    "@module-federation/enhanced": "^0.21.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^10.0.0",
+    "html-webpack-plugin": "^5.6.4",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "zephyr:dependencies": {
+    "default_webpack_mf_second": "zephyr:default_webpack_mf_second@*"
+  }
+}

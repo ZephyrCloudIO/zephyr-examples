@@ -1,0 +1,51 @@
+{
+  "name": "mf-tractor-sample",
+  "version": "1.0.0",
+  "description": "Tractor V2 Sample with React and Module Federation on Rspack",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ZephyrCloudIO/zephyr-examples.git"
+  },
+  "scripts": {
+    "build": "pnpm build-explore && pnpm build-checkout && pnpm build-decide && pnpm build-app",
+    "build-app": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_app build",
+    "build-checkout": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_checkout build",
+    "build-decide": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_decide build",
+    "build-explore": "cross-env WITH_ZE=true pnpm --filter=tractor_v2_explore build",
+    "serve": "cross-env WITH_ZE=true pnpm --filter 'tractor_v2*' serve"
+  },
+  "keywords": [
+    "react",
+    "module federation",
+    "rspack",
+    "micro frontends"
+  ],
+  "author": "Zephyr Cloud IO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZephyrCloudIO/zephyr-examples/issues"
+  },
+  "homepage": "https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/react-rspack-tractor-2.0",
+  "dependencies": {
+    "canvas-confetti": "1.9.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router": "^7.9.5",
+    "react-router-dom": "^7.9.5"
+  },
+  "devDependencies": {
+    "@module-federation/enhanced": "^0.21.2",
+    "@rspack/cli": "^1.6.0",
+    "@rspack/core": "^1.6.0",
+    "@rspack/plugin-react-refresh": "^1.5.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "cross-env": "^10.1.0",
+    "react-refresh": "^0.18.0",
+    "typescript": "^5.9.3",
+    "zephyr-rspack-plugin": "latest"
+  }
+}
