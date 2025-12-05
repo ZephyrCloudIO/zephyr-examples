@@ -6,91 +6,131 @@ A selection of bundlers, frameworks, and patterns are used.
 Each example project comes with Zephyr Cloud enabled.
 Once you've forked this repository, you can clone it and follow the instructions to [build and deploy](#deploying-an-example-project) to your Zephyr Cloud account.
 
-*   __[`angular-vite`](./examples/angular-vite)__  
-    A React application with Module Federation, using Rspack as the bundler.
-*   __[`create-default-webpack-mf`](./examples/create-default-webpack-mf)__  
-    A React application with Module Federation, using Rspack as the bundler.
-*   __[`create-mf-app-rspack`](./examples/create-mf-app-rspack)__  
-    A React application using Rspack as the bundler.
-*   __[`create-nx-rspack-workpace-mf`](./examples/create-nx-rspack-workpace-mf)__  
-    A monorepo using Nx, React, Module Federation, and Rspack as the bundler.
-*   __[`create-nx-workspace-mf`](./examples/create-nx-workspace-mf)__  
-    A monorepo using Nx, React, Module Federation, and Webpack as the bundler.
-*   __[`modernjs-app`](./examples/modernjs-app)__  
-    A ModernJS app with React and Rspack as the bundler.
-*   __[`ng-nx`](./examples/ng-nx)__  
-    A monorepo using Nx, Angular v15, and Webpack as the bundler.
-*   __[`parce-react`](./examples/parcel-react)__  
-    A parcel and react application.
-*   __[`react-airbnb-clone`](./examples/react-airbnb-clone)__  
-    An AirBnb clone using React, Module Federation and Rspack as the bundler.
-*   __[`react-rollup-ts`](./examples/react-rollup-ts)__  
-    A React and rollup application.
-*   __[`react-rspack-tractor-2.0`](./examples/react-rspack-tractor-2.0)__  
-    A monorepo using pnpm workspace, React, and Rspack as the bundler.
-*   __[`react-tractor-sample`](./examples/react-tractor-sample)__  
-    A monorepo using Nx, React, and Webpack as the bundler.
-*   __[`react-vite-mf`](./examples/react-vite-mf)__  
-    A monorepo using pnpm workspace, Module Federation, React, and Vite as the bundler.
-*   __[`react-vite-nx`](./examples/react-vite-nx)__  
-    A monorepo using Nx, React, and Vite as the bundler.
-*   __[`react-vite-ts`](./examples/react-vite-ts)__  
-    A React application built in TypeScript, using Vite as the bundler.
-*   __[`rolldown-react`](./examples/rolldown-react)__  
-    A React app with Rolldown as the bundler.
-*   __[`rspack-project`](./examples/rspack-project)__  
-    A simple Rspack application using React.
-*   __[`solid`](./examples/solid)__  
-    An application using SolidJS.
-*   __[`turbo-rspack-mf`](./examples/turbo-rspack-mf/)__  
-    A monorepo using Turborepo, React, and Rspack as the bundler.
+## Repository Structure
 
-## Deploying an example project
-After cloning your fork of this repository locally, follow these steps:
+This repository is organized into three independent directories, each with its own build system:
 
-1.  __Install dependencies__  
-    ```shell
-    pnpm i
-    ```
-2.  __Change directory to the example codebase__  
-    For example, if you want to run the `create-default-webpack-mf` example:
+### 📁 `/vanilla` - pnpm Workspaces
+Simple examples without any monorepo build system. Uses pnpm workspaces for dependency management.
 
-    ```shell
-    cd ./examples/create-default-webpack-mf
-    ```
-3.  __Build the project__  
-    ```shell
-    pnpm build
-    ```
+**Examples:**
+- `angular-vite` - Angular application with Vite
+- `basehref-examples` - Base href examples
+- `create-default-webpack-mf` - React with Module Federation and Webpack
+- `create-mf-app-rspack` - React with Rspack
+- `ember-vite` - Ember with Vite
+- `modernjs-app` - ModernJS app with React and Rspack
+- `ng-mf` - Angular with Module Federation
+- `parcel-react` - Parcel and React application
+- `plugin-testing` - Plugin testing examples
+- `qwik-1.5` - Qwik application
+- `react-airbnb-clone` - AirBnb clone with React, Module Federation and Rspack
+- `react-rollup-ts` - React with Rollup
+- `react-rspack-tractor-2.0` - React with Rspack
+- `react-tractor-sample` - React with Webpack
+- `react-vite-mf` - React with Vite and Module Federation
+- `react-vite-ts` - React with TypeScript and Vite
+- `rolldown-react` - React with Rolldown
+- `rspack-project` - Simple Rspack with React
+- `rspress-ssg` - Rspress SSG
+- `solid` - SolidJS application
+- `svelte` - Svelte application
+- `tsdown` - TypeScript bundler example
+- `vitepress` - VitePress documentation
+
+### 📁 `/nx` - NX Monorepo
+Examples built with NX monorepo system.
+
+**Examples:**
+- `create-nx-workspace-mf` - NX with React, Module Federation, and Webpack
+- `create-nx-rspack-workspace-mf` - NX with React, Module Federation, and Rspack
+- `react-vite-nx` - NX with React and Vite
+- `nx-ng` - NX with Angular v15 and Webpack
+
+### 📁 `/turborepo` - Turborepo
+Examples built with Turborepo monorepo system.
+
+**Examples:**
+- `mf-turbo-rspack` - Turborepo with React and Rspack
+
+## Working with Examples
+
+Each directory (`vanilla`, `nx`, `turborepo`) is **completely independent** and has its own:
+- `package.json` - Dependency management
+- `pnpm-workspace.yaml` - Workspace configuration with shared catalogs
+- `examples/` - Example projects
+
+### Using Just (Recommended)
+
+This repository includes a `Justfile` for convenient management. Install [just](https://github.com/casey/just) and run:
+
+```shell
+# See all available commands
+just
+
+# Install dependencies in all directories
+just install-all
+
+# Install in a specific directory
+just install-vanilla
+just install-nx
+just install-turborepo
+
+# Build a specific example
+just build-vanilla react-vite-ts
+just build-nx create-nx-workspace-mf
+just build-turborepo mf-turbo-rspack
+
+# List all examples
+just list-all
+
+# Clean everything
+just clean-all
+
+# Full reset (clean + reinstall)
+just reset-all
+```
+
+### Getting Started with a Specific Directory
+
+1. **Navigate to the directory you want to work with:**
+   ```shell
+   cd vanilla  # or cd nx, or cd turborepo
+   ```
+
+2. **Install dependencies:**
+   ```shell
+   pnpm install
+   ```
+
+3. **Navigate to an example:**
+   ```shell
+   cd examples/react-vite-ts  # or any other example
+   ```
+
+4. **Build the project:**
+   ```shell
+   pnpm build
+   ```
 
 After you build the project, it will be deployed to your Zephyr Cloud account.
-For more information on using Zephyr Cloud, visit the [official documentation][documentation].
 
-[documentation]: https://docs.zephyr-cloud.io
+## Important Notes
+
+- **No root-level dependencies**: The root of this repository has no `package.json`, `pnpm-workspace.yaml`, or build system. Each directory is completely self-contained.
+- **Independent workspaces**: Each directory (`vanilla`, `nx`, `turborepo`) can be worked on independently without affecting the others.
+- **Shared catalogs**: Each directory maintains its own pnpm catalog for consistent dependency versions across its examples.
+
+## Documentation
+
+For more information on using Zephyr Cloud, visit the [official documentation](https://docs.zephyr-cloud.io).
 
 ## Contributors
+
 ![Alt](https://repobeats.axiom.co/api/embed/9d3af925eba49c0dd8ddd8ee144443242fba9b6a.svg "Repobeats analytics image")
 
-## TODO:
+## TODO
+
 - [ ] Remove `@rspack/plugin-minify` in favor of `terser-webpack-plugin`
 - [x] Move to consistent build command
 - [ ] Create testing matrix that can run with every canary of plugins
-
-## Status
-:white_check_mark: `angular-vite`   
-:white_check_mark: `create-default-webpack-mf`  
-:white_check_mark: `create-mf-app-rspack`  
-:white_check_mark: `create-nx-rspack-workspace-mf`  
-:white_check_mark: `create-nx-workspace-mf`  
-:white_check_mark: `nx-ng`  
-:white_check_mark: `react-airbnb-clone`  
-:white_check_mark: `react-rollup-ts`  
-:white_check_mark: `react-rspack-tractor-2.0`  
-:white_check_mark: `react-tractor-sample`  
-:white_check_mark: `react-vite-mf`  
-:x: `react-vite-nx` - @nx/vite plugin dependency issue  
-:white_check_mark: `react-vite-ts`  
-:white_check_mark: `rspack-project`  
-:white_check_mark: `solid`  
-:white_check_mark: `svelte`  
-:white_check_mark: `turbo-rspack-mf`  

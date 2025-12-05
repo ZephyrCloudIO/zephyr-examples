@@ -20,14 +20,14 @@
   "dependencies": {
     "js-yaml": "^4.1.0",
     "p-limit": "^7.1.0",
-    "zephyr-agent": "catalog:zephyr",
+    "zephyr-agent": "latest",
     "@types/node": "^22.10.7",
     "@types/node-persist": "^3.1.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/js-yaml": "^4.0.9",
-    "typescript": "catalog:typescript",
+    "typescript": "^5.8.2",
     "tsx": "^4.19.2"
   }
 }

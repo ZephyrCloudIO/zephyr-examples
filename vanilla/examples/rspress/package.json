@@ -1,0 +1,24 @@
+{
+  "name": "rspress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rspress build",
+    "dev": "rspress dev",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "@rsbuild/core": "^1.6.1",
+    "@rsbuild/shared": "^0.7.10",
+    "@rspack/core": "^1.6.0",
+    "@rspress/core": "1.45.8",
+    "@rspress/shared": "^1.45.8",
+    "globby": "^15.0.0",
+    "rspress": "^1.45.8",
+    "webpack-sources": "^3.3.3",
+    "zephyr-rspress-plugin": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0"
+  }
+}

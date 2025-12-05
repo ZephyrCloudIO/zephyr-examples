@@ -1,8 +1,0 @@
-{
-  "name": "shell",
-  "version": "0.0.1",
-  "zephyr:dependencies": {
-    "remote1": "zephyr:remote1@*",
-    "remote2": "zephyr:remote2@*"
-  }
-}

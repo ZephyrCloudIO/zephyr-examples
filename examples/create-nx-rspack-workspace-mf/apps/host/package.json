@@ -1,8 +1,0 @@
-{
-  "name": "host",
-  "version": "0.0.0",
-  "zephyr:dependencies": {
-    "rspack_remote1": "zephyr:rspack_remote1@*",
-    "rspack_remote2": "zephyr:rspack_remote2@*"
-  }
-}

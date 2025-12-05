@@ -1,0 +1,5 @@
+node_modules
+dist
+.nx
+*.log
+pnpm-lock.yaml
