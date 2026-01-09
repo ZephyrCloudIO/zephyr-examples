@@ -192,9 +192,6 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "vite-svelte": {
     uniqueText: ["Vite", "Svelte"],
   },
-  
-
-  // Turbo apps - currently disabled due to deployment issues
   "turbo-host": {
     uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
   },
