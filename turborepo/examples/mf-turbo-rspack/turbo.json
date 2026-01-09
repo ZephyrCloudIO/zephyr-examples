@@ -14,7 +14,8 @@
       "env": [
         "ZE_API",
         "ZE_API_GATE",
-        "DEBUG"
+        "DEBUG",
+        "ZE_SECRET_TOKEN"
       ]
     },
     "deploy": {
@@ -28,7 +29,8 @@
       "env": [
         "ZE_API",
         "ZE_API_GATE",
-        "DEBUG"
+        "DEBUG",
+        "ZE_SECRET_TOKEN"
       ]
     },
     "lint": {
