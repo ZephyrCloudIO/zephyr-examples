@@ -20,7 +20,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "svelte-zephyr-template": {
     uniqueText: ["Svelte", "Vite"],
   },
-  "modern-js": {
+  "modernjs": {
     uniqueText: ["Modern.js", "Get Started"],
   },
   "nx-ng": {
@@ -169,9 +169,6 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "mf-react-rsbuild-provider": {
     uniqueText: ["Basic Host-Remote", "Provider button"],
   },
-  "modernjs": {
-    uniqueText: ["Welcome", "Modern.js"],
-  },
   // TODO: pending checks for deployment
   // Snapshot assets have incorrect pathing
   // "react-components-starter": {
@@ -179,9 +176,6 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   // },
   "rspack-react": {
     uniqueText: ["Rspack", "React", "TypeScript"],
-  },
-  "rspress-v2": {
-    uniqueText: ["My Site", "A cool website!"],
   },
   "rspress": {
     uniqueText: ["My Site", "A cool website!"],
