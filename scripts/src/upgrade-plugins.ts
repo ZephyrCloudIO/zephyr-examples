@@ -184,11 +184,12 @@ const upgradePlugins = async (): Promise<void> => {
   const specifiedVersion = parseVersion();
   let version: string;
 
-  if (specifiedVersion === 'latest') {
-    version = 'latest';
-    log.info('Using "latest" as version');
-  } else if (specifiedVersion) {
-    version = `^${specifiedVersion}`;
+  // Check if version is a dist-tag (no dots, typically "latest", "next", "beta", etc.)
+  const isDistTag = (v: string) => !/^\d+\.\d+/.test(v);
+
+  if (specifiedVersion) {
+    // Don't add caret to dist-tags
+    version = isDistTag(specifiedVersion) ? specifiedVersion : `^${specifiedVersion}`;
     log.info(`Using specified version: ${version}`);
   } else {
     const fetchedVersion = await getNextVersion();
