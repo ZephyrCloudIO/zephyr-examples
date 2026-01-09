@@ -12,5 +12,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@module-federation/vite": "1.9.3",
+    "vite-plugin-zephyr": "latest",
+    "zephyr-rspack-plugin": "latest",
+    "zephyr-webpack-plugin": "latest"
+  }
 }

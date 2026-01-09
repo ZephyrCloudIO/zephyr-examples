@@ -26,7 +26,6 @@
     "globals": "^16.5.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.2",
-    "vite-plugin-zephyr": "latest",
     "vite": "^7.1.12"
   },
   "zephyr:dependencies": {

@@ -184,11 +184,12 @@ const upgradePlugins = async (): Promise<void> => {
   const specifiedVersion = parseVersion();
   let version: string;
 
-  if (specifiedVersion === 'latest') {
-    version = 'latest';
-    log.info('Using "latest" as version');
-  } else if (specifiedVersion) {
-    version = `^${specifiedVersion}`;
+  // Check if version is a dist-tag (no dots, typically "latest", "next", "beta", etc.)
+  const isDistTag = (v: string) => !/^\d+\.\d+/.test(v);
+
+  if (specifiedVersion) {
+    // Don't add caret to dist-tags
+    version = isDistTag(specifiedVersion) ? specifiedVersion : `^${specifiedVersion}`;
     log.info(`Using specified version: ${version}`);
   } else {
     const fetchedVersion = await getNextVersion();
@@ -227,21 +228,35 @@ const upgradePlugins = async (): Promise<void> => {
   log.success(`Updated ${filesUpdated} package.json file(s)`);
 
   // Run pnpm install to update all dependencies
-  log.warning("\nRunning pnpm install in each workspace to update dependencies...");
+  log.warning("\nRunning pnpm install in each example to update dependencies...");
 
   for (const workspace of WORKSPACES) {
     const workspacePath = join(rootPath, workspace);
-    if (!existsSync(workspacePath)) continue;
+    const examplesPath = join(workspacePath, "examples");
 
-    try {
-      log.info(`Installing dependencies in ${workspace}...`);
-      execSync("pnpm install", {
-        cwd: workspacePath,
-        stdio: "inherit",
-      });
-    } catch (error: any) {
-      log.error(`Failed to run pnpm install in ${workspace}:`);
-      console.error(error.message);
+    if (!existsSync(examplesPath)) {
+      log.warning(`Workspace ${workspace}/examples not found, skipping...`);
+      continue;
+    }
+
+    const examples = readdirSync(examplesPath);
+
+    for (const example of examples) {
+      const examplePath = join(examplesPath, example);
+      const packagePath = join(examplePath, "package.json");
+
+      if (!existsSync(packagePath)) continue;
+
+      try {
+        log.info(`Installing dependencies in ${workspace}/examples/${example}...`);
+        execSync("pnpm install", {
+          cwd: examplePath,
+          stdio: "inherit",
+        });
+      } catch (error: any) {
+        log.error(`Failed to run pnpm install in ${workspace}/examples/${example}:`);
+        console.error(error.message);
+      }
     }
   }
 

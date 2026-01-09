@@ -243,6 +243,11 @@ const buildPackages = async (): Promise<void> => {
   }
 
   console.log(`\nCheck build run logs under '${logFolder}'`);
+
+  // Exit with code 1 if any builds failed
+  if (fails.length > 0) {
+    process.exit(1);
+  }
 };
 
 buildPackages();
