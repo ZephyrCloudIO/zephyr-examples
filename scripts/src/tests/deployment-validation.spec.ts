@@ -50,13 +50,6 @@ test.describe("Deployment Validation", () => {
     for (const app of deployedApps) {
       console.log(`\n🧪 Validating ${app.name}: ${app.url}`);
 
-      // Skip turbo apps
-      if (app.name.includes("turbo-")) {
-        console.log(`  ⏭️  Skipping ${app.name} (turbo app)`);
-        results.push({ name: app.name, url: app.url, status: "skipped" });
-        continue;
-      }
-
       const validation = APP_VALIDATIONS[app.name];
       if (!validation) {
         console.log(`  ⏭️  Skipping ${app.name} - no validation rule provided`);

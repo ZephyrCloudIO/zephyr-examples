@@ -12,7 +12,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Vite", "React"],
   },
   "ember-vite": {
-    uniqueText: ["Congratulations", "Quick start"]
+    uniqueText: ["Congratulations", "Quick start"],
   },
   "solid-zephyr-template": {
     uniqueText: ["Solid", "Vite"],
@@ -20,7 +20,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "svelte-zephyr-template": {
     uniqueText: ["Svelte", "Vite"],
   },
-  "modern-js": {
+  "modernjs": {
     uniqueText: ["Modern.js", "Get Started"],
   },
   "nx-ng": {
@@ -135,9 +135,14 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["The Model Store", "Tractor"],
   },
 
-  // Vite microfrontends
+  // Other
   "vite-host": {
-    uniqueText: ["button from Vite remote", "component from Webpack", "component from Rspack", "Vite + React"],
+    uniqueText: [
+      "button from Vite remote",
+      "component from Webpack",
+      "component from Rspack",
+      "Vite + React",
+    ],
   },
   "vite-remote": {
     uniqueText: ["Vite + React", "button"],
@@ -148,20 +153,52 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "vite-webpack": {
     uniqueText: ["This is a component from Webpack.", "Button"],
   },
-
-  // Additional apps found in deployment
   "-react-vite-nx-source": {
     uniqueText: ["Welcome react-vite-nx", "Hello there"],
   },
-
-  // Turbo apps - currently disabled due to deployment issues
-  // "turbo-host": {
-  //   uniqueText: ["Turbo", "Host"],
+  "-mf-nx-rspack-host": {
+    uniqueText: ["Welcome host", "Remote1", "Remote2"],
+  },
+  astro: {
+    uniqueText: ["Hello, Astronaut!", "Blog", "About"],
+  },
+  // TODO: pending rsbuild mf checks - remote entry loading error maybe publicPath
+  // "mf-react-rsbuild-consumer": {
+  //   uniqueText: ["Basic Host-Remote", "Provider button"],
   // },
-  // "turbo-home": {
-  //   uniqueText: ["Turbo", "Home"],
+  "mf-react-rsbuild-provider": {
+    uniqueText: ["Basic Host-Remote", "Provider button"],
+  },
+  // TODO: pending checks for deployment
+  // Snapshot assets have incorrect pathing
+  // "react-components-starter": {
+  //   uniqueText: [""],
   // },
-  // "turbo-settings": {
-  //   uniqueText: ["Turbo", "Settings"],
-  // },
+  "rspack-react": {
+    uniqueText: ["Rspack", "React", "TypeScript"],
+  },
+  "rspress": {
+    uniqueText: ["My Site", "A cool website!"],
+  },
+  "vite-angular": {
+    uniqueText: ["Vite", "Angular"],
+  },
+  "vite-ember": {
+    uniqueText: ["Welcome to Ember", "Vite"],
+  },
+  "vite-react": {
+    uniqueText: ["Vite", "React"],
+  },
+  "vite-svelte": {
+    uniqueText: ["Vite", "Svelte"],
+  },
+  "turbo-host": {
+    uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
+  },
+  "turbo-home": {
+    uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
+  },
+  "turbo-settings": {
+    uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
+  },
 };
