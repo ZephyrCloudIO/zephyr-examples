@@ -21,7 +21,7 @@
     "js-yaml": "^4.1.0",
     "p-limit": "^7.1.0",
     "zephyr-agent": "latest",
-    "@types/node": "^22.10.7",
+    "@types/node": "^24.0.0",
     "@types/node-persist": "^3.1.8"
   },
   "devDependencies": {
