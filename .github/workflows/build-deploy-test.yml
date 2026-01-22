@@ -47,6 +47,7 @@ on:
 
 env:
   NODE_VERSION: "24"
+  ZE_FAIL_BUILD: true
   ZE_SECRET_TOKEN: |
     ${{
       github.event.inputs.environment == 'dev' && secrets.ZE_SECRET_TOKEN_DEV ||
@@ -174,21 +175,6 @@ jobs:
           ZE_API_GATE: ${{ env.ZE_API_GATE }}
           ZE_API: ${{ env.ZE_API }}
 
-      - name: Check zephyr cache after build
-        if: always()
-        run: |
-          echo "Checking $HOME/.zephyr after build..."
-          if [ -d "$HOME/.zephyr" ]; then
-            echo "Total files: $(ls -1 "$HOME/.zephyr" 2>/dev/null | wc -l)"
-            echo "Checking for subdirectories that might cause EISDIR error:"
-            find "$HOME/.zephyr" -type d 2>/dev/null || echo "No subdirectories found"
-            echo ""
-            echo "Files and directories in .zephyr:"
-            ls -lah "$HOME/.zephyr/" 2>/dev/null | head -30 || echo "Cannot list directory"
-          else
-            echo "$HOME/.zephyr does not exist"
-          fi
-
       - name: Upload build logs
         uses: actions/upload-artifact@v4
         if: always()
@@ -197,18 +183,13 @@ jobs:
           path: scripts/tmp/build/
           retention-days: 3
 
-      - name: Check zephyr cache contents
-        run: |
-          echo "Checking $HOME/.zephyr directory..."
-          if [ -d "$HOME/.zephyr" ]; then
-            echo "Files and directories in .zephyr:"
-            ls -lah "$HOME/.zephyr/" | head -30
-            echo ""
-            echo "Checking for subdirectories:"
-            find "$HOME/.zephyr" -type d | head -10
-          else
-            echo "$HOME/.zephyr does not exist"
-          fi
+      - name: Upload zephyr cache directory
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zephyr-cache
+          path: ~/.zephyr/
+          retention-days: 7
 
       - name: Wait for deployments to be ready
         run: |
