@@ -188,7 +188,7 @@ jobs:
         if: always()
         with:
           name: zephyr-cache
-          path: ${{ env.HOME }}/.zephyr/
+          path: /home/runner/.zephyr/
           retention-days: 7
 
       - name: Wait for deployments to be ready
