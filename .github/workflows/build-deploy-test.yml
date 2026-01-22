@@ -183,14 +183,6 @@ jobs:
           path: scripts/tmp/build/
           retention-days: 3
 
-      - name: Upload zephyr cache directory
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: zephyr-cache
-          path: /home/runner/.zephyr/
-          retention-days: 7
-
       - name: Wait for deployments to be ready
         run: |
           echo "Waiting 60 seconds for all deployments to propagate..."
