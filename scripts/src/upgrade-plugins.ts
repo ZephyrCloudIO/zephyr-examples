@@ -15,15 +15,22 @@ const WORKSPACES = ['nx', 'vanilla', 'turborepo'];
 
 // Zephyr packages to upgrade
 const ZEPHYR_PACKAGES = [
-  'zephyr-agent',
-  'zephyr-webpack-plugin',
-  'zephyr-rspack-plugin',
-  'vite-plugin-zephyr',
-  'rollup-plugin-zephyr',
-  'zephyr-modernjs-plugin',
-  'zephyr-rolldown-plugin',
   'parcel-reporter-zephyr',
+  'rollup-plugin-zephyr',
+  'vite-plugin-tanstack-start-zephyr',
+  'vite-plugin-vinext-zephyr',
+  'vite-plugin-zephyr',
+  'zephyr-agent',
+  'zephyr-astro-integration',
+  'zephyr-edge-contract',
+  'zephyr-metro-plugin',
+  'zephyr-modernjs-plugin',
+  'zephyr-repack-plugin',
+  'zephyr-rolldown-plugin',
+  'zephyr-rsbuild-plugin',
+  'zephyr-rspack-plugin',
   'zephyr-rspress-plugin',
+  'zephyr-webpack-plugin',
 ];
 
 const getNextVersion = async (): Promise<string> => {
