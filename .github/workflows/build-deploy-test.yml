@@ -47,8 +47,7 @@ on:
 
 env:
   NODE_VERSION: "24"
-  SHOULD_DEPLOY: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && 'true' || 'false' }}
-  ZE_FAIL_BUILD: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && 'true' || 'false' }}
+  ZE_FAIL_BUILD: true
   ZE_SECRET_TOKEN: |
     ${{
       github.event.inputs.environment == 'dev' && secrets.ZE_SECRET_TOKEN_DEV ||
@@ -185,19 +184,16 @@ jobs:
           retention-days: 3
 
       - name: Wait for deployments to be ready
-        if: env.SHOULD_DEPLOY == 'true'
         run: |
           echo "Waiting 60 seconds for all deployments to propagate..."
           sleep 60
 
       - name: Install Playwright browsers
-        if: env.SHOULD_DEPLOY == 'true'
         run: |
           cd scripts
           npx playwright install chromium
 
       - name: Run deployment validation tests
-        if: env.SHOULD_DEPLOY == 'true'
         run: |
           cd scripts
           pnpm test
@@ -209,7 +205,7 @@ jobs:
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
-        if: always() && env.SHOULD_DEPLOY == 'true'
+        if: always()
         with:
           name: test-results
           path: |
