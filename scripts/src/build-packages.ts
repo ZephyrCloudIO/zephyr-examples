@@ -1,8 +1,8 @@
-import { exec } from "node:child_process";
-import { promisify } from "node:util";
+import { spawn } from "node:child_process";
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { cpus } from "node:os";
+import type { WriteStream } from "node:fs";
 import pLimit from "p-limit";
 import {
   red,
@@ -12,8 +12,6 @@ import {
   orange,
   getDateString,
 } from "./utils.js";
-
-const execAsync = promisify(exec);
 
 // Concurrency control - limit parallel builds to prevent resource exhaustion
 const MAX_CONCURRENT_BUILDS = Math.min(cpus().length, 4);
@@ -68,6 +66,11 @@ interface ExecError extends Error {
   stdout?: string;
 }
 
+interface BuildCommandResult {
+  stderr: string;
+  stdout: string;
+}
+
 function stripAnsi(value: string): string {
   return value.replace(ANSI_ESCAPE_REGEX, "");
 }
@@ -106,6 +109,96 @@ function getFailureReason(error: ExecError): string {
   }
 
   return error.message;
+}
+
+function logBuildOutput(displayName: string, streamName: "stdout" | "stderr", buffer: string): string {
+  const lines = buffer.split(/\r?\n/);
+  const remainder = lines.pop() ?? "";
+
+  for (const line of lines) {
+    console.log(`[${blue(displayName)}][${streamName}] ${line}`);
+  }
+
+  return remainder;
+}
+
+function flushBuildOutput(displayName: string, streamName: "stdout" | "stderr", remainder: string): void {
+  if (remainder.length > 0) {
+    console.log(`[${blue(displayName)}][${streamName}] ${remainder}`);
+  }
+}
+
+function runBuildCommand(
+  folderPath: string,
+  displayName: string,
+  writeStream: WriteStream,
+): Promise<BuildCommandResult> {
+  return new Promise((resolve, reject) => {
+    const child = spawn("pnpm", ["run", "build"], {
+      cwd: folderPath,
+      env: process.env,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+
+    let stdout = "";
+    let stderr = "";
+    let stdoutRemainder = "";
+    let stderrRemainder = "";
+    let timedOut = false;
+
+    const timeout = setTimeout(() => {
+      timedOut = true;
+      child.kill("SIGTERM");
+    }, BUILD_TIMEOUT);
+
+    child.stdout.on("data", (chunk: Buffer) => {
+      const text = chunk.toString();
+      stdout += text;
+      writeStream.write(text);
+      stdoutRemainder = logBuildOutput(displayName, "stdout", stdoutRemainder + text);
+    });
+
+    child.stderr.on("data", (chunk: Buffer) => {
+      const text = chunk.toString();
+      stderr += text;
+      writeStream.write(text);
+      stderrRemainder = logBuildOutput(displayName, "stderr", stderrRemainder + text);
+    });
+
+    child.on("error", (error) => {
+      clearTimeout(timeout);
+      writeStream.write(`\nError: ${error.message}\n`);
+      writeStream.end();
+      reject(error);
+    });
+
+    child.on("close", (code, signal) => {
+      clearTimeout(timeout);
+      flushBuildOutput(displayName, "stdout", stdoutRemainder);
+      flushBuildOutput(displayName, "stderr", stderrRemainder);
+
+      if (!timedOut && code === 0) {
+        writeStream.end();
+        resolve({ stdout, stderr });
+        return;
+      }
+
+      const error = new Error(
+        timedOut
+          ? `pnpm run build timed out after ${BUILD_TIMEOUT}ms`
+          : `pnpm run build exited with code ${code ?? "unknown"}${signal ? ` (${signal})` : ""}`,
+      ) as ExecError;
+      error.cmd = "pnpm run build";
+      error.code = timedOut ? "ETIMEDOUT" : code ?? undefined;
+      error.killed = timedOut;
+      error.signal = signal;
+      error.stdout = stdout;
+      error.stderr = stderr;
+      writeStream.write(`\nError: ${error.message}\n`);
+      writeStream.end();
+      reject(error);
+    });
+  });
 }
 
 // Discover all examples across all workspaces
@@ -227,16 +320,7 @@ const buildPackages = async (): Promise<void> => {
         const buildStart = Date.now();
 
         try {
-          // Use async exec with timeout instead of blocking execSync
-          const { stdout, stderr } = await execAsync(`pnpm run build`, {
-            cwd: folderPath,
-            timeout: BUILD_TIMEOUT,
-          });
-
-          // Write output to log file
-          if (stdout) writeStream.write(stdout);
-          if (stderr) writeStream.write(stderr);
-          writeStream.end();
+          await runBuildCommand(folderPath, displayName, writeStream);
 
           const buildTime = Date.now() - buildStart;
           console.log(
@@ -253,12 +337,6 @@ const buildPackages = async (): Promise<void> => {
           const error = rawError as ExecError;
           const buildTime = Date.now() - buildStart;
           const logTail = getLogTail(error.stdout, error.stderr, error.message);
-
-          // Write error output to log file
-          if (error.stdout) writeStream.write(error.stdout);
-          if (error.stderr) writeStream.write(error.stderr);
-          writeStream.write(`\nError: ${error.message}\n`);
-          writeStream.end();
 
           console.log(
             `[${blue(displayName)}] ${red(
