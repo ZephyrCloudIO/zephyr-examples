@@ -5,6 +5,6 @@ const app = new Elysia({
   adapter: CloudflareAdapter,
 });
 
-app.get("/", () => "Hello, Elysia with Nitro!");
+app.get("/", () => "Hello Zephyr from Elysia and Nitro!");
 
 export default app.compile();

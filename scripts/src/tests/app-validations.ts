@@ -24,13 +24,13 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Modern.js", "Get Started"],
   },
   "nitro-elysia": {
-    uniqueText: ["Hello, Elysia with Nitro!"],
+    uniqueText: ["Hello Zephyr from Elysia and Nitro!"],
   },
   "nitro-hello-world": {
-    uniqueText: ["Nitro Works!"],
+    uniqueText: ["Hello Zephyr from Nitro!"],
   },
   "nitro-hono": {
-    uniqueText: ["Hello, Hono with Nitro!"],
+    uniqueText: ["Hello Zephyr from Hono and Nitro!"],
   },
   "nx-ng": {
     uniqueText: ["Welcome", "Hello there"],
