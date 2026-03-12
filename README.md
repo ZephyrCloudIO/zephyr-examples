@@ -20,6 +20,9 @@ Simple examples without any monorepo build system. Uses pnpm workspaces for depe
 - `create-mf-app-rspack` - React with Rspack
 - `ember-vite` - Ember with Vite
 - `modernjs-app` - ModernJS app with React and Rspack
+- `nitro-elysia` - Nitro server entry with Elysia and Zephyr preset
+- `nitro-hello-world` - Minimal Nitro fetch handler with Zephyr preset
+- `nitro-hono` - Nitro server entry with Hono and Zephyr preset
 - `ng-mf` - Angular with Module Federation
 - `parcel-react` - Parcel and React application
 - `plugin-testing` - Plugin testing examples
