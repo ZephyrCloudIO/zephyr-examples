@@ -18,6 +18,8 @@ const execAsync = promisify(exec);
 // Concurrency control - limit parallel builds to prevent resource exhaustion
 const MAX_CONCURRENT_BUILDS = Math.min(cpus().length, 4);
 const BUILD_TIMEOUT = 5 * 60 * 1000; // 5 minutes
+const BUILD_LOG_TAIL_LINES = 20;
+const ANSI_ESCAPE_REGEX = /\x1B\[[0-9;]*m/g;
 
 // Create concurrency limiter
 const limit = pLimit(MAX_CONCURRENT_BUILDS);
@@ -55,6 +57,55 @@ interface ExampleInfo {
   name: string;
   workspace: string;
   path: string;
+}
+
+interface ExecError extends Error {
+  cmd?: string;
+  code?: number | string;
+  killed?: boolean;
+  signal?: NodeJS.Signals | string | null;
+  stderr?: string;
+  stdout?: string;
+}
+
+function stripAnsi(value: string): string {
+  return value.replace(ANSI_ESCAPE_REGEX, "");
+}
+
+function getLogTail(stdout: string | undefined, stderr: string | undefined, message: string): string[] {
+  const combined = [stdout, stderr, message]
+    .filter((chunk): chunk is string => Boolean(chunk))
+    .join("\n");
+
+  return stripAnsi(combined)
+    .split(/\r?\n/)
+    .map((line) => line.trimEnd())
+    .filter(Boolean)
+    .slice(-BUILD_LOG_TAIL_LINES);
+}
+
+function isBuildTimeout(error: ExecError): boolean {
+  if (error.code === "ETIMEDOUT") {
+    return true;
+  }
+
+  return Boolean(error.killed && error.message.includes("timed out"));
+}
+
+function getFailureReason(error: ExecError): string {
+  if (isBuildTimeout(error)) {
+    return "Build timed out";
+  }
+
+  if (typeof error.code === "number") {
+    return `Exit code ${error.code}`;
+  }
+
+  if (typeof error.signal === "string" && error.signal.length > 0) {
+    return `Signal ${error.signal}`;
+  }
+
+  return error.message;
 }
 
 // Discover all examples across all workspaces
@@ -170,6 +221,7 @@ const buildPackages = async (): Promise<void> => {
         }
 
         const writeStream = await getLogWriteStream(`${workspace}-${name}`, logFolder);
+        const logPath = join(logFolder, `${workspace}-${name}.txt`);
         console.log(`Building [${blue(displayName)}] project...`);
 
         const buildStart = Date.now();
@@ -195,23 +247,37 @@ const buildPackages = async (): Promise<void> => {
           success.push({
             example: displayName,
             workspace,
-            result: `Successfully built in ${buildTime}ms`,
+            result: `Successfully built in ${buildTime}ms (${logPath})`,
           });
-        } catch (e: any) {
+        } catch (rawError: unknown) {
+          const error = rawError as ExecError;
+          const buildTime = Date.now() - buildStart;
+          const logTail = getLogTail(error.stdout, error.stderr, error.message);
+
           // Write error output to log file
-          if (e.stdout) writeStream.write(e.stdout);
-          if (e.stderr) writeStream.write(e.stderr);
-          writeStream.write(`\nError: ${e.message}\n`);
+          if (error.stdout) writeStream.write(error.stdout);
+          if (error.stderr) writeStream.write(error.stderr);
+          writeStream.write(`\nError: ${error.message}\n`);
           writeStream.end();
 
-          console.log(`[${blue(displayName)}] ${red("failed to build.")}`);
+          console.log(
+            `[${blue(displayName)}] ${red(
+              `failed to build after ${buildTime}ms.`
+            )}`
+          );
+          console.log(`[${blue(displayName)}] ${orange(`reason:`)} ${getFailureReason(error)}`);
+          console.log(`[${blue(displayName)}] ${orange("log file:")} ${logPath}`);
+          if (logTail.length > 0) {
+            console.log(`[${blue(displayName)}] ${orange(`last ${logTail.length} log lines:`)}`);
+            for (const line of logTail) {
+              console.log(`  ${line}`);
+            }
+          }
+
           fails.push({
             example: displayName,
             workspace,
-            result:
-              e.code === "ETIMEDOUT"
-                ? "Build timeout"
-                : `Build error: ${e.message}`,
+            result: `${getFailureReason(error)} (${logPath})`,
           });
         }
       })
