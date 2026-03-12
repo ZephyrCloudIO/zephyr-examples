@@ -19,7 +19,7 @@ Simple examples without any monorepo build system. Uses pnpm workspaces for depe
 - `create-default-webpack-mf` - React with Module Federation and Webpack
 - `create-mf-app-rspack` - React with Rspack
 - `ember-vite` - Ember with Vite
-- `modernjs-app` - ModernJS app with React and Rspack
+- `modernjs` - ModernJS app with React and Rspack
 - `nitro-elysia` - Nitro server entry with Elysia and Zephyr preset
 - `nitro-hello-world` - Minimal Nitro fetch handler with Zephyr preset
 - `nitro-hono` - Nitro server entry with Hono and Zephyr preset

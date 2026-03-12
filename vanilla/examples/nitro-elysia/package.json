@@ -7,9 +7,11 @@
     "dev": "nitro dev",
     "preview": "node .output/server/index.mjs"
   },
+  "dependencies": {
+    "elysia": "^1.4.22"
+  },
   "devDependencies": {
-    "elysia": "^1.4.22",
-    "nitro": "latest",
+    "nitro": "^3.0.260311-beta",
     "vite": "^7.1.12",
     "zephyr-agent": "^0.1.15"
   }
