@@ -8,11 +8,11 @@
     "start": "http-server dist -p 3010"
   },
   "zephyr:dependencies": {
-    "airbnb_categories": "airbnb_categories@workspace:*",
-    "airbnb_home": "airbnb_home@workspace:*",
-    "airbnb_favorites": "airbnb_favorites@workspace:*",
-    "airbnb_trips": "airbnb_trips@workspace:*",
-    "airbnb_properties": "airbnb_properties@workspace:*",
-    "airbnb_reservations": "airbnb_reservations@workspace:*"
+    "airbnb_categories": "workspace:*",
+    "airbnb_home": "workspace:*",
+    "airbnb_favorites": "workspace:*",
+    "airbnb_trips": "workspace:*",
+    "airbnb_properties": "workspace:*",
+    "airbnb_reservations": "workspace:*"
   }
 }

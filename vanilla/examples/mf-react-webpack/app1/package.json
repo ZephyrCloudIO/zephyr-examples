@@ -23,6 +23,6 @@
     "webpack-dev-server": "^5.2.2"
   },
   "zephyr:dependencies": {
-    "default_webpack_mf_second": "default_webpack_mf_second@workspace:*"
+    "default_webpack_mf_second": "workspace:*"
   }
 }

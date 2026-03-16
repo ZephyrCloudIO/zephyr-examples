@@ -23,6 +23,6 @@
     "zephyr-rsbuild-plugin": "latest"
   },
   "zephyr:dependencies": {
-    "federation_provider": "mf-react-rsbuild-provider@workspace:*"
+    "federation_provider": "mf-react-rsbuild-provider@*"
   }
 }
