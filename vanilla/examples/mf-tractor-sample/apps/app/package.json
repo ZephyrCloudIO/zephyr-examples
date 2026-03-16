@@ -15,8 +15,8 @@
     ]
   },
   "zephyr:dependencies": {
-    "tractor_v2_checkout": "zephyr:tractor_v2_checkout@*",
-    "tractor_v2_decide": "zephyr:tractor_v2_decide@*",
-    "tractor_v2_explore": "zephyr:tractor_v2_explore@*"
+    "tractor_v2_checkout": "workspace:*",
+    "tractor_v2_decide": "workspace:*",
+    "tractor_v2_explore": "workspace:*"
   }
 }

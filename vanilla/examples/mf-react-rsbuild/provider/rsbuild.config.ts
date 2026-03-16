@@ -4,10 +4,14 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import { withZephyr } from 'zephyr-rsbuild-plugin';
 
 export default defineConfig({
+  output: {
+    assetPrefix: 'auto',
+  },
   plugins: [
     pluginReact(),
     pluginModuleFederation({
       name: 'federation_provider',
+      filename: 'remoteEntry.js',
       exposes: {
         './button': './src/Button.tsx',
       },

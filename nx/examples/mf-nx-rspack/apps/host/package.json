@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "zephyr:dependencies": {
-    "remote1": "zephyr:remote1@*",
-    "remote2": "zephyr:remote2@*"
+    "remote1": "workspace:*",
+    "remote2": "workspace:*"
   }
 }
