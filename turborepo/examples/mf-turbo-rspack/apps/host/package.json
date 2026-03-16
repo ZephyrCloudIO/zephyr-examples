@@ -9,7 +9,7 @@
     "format": "biome format --write"
   },
   "zephyr:dependencies": {
-    "turbo_home": "zephyr:turbo_home@*",
-    "turbo_settings": "zephyr:turbo_settings@*"
+    "turbo_home": "turbo_home@workspace:*",
+    "turbo_settings": "turbo_settings@workspace:*"
   }
 }

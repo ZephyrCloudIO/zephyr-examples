@@ -9,6 +9,6 @@
     "format": "biome format --write"
   },
   "zephyr:dependencies": {
-    "turbo_host": "zephyr:turbo_host@*"
+    "turbo_host": "turbo_host:workspace:*"
   }
 }
