@@ -14,17 +14,20 @@ export const mfConfig: ModuleFederationPluginOptions = {
     react: {
       singleton: true,
       eager: true,
-      requiredVersion: "^19.2.0"
+      requiredVersion: "19.2.0",
+      strictVersion: true
     },
     "react-dom": {
       singleton: true,
       eager: true,
-      requiredVersion: "^19.2.0"
+      requiredVersion: "19.2.0",
+      strictVersion: true
     },
     "react-router": {
       singleton: true,
       eager: true,
-      requiredVersion: "^7.9.5"
+      requiredVersion: "7.9.5",
+      strictVersion: true
     }
   }
 };
