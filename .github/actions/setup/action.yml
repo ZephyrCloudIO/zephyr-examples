@@ -1,48 +1,57 @@
-name: Setup Node and PNPM
-description: Sets up Node.js and PNPM with caching
+name: Setup Node and pnpm
+description: Sets up Node.js and pnpm with dependency caching
 
 inputs:
-  os:
-    required: true
-    description: "Operating system"
-    default: ubuntu-latest
   node-version:
-    required: true
+    required: false
     description: "Node.js version"
     default: "24"
 
 runs:
   using: "composite"
   steps:
-    - uses: pnpm/action-setup@v4
+    - name: 📦 Setup pnpm
+      uses: pnpm/action-setup@v4
       with:
         version: 10.6.3
         run_install: false
-    - uses: actions/setup-node@v4
+
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
-        cache: "pnpm"
-        cache-dependency-path: "**/pnpm-lock.yaml"
         registry-url: "https://registry.npmjs.org"
-    - name: Get pnpm store directory
+
+    - name: 📦 Get pnpm store directory
       shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-    - uses: actions/cache@v4
+      run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    - name: 📦 Restore pnpm cache
+      uses: actions/cache@v4
       with:
         path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-store-
-    - name: Install dependencies in all workspaces
+          pnpm-store-${{ runner.os }}-
+
+    - name: 📦 Install workspace dependencies
+      shell: bash
+      run: pnpm install --prefer-offline
+
+    - name: 📦 Install standalone example dependencies
       shell: bash
       run: |
-        echo "Installing dependencies in nx workspace..."
-        cd nx && pnpm install --prefer-offline
-        echo "Installing dependencies in vanilla workspace..."
-        cd ../vanilla && pnpm install --prefer-offline
-        echo "Installing dependencies in turborepo workspace..."
-        cd ../turborepo && pnpm install --prefer-offline
-        echo "Installing dependencies in scripts..."
-        cd ../scripts && pnpm install --prefer-offline
-        echo "✓ All dependencies installed"
+        standalone=(
+          build-systems/nx-rspack-mf
+          build-systems/turborepo-rspack-mf
+          module-federation/airbnb-clone
+          module-federation/react-vite-rspack-webpack
+        )
+        for example in "${standalone[@]}"; do
+          if [ -f "${example}/package.json" ]; then
+            echo "Installing dependencies for ${example}"
+            cd "$example"
+            pnpm install --prefer-offline
+            cd "$GITHUB_WORKSPACE"
+          fi
+        done

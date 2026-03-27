@@ -217,12 +217,6 @@ test.describe("Deployment Validation", () => {
   });
 
   test("deployment summary", async () => {
-    const totalApps = deployedApps.length;
-    const turboApps = deployedApps.filter((a) =>
-      a.name.includes("turbo-")
-    ).length;
-
-    expect(totalApps).toBeGreaterThan(0);
-    expect(totalApps - turboApps).toBeGreaterThan(0);
+    expect(deployedApps.length).toBeGreaterThan(0);
   });
 });

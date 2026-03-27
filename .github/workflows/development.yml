@@ -1,0 +1,160 @@
+name: Development
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "bundlers/**"
+      - "module-federation/**"
+      - "frameworks/**"
+      - "server/**"
+      - "build-systems/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/actions/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "24"
+  ZE_FAIL_BUILD: true
+
+jobs:
+  discover-examples:
+    name: Discover examples
+    runs-on: depot-ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.discover.outputs.matrix }}
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Discover buildable examples
+        id: discover
+        run: |
+          categories=(bundlers module-federation frameworks server build-systems)
+          skip=(react-native-metro react-native-repack)
+          examples=()
+
+          for category in "${categories[@]}"; do
+            [ -d "$category" ] || continue
+            for dir in "$category"/*/; do
+              [ -d "$dir" ] || continue
+              name=$(basename "$dir")
+
+              # Skip examples that need native tooling
+              skip_this=false
+              for s in "${skip[@]}"; do
+                if [ "$name" = "$s" ]; then
+                  skip_this=true
+                  break
+                fi
+              done
+              $skip_this && continue
+
+              # Only include if it has a package.json with a build script
+              if [ -f "${dir}package.json" ] && grep -q '"build"' "${dir}package.json"; then
+                examples+=("{\"example\":\"${category}/${name}\",\"category\":\"${category}\",\"name\":\"${name}\"}")
+              fi
+            done
+          done
+
+          matrix=$(printf '%s\n' "${examples[@]}" | jq -s -c '{include: .}')
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "Found $(echo "$matrix" | jq '.include | length') examples"
+
+  validate-metadata:
+    name: Validate README metadata
+    runs-on: depot-ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js & dependencies
+        uses: ./.github/actions/setup
+
+      - name: 🔍 Validate README front matter
+        run: pnpm --filter @zephyr-examples/scripts validate-readmes
+
+      - name: 🔍 Verify templates.json is up to date
+        run: |
+          pnpm --filter @zephyr-examples/scripts generate-templates
+          if ! git diff --quiet templates.json; then
+            echo "::error::templates.json is out of date. Run 'pnpm --filter @zephyr-examples/scripts generate-templates' and commit."
+            git diff templates.json
+            exit 1
+          fi
+
+      - name: 🔍 Verify README is up to date
+        run: |
+          pnpm --filter @zephyr-examples/scripts generate-readme
+          if ! git diff --quiet README.md; then
+            echo "::error::README.md is out of date. Run 'pnpm --filter @zephyr-examples/scripts generate-readme' and commit."
+            git diff README.md
+            exit 1
+          fi
+
+  build-and-test:
+    name: ${{ matrix.example }}
+    needs: discover-examples
+    runs-on: depot-ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover-examples.outputs.matrix) }}
+    env:
+      ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN_PROD }}
+      ZE_API_GATE: "https://zeapi.zephyrcloud.app"
+      ZE_API: "https://api.zephyr-cloud.io"
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js & dependencies
+        uses: ./.github/actions/setup
+
+      - name: 🗑️ Clean zephyr cache
+        run: rm -rf "$HOME/.zephyr" && mkdir -p "$HOME/.zephyr"
+
+      - name: 🏗️ Build ${{ matrix.example }}
+        run: cd ${{ matrix.example }} && pnpm build
+        env:
+          NODE_ENV: production
+
+      - name: 🔍 Check for deploy results
+        id: check-deploy
+        run: |
+          if [ -d "$HOME/.zephyr" ] && find "$HOME/.zephyr" -name "*.json" -size +0 2>/dev/null | grep -q .; then
+            echo "has_deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: ⏳ Wait for deployment to propagate
+        if: steps.check-deploy.outputs.has_deploy == 'true'
+        run: sleep 30
+
+      - name: 🧪 Install Playwright browsers
+        if: steps.check-deploy.outputs.has_deploy == 'true'
+        run: cd scripts && npx playwright install chromium
+
+      - name: 🧪 Validate deployment
+        if: steps.check-deploy.outputs.has_deploy == 'true'
+        run: pnpm --filter @zephyr-examples/scripts test
+        env:
+          CI: true
+
+      - name: 📋 Upload test results
+        uses: actions/upload-artifact@v4
+        if: always() && steps.check-deploy.outputs.has_deploy == 'true'
+        with:
+          name: test-results-${{ matrix.name }}
+          path: |
+            scripts/test-results/
+            scripts/playwright-report/
+          retention-days: 7

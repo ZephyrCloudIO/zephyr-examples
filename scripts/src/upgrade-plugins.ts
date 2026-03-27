@@ -10,20 +10,27 @@ const log = {
   info: (message: string) => console.log(blue(message)),
 };
 
-// Workspace directories containing examples
-const WORKSPACES = ['nx', 'vanilla', 'turborepo'];
+// Category directories containing examples
+const CATEGORIES = ['bundlers', 'module-federation', 'frameworks', 'server', 'build-systems'];
 
 // Zephyr packages to upgrade
 const ZEPHYR_PACKAGES = [
-  'zephyr-agent',
-  'zephyr-webpack-plugin',
-  'zephyr-rspack-plugin',
-  'vite-plugin-zephyr',
-  'rollup-plugin-zephyr',
-  'zephyr-modernjs-plugin',
-  'zephyr-rolldown-plugin',
   'parcel-reporter-zephyr',
+  'rollup-plugin-zephyr',
+  'vite-plugin-tanstack-start-zephyr',
+  'vite-plugin-vinext-zephyr',
+  'vite-plugin-zephyr',
+  'zephyr-agent',
+  'zephyr-astro-integration',
+  'zephyr-edge-contract',
+  'zephyr-metro-plugin',
+  'zephyr-modernjs-plugin',
+  'zephyr-repack-plugin',
+  'zephyr-rolldown-plugin',
+  'zephyr-rsbuild-plugin',
+  'zephyr-rspack-plugin',
   'zephyr-rspress-plugin',
+  'zephyr-webpack-plugin',
 ];
 
 const getNextVersion = async (): Promise<string> => {
@@ -58,19 +65,18 @@ interface PackageUpdate {
 function findZephyrPackages(rootPath: string): PackageUpdate[] {
   const updates: PackageUpdate[] = [];
 
-  for (const workspace of WORKSPACES) {
-    const workspacePath = join(rootPath, workspace);
-    const examplesPath = join(workspacePath, "examples");
+  for (const category of CATEGORIES) {
+    const categoryPath = join(rootPath, category);
 
-    if (!existsSync(examplesPath)) {
-      log.warning(`Workspace ${workspace}/examples not found, skipping...`);
+    if (!existsSync(categoryPath)) {
+      log.warning(`Category ${category}/ not found, skipping...`);
       continue;
     }
 
-    const examples = readdirSync(examplesPath);
+    const examples = readdirSync(categoryPath);
 
     for (const example of examples) {
-      const examplePath = join(examplesPath, example);
+      const examplePath = join(categoryPath, example);
       const packagePath = join(examplePath, "package.json");
 
       if (!existsSync(packagePath)) continue;
@@ -230,31 +236,30 @@ const upgradePlugins = async (): Promise<void> => {
   // Run pnpm install to update all dependencies
   log.warning("\nRunning pnpm install in each example to update dependencies...");
 
-  for (const workspace of WORKSPACES) {
-    const workspacePath = join(rootPath, workspace);
-    const examplesPath = join(workspacePath, "examples");
+  for (const category of CATEGORIES) {
+    const categoryPath = join(rootPath, category);
 
-    if (!existsSync(examplesPath)) {
-      log.warning(`Workspace ${workspace}/examples not found, skipping...`);
+    if (!existsSync(categoryPath)) {
+      log.warning(`Category ${category}/ not found, skipping...`);
       continue;
     }
 
-    const examples = readdirSync(examplesPath);
+    const examples = readdirSync(categoryPath);
 
     for (const example of examples) {
-      const examplePath = join(examplesPath, example);
+      const examplePath = join(categoryPath, example);
       const packagePath = join(examplePath, "package.json");
 
       if (!existsSync(packagePath)) continue;
 
       try {
-        log.info(`Installing dependencies in ${workspace}/examples/${example}...`);
+        log.info(`Installing dependencies in ${category}/${example}...`);
         execSync("pnpm install", {
           cwd: examplePath,
           stdio: "inherit",
         });
       } catch (error: any) {
-        log.error(`Failed to run pnpm install in ${workspace}/examples/${example}:`);
+        log.error(`Failed to run pnpm install in ${category}/${example}:`);
         console.error(error.message);
       }
     }
