@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { withZephyr, ModuleFederationOptions } from 'vite-plugin-zephyr';
+import { withZephyr } from 'vite-plugin-zephyr';
+
+type ModuleFederationOptions = Parameters<
+  (typeof import('@module-federation/vite'))['federation']
+>[0];
 
 const mfConfig: ModuleFederationOptions = {
   name: 'vite-host',
