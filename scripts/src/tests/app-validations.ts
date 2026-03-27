@@ -171,10 +171,9 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   astro: {
     uniqueText: ["Hello, Astronaut!", "Blog", "About"],
   },
-  // TODO: pending rsbuild mf checks - remote entry loading error maybe publicPath
-  // "mf-react-rsbuild-consumer": {
-  //   uniqueText: ["Basic Host-Remote", "Provider button"],
-  // },
+  "mf-react-rsbuild-consumer": {
+    uniqueText: ["Rsbuild with React", "Provider button"],
+  },
   "mf-react-rsbuild-provider": {
     uniqueText: ["Basic Host-Remote", "Provider button"],
   },
@@ -183,6 +182,9 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   // "react-components-starter": {
   //   uniqueText: [""],
   // },
+  "tanstack-start": {
+    uniqueText: ["TANSTACK START", "The framework for next generation AI applications"]
+  },
   "rspack-react": {
     uniqueText: ["Rspack", "React", "TypeScript"],
   },
@@ -201,6 +203,9 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "vite-svelte": {
     uniqueText: ["Vite", "Svelte"],
   },
+  "vite-solid": {
+    uniqueText: ["Vite", "Solid"],
+  },
   "turbo-host": {
     uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
   },
@@ -210,4 +215,10 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "turbo-settings": {
     uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
   },
+  "tsdown-react-components": {
+    uniqueText: ["TSDown Example", "my button"],
+  },
+  "zephyr-example-astro": {
+    uniqueText: ["Hello", "Astronaut", "All rights reserved"],
+  }
 };
