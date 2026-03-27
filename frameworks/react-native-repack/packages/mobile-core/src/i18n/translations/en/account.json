@@ -1,0 +1,18 @@
+{
+  "sign_in": {
+    "header": "Zephyr Ultimate Merch Shop",
+    "email": "Email address",
+    "password": "Password",
+    "log_in": "Log in"
+  },
+  "account": {
+    "title": "Account & Settings",
+    "label": "Account",
+    "log_in": "Login",
+    "log_out": "Logout",
+    "module_boundaries": "Show Module Boundaries",
+    "app_language": "App Language",
+    "version": "Host App Version: {{ version }}",
+    "user_label": "Logged in as {{ user }}"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "turbo_home",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rspack build",
+    "check": "biome check --write",
+    "dev": "cross-env NODE_ENV=development rspack serve",
+    "format": "biome format --write"
+  },
+  "zephyr:dependencies": {
+    "turbo_host": "workspace:*"
+  }
+}

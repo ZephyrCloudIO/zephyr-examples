@@ -1,0 +1,46 @@
+{
+  "name": "zephyr-metro-example",
+  "license": "MIT",
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "prepare": "pnpm build",
+    "build": "turbo build",
+    "dev:example": "turbo dev --filter=example-host --filter=MFTextEditor --filter=MFNotesList --ui=tui",
+    "build:ios": "turbo build:ios --filter=MFTextEditor --filter=MFNotesList",
+    "build:ios:zephyr": "turbo build:ios:zephyr --filter=MFTextEditor --filter=MFNotesList",
+    "ios:release:zephyr": "turbo ios:release:zephyr --filter=example-host",
+    "ios:release": "turbo ios:release --filter=example-host",
+    "serve:ios": "turbo serve:ios --filter=MFTextEditor --filter=MFNotesList --ui=tui",
+    "release:ios": "cd apps/example-host && pnpm ios:release",
+    "ios": "cd apps/example-host && pnpm ios",
+    "release:ios:zephyr": "cd apps/example-host && pnpm ios:release:zephyr",
+    "pods": "pnpm --filter example-host run pods",
+    "lint": "biome check --write",
+    "lint:ci": "biome check",
+    "typecheck": "turbo typecheck",
+    "clean:ios": "rm -rf apps/example-host/.rnef/cache/*"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "turbo": "^2.5.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": ">=6.4.1",
+      "axios": "1.13.5",
+      "on-headers": ">=1.1.0",
+      "@react-native-community/cli-server-api": ">=18.0.1",
+      "qs": "6.14.2",
+      "js-yaml": ">=4.1.1",
+      "tar@<=7.5.3": ">=7.5.4",
+      "fast-xml-parser": "5.5.7",
+      "flatted": "3.4.2",
+      "minimatch": "3.1.4",
+      "tar": "7.5.11",
+      "ajv": "6.14.0",
+      "rollup": "4.59.0",
+      "socket.io-parser": "4.2.6",
+      "lodash": "4.17.23"
+    }
+  }
+}

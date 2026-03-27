@@ -1,0 +1,10 @@
+packages:
+  - bundlers/**
+  - module-federation/**
+  - "!module-federation/airbnb-clone/**"
+  - "!module-federation/react-vite-rspack-webpack/**"
+  - frameworks/**
+  - "!frameworks/react-native-metro/**"
+  - "!frameworks/react-native-repack/**"
+  - server/**
+  - scripts

@@ -1,0 +1,9 @@
+{
+  "list": {
+    "empty": "You have no orders",
+    "headline": "Orders",
+    "id": "ID",
+    "date": "Date",
+    "orderedItems": "Ordered Items"
+  }
+}

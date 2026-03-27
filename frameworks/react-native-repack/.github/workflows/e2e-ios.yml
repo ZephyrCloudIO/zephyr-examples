@@ -1,0 +1,82 @@
+name: E2E iOS Tests
+
+on:
+  workflow_call:
+    secrets:
+      ZE_SECRET_TOKEN:
+        required: true
+        description: "Zephyr secret token"
+    inputs:
+      build-zephyr-repack-plugin-locally:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  ios-e2e-tests:
+    timeout-minutes: 60 # Set a timeout for the job to prevent it from running indefinitely
+    runs-on: macos-latest
+    env:
+      RUBY_VERSION: 2.7.6
+      MAESTRO_VERSION: 1.39.4
+      MAESTRO_DRIVER_STARTUP_TIMEOUT: 240000
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Install Maestro CLI and iOS Utilities
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          brew tap facebook/fb
+          brew install facebook/fb/idb-companion
+          echo "${HOME}/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Setup JS Environment and Dependencies
+        uses: ./.github/actions/setup-dependencies
+
+      - name: Cache Pods
+        uses: actions/cache@v3
+        with:
+          path: apps/mobile-host/ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('apps/mobile-host/ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-  
+
+      - name: Build Zephyr Repack Plugin locally
+        if: ${{ inputs.build-zephyr-repack-plugin-locally }}
+        uses: ./.github/actions/build-zephyr-repack-plugin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Pods
+        run: pnpm --filter MobileHost pods
+
+      - uses: callstackincubator/ios@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          destination: 'simulator' # or 'device'
+          scheme: 'host'
+          configuration: 'Release'
+          working-directory: './apps/mobile-host'
+
+      - name: Run iOS E2E Tests on Release Mode
+        env:
+          ZC: 1
+          ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
+          MODE: 'Release'
+        run: |
+          chmod +x ./.github/scripts/run-ios-maestro-tests.sh
+          ./.github/scripts/run-ios-maestro-tests.sh
+
+      - name: Upload Maestro Logs on Failure
+        if: failure() # Runs only if any of the previous steps fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-logs-ios
+          path: ~/.maestro/tests/

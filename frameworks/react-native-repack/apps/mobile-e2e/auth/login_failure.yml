@@ -1,0 +1,12 @@
+appId: com.zephyr.shop.host
+---
+- runFlow: ../common/setupAndOpenApp.yml
+- runFlow:
+    file: ../common/login.yml
+    env:
+      USERNAME: 'invalid@email'
+      PASSWORD: 123
+- assertVisible:
+    id: ${output.signInScreenPOM.emailError}
+- assertVisible:
+    id: ${output.signInScreenPOM.passwordError}

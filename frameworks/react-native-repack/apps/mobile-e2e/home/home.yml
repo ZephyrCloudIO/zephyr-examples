@@ -1,0 +1,10 @@
+appId: com.zephyr.shop.host
+---
+- runFlow: ../common/setupAndOpenApp.yml
+- waitForAnimationToEnd
+- assertVisible:
+    id: ${output.homeScreenPOM.navbar}
+- assertVisible:
+    id: ${output.homeScreenPOM.productsList}
+- assertVisible:
+    id: ${output.homeScreenPOM.productsListItem(0)}

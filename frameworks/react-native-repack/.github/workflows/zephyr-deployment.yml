@@ -1,0 +1,35 @@
+name: Zephyr Deployment
+
+on:
+  workflow_call:
+    secrets:
+      ZE_SECRET_TOKEN:
+        required: true
+        description: "Zephyr secret token"
+    inputs:
+      platform:
+        required: false
+        type: string
+        default: ios
+
+jobs:
+    zephyr-deployment:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10 # Set a timeout for the job to prevent it from running indefinitely
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - uses: ./.github/actions/setup-dependencies
+            - name: Deploy to Zephyr
+              shell: bash
+              env:
+                  ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
+                  WITH_ZE: "1"
+                  ZC: "1"
+              run: |
+                if [ -z "$ZE_SECRET_TOKEN" ]; then
+                  echo "Error: ZE_SECRET_TOKEN is not set"
+                  exit 1
+                fi
+                pnpm nx run-many -t bundle:${{ inputs.platform }}

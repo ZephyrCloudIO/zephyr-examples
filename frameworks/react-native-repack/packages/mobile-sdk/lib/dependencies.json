@@ -1,0 +1,62 @@
+{
+  "react": {
+    "name": "react",
+    "version": "19.0.0"
+  },
+  "react-native": {
+    "name": "react-native",
+    "version": "0.79.4"
+  },
+  "@react-navigation/native": {
+    "name": "@react-navigation/native",
+    "version": "7.1.8"
+  },
+  "@react-navigation/native-stack": {
+    "name": "@react-navigation/native-stack",
+    "version": "7.3.12"
+  },
+  "react-native-paper": {
+    "name": "react-native-paper",
+    "version": "5.12.5"
+  },
+  "react-native-safe-area-context": {
+    "name": "react-native-safe-area-context",
+    "version": "5.4.0"
+  },
+  "react-native-screens": {
+    "name": "react-native-screens",
+    "version": "4.10.0"
+  },
+  "react-native-vector-icons": {
+    "name": "react-native-vector-icons",
+    "version": "10.2.0"
+  },
+  "@module-federation/enhanced": {
+    "name": "@module-federation/enhanced",
+    "version": "0.13.1"
+  },
+  "react-native-mmkv": {
+    "name": "react-native-mmkv",
+    "version": "3.1.0"
+  },
+  "react-native-localize": {
+    "name": "react-native-localize",
+    "version": "3.3.0"
+  },
+  "mobile-core": {
+    "name": "mobile-core",
+    "version": "0.0.1"
+  },
+  "lottie-react-native": {
+    "name": "lottie-react-native",
+    "version": "7.2.2"
+  },
+  "react-native-config": {
+    "name": "react-native-config",
+    "version": "1.5.3"
+  },
+  "react-native-screen-corner-radius": {
+    "name": "react-native-screen-corner-radius",
+    "version": "0.2.2"
+  }
+}

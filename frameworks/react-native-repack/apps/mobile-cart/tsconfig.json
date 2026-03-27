@@ -1,0 +1,10 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "module": "es2020",
+    "types": ["../../types/mobileAssets.d.ts"],
+    "paths": {
+      "react-native-config": ["../../types/react-native-config.d.ts"]
+    }
+  }
+}

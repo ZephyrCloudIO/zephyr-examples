@@ -1,0 +1,14 @@
+{
+  "sign_in": {
+    "header": "Wir liefern gute Laune",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "log_in": "Anmelden"
+  },
+  "account": {
+    "label": "Konto",
+    "log_out": "Abmelden",
+    "module_boundaries": "Modulgrenzen anzeigen",
+    "app_language": "App-Sprache"
+  }
+}

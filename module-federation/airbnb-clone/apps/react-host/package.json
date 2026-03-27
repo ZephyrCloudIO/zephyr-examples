@@ -1,0 +1,18 @@
+{
+  "name": "airbnb-react-host",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "rimraf dist && webpack --mode production",
+    "start": "http-server dist -p 3010"
+  },
+  "zephyr:dependencies": {
+    "airbnb_categories": "workspace:*",
+    "airbnb_home": "workspace:*",
+    "airbnb_favorites": "workspace:*",
+    "airbnb_trips": "workspace:*",
+    "airbnb_properties": "workspace:*",
+    "airbnb_reservations": "workspace:*"
+  }
+}

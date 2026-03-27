@@ -1,0 +1,18 @@
+appId: com.zephyr.shop.host
+---
+
+- tapOn:
+    id: ${output.navigationPOM.accountTabIcon}
+- tapOn:
+    id: ${output.accountScreenPOM.loginButton}
+- waitForAnimationToEnd
+- tapOn:
+    id: ${output.signInScreenPOM.emailInput}
+- waitForAnimationToEnd
+- inputText: ${USERNAME}
+- tapOn:
+    id: ${output.signInScreenPOM.passwordInput}
+- waitForAnimationToEnd
+- inputText: ${PASSWORD}
+- tapOn:
+    id: ${output.signInScreenPOM.signInButton}

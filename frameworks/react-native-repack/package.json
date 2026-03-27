@@ -1,0 +1,114 @@
+{
+  "name": "zephyr-shop-example",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "start:mobile-host": "pnpm --filter MobileHost start",
+    "start:mobile-cart": "pnpm --filter MobileCart start",
+    "start:mobile-inventory": "pnpm --filter MobileInventory start",
+    "start:mobile-checkout": "pnpm --filter MobileCheckout start",
+    "start:mobile-orders": "pnpm --filter MobileOrders start",
+    "start:standalone:mobile-cart": "pnpm --filter MobileCart start:standalone",
+    "start:standalone:mobile-inventory": "pnpm --filter MobileInventory start:standalone",
+    "start:standalone:mobile-checkout": "pnpm --filter MobileCheckout start:standalone",
+    "start:standalone:mobile-orders": "pnpm --filter MobileOrders start:standalone",
+    "run:mobile-host:ios": "pnpm --filter MobileHost ios",
+    "run:mobile-host:android": "pnpm --filter MobileHost android",
+    "run:mobile-checkout:android": "pnpm --filter MobileCheckout android",
+    "run:mobile-checkout:ios": "pnpm --filter MobileCheckout ios",
+    "run:mobile-cart:ios": "pnpm --filter MobileCart ios",
+    "run:mobile-cart:android": "pnpm --filter MobileCart android",
+    "run:mobile-inventory:ios": "pnpm --filter MobileInventory ios",
+    "run:mobile-inventory:android": "pnpm --filter MobileInventory android",
+    "run:mobile-orders:ios": "pnpm --filter MobileOrders ios",
+    "run:mobile-orders:android": "pnpm --filter MobileOrders android",
+    "pods": "nx run-many --parallel=1 -t pods",
+    "pods:update": "pnpm nx run-many --parallel=1 -t pods:update",
+    "start:mobile:concurrently": "concurrently -n HOST,CART,INVENTORY,CHECKOUT,ORDERS -c green,blue,yellow,magenta \"pnpm run start:mobile-host\" \"pnpm run start:mobile-cart\" \"pnpm run start:mobile-inventory\" \"pnpm run start:mobile-checkout\" \"pnpm run start:mobile-orders\" || true",
+    "start": "mprocs",
+    "typecheck": "nx run-many -t typecheck",
+    "lint:check": "nx run-many -t lint",
+    "lint": "nx run-many -t lint --fix --outputStyle static",
+    "test": "nx run-many -t test",
+    "adbreverse": "nx run-many -t adbreverse",
+    "align-deps": "pnpm -r align-deps",
+    "check-deps": "pnpm -r check-deps",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@nx/eslint": "21.0.2",
+    "@nx/eslint-plugin": "21.0.2",
+    "@nx/jest": "21.0.2",
+    "@nx/plugin": "21.0.2",
+    "eslint": "~8.57.1",
+    "husky": "^9.1.7",
+    "mprocs": "^0.7.1",
+    "nx": "21.0.2",
+    "prettier": "^3.4.2"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "react-native-paper": "patches/react-native-paper.patch",
+      "webpack-bundle-analyzer": "patches/webpack-bundle-analyzer.patch"
+    },
+    "packageExtensions": {
+      "@module-federation/data-prefetch": {
+        "peerDependenciesMeta": {
+          "react-dom": {
+            "optional": true
+          }
+        }
+      }
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ]
+    },
+    "allowedDeprecatedVersions": {
+      "eslint": "8"
+    },
+    "overrides": {
+      "node-forge": ">=1.3.2",
+      "jws": ">=3.2.3",
+      "image-size": ">=1.2.1",
+      "tar-fs": "3.1.1",
+      "esbuild@<=0.24.2": ">=0.25.0",
+      "brace-expansion@>=1.0.0 <=1.1.11": ">=1.1.12",
+      "brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2",
+      "form-data@>=4.0.0 <4.0.4": ">=4.0.4",
+      "koa@>=2.0.0 <2.16.2": ">=2.16.2",
+      "koa@>=3.0.1 <3.0.3": "3.1.2",
+      "tmp@<=0.2.3": ">=0.2.4",
+      "axios@>=1.0.0 <1.12.0": ">=1.12.0",
+      "axios": "1.13.5",
+      "lodash": "4.17.23",
+      "glob@<10.5.0": ">=10.5.0",
+      "js-yaml": ">=4.1.1",
+      "qs": ">=6.14.1",
+      "tar@<=7.5.3": ">=7.5.4",
+      "@fastify/middie@<=9.0.3": ">=9.0.4",
+      "fastify": ">=5.7.3",
+      "fast-xml-parser": "5.5.7",
+      "@isaacs/brace-expansion": ">=5.0.1",
+      "flatted": "3.4.2",
+      "socket.io-parser": "4.2.6",
+      "minimatch": "10.2.3",
+      "tar": "7.5.11",
+      "ajv": "8.18.0"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

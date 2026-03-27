@@ -1,0 +1,2 @@
+app_identifier(ENV['APP_IDENTIFIER'])
+apple_id(ENV['APPLE_ID'])

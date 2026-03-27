@@ -1,0 +1,17 @@
+pluginManagement {
+    apply from: "../node_modules/mobile-sdk/android/resolveNodePackage.gradle"
+    // resolve react-native-gradle-plugin & CLI dynamically
+    def reactNativePath = resolveNodePackage('react-native', rootDir)
+    def gradlePluginPath = resolveNodePackage('@react-native/gradle-plugin', reactNativePath)
+    // expose gradlePluginPath outside of pluginManagement block
+    settings.ext.gradlePluginPath = gradlePluginPath.path
+    includeBuild(gradlePluginPath.path)
+}
+
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand(['npx', 'rnef', 'config', '-p', 'android']) }
+
+rootProject.name = 'cart'
+
+include ':app'
+includeBuild(ext.gradlePluginPath)

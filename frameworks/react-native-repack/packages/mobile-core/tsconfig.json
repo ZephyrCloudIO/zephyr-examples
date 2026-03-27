@@ -1,0 +1,11 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "module": "Preserve",
+    "moduleResolution": "bundler",
+    "types": ["node", "../../types/mobileAssets.d.ts"],
+    "paths": {
+      "react-native-config": ["../../types/react-native-config.d.ts"],
+    }
+  }
+}

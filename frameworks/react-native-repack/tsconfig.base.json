@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@executors/multiple": ["tools/multiple/src/index.ts"],
+      "api-base-sdk": ["packages/api-base-sdk/src/index.ts"],
+      "api-bff-sdk": ["packages/api-bff-sdk/src/index.ts"],
+      "api-core": ["packages/api-core/src/index.ts"],
+      "api-ms-sdk": ["packages/api-ms-sdk/src/index.ts"],
+      "api-prisma-client": ["packages/api-prisma-client/src/index.ts"],
+      "api-shared": ["packages/api-shared/src/index.ts"],
+      "api-typings": ["packages/api-typings/src/index.ts"],
+      "nx-generator": ["packages/nx-generator/src/index.ts"],
+      "webheader/Module": ["packages/web-header/src/remote-entry.tsx"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

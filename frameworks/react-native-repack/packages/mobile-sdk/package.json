@@ -1,0 +1,13 @@
+{
+  "name": "mobile-sdk",
+  "version": "0.0.1",
+  "description": "Dependency management & utils",
+  "main": "index.js",
+  "files": [
+    "android",
+    "ios",
+    "lib",
+    "index.js",
+    "preset.js"
+  ]
+}
