@@ -1,44 +1,44 @@
-name: Setup Node and pnpm
-description: Sets up Node.js and pnpm with dependency caching
+name: Setup Node and PNPM
+description: Sets up Node.js and PNPM with caching
 
 inputs:
+  os:
+    required: true
+    description: "Operating system"
+    default: ubuntu-latest
   node-version:
-    required: false
+    required: true
     description: "Node.js version"
     default: "24"
 
 runs:
   using: "composite"
   steps:
-    - name: 📦 Setup pnpm
-      uses: pnpm/action-setup@v4
+    - uses: pnpm/action-setup@v4
       with:
         version: 10.6.3
         run_install: false
-
-    - name: 📦 Setup Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
+        cache: "pnpm"
+        cache-dependency-path: "**/pnpm-lock.yaml"
         registry-url: "https://registry.npmjs.org"
-
-    - name: 📦 Get pnpm store directory
+    - name: Get pnpm store directory
       shell: bash
-      run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-    - name: 📦 Restore pnpm cache
-      uses: actions/cache@v4
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+    - uses: actions/cache@v4
       with:
         path: ${{ env.STORE_PATH }}
-        key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          pnpm-store-${{ runner.os }}-
-
-    - name: 📦 Install workspace dependencies
+          ${{ runner.os }}-pnpm-store-
+    - name: Install workspace dependencies
       shell: bash
       run: pnpm install --prefer-offline
 
-    - name: 📦 Install standalone example dependencies
+    - name: Install standalone example dependencies
       shell: bash
       run: |
         standalone=(
