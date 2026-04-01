@@ -102,10 +102,24 @@ test.describe("Deployment Validation", () => {
         // Set a page-level timeout for this operation
         page.setDefaultTimeout(10_000);
 
-        // First, try to get text immediately using innerText (which excludes hidden elements and styles)
+        // Extract text including Shadow DOM content
         bodyText = await page.evaluate(() => {
-          // Use innerText which excludes script/style tags and hidden elements
-          return document.body.innerText || "";
+          function extractText(root: Element | ShadowRoot): string {
+            let text = '';
+            for (const node of root.childNodes) {
+              if (node.nodeType === Node.TEXT_NODE) {
+                text += node.textContent;
+              } else if (node.nodeType === Node.ELEMENT_NODE) {
+                const el = node as Element;
+                const tag = el.tagName?.toLowerCase();
+                if (tag === 'script' || tag === 'style') continue;
+                if (el.shadowRoot) text += extractText(el.shadowRoot);
+                text += extractText(el);
+              }
+            }
+            return text;
+          }
+          return extractText(document.body);
         });
         bodyText = bodyText.replace(/\s+/g, " ");
 
@@ -114,16 +128,44 @@ test.describe("Deployment Validation", () => {
           try {
             await page.waitForFunction(
               () => {
-                const body = document.body;
-                const text = body.innerText || "";
-                // Wait until body has content AND no longer shows "Loading"
+                function extractText(root: Element | ShadowRoot): string {
+                  let text = '';
+                  for (const node of root.childNodes) {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                      text += node.textContent;
+                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                      const el = node as Element;
+                      const tag = el.tagName?.toLowerCase();
+                      if (tag === 'script' || tag === 'style') continue;
+                      if (el.shadowRoot) text += extractText(el.shadowRoot);
+                      text += extractText(el);
+                    }
+                  }
+                  return text;
+                }
+                const text = extractText(document.body);
                 return text.trim().length > 50 && !text.includes("Loading");
               },
-              { timeout: 10_000 } // Longer timeout for module federation apps
+              { timeout: 10_000 }
             );
             // Re-extract text after waiting
             bodyText = await page.evaluate(() => {
-              return document.body.innerText || "";
+              function extractText(root: Element | ShadowRoot): string {
+                let text = '';
+                for (const node of root.childNodes) {
+                  if (node.nodeType === Node.TEXT_NODE) {
+                    text += node.textContent;
+                  } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    const el = node as Element;
+                    const tag = el.tagName?.toLowerCase();
+                    if (tag === 'script' || tag === 'style') continue;
+                    if (el.shadowRoot) text += extractText(el.shadowRoot);
+                    text += extractText(el);
+                  }
+                }
+                return text;
+              }
+              return extractText(document.body);
             });
             bodyText = bodyText.replace(/\s+/g, " ");
           } catch (e) {

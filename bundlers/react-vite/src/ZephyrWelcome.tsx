@@ -20,6 +20,7 @@ export function ZephyrWelcome({ title, slug, bundlerName, frameworkLogo, bundler
 
   useEffect(() => {
     if (!ref.current || ref.current.shadowRoot) return;
+    document.body.style.margin = '0';
     const shadow = ref.current.attachShadow({ mode: 'open' });
     const cmd = `pnpm dlx degit ZephyrCloudIO/zephyr-examples/${slug} my-app`;
 
