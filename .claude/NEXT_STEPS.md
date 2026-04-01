@@ -1,86 +1,67 @@
-# Zephyr Examples — Next Steps
+# Zephyr Examples Reorg — Checklist
 
-**PR:** [#139](https://github.com/ZephyrCloudIO/zephyr-examples/pull/139)
 **ClickUp:** [ZE-1252](https://app.clickup.com/t/86ageva8x)
 
----
+## Done
 
-## What's in PR #139
+- [x] Directory restructure — 26 examples across bundlers/, module-federation/, frameworks/, server/, build-systems/
+- [x] React Native consolidation — zephyr-metro-example + zephyr-repack-example into frameworks/
+- [x] YAML front matter + templates.json on all 26 READMEs
+- [x] Metadata scripts — validate-readmes, generate-templates, generate-readme
+- [x] Auto-generated root README from templates.json
+- [x] CONTRIBUTING.md — category guide, naming rules, front matter spec, PR checklist
+- [x] agents.md — AI coding assistant discoverability
+- [x] CI workflow — build-deploy-test.yml updated for new directory structure
+- [x] ZephyrWelcome splash component — Shadow DOM React component with inline CSS/SVGs, applied to bundlers/react-vite as reference
 
-- Directory restructure: 26 examples in 5 categories (bundlers, module-federation, frameworks, server, build-systems)
-- React Native repos consolidated from separate repos
-- YAML front matter + templates.json + auto-generated README
-- Validation scripts (validate-readmes, generate-templates, generate-readme)
-- CONTRIBUTING.md, agents.md
-- Matrix CI workflow (development.yml)
-- ZephyrWelcome splash page template (`_template/`)
+## To Do
 
-## To merge
+### 1. Link audit
+Old paths (vanilla/, nx/, turborepo/) will 404 after merge. Grep and fix across repos:
+- [ ] zephyr-documentation (high — user-facing docs)
+- [ ] zephyr-website (high — marketing links)
+- [ ] zephyr-packages (medium — package READMEs)
+- [ ] zephyr-cloud-io (low — internal)
+- [ ] zephyr-mono (low — internal)
 
-- [ ] Squash commits to clean history
-- [ ] Fix git author email (CLA bot issue)
-- [ ] Review CI — some examples may fail on tanstack-start (HTTP 500) and nitro (zephyr-agent version)
-
-## After merge (same week)
-
-### Link Audit
-
-Old paths (`vanilla/`, `nx/`, `turborepo/`) will 404 after merge. Grep and fix across:
-
-| Repo | Priority |
-|------|----------|
-| `zephyr-documentation` | High — user-facing docs |
-| `zephyr-website` | High — marketing links |
-| `zephyr-packages` | Medium — package READMEs |
-| `zephyr-cloud-io` | Low — internal |
-| `zephyr-mono` | Low — internal |
-
-### Cleanup
-
+### 2. Repo cleanup
 - [ ] Add GitHub topics: `zephyr`, `examples`, `module-federation`, `micro-frontends`
-- [ ] Add repo description
-- [ ] Archive `zephyr-metro-example` and `zephyr-repack-example` with redirect READMEs
-- [ ] Handle 84MB GIF in react-native-repack (LFS or removal)
+- [ ] Add repo description: "Starter projects and reference examples for Zephyr Cloud"
+- [ ] Archive zephyr-metro-example and zephyr-repack-example with redirect READMEs
+- [ ] Handle 84MB GIF in frameworks/react-native-repack (LFS or removal)
 - [ ] Merge stale Renovate PRs
 
----
+### 3. Branded splash pages — [ZE-1265](https://app.clickup.com/t/86agftddz)
+Apply ZephyrWelcome Shadow DOM component to all examples. Reference implementation in `bundlers/react-vite/src/ZephyrWelcome.tsx`.
+- [ ] React bundler examples (5 remaining)
+- [ ] MF monorepos (5 — target host app)
+- [ ] Non-React frameworks (4 — Angular, Svelte, Solid, Astro wrappers)
+- [ ] TanStack Start (1 — React-based)
+- [ ] Rspress (1 — SSG, custom page approach)
+- [ ] Nitro server (3 — HTML from route handler)
+- [ ] Build systems (2 — Nx, Turborepo host apps)
 
-## Follow-up PRs
+### 4. CI refactor (separate PR)
+- [ ] Matrix builds per example
+- [ ] Metadata validation (validate-readmes, templates.json freshness) in PR workflow
+- [ ] Release workflow for push-to-main, plugin upgrades, workflow_dispatch
 
-### Branded Splash Pages — [ZE-1265](https://app.clickup.com/t/86agftddz)
+### 5. Build fixes
+- [ ] tanstack-start — HTTP 500 (wrangler/cloudflare integration)
+- [ ] Nitro examples — verify deploys with zephyr-agent@next
 
-Apply `_template/ZephyrWelcome.tsx` Shadow DOM component to all examples. Template and 18 logos are in the repo — needs per-example wiring.
-
-| Scope | Count | Notes |
-|-------|-------|-------|
-| React bundler examples | 6 | Tested pattern, straightforward |
-| MF monorepos | 5 | Target host app in each |
-| Non-React frameworks | 4 | Need Angular, Svelte, Solid, Astro wrappers |
-| TanStack Start | 1 | React-based |
-| Rspress | 1 | SSG, custom page |
-| Nitro server | 3 | HTML from route handler |
-| Build systems | 2 | Nx, Turborepo host apps |
-| React Native | 2 | Skip |
-
-### Coverage Gap Examples
-
+### 6. Coverage gap examples
 | Example | ClickUp |
 |---------|---------|
-| `frameworks/vue-vite` | [ZE-1253](https://app.clickup.com/t/86ageva9c) |
-| `frameworks/nuxt` | [ZE-1254](https://app.clickup.com/t/86ageva9h) |
-| `frameworks/nextjs-webpack` | [ZE-1255](https://app.clickup.com/t/86ageva9x) |
-| `frameworks/qwik-vite` | [ZE-1256](https://app.clickup.com/t/86agevaau) |
-| `frameworks/vinext` | [ZE-1257](https://app.clickup.com/t/86agevab3) |
-| `bundlers/react-webpack` | [ZE-1258](https://app.clickup.com/t/86agevabb) |
+| frameworks/vue-vite | [ZE-1253](https://app.clickup.com/t/86ageva9c) |
+| frameworks/nuxt | [ZE-1254](https://app.clickup.com/t/86ageva9h) |
+| frameworks/nextjs-webpack | [ZE-1255](https://app.clickup.com/t/86ageva9x) |
+| frameworks/qwik-vite | [ZE-1256](https://app.clickup.com/t/86agevaau) |
+| frameworks/vinext | [ZE-1257](https://app.clickup.com/t/86agevab3) |
+| bundlers/react-webpack | [ZE-1258](https://app.clickup.com/t/86agevabb) |
 
-### Web Gallery
+### 7. Web gallery
+Gallery MFE consumed by docs site via Module Federation. Blocked on docs site Rspress build failure (`@rspress/core` version conflict).
 
-Gallery MFE (`zephyr-examples/gallery/`) consumed by docs site via Module Federation. Blocked on docs site Rspress build failure.
-
-### CLI Scaffold — `create-zephyr`
-
-Interactive CLI that fetches `templates.json` and scaffolds any example via degit. Separate package in `zephyr-packages`.
-
-### Release Workflow
-
-`development.yml` only handles PRs. Need a release workflow for push-to-main, plugin upgrades, and `workflow_dispatch` builds.
+### 8. create-zephyr CLI
+Interactive CLI that fetches templates.json and scaffolds any example via degit. Published to npm. Lives in zephyr-packages.
