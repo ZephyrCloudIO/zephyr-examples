@@ -233,51 +233,17 @@ const upgradePlugins = async (): Promise<void> => {
   const filesUpdated = updatePackageVersions(updates, version);
   log.success(`Updated ${filesUpdated} package.json file(s)`);
 
-  // Run pnpm install to update all dependencies
-  log.warning("\nRunning pnpm install in each example to update dependencies...");
+  // Run pnpm install at workspace root to regenerate the lockfile
+  log.warning("\nRunning pnpm install at workspace root to update lockfile...");
 
-  for (const category of CATEGORIES) {
-    const categoryPath = join(rootPath, category);
-
-    if (!existsSync(categoryPath)) {
-      log.warning(`Category ${category}/ not found, skipping...`);
-      continue;
-    }
-
-    const examples = readdirSync(categoryPath);
-
-    for (const example of examples) {
-      const examplePath = join(categoryPath, example);
-      const packagePath = join(examplePath, "package.json");
-
-      if (!existsSync(packagePath)) continue;
-
-      try {
-        log.info(`Installing dependencies in ${category}/${example}...`);
-        execSync("pnpm install", {
-          cwd: examplePath,
-          stdio: "inherit",
-        });
-      } catch (error: any) {
-        log.error(`Failed to run pnpm install in ${category}/${example}:`);
-        console.error(error.message);
-      }
-    }
-  }
-
-  // Also install in scripts
-  const scriptsPath = join(rootPath, 'scripts');
-  if (existsSync(scriptsPath)) {
-    try {
-      log.info(`Installing dependencies in scripts...`);
-      execSync("pnpm install", {
-        cwd: scriptsPath,
-        stdio: "inherit",
-      });
-    } catch (error: any) {
-      log.error(`Failed to run pnpm install in scripts:`);
-      console.error(error.message);
-    }
+  try {
+    execSync("pnpm install --no-frozen-lockfile", {
+      cwd: rootPath,
+      stdio: "inherit",
+    });
+  } catch (error: any) {
+    log.error(`Failed to run pnpm install at workspace root:`);
+    console.error(error.message);
   }
 
   log.success("\n✓ Successfully updated all dependencies!");
