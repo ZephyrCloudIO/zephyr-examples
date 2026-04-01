@@ -65,3 +65,5 @@ Gallery MFE consumed by docs site via Module Federation. Blocked on docs site Rs
 
 ### 8. create-zephyr CLI
 Interactive CLI that fetches templates.json and scaffolds any example via degit. Published to npm. Lives in zephyr-packages.
+- [ ] Add category selection step (Bundlers/MFE/Frameworks/Server/Build Systems) before template picker — data already exists via `directory` field in `templates.ts`
+- [ ] Update React Native path to use consolidated `frameworks/react-native-*` after standalone repos are archived
