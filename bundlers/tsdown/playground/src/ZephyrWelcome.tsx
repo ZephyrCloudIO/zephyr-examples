@@ -20,7 +20,17 @@ export function ZephyrWelcome({ title, slug, bundlerName, frameworkLogo, bundler
 
   useEffect(() => {
     if (!ref.current || ref.current.shadowRoot) return;
+    // Reset host page styles that conflict with the splash layout
     document.body.style.margin = '0';
+    document.body.style.display = 'block';
+    document.body.style.minHeight = '0';
+    document.body.style.background = '#010101';
+    const root = document.getElementById('root');
+    if (root) {
+      root.style.maxWidth = 'none';
+      root.style.padding = '0';
+      root.style.textAlign = 'initial';
+    }
     const shadow = ref.current.attachShadow({ mode: 'open' });
     const cmd = `pnpm dlx degit ZephyrCloudIO/zephyr-examples/${slug} my-app`;
 
