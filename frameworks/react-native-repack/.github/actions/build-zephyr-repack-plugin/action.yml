@@ -1,0 +1,51 @@
+name: Build Zephyr Repack Plugin
+description: Sets up the "zephyr-packages" dependencies and builds Zephyr Repack Plugin locally
+
+runs:
+  using: "composite"
+  steps:
+
+    - name: Add "zephyr-packages" repo as submodule
+      env:
+        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+      run: |
+        REPO_URL="https://${GITHUB_TOKEN}@github.com/ZephyrCloudIO/zephyr-packages.git"
+        git submodule add -b master $REPO_URL submodules/zephyr-packages
+        git submodule update --init --recursive
+      shell: bash
+
+    - uses: pnpm/action-setup@v4
+      name: Install pnpm
+      with:
+        run_install: false
+
+    - uses: actions/setup-node@v4
+      name: Install Node.js
+      with:
+        node-version-file: '.node-version'
+        cache: 'pnpm'
+        cache-dependency-path: '**/pnpm-lock.yaml'
+
+    - name: Install "zephyr-packages" dependencies
+      working-directory: submodules/zephyr-packages
+      run: pnpm i
+      shell: bash
+
+    - name: Build Zephyr Repack Plugin
+      working-directory: submodules/zephyr-packages/libs/zephyr-repack-plugin
+      run: pnpm build
+      shell: bash
+
+    - name: Update Zephyr Repack Plugin version
+      run: |
+        chmod +x ./.github/scripts/update-zephyr-repack-plugin-version.sh
+        ./.github/scripts/update-zephyr-repack-plugin-version.sh
+        cat ./packages/mobile-sdk/lib/devDependencies.json
+      shell: bash
+
+    - name: Align Dependencies
+      run: |
+        pnpm align-deps
+        cat ./apps/mobile-host/package.json
+        pnpm i --no-frozen-lockfile
+      shell: bash

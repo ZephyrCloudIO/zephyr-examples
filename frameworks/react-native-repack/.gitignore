@@ -1,0 +1,35 @@
+.yarn/*
+
+node_modules
+
+/*.tgz
+
+build/
+dist/
+
+.vscode/
+.idea/
+
+# Code Signing
+code-signing.pem
+code-signing.pem.pub
+
+# mprocs
+mprocs.log
+
+# nx
+.nx/cache
+.nx/workspace-data
+
+.env
+
+**/Pods/*
+**/vendor/bundle/*
+.xcode.env.local
+vite.config.*.timestamp*
+
+.aws-sam/*
+
+.rnef
+
+.kotlin/

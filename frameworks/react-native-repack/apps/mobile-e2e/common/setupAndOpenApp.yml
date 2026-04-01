@@ -1,0 +1,6 @@
+appId: com.zephyr.shop.host
+---
+- runFlow: ./loadPageObjectModels.yml
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd # Wait for splash screen to disappear

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/nodemon.json",
+  "verbose": true,
+  "watch": [
+    "./node_modules",
+    "../../node_modules",
+    "../../packages/core",
+    "./metro.config.js"
+  ],
+  "ext": "ts,tsx,js,json,flow",
+  "events": {
+    "restart": "clear && echo '[nodemon] change detected, restarting...'"
+  }
+}

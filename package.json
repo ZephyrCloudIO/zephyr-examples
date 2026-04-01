@@ -1,0 +1,5 @@
+{
+  "name": "zephyr-examples",
+  "private": true,
+  "packageManager": "pnpm@10.6.3"
+}

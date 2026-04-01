@@ -1,0 +1,10 @@
+appId: com.zephyr.shop.host
+---
+- runFlow: ../common/setupAndOpenApp.yml
+- runFlow:
+    file: ../common/login.yml
+    env:
+      USERNAME: 'sample@gmail.com'
+      PASSWORD: 12345678
+- assertVisible:
+    id: ${output.accountScreenPOM.userLabel}

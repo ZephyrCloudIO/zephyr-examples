@@ -1,0 +1,16 @@
+{
+  "name": "mobile-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    
+    "test:auth": "maestro test auth/*",
+    "test:checkout": "maestro test checkout/*",
+    "test:home": "maestro test home/*",
+    "test:all": "maestro test ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

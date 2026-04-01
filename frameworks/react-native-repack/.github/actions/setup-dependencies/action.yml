@@ -1,0 +1,25 @@
+name: Setup Dependencies
+description: Sets up the base dependencies for the project and caches them in the pnpm store
+
+
+runs:
+  using: "composite"
+  steps:
+    # Ensures a consistent pnpm version being used across all actions
+    # Uses the version specified in the project's package.json file under the key: packageManager
+    - uses: pnpm/action-setup@v4
+      name: Install pnpm
+      with:
+        run_install: false
+
+    # Ensures a consistent node version being used across all actions
+    - uses: actions/setup-node@v4
+      name: Install Node.js
+      with:
+        node-version-file: '.node-version'
+        cache: 'pnpm'
+        cache-dependency-path: '**/pnpm-lock.yaml'
+
+    - name: Install dependencies
+      run: pnpm install --prefer-offline --frozen-lockfile
+      shell: bash

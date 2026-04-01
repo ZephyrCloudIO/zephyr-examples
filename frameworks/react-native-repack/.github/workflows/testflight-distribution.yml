@@ -1,0 +1,43 @@
+name: Testflight Distribution
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build-and-distribute-to-testflight:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install pods
+        run: pnpm --filter MobileHost pods
+
+      - name: Run fastlane TestFlight distribution lane
+        working-directory: 'apps/mobile-host/ios'
+        env:
+          APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          KEY_ID: ${{ secrets.KEY_ID }}
+          ISSUER_ID: ${{ secrets.ISSUER_ID }}
+          KEY_CONTENT: ${{ secrets.KEY_CONTENT }}
+          GIT_URL: ${{ secrets.GIT_URL }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          BUILD_NUMBER: ${{ github.run_number }}
+        run: fastlane testflight_distribution

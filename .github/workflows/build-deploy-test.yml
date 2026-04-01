@@ -28,9 +28,11 @@ on:
     branches:
       - main
     paths:
-      - "nx/**"
-      - "vanilla/**"
-      - "turborepo/**"
+      - "bundlers/**"
+      - "module-federation/**"
+      - "frameworks/**"
+      - "server/**"
+      - "build-systems/**"
       - "scripts/**"
       - ".github/workflows/**"
       - ".github/actions/**"
@@ -38,9 +40,11 @@ on:
     branches:
       - main
     paths:
-      - "nx/**"
-      - "vanilla/**"
-      - "turborepo/**"
+      - "bundlers/**"
+      - "module-federation/**"
+      - "frameworks/**"
+      - "server/**"
+      - "build-systems/**"
       - "scripts/**"
       - ".github/workflows/**"
       - ".github/actions/**"
@@ -118,32 +122,23 @@ jobs:
             pnpm upgrade-plugins
           fi
 
-      - name: Install vanilla dependencies
-        run: |
-          cd vanilla
-          pnpm install --prefer-offline
+      - name: Install example dependencies
+        run: pnpm install --prefer-offline
 
-      - name: Install nx example dependencies
+      - name: Install standalone example dependencies
         run: |
-          cd nx/examples
-          for example in */; do
-            if [ -f "${example}package.json" ]; then
-              echo "Installing dependencies for nx/${example}"
+          standalone=(
+            build-systems/nx-rspack-mf
+            build-systems/turborepo-rspack-mf
+            module-federation/airbnb-clone
+            module-federation/react-vite-rspack-webpack
+          )
+          for example in "${standalone[@]}"; do
+            if [ -f "${example}/package.json" ]; then
+              echo "Installing dependencies for ${example}"
               cd "$example"
               pnpm install --prefer-offline
-              cd ..
-            fi
-          done
-
-      - name: Install turborepo example dependencies
-        run: |
-          cd turborepo/examples
-          for example in */; do
-            if [ -f "${example}package.json" ]; then
-              echo "Installing dependencies for turborepo/${example}"
-              cd "$example"
-              pnpm install --prefer-offline
-              cd ..
+              cd "$GITHUB_WORKSPACE"
             fi
           done
 

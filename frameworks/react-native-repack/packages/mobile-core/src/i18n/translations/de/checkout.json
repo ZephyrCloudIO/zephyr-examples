@@ -1,0 +1,8 @@
+{
+  "total_price": "Gesamt: ${{price}}",
+  "checkout": "Kasse",
+  "guest_checkout": "Gast-Kasse",
+  "checkout_success_title": "Bestellung bestätigt!",
+  "checkout_success_message": "Ihre Bestellung wurde erfolgreich aufgegeben. Wir bereiten sie für Sie vor!",
+  "checkout_success_button": "Weiter"
+}

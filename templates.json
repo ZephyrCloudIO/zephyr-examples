@@ -1,0 +1,296 @@
+[
+  {
+    "name": "Parcel + React",
+    "slug": "bundlers/parcel-react",
+    "description": "React application with Parcel bundler, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "parcel",
+    "features": [],
+    "complexity": "beginner",
+    "path": "bundlers/parcel-react"
+  },
+  {
+    "name": "React + Rspack",
+    "slug": "bundlers/react-rspack",
+    "description": "React application with Rspack bundler, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [],
+    "complexity": "beginner",
+    "path": "bundlers/react-rspack"
+  },
+  {
+    "name": "React + Vite",
+    "slug": "bundlers/react-vite",
+    "description": "React application with Vite bundler, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "beginner",
+    "path": "bundlers/react-vite"
+  },
+  {
+    "name": "React + Rolldown",
+    "slug": "bundlers/rolldown-react",
+    "description": "React application with Rolldown, a fast Rust-based bundler, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rolldown",
+    "features": [],
+    "complexity": "beginner",
+    "path": "bundlers/rolldown-react"
+  },
+  {
+    "name": "React + Rollup",
+    "slug": "bundlers/rollup-react",
+    "description": "React application with Rollup bundler and TypeScript, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rollup",
+    "features": [],
+    "complexity": "beginner",
+    "path": "bundlers/rollup-react"
+  },
+  {
+    "name": "React + tsdown",
+    "slug": "bundlers/tsdown",
+    "description": "React component library starter with tsdown bundler, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "tsdown",
+    "features": [],
+    "complexity": "beginner",
+    "path": "bundlers/tsdown"
+  },
+  {
+    "name": "Airbnb Clone (Module Federation)",
+    "slug": "module-federation/airbnb-clone",
+    "description": "Airbnb clone demonstrating micro-frontend architecture with Module Federation",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "advanced",
+    "path": "module-federation/airbnb-clone"
+  },
+  {
+    "name": "React + Rsbuild Module Federation",
+    "slug": "module-federation/react-rsbuild",
+    "description": "Module Federation with React and Rsbuild, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rsbuild",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "intermediate",
+    "path": "module-federation/react-rsbuild"
+  },
+  {
+    "name": "React Multi-Bundler Module Federation",
+    "slug": "module-federation/react-vite-rspack-webpack",
+    "description": "Module Federation across Vite, Rspack, and Webpack bundlers, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "webpack",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "advanced",
+    "path": "module-federation/react-vite-rspack-webpack"
+  },
+  {
+    "name": "React + Webpack Module Federation",
+    "slug": "module-federation/react-webpack",
+    "description": "Module Federation with React and Webpack 5, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "webpack",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "intermediate",
+    "path": "module-federation/react-webpack"
+  },
+  {
+    "name": "Tractor Store (Module Federation)",
+    "slug": "module-federation/tractor-sample",
+    "description": "Tractor Store micro-frontend sample with Rspack and Module Federation",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "advanced",
+    "path": "module-federation/tractor-sample"
+  },
+  {
+    "name": "Angular + Vite",
+    "slug": "frameworks/angular-vite",
+    "description": "Angular application with Vite bundler, deployed with Zephyr Cloud",
+    "framework": "angular",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "beginner",
+    "path": "frameworks/angular-vite"
+  },
+  {
+    "name": "Astro",
+    "slug": "frameworks/astro",
+    "description": "Astro static site with Zephyr Cloud deployment",
+    "framework": "astro",
+    "bundler": "vite",
+    "features": [
+      "ssg"
+    ],
+    "complexity": "beginner",
+    "path": "frameworks/astro"
+  },
+  {
+    "name": "Ember + Vite",
+    "slug": "frameworks/ember-vite",
+    "description": "Ember application with Vite bundler, deployed with Zephyr Cloud",
+    "framework": "ember",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "beginner",
+    "path": "frameworks/ember-vite"
+  },
+  {
+    "name": "Modern.js",
+    "slug": "frameworks/modernjs",
+    "description": "React application with Modern.js framework and Rspack, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "ssr"
+    ],
+    "complexity": "intermediate",
+    "path": "frameworks/modernjs"
+  },
+  {
+    "name": "React Native + Metro",
+    "slug": "frameworks/react-native-metro",
+    "description": "React Native app with Metro bundler and Module Federation, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "metro",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "advanced",
+    "path": "frameworks/react-native-metro"
+  },
+  {
+    "name": "React Native + Re.Pack",
+    "slug": "frameworks/react-native-repack",
+    "description": "React Native super app with Re.Pack and Module Federation, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "repack",
+    "features": [
+      "module-federation"
+    ],
+    "complexity": "advanced",
+    "path": "frameworks/react-native-repack"
+  },
+  {
+    "name": "Rspress",
+    "slug": "frameworks/rspress",
+    "description": "Documentation site with Rspress static site generator, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "ssg"
+    ],
+    "complexity": "beginner",
+    "path": "frameworks/rspress"
+  },
+  {
+    "name": "SolidJS + Vite",
+    "slug": "frameworks/solid-vite",
+    "description": "SolidJS application with Vite bundler, deployed with Zephyr Cloud",
+    "framework": "solid",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "beginner",
+    "path": "frameworks/solid-vite"
+  },
+  {
+    "name": "Svelte + Vite",
+    "slug": "frameworks/svelte-vite",
+    "description": "Svelte application with Vite bundler, deployed with Zephyr Cloud",
+    "framework": "svelte",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "beginner",
+    "path": "frameworks/svelte-vite"
+  },
+  {
+    "name": "TanStack Start",
+    "slug": "frameworks/tanstack-start",
+    "description": "TanStack Start application with Vite, deployed with Zephyr Cloud",
+    "framework": "tanstack",
+    "bundler": "vite",
+    "features": [
+      "ssr"
+    ],
+    "complexity": "intermediate",
+    "path": "frameworks/tanstack-start"
+  },
+  {
+    "name": "Nitro + Elysia",
+    "slug": "server/nitro-elysia",
+    "description": "Elysia running on Nitro server with Zephyr Cloud deployment",
+    "framework": "nitro",
+    "bundler": "nitro",
+    "features": [
+      "edge"
+    ],
+    "complexity": "beginner",
+    "path": "server/nitro-elysia"
+  },
+  {
+    "name": "Nitro Hello World",
+    "slug": "server/nitro-hello-world",
+    "description": "Minimal Nitro server with Zephyr Cloud deployment",
+    "framework": "nitro",
+    "bundler": "nitro",
+    "features": [
+      "edge"
+    ],
+    "complexity": "beginner",
+    "path": "server/nitro-hello-world"
+  },
+  {
+    "name": "Nitro + Hono",
+    "slug": "server/nitro-hono",
+    "description": "Hono running on Nitro server with Zephyr Cloud deployment",
+    "framework": "nitro",
+    "bundler": "nitro",
+    "features": [
+      "edge"
+    ],
+    "complexity": "beginner",
+    "path": "server/nitro-hono"
+  },
+  {
+    "name": "Nx + Rspack Module Federation",
+    "slug": "build-systems/nx-rspack-mf",
+    "description": "Nx monorepo with Rspack and Module Federation, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "module-federation",
+      "monorepo"
+    ],
+    "complexity": "advanced",
+    "path": "build-systems/nx-rspack-mf"
+  },
+  {
+    "name": "Turborepo + Rspack Module Federation",
+    "slug": "build-systems/turborepo-rspack-mf",
+    "description": "Turborepo monorepo with Rspack and Module Federation, deployed with Zephyr Cloud",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "module-federation",
+      "monorepo"
+    ],
+    "complexity": "advanced",
+    "path": "build-systems/turborepo-rspack-mf"
+  }
+]

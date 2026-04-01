@@ -1,0 +1,9 @@
+{
+  "list": {
+    "empty": "Sie haben keine Bestellungen",
+    "headline": "Bestellungen",
+    "id": "ID",
+    "date": "Datum",
+    "orderedItems": "Bestellte Artikel"
+  }
+}

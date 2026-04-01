@@ -1,0 +1,100 @@
+name: E2E Android Tests
+
+on:
+  workflow_call:
+    secrets:
+      ZE_SECRET_TOKEN:
+        required: true
+        description: "Zephyr secret token"
+    inputs:
+      build-zephyr-repack-plugin-locally:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  android-e2e-tests:
+    timeout-minutes: 30 # Set a timeout for the job to prevent it from running indefinitely
+    runs-on: ubuntu-latest
+    env:
+      MAESTRO_VERSION: 1.39.4
+      ANDROID_EMULATOR_API_LEVEL: 28
+      ANDROID_EMULATOR_TARGET: default
+      ANDROID_EMULATOR_ARCH: x86
+      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: 120
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup KVM (Required for Android Emulator)
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: false
+
+      - name: AVD cache
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ env.ANDROID_EMULATOR_API_LEVEL }}-${{ env.ANDROID_EMULATOR_TARGET }}-${{ env.ANDROID_EMULATOR_ARCH }}-${{ runner.os }}
+
+      - name: Install Maestro CLI
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "${HOME}/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Setup JS Environment and Dependencies
+        uses: ./.github/actions/setup-dependencies
+
+      - name: Create AVD and generate snapshot for caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ env.ANDROID_EMULATOR_API_LEVEL }}
+          target: ${{ env.ANDROID_EMULATOR_TARGET }}
+          arch: ${{ env.ANDROID_EMULATOR_ARCH }}
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: Build Zephyr Repack Plugin locally
+        if: ${{ inputs.build-zephyr-repack-plugin-locally }}
+        uses: ./.github/actions/build-zephyr-repack-plugin
+
+      - uses: callstackincubator/android@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          variant: 'Release'
+          working-directory: './apps/mobile-host'
+
+      - name: Run Android E2E Tests on Release Mode
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          ZC: 1
+          ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
+          MODE: 'Release'
+        with:
+          api-level: ${{ env.ANDROID_EMULATOR_API_LEVEL }}
+          target: ${{ env.ANDROID_EMULATOR_TARGET }}
+          arch: ${{ env.ANDROID_EMULATOR_ARCH }}
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: |
+            chmod +x ./.github/scripts/run-android-maestro-tests.sh
+            ./.github/scripts/run-android-maestro-tests.sh
+
+      - name: Upload Maestro Logs on Failure
+        if: failure() # Runs only if any of the previous steps fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-logs-android
+          path: ~/.maestro/tests/

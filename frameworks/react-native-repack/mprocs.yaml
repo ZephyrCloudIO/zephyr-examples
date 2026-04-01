@@ -1,0 +1,16 @@
+procs:
+  Host:
+    shell: pnpm start:mobile-host
+    stop: SIGKILL
+  Cart:
+    shell: pnpm start:mobile-cart
+    stop: SIGKILL
+  Inventory:
+    shell: pnpm start:mobile-inventory
+    stop: SIGKILL
+  Checkout:
+    shell: pnpm start:mobile-checkout
+    stop: SIGKILL
+  Orders:
+    shell: pnpm start:mobile-orders
+    stop: SIGKILL

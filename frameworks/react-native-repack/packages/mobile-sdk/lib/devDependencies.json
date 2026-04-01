@@ -1,0 +1,107 @@
+{
+  "@babel/core": {
+    "name": "@babel/core",
+    "version": "^7.26.10",
+    "devOnly": true
+  },
+  "@babel/preset-env": {
+    "name": "@babel/preset-env",
+    "version": "^7.26.10",
+    "devOnly": true
+  },
+  "@babel/runtime": {
+    "name": "@babel/runtime",
+    "version": "^7.26.10",
+    "devOnly": true
+  },
+  "@callstack/repack": {
+    "name": "@callstack/repack",
+    "version": "5.1.1",
+    "devOnly": true
+  },
+  "@react-native/babel-preset": {
+    "name": "@react-native/babel-preset",
+    "version": "0.79.4",
+    "devOnly": true
+  },
+  "@react-native/eslint-config": {
+    "name": "@react-native/eslint-config",
+    "version": "0.79.4",
+    "devOnly": true
+  },
+  "@react-native/typescript-config": {
+    "name": "@react-native/typescript-config",
+    "version": "0.79.4",
+    "devOnly": true
+  },
+  "@rnef/cli": {
+    "name": "@rnef/cli",
+    "version": "^0.7.5",
+    "devOnly": true
+  },
+  "@rnef/platform-android": {
+    "name": "@rnef/platform-android",
+    "version": "^0.7.5",
+    "devOnly": true
+  },
+  "@rnef/platform-ios": {
+    "name": "@rnef/platform-ios",
+    "version": "^0.7.5",
+    "devOnly": true
+  },
+  "@rnef/plugin-repack": {
+    "name": "@rnef/plugin-repack",
+    "version": "^0.7.5",
+    "devOnly": true
+  },
+  "@rspack/core": {
+    "name": "@rspack/core",
+    "version": "^1.2.2",
+    "devOnly": true
+  },
+  "@swc/helpers": {
+    "name": "@swc/helpers",
+    "version": "0.5.15",
+    "devOnly": true
+  },
+  "@types/jest": {
+    "name": "@types/jest",
+    "version": "^29.5.14",
+    "devOnly": true
+  },
+  "@types/react": {
+    "name": "@types/react",
+    "version": "^18.2.6",
+    "devOnly": true
+  },
+  "@types/react-native-vector-icons": {
+    "name": "@types/react-native-vector-icons",
+    "version": "^6.4.12",
+    "devOnly": true
+  },
+  "eslint": {
+    "name": "eslint",
+    "version": "^8.57.0",
+    "devOnly": true
+  },
+  "jest": {
+    "name": "jest",
+    "version": "^29.6.3",
+    "devOnly": true
+  },
+  "typescript": {
+    "name": "typescript",
+    "version": "^5.6.3",
+    "devOnly": true
+  },
+  "zephyr-repack-plugin": {
+    "name": "zephyr-repack-plugin",
+    "version": "0.0.54",
+    "devOnly": true
+  },
+  "@rsdoctor/rspack-plugin": {
+    "name": "@rsdoctor/rspack-plugin",
+    "version": "^0.4.13",
+    "devOnly": true
+  }
+}

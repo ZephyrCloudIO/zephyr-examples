@@ -1,0 +1,21 @@
+name: Mobile E2E Tests Trigger
+
+on: [workflow_dispatch]
+
+jobs:
+  zephyr-deployment:
+    uses: ./.github/workflows/zephyr-deployment.yml
+    secrets:
+      ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
+
+  ios-tests:
+    needs: zephyr-deployment
+    uses: ./.github/workflows/e2e-ios.yml
+    secrets:
+      ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
+
+  android-tests:
+    needs: zephyr-deployment
+    uses: ./.github/workflows/e2e-android.yml
+    secrets:
+      ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
