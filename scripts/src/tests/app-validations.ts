@@ -195,7 +195,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Angular", "Starter", "Zephyr Cloud"],
   },
   "vite-ember": {
-    uniqueText: ["Ember", "Starter", "Zephyr Cloud"],
+    uniqueText: ["Ember", "Vite", "Zephyr Cloud"],
   },
   "vite-react": {
     uniqueText: ["Vite", "Starter", "Zephyr Cloud"],
