@@ -9,7 +9,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Angular", "Vite"],
   },
   "react-vite-ts": {
-    uniqueText: ["Vite", "React"],
+    uniqueText: ["Vite", "Starter", "Zephyr Cloud"],
   },
   "ember-vite": {
     uniqueText: ["Congratulations", "Quick start"],
@@ -36,16 +36,16 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Welcome", "Hello there"],
   },
   "parcel-react": {
-    uniqueText: ["Hello", "Zephyr", "Parcel"],
+    uniqueText: ["Parcel", "Starter", "Zephyr Cloud"],
   },
   "rspack-react-starter": {
     uniqueText: ["Rspack", "React"],
   },
   "rolldown-react": {
-    uniqueText: ["Rolldown", "React"],
+    uniqueText: ["Rolldown", "Starter", "Zephyr Cloud"],
   },
   "rollup-react-ts": {
-    uniqueText: ["Rollup", "React"],
+    uniqueText: ["Rollup", "Starter", "Zephyr Cloud"],
   },
   "rspress-ssg": {
     uniqueText: ["My Site", "A cool website!"],
@@ -186,7 +186,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["TANSTACK START", "The framework for next generation AI applications"]
   },
   "rspack-react": {
-    uniqueText: ["Rspack", "React", "TypeScript"],
+    uniqueText: ["Rspack", "Starter", "Zephyr Cloud"],
   },
   "rspress": {
     uniqueText: ["My Site", "A cool website!"],
@@ -198,7 +198,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Welcome to Ember", "Vite"],
   },
   "vite-react": {
-    uniqueText: ["Vite", "React"],
+    uniqueText: ["Vite", "Starter", "Zephyr Cloud"],
   },
   "vite-svelte": {
     uniqueText: ["Vite", "Svelte"],
@@ -216,7 +216,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
   },
   "tsdown-react-components": {
-    uniqueText: ["TSDown Example", "my button"],
+    uniqueText: ["tsdown", "Starter", "Zephyr Cloud"],
   },
   "zephyr-example-astro": {
     uniqueText: ["Hello", "Astronaut", "All rights reserved"],
