@@ -21,7 +21,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Svelte", "Vite"],
   },
   "modernjs": {
-    uniqueText: ["Modern.js", "Get Started"],
+    uniqueText: ["ModernJS", "Starter", "Zephyr Cloud"],
   },
   "nitro-elysia": {
     uniqueText: ["Hello Zephyr from Elysia and Nitro!"],
