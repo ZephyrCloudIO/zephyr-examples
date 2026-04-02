@@ -6,19 +6,19 @@ interface AppValidation {
 export const APP_VALIDATIONS: Record<string, AppValidation> = {
   // Framework-specific apps
   "angular-vite-zephyr-template": {
-    uniqueText: ["Angular", "Vite"],
+    uniqueText: ["Angular", "Starter", "Zephyr Cloud"],
   },
   "react-vite-ts": {
     uniqueText: ["Vite", "Starter", "Zephyr Cloud"],
   },
   "ember-vite": {
-    uniqueText: ["Congratulations", "Quick start"],
+    uniqueText: ["Ember", "Starter", "Zephyr Cloud"],
   },
   "solid-zephyr-template": {
-    uniqueText: ["Solid", "Vite"],
+    uniqueText: ["Solid", "Starter", "Zephyr Cloud"],
   },
   "svelte-zephyr-template": {
-    uniqueText: ["Svelte", "Vite"],
+    uniqueText: ["Svelte", "Starter", "Zephyr Cloud"],
   },
   "modernjs": {
     uniqueText: ["ModernJS", "Starter", "Zephyr Cloud"],
@@ -169,7 +169,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Welcome host", "Remote1", "Remote2"],
   },
   astro: {
-    uniqueText: ["Hello, Astronaut!", "Blog", "About"],
+    uniqueText: ["Astro", "Starter", "Zephyr Cloud"],
   },
   "mf-react-rsbuild-consumer": {
     uniqueText: ["Rsbuild with React", "Provider button"],
@@ -192,19 +192,19 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["My Site", "A cool website!"],
   },
   "vite-angular": {
-    uniqueText: ["Vite", "Angular"],
+    uniqueText: ["Angular", "Starter", "Zephyr Cloud"],
   },
   "vite-ember": {
-    uniqueText: ["Welcome to Ember", "Vite"],
+    uniqueText: ["Ember", "Starter", "Zephyr Cloud"],
   },
   "vite-react": {
     uniqueText: ["Vite", "Starter", "Zephyr Cloud"],
   },
   "vite-svelte": {
-    uniqueText: ["Vite", "Svelte"],
+    uniqueText: ["Svelte", "Starter", "Zephyr Cloud"],
   },
   "vite-solid": {
-    uniqueText: ["Vite", "Solid"],
+    uniqueText: ["Solid", "Starter", "Zephyr Cloud"],
   },
   "turbo-host": {
     uniqueText: ["Zephyr Cloud Starter", "Footer", "Documentation"],
@@ -219,6 +219,6 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["tsdown", "Starter", "Zephyr Cloud"],
   },
   "zephyr-example-astro": {
-    uniqueText: ["Hello", "Astronaut", "All rights reserved"],
+    uniqueText: ["Astro", "Starter", "Zephyr Cloud"],
   }
 };

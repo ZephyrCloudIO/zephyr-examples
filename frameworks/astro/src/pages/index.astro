@@ -1,49 +1,29 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Astro + Zephyr Cloud</title>
+		<meta name="description" content="Astro starter deployed on Zephyr Cloud" />
 	</head>
 	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
+		<div id="zephyr-welcome"></div>
+		<script>
+			import { mountZephyrWelcome } from '../zephyr-welcome';
+
+			const ASTRO_LOGO = `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 128 128"><path fill="#fff" d="M81.5 93.4c-4.5 3.7-13.5 6.3-23.8 6.3S40 97.1 35.5 93.4c-1-.8-.8-2.2.5-2.4 2.8-.4 7.1-1.1 9.3-3.5 2.5-2.8 2.5-8.3 2.5-8.3h12.4s0 5.5 2.5 8.3c2.2 2.4 6.5 3.1 9.3 3.5 1.3.2 1.5 1.6.5 2.4M46 30h36l-4 88h-28z"/><path fill="#ff5d01" d="M64 0c-.9 0-36 40-36 40l22.7 68.2S54 96.6 64 96.6s13.3 11.6 13.3 11.6L100 40S64.9 0 64 0"/></svg>`;
+
+			const container = document.getElementById('zephyr-welcome')!;
+			mountZephyrWelcome(container, {
+				title: 'Astro',
+				slug: 'frameworks/astro',
+				bundlerName: 'Astro',
+				frameworkLogo: `<a href="https://astro.build" target="_blank">${ASTRO_LOGO}</a>`,
+				pills: ['Astro', 'TypeScript', 'Zephyr Cloud'],
+			});
+		</script>
 	</body>
 </html>
