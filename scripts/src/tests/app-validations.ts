@@ -183,7 +183,7 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   //   uniqueText: [""],
   // },
   "tanstack-start": {
-    uniqueText: ["TANSTACK START", "The framework for next generation AI applications"]
+    uniqueText: ["TanStack Start", "Starter", "Zephyr Cloud"],
   },
   "rspack-react": {
     uniqueText: ["Rspack", "Starter", "Zephyr Cloud"],
