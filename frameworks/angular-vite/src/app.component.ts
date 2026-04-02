@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { mountZephyrWelcome } from '../../_shared/zephyr-welcome';
+import { mountZephyrWelcome } from './zephyr-welcome';
 
 const ANGULAR_LOGO = `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 128 128"><path fill="#dd0031" d="M64 0L0 22.9l9.8 84.8L64 128l54.2-20.3L128 22.9z"/><path fill="#c3002f" d="M64 0v14.2V128l54.2-20.3L128 22.9z"/><path fill="#fff" d="M64 24.5L30.1 97.2h12.6l6.8-17h28.7l6.8 17h12.6zm9.5 44.6H54.5L64 43.1z"/></svg>`;
 

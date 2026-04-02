@@ -190,6 +190,15 @@ export function mountZephyrWelcome(container: HTMLElement, options: ZephyrWelcom
     root.style.padding = '0';
     root.style.textAlign = 'initial';
   }
+  // Reset the container and its parent (handles Angular's app-root, Svelte's #app, etc.)
+  const parent = container.parentElement;
+  if (parent) {
+    parent.style.display = 'block';
+    parent.style.maxWidth = 'none';
+    parent.style.padding = '0';
+    parent.style.margin = '0';
+    parent.style.minHeight = '0';
+  }
 
   if (container.shadowRoot) return;
   const shadow = container.attachShadow({ mode: 'open' });
