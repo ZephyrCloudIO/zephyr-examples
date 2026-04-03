@@ -13,13 +13,13 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@module-federation/enhanced": "^0.21.2",
-    "@module-federation/rsbuild-plugin": "^0.21.2",
-    "@rsbuild/core": "^1.6.0",
-    "@rsbuild/plugin-react": "^1.4.1",
+    "@module-federation/enhanced": "0.21.6",
+    "@module-federation/rsbuild-plugin": "0.21.6",
+    "@rsbuild/core": "1.7.5",
+    "@rsbuild/plugin-react": "1.4.6",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "typescript": "^5.9.3",
+    "typescript": "5.9.3",
     "zephyr-rsbuild-plugin": "latest"
   }
 }
