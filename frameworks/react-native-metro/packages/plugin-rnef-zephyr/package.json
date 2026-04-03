@@ -23,9 +23,9 @@
     "dev": "tsc --watch"
   },
   "devDependencies": {
-    "@rnef/config": "^0.7.18",
-    "@rnef/tools": "^0.7.18",
-    "@types/node": "^24.0.0",
+    "@rnef/config": "0.7.28",
+    "@rnef/tools": "0.7.28",
+    "@types/node": "24.10.4",
     "@module-federation/metro": "0.18.4",
     "typescript": "5.0.4",
     "zephyr-metro-plugin": "0.0.0-canary-20250813124421"
