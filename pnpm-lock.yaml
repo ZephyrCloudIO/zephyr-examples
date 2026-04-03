@@ -25,7 +25,7 @@ importers:
         version: 2.16.0(@swc/helpers@0.5.18)
       parcel-reporter-zephyr:
         specifier: latest
-        version: 0.1.16(@parcel/plugin@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(@parcel/types@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(https-proxy-agent@7.0.6)
+        version: 0.2.0(@parcel/plugin@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(@parcel/types@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(https-proxy-agent@7.0.6)
       process:
         specifier: ^0.11.10
         version: 0.11.10
@@ -65,7 +65,7 @@ importers:
         version: 5.9.3
       zephyr-rspack-plugin:
         specifier: latest
-        version: 0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
+        version: 0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
 
   bundlers/react-vite:
     dependencies:
@@ -77,7 +77,7 @@ importers:
         version: 19.2.4(react@19.2.4)
       vite-plugin-zephyr:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
     devDependencies:
       '@types/react':
         specifier: ^19.2.2
@@ -133,7 +133,7 @@ importers:
         version: 1.0.0-beta.46
       zephyr-rolldown-plugin:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.46)
+        version: 0.2.0(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.46)
 
   bundlers/rollup-react:
     dependencies:
@@ -145,7 +145,7 @@ importers:
         version: 19.2.4(react@19.2.4)
       rollup-plugin-zephyr:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rollup@4.57.1)
+        version: 0.2.0(https-proxy-agent@7.0.6)(rollup@4.57.1)
     devDependencies:
       '@babel/preset-react':
         specifier: ^7.28.5
@@ -211,8 +211,8 @@ importers:
         specifier: ^10.1.0
         version: 10.4.1(magicast@0.5.2)
       happy-dom:
-        specifier: ^17.4.6
-        version: 17.6.3
+        specifier: ^20.0.0
+        version: 20.8.9
       react:
         specifier: ^19.1.0
         version: 19.2.4
@@ -230,10 +230,10 @@ importers:
         version: rolldown-vite@7.3.1(@types/node@22.19.11)(esbuild@0.27.3)(jiti@2.6.1)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       vitest:
         specifier: ^3.1.3
-        version: 3.2.4(@types/debug@4.1.12)(@types/node@22.19.11)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@22.19.11)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       zephyr-rolldown-plugin:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.9)
+        version: 0.2.0(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.9)
 
   frameworks/angular-vite:
     dependencies:
@@ -266,17 +266,17 @@ importers:
         version: 2.8.1
       vite-plugin-zephyr:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       zone.js:
         specifier: ^0.15.1
         version: 0.15.1
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: ^2.0.0
-        version: 2.3.1(@angular/build@20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2))
+        version: 2.3.1(@angular/build@20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2))
       '@angular/build':
         specifier: ^20.3.8
-        version: 20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)
+        version: 20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)
       '@angular/compiler-cli':
         specifier: ^20.3.9
         version: 20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3)
@@ -307,7 +307,7 @@ importers:
     devDependencies:
       zephyr-astro-integration:
         specifier: next
-        version: 0.1.16-next.1(astro@5.18.1(@types/node@24.10.13)(db0@0.3.4)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(https-proxy-agent@7.0.6)
+        version: 1.0.0-next.1(astro@5.18.1(@types/node@24.10.13)(db0@0.3.4)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(https-proxy-agent@7.0.6)
 
   frameworks/ember-vite:
     devDependencies:
@@ -460,7 +460,7 @@ importers:
         version: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       vite-plugin-zephyr:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
 
   frameworks/modernjs:
     dependencies:
@@ -506,10 +506,10 @@ importers:
         version: 5.9.3
       zephyr-modernjs-plugin:
         specifier: latest
-        version: 0.1.16(@modern-js/app-tools@2.70.8(@rspack/core@1.7.6(@swc/helpers@0.5.18))(encoding@0.1.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.60.0)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4))(tsconfig-paths@4.2.0)(tslib@2.8.1)(type-fest@4.41.0)(typescript@5.9.3)(webpack-dev-server@5.2.3(tslib@2.8.1)(webpack@5.105.1(esbuild@0.25.5))))(https-proxy-agent@7.0.6)(zephyr-rspack-plugin@0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)))
+        version: 0.2.0(@modern-js/app-tools@2.70.8(@rspack/core@1.7.6(@swc/helpers@0.5.18))(encoding@0.1.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.60.0)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4))(tsconfig-paths@4.2.0)(tslib@2.8.1)(type-fest@4.41.0)(typescript@5.9.3)(webpack-dev-server@5.2.3(tslib@2.8.1)(webpack@5.105.1(esbuild@0.25.5))))(https-proxy-agent@7.0.6)(zephyr-rspack-plugin@0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)))(zephyr-webpack-plugin@0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(esbuild@0.25.5)))
       zephyr-rspack-plugin:
         specifier: latest
-        version: 0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
+        version: 0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
 
   frameworks/rspress:
     dependencies:
@@ -539,7 +539,7 @@ importers:
         version: 3.3.3
       zephyr-rspress-plugin:
         specifier: latest
-        version: 0.1.16(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(@rspress/core@1.45.8(tslib@2.8.1)(webpack@5.105.1))(https-proxy-agent@7.0.6)(webpack@5.105.1)
+        version: 0.2.0(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(@rspress/core@1.45.8(tslib@2.8.1)(webpack@5.105.1))(https-proxy-agent@7.0.6)(webpack@5.105.1)
     devDependencies:
       '@types/node':
         specifier: ^24.10.0
@@ -552,7 +552,7 @@ importers:
         version: 1.9.11
       vite-plugin-zephyr:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
     devDependencies:
       typescript:
         specifier: ^5.9.3
@@ -568,7 +568,7 @@ importers:
     dependencies:
       vite-plugin-zephyr:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
     devDependencies:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^6.2.1
@@ -666,7 +666,7 @@ importers:
         version: 7.3.1(@types/node@22.19.11)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       vitest:
         specifier: ^3.0.5
-        version: 3.2.4(@types/debug@4.1.12)(@types/node@22.19.11)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@22.19.11)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       web-vitals:
         specifier: ^5.1.0
         version: 5.1.0
@@ -708,7 +708,7 @@ importers:
         version: 5.9.3
       zephyr-rsbuild-plugin:
         specifier: latest
-        version: 0.1.10(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(webpack@5.105.1)
+        version: 0.2.0(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
 
   module-federation/react-rsbuild/provider:
     dependencies:
@@ -742,7 +742,7 @@ importers:
         version: 5.9.3
       zephyr-rsbuild-plugin:
         specifier: latest
-        version: 0.1.10(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(webpack@5.105.1)
+        version: 0.2.0(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
 
   module-federation/react-webpack:
     devDependencies:
@@ -763,7 +763,7 @@ importers:
         version: 19.2.4(react@19.2.4)
       zephyr-webpack-plugin:
         specifier: latest
-        version: 0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1)
+        version: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1)
     devDependencies:
       '@babel/core':
         specifier: ^7.28.5
@@ -800,7 +800,7 @@ importers:
         version: 19.2.4(react@19.2.4)
       zephyr-webpack-plugin:
         specifier: latest
-        version: 0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1)
+        version: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1)
     devDependencies:
       '@babel/core':
         specifier: ^7.28.5
@@ -877,7 +877,7 @@ importers:
         version: 5.9.3
       zephyr-rspack-plugin:
         specifier: latest
-        version: 0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
+        version: 0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
 
   module-federation/tractor-sample/apps/app: {}
 
@@ -903,7 +903,7 @@ importers:
         version: 7.3.0
       zephyr-agent:
         specifier: latest
-        version: 0.1.16(https-proxy-agent@7.0.6)
+        version: 1.0.0(https-proxy-agent@7.0.6)
     devDependencies:
       '@playwright/test':
         specifier: ^1.55.0
@@ -926,25 +926,25 @@ importers:
     devDependencies:
       nitro:
         specifier: ^3.0.260311-beta
-        version: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@0.1.16-next.1(https-proxy-agent@7.0.6))
+        version: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@1.0.0-next.1(https-proxy-agent@7.0.6))
       vite:
         specifier: ^7.1.12
         version: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       zephyr-agent:
         specifier: next
-        version: 0.1.16-next.1(https-proxy-agent@7.0.6)
+        version: 1.0.0-next.1(https-proxy-agent@7.0.6)
 
   server/nitro-hello-world:
     devDependencies:
       nitro:
         specifier: ^3.0.260311-beta
-        version: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@0.1.16-next.1(https-proxy-agent@7.0.6))
+        version: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@1.0.0-next.1(https-proxy-agent@7.0.6))
       vite:
         specifier: ^7.1.12
         version: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       zephyr-agent:
         specifier: next
-        version: 0.1.16-next.1(https-proxy-agent@7.0.6)
+        version: 1.0.0-next.1(https-proxy-agent@7.0.6)
 
   server/nitro-hono:
     dependencies:
@@ -954,13 +954,13 @@ importers:
     devDependencies:
       nitro:
         specifier: ^3.0.260311-beta
-        version: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@0.1.16-next.1(https-proxy-agent@7.0.6))
+        version: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@1.0.0-next.1(https-proxy-agent@7.0.6))
       vite:
         specifier: ^7.1.12
         version: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       zephyr-agent:
         specifier: next
-        version: 0.1.16-next.1(https-proxy-agent@7.0.6)
+        version: 1.0.0-next.1(https-proxy-agent@7.0.6)
 
 packages:
 
@@ -6616,6 +6616,9 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
+  '@types/whatwg-mimetype@3.0.2':
+    resolution: {integrity: sha512-c2AKvDT8ToxLIOUlN51gTiHXflsfIFisS4pO7pDPoKouJCESkhZnEy623gwP9laCy5lnLDAw1vAzu2vM2YLOrA==}
+
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
@@ -6878,6 +6881,7 @@ packages:
   '@xmldom/xmldom@0.8.11':
     resolution: {integrity: sha512-cQzWCtO6C8TQiYl1ruKNn2U6Ao4o4WBBcbL61yJl84x+j5sOWWFU9X7DpND8XZG3daDppSsigMdfAIl2upQBRw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -10121,8 +10125,8 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@17.6.3:
-    resolution: {integrity: sha512-UVIHeVhxmxedbWPCfgS55Jg2rDfwf2BCKeylcPSqazLz5w3Kri7Q4xdBJubsr/+VUzFLh0VjIvh13RaDA2/Xug==}
+  happy-dom@20.8.9:
+    resolution: {integrity: sha512-Tz23LR9T9jOGVZm2x1EPdXqwA37G/owYMxRwU0E4miurAtFsPMQ1d2Jc2okUaSjZqAFz2oEn3FLXC5a0a+siyA==}
     engines: {node: '>=20.0.0'}
 
   has-ansi@3.0.0:
@@ -12567,8 +12571,8 @@ packages:
   param-case@3.0.4:
     resolution: {integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==}
 
-  parcel-reporter-zephyr@0.1.16:
-    resolution: {integrity: sha512-rgS3Db4YiJqUMw+duJug/eJdo7+vFjft3nbO6jSqfAYypgzu+6DfJya+LhPHO+zaOMbt3LqIm0smHpC3Y2PGJg==}
+  parcel-reporter-zephyr@0.2.0:
+    resolution: {integrity: sha512-nEJrC81ftjKKIboccCyFI7l3wCeXlu31UMk1HIEIVt0esMZLPJG1KVLoH1QaehLgE1mpqMGbvz1301rC9ibwyw==}
     peerDependencies:
       '@parcel/plugin': ^2.0.0
       '@parcel/types': ^2.0.0
@@ -14174,8 +14178,8 @@ packages:
     peerDependencies:
       postcss: 8.x
 
-  rollup-plugin-zephyr@0.1.16:
-    resolution: {integrity: sha512-QcFcazUgij3+7ikmk4I8llKlJjJRs5aYtNdDxemhNhJJ1qe1adXHlGqnJJSHFD4L6qLVh6zO87bv0dEpzbxnqg==}
+  rollup-plugin-zephyr@0.2.0:
+    resolution: {integrity: sha512-Ayc+QGj0CoBRZ8ikJ21mHbqQObvc52vU92i8r/eIR6FN8pvCD4P5XavG5mmP47SS/34UMBRUI4Ri1pBn25WQ/A==}
     peerDependencies:
       rollup: ^4.0.0
 
@@ -15938,11 +15942,15 @@ packages:
     peerDependencies:
       '@tanstack/react-start': ^1.0.0
 
-  vite-plugin-zephyr@0.1.16:
-    resolution: {integrity: sha512-2WEETDjgAKGtwgPeg2JecjieJHcBJdy42ERy73cuEwD/qGAjivQ7o6qpmAzpzEa8aLKpiedSS3gymrSCSwx/eg==}
+  vite-plugin-zephyr@0.2.0:
+    resolution: {integrity: sha512-RNDZL1YqLhiTdcNmA6Is6acmz+tjvTE9ZCqcxI2T7ndZs7AwrumqpRhJVFGbJsMiKHOCOYFa414S4yLFHBNjCA==}
     peerDependencies:
+      '@module-federation/vite': ^1.13.2
       rollup: ^4.0.0
-      vite: ^5.0.0 || ^6.0.0 || ^7.0.0
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+    peerDependenciesMeta:
+      '@module-federation/vite':
+        optional: true
 
   vite-tsconfig-paths@6.1.1:
     resolution: {integrity: sha512-2cihq7zliibCCZ8P9cKJrQBkfgdvcFkOOc3Y02o3GWUDLgqjWsZudaoiuOwO/gzTzy17cS5F7ZPo4bsnS4DGkg==}
@@ -16545,87 +16553,82 @@ packages:
   youch@4.1.0-beta.10:
     resolution: {integrity: sha512-rLfVLB4FgQneDr0dv1oddCVZmKjcJ6yX6mS4pU82Mq/Dt9a3cLZQ62pDBL4AUO+uVrCvtWz3ZFUL2HFAFJ/BXQ==}
 
-  zephyr-agent@0.1.10:
-    resolution: {integrity: sha512-wL9RDvemIEs3jh0LI0nloI0dbefFTDMuFDM+HEV1A1k6pLJ/xZ6gLmGp+by8idnCxH4+snDR5ITSbyetQa5vOQ==}
-    peerDependencies:
-      https-proxy-agent: ^7.0.6
-
   zephyr-agent@0.1.16:
     resolution: {integrity: sha512-wCdu7XLudq5xcMhitT7kLN5KRs/libIRf4wFi/fk4WrztY1l5yxExYq1oPDSayYiVNGmVMRHKua3iKqbqvpI6Q==}
     peerDependencies:
       https-proxy-agent: ^7.0.6
 
-  zephyr-agent@0.1.16-next.1:
-    resolution: {integrity: sha512-3dcjme0xWawXgxKpXl2a1H1jYeGz4k9monFpvo3tVAmdY1ZyyAU+xT3gL0yIWgFJ3nVc7/+RIrs9cv01MkoqMQ==}
+  zephyr-agent@0.2.0:
+    resolution: {integrity: sha512-OFwagXZ6xuw9n6QfTRjv8I5/LCHxP5OeFLu8pyPk2XTWO/sUtWyKD/65GpP+Z1TxkB0yd9wjCX7B2UTtbmopvA==}
     peerDependencies:
       https-proxy-agent: ^7.0.6
 
-  zephyr-astro-integration@0.1.16-next.1:
-    resolution: {integrity: sha512-OurpIaaSHjO3G8Ot31o8Rd3S62nmjnKnkDvgXw3bF7cpjcu+1ESXIGIsJ6DGE33SJQ2QlImgHdyM2JfMnv2/Bg==}
+  zephyr-agent@1.0.0:
+    resolution: {integrity: sha512-27FHvzY7TYdW5F7HJv1C/Xmtm6kZGzVjKbZ9Rzx4K6bFzTofzrW4ytYB03f8nNDJeVPCu/6UUDLMEJL+LeZyZQ==}
+    peerDependencies:
+      https-proxy-agent: ^7.0.6
+
+  zephyr-agent@1.0.0-next.1:
+    resolution: {integrity: sha512-+XNaIGZ23HuSW2dOS62+4er1U7JBemENpC14AMzSksAG9GzsTRQU5Sn4DaA5KwRzNuLRaWHobBWsXpCyy3PrHw==}
+    peerDependencies:
+      https-proxy-agent: ^7.0.6
+
+  zephyr-astro-integration@1.0.0-next.1:
+    resolution: {integrity: sha512-d19MciuVayH8OLzF3G9pWIDNSyNTqZIyxmtkmem2wl2tPk2PCFBMHlMB/umKeu3w2I/so57mDf3q7S9XU5JYsg==}
     peerDependencies:
       astro: ^4.0.0 || ^5.15.8
-
-  zephyr-edge-contract@0.1.10:
-    resolution: {integrity: sha512-bAqXtBWljq4p13ko+oqo0FiLxK8Cqf382lxUHOEWaU3zn/ErQ20o40QVm+hXVwDFvovupI4vMQLmuGPUYF45NA==}
 
   zephyr-edge-contract@0.1.16:
     resolution: {integrity: sha512-0gOznp1Etks30f+HLZNj6vv1YmEQ3Nhbsa2ICtYAjQveFDcRdhZmVaair9H88Hb/Efc+xLQFQNhbRvVaeHWnAQ==}
 
-  zephyr-edge-contract@0.1.16-next.1:
-    resolution: {integrity: sha512-xRn7zljxhWHZ2pwcx52J+IBiNyqgFgOzceyG7Xj5SRkShXYa3hfKcuAgTb0LRXS0AaARX6C3VXl2UT+WJUVORA==}
+  zephyr-edge-contract@0.2.0:
+    resolution: {integrity: sha512-WsgGF9hjCG9pFJ4W74J7SSoNq7eKj2zrycGjGnZTkWUEgywOrysmiGpCevg6AceagwtMHGGEePWBeY5XMWtC+A==}
 
-  zephyr-modernjs-plugin@0.1.16:
-    resolution: {integrity: sha512-HukUsx5A/jI1XRSe7U6MY2wKz1FfsgXLZaQVuwzOzQ2ZA5jPsepwQdIf3gxGgQKBi/EMD+dxAK/8opTuQuqc2g==}
+  zephyr-edge-contract@1.0.0:
+    resolution: {integrity: sha512-BUL7LNgKgKvDL2KtgN3KmkvdT0Yeto64qav04ZkIapTvGnIuBgHQcvNWQ5QMUk2v7sBBTFlzfVEwhVJ3FFfnfQ==}
+
+  zephyr-edge-contract@1.0.0-next.1:
+    resolution: {integrity: sha512-/63gG+VnjbE7+PZsQaqEX26pEUwvK0H1ZYHrCvg1khhZ9jhfMtfZnzXiB9ph7PVu5FE0rN2y7tabYODxZLIrJw==}
+
+  zephyr-modernjs-plugin@0.2.0:
+    resolution: {integrity: sha512-Pb5ESYfhXoXE2YUvr5yX0KpgrZ9tNDO1lENcFr5s55URBFW+LbhfLCF6fM3mP58vqGEtsRAwOK3qXN/KYB00VA==}
     peerDependencies:
       '@modern-js/app-tools': ^2.0.0
-      zephyr-rspack-plugin: ^0.1.16
-      zephyr-webpack-plugin: ^0.1.16
+      zephyr-rspack-plugin: ^0.2.0
+      zephyr-webpack-plugin: ^0.2.0
     peerDependenciesMeta:
       zephyr-rspack-plugin:
         optional: true
       zephyr-webpack-plugin:
         optional: true
 
-  zephyr-rolldown-plugin@0.1.16:
-    resolution: {integrity: sha512-NKl6CbQX+z3ZYHcyjuvtx6k1tLCOpswfQXOnHkrm8rJsMdvpTfoCa7Ef44ZWbTINj7VG13AUlrIdqNXatDB9wA==}
+  zephyr-rolldown-plugin@0.2.0:
+    resolution: {integrity: sha512-SQhZ8TJoKHUDPuF042PDdF+CcqUAb3T2Sd7OEF+0jURacY97CU3Mt249Qt4Xy7RylgoSH4WWrJUofDoPqWeuGw==}
     peerDependencies:
       rolldown: '>=1.0.0-beta.0'
 
-  zephyr-rsbuild-plugin@0.1.10:
-    resolution: {integrity: sha512-C8WcdFzckCCne09ok/nO1ApNgKP+wtg9tvzAwz6LdWiWGJh/Bz7r5KvPPcor5zkS8tyMq8YkhYVZYZRO4R5BWQ==}
-    peerDependencies:
-      '@rsbuild/core': ^1.0.0
-
-  zephyr-rsbuild-plugin@0.1.16:
-    resolution: {integrity: sha512-CaM1vZJvKVq7eTnwkpYcD8dPG/xYVAW9r4YZX3C8zyFvifT2a7eWZj+BdiqncRXRj9KaMWNpQQbSiIpeZPVybQ==}
+  zephyr-rsbuild-plugin@0.2.0:
+    resolution: {integrity: sha512-s1USgRmnnJ3irPwYd0xNOPjO4sCwxvL/BL8mHqXhFN3QEF9UGL4wglEqezbbmYIW16wgOT/3hO03KhrHAExvtQ==}
     peerDependencies:
       '@rsbuild/core': ^1.0.0 || ^2.0.0-0
 
-  zephyr-rspack-plugin@0.1.10:
-    resolution: {integrity: sha512-+TKz3QjPD2wa/n/1LboVFMuzJBfPIfcW23IUZkM+p9saaC3LJkMAAurIqTixHPQOtEumQb3QHxfq+5KmxQyCiw==}
-    peerDependencies:
-      '@rspack/core': ^1.0.0
-
-  zephyr-rspack-plugin@0.1.16:
-    resolution: {integrity: sha512-XFn6WbUV1Kb944MODWUkgN7ax2TGBHVAc7krwaVAjSKc1Ect9rh8kjP10UUPLbLMjiTBIV4To2guP4rCAmWQbw==}
+  zephyr-rspack-plugin@0.2.0:
+    resolution: {integrity: sha512-YGTBRrQaADkQc8rlgnrMDOIDe/3+EDPoUBhNgp3D/4mm7fy3TeqpBs0dLAt1zP2xnmtznhFQhTRoE9pKhAVagA==}
     peerDependencies:
       '@rspack/core': ^1.0.0 || ^2.0.0-0
 
-  zephyr-rspress-plugin@0.1.16:
-    resolution: {integrity: sha512-CvEcPg7v/EyDbl4G0ql5eQBViaAOD2m8E0lJD6Wv1OHprEcihZOFKn/nQZ5jlDRF9Sp9siYFo2rMG2xpOK8+/w==}
+  zephyr-rspress-plugin@0.2.0:
+    resolution: {integrity: sha512-TRtnJEvtlKRn3/WzYnRDZEjzKcnWMJQufPN/QogLplVAVJldRnPUD2lTjaZqMpC4X+WWnG3dqNsCHGQCEoNbIw==}
     peerDependencies:
       '@rspress/core': ^2.0.0
 
-  zephyr-webpack-plugin@0.1.10:
-    resolution: {integrity: sha512-zvxSEWCY8WJ6G4vV9JjQfFt5dSGGuSjENCCfh0jSVC6dX1FQCVL3wnvadBqSkl/ghMYs6qKKVFDNpMGoi6N+VA==}
+  zephyr-webpack-plugin@0.2.0:
+    resolution: {integrity: sha512-kPWDy6354Uy0uuFigOosNUiI8A5kRWuR/FibhOFd3Qw4P1tkEPwJEH6E70XelRHfGBY4kP4u+3v9AFHw+0mF3Q==}
     peerDependencies:
       webpack: ^5.0.0
 
-  zephyr-xpack-internal@0.1.10:
-    resolution: {integrity: sha512-Wkv/mY+83zMi1nhl5Q3P5m5XEaXr/rHObZGHvpN7E3Qgc3Zn8JfvLL/7hivqCvTlJ6qb9LjsFh3RrLkBSPhz4Q==}
-
-  zephyr-xpack-internal@0.1.16:
-    resolution: {integrity: sha512-UuJur2YKvr45IX4sOnQJN/OxGEbIIUz5ByTLh8sUDUsShHOcSPsc8XCsvX9/7Lodja4MV8qH/xUjSN0P/5E+Ag==}
+  zephyr-xpack-internal@0.2.0:
+    resolution: {integrity: sha512-90dgLEASah1ZuSM2kOUAjmz5Ye4/6nTx4+fTHDYuejLeDZMXDMVB/XoiKHZoka4GWbgYbCoz/LsrYdREHB6Rmg==}
 
   zimmerframe@1.1.4:
     resolution: {integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==}
@@ -16670,12 +16673,12 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@analogjs/vite-plugin-angular@2.3.1(@angular/build@20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2))':
+  '@analogjs/vite-plugin-angular@2.3.1(@angular/build@20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2))':
     dependencies:
       tinyglobby: 0.2.15
       ts-morph: 21.0.1
     optionalDependencies:
-      '@angular/build': 20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)
+      '@angular/build': 20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)
 
   '@angular-devkit/architect@0.2003.21(chokidar@4.0.3)':
     dependencies:
@@ -16700,7 +16703,7 @@ snapshots:
       '@angular/core': 20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)':
+  '@angular/build@20.3.21(@angular/compiler-cli@20.3.18(@angular/compiler@20.3.18)(typescript@5.9.3))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.3.18(@angular/animations@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.3.18(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@24.10.13)(chokidar@4.0.3)(jiti@2.6.1)(lightningcss@1.32.0)(postcss@8.5.6)(sass-embedded@1.97.3)(tailwindcss@4.2.2)(terser@5.46.0)(tslib@2.8.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2003.21(chokidar@4.0.3)
@@ -16738,7 +16741,7 @@ snapshots:
       lmdb: 3.4.2
       postcss: 8.5.6
       tailwindcss: 4.2.2
-      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -19882,6 +19885,7 @@ snapshots:
       - node-fetch
       - supports-color
       - utf-8-validate
+    optional: true
 
   '@module-federation/enhanced@0.21.6(@rspack/core@1.7.6(@swc/helpers@0.5.18))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)(webpack@5.105.1)':
     dependencies:
@@ -19917,7 +19921,8 @@ snapshots:
 
   '@module-federation/error-codes@0.22.0': {}
 
-  '@module-federation/error-codes@2.2.3': {}
+  '@module-federation/error-codes@2.2.3':
+    optional: true
 
   '@module-federation/inject-external-runtime-core-plugin@0.21.6(@module-federation/runtime-tools@0.21.6)':
     dependencies:
@@ -19936,6 +19941,7 @@ snapshots:
       fs-extra: 9.1.0
     transitivePeerDependencies:
       - node-fetch
+    optional: true
 
   '@module-federation/manifest@0.21.6(typescript@5.9.3)':
     dependencies:
@@ -20034,6 +20040,7 @@ snapshots:
       '@module-federation/sdk': 2.2.3
     transitivePeerDependencies:
       - node-fetch
+    optional: true
 
   '@module-federation/runtime-tools@0.1.6':
     dependencies:
@@ -20084,6 +20091,7 @@ snapshots:
       '@module-federation/sdk': 2.2.3
     transitivePeerDependencies:
       - node-fetch
+    optional: true
 
   '@module-federation/sdk@0.1.6': {}
 
@@ -20093,7 +20101,8 @@ snapshots:
 
   '@module-federation/sdk@0.22.0': {}
 
-  '@module-federation/sdk@2.2.3': {}
+  '@module-federation/sdk@2.2.3':
+    optional: true
 
   '@module-federation/third-party-dts-extractor@0.21.6':
     dependencies:
@@ -20106,6 +20115,7 @@ snapshots:
       find-pkg: 2.0.0
       fs-extra: 9.1.0
       resolve: 1.22.8
+    optional: true
 
   '@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
@@ -20128,6 +20138,7 @@ snapshots:
       - typescript
       - utf-8-validate
       - vue-tsc
+    optional: true
 
   '@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
@@ -20150,6 +20161,7 @@ snapshots:
       - typescript
       - utf-8-validate
       - vue-tsc
+    optional: true
 
   '@module-federation/webpack-bundler-runtime@0.1.6':
     dependencies:
@@ -23270,6 +23282,8 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
+  '@types/whatwg-mimetype@3.0.2': {}
+
   '@types/ws@8.18.1':
     dependencies:
       '@types/node': 22.19.11
@@ -24099,7 +24113,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios-retry@4.5.0(axios@1.13.5(debug@4.4.3)):
+  axios-retry@4.5.0(axios@1.13.5):
     dependencies:
       axios: 1.13.5(debug@4.4.3)
       is-retry-allowed: 2.2.0
@@ -27850,10 +27864,17 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@17.6.3:
+  happy-dom@20.8.9:
     dependencies:
-      webidl-conversions: 7.0.0
+      '@types/node': 22.19.11
+      '@types/whatwg-mimetype': 3.0.2
+      '@types/ws': 8.18.1
+      entities: 7.0.1
       whatwg-mimetype: 3.0.0
+      ws: 8.19.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   has-ansi@3.0.0:
     dependencies:
@@ -30684,7 +30705,7 @@ snapshots:
 
   nice-try@1.0.5: {}
 
-  nitro@3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@0.1.16-next.1(https-proxy-agent@7.0.6)):
+  nitro@3.0.260311-beta(chokidar@5.0.0)(dotenv@17.3.1)(giget@2.0.0)(jiti@2.6.1)(lru-cache@11.2.6)(miniflare@4.20260317.2)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(zephyr-agent@1.0.0-next.1(https-proxy-agent@7.0.6)):
     dependencies:
       consola: 3.4.2
       crossws: 0.4.4(srvx@0.11.13)
@@ -30706,7 +30727,7 @@ snapshots:
       jiti: 2.6.1
       rollup: 4.60.0
       vite: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
-      zephyr-agent: 0.1.16-next.1(https-proxy-agent@7.0.6)
+      zephyr-agent: 1.0.0-next.1(https-proxy-agent@7.0.6)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -31099,12 +31120,12 @@ snapshots:
       dot-case: 3.0.4
       tslib: 2.8.1
 
-  parcel-reporter-zephyr@0.1.16(@parcel/plugin@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(@parcel/types@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(https-proxy-agent@7.0.6):
+  parcel-reporter-zephyr@0.2.0(@parcel/plugin@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(@parcel/types@2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18)))(https-proxy-agent@7.0.6):
     dependencies:
       '@parcel/plugin': 2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18))
       '@parcel/types': 2.16.0(@parcel/core@2.16.0(@swc/helpers@0.5.18))
       tslib: 2.8.1
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
@@ -32896,11 +32917,11 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  rollup-plugin-zephyr@0.1.16(https-proxy-agent@7.0.6)(rollup@4.57.1):
+  rollup-plugin-zephyr@0.2.0(https-proxy-agent@7.0.6)(rollup@4.57.1):
     dependencies:
       rollup: 4.57.1
       tslib: 2.8.1
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
@@ -35074,47 +35095,35 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-zephyr@0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
+  vite-plugin-zephyr@0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
-      '@module-federation/runtime': 0.21.6
-      '@module-federation/vite': 1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       acorn: 8.16.0
       acorn-walk: 8.3.4
       magic-string: 0.30.17
       rollup: 4.60.0
       tslib: 2.8.1
       vite: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+    optionalDependencies:
+      '@module-federation/vite': 1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
     transitivePeerDependencies:
-      - bufferutil
-      - debug
       - https-proxy-agent
-      - node-fetch
       - supports-color
-      - typescript
-      - utf-8-validate
-      - vue-tsc
 
-  vite-plugin-zephyr@0.1.16(https-proxy-agent@7.0.6)(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
+  vite-plugin-zephyr@0.2.0(@module-federation/vite@1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(https-proxy-agent@7.0.6)(rollup@4.60.0)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
-      '@module-federation/runtime': 0.21.6
-      '@module-federation/vite': 1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       acorn: 8.16.0
       acorn-walk: 8.3.4
       magic-string: 0.30.17
       rollup: 4.60.0
       tslib: 2.8.1
       vite: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+    optionalDependencies:
+      '@module-federation/vite': 1.13.5(rollup@4.60.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
     transitivePeerDependencies:
-      - bufferutil
-      - debug
       - https-proxy-agent
-      - node-fetch
       - supports-color
-      - typescript
-      - utf-8-validate
-      - vue-tsc
 
   vite-tsconfig-paths@6.1.1(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.11)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
@@ -35233,7 +35242,7 @@ snapshots:
     optionalDependencies:
       vite: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
-  vitest@3.2.4(@types/debug@4.1.12)(@types/node@22.19.11)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
+  vitest@3.2.4(@types/debug@4.1.12)(@types/node@22.19.11)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/expect': 3.2.4
@@ -35261,7 +35270,7 @@ snapshots:
     optionalDependencies:
       '@types/debug': 4.1.12
       '@types/node': 22.19.11
-      happy-dom: 17.6.3
+      happy-dom: 20.8.9
       jsdom: 27.4.0
     transitivePeerDependencies:
       - jiti
@@ -35277,7 +35286,7 @@ snapshots:
       - tsx
       - yaml
 
-  vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@17.6.3)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
+  vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.8.9)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.90.0)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/expect': 3.2.4
@@ -35305,7 +35314,7 @@ snapshots:
     optionalDependencies:
       '@types/debug': 4.1.12
       '@types/node': 24.10.13
-      happy-dom: 17.6.3
+      happy-dom: 20.8.9
       jsdom: 27.4.0
     transitivePeerDependencies:
       - jiti
@@ -35954,30 +35963,11 @@ snapshots:
       cookie: 1.1.1
       youch-core: 0.3.3
 
-  zephyr-agent@0.1.10(https-proxy-agent@7.0.6):
-    dependencies:
-      '@toon-format/toon': 0.9.0
-      axios: 1.13.5(debug@4.4.3)
-      axios-retry: 4.5.0(axios@1.13.5(debug@4.4.3))
-      debug: 4.4.3(supports-color@5.5.0)
-      eventsource: 4.1.0
-      git-url-parse: 15.0.0
-      https-proxy-agent: 7.0.6
-      is-ci: 4.1.0
-      jose: 5.10.0
-      node-persist: 4.0.4
-      open: 10.2.0
-      proper-lockfile: 4.1.2
-      tslib: 2.8.1
-      zephyr-edge-contract: 0.1.10
-    transitivePeerDependencies:
-      - supports-color
-
   zephyr-agent@0.1.16(https-proxy-agent@7.0.6):
     dependencies:
       '@toon-format/toon': 0.9.0
       axios: 1.13.5(debug@4.4.3)
-      axios-retry: 4.5.0(axios@1.13.5(debug@4.4.3))
+      axios-retry: 4.5.0(axios@1.13.5)
       debug: 4.4.3(supports-color@5.5.0)
       eventsource: 4.1.0
       git-url-parse: 15.0.0
@@ -35992,11 +35982,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  zephyr-agent@0.1.16-next.1(https-proxy-agent@7.0.6):
+  zephyr-agent@0.2.0(https-proxy-agent@7.0.6):
     dependencies:
       '@toon-format/toon': 0.9.0
       axios: 1.13.5(debug@4.4.3)
-      axios-retry: 4.5.0(axios@1.13.5(debug@4.4.3))
+      axios-retry: 4.5.0(axios@1.13.5)
       debug: 4.4.3(supports-color@5.5.0)
       eventsource: 4.1.0
       git-url-parse: 15.0.0
@@ -36007,120 +35997,142 @@ snapshots:
       open: 10.2.0
       proper-lockfile: 4.1.2
       tslib: 2.8.1
-      zephyr-edge-contract: 0.1.16-next.1
+      zephyr-edge-contract: 0.2.0
     transitivePeerDependencies:
       - supports-color
 
-  zephyr-astro-integration@0.1.16-next.1(astro@5.18.1(@types/node@24.10.13)(db0@0.3.4)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(https-proxy-agent@7.0.6):
+  zephyr-agent@1.0.0(https-proxy-agent@7.0.6):
+    dependencies:
+      '@toon-format/toon': 0.9.0
+      axios: 1.13.5(debug@4.4.3)
+      axios-retry: 4.5.0(axios@1.13.5)
+      debug: 4.4.3(supports-color@5.5.0)
+      eventsource: 4.1.0
+      git-url-parse: 15.0.0
+      https-proxy-agent: 7.0.6
+      is-ci: 4.1.0
+      jose: 5.10.0
+      node-persist: 4.0.4
+      open: 10.2.0
+      proper-lockfile: 4.1.2
+      tslib: 2.8.1
+      zephyr-edge-contract: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
+
+  zephyr-agent@1.0.0-next.1(https-proxy-agent@7.0.6):
+    dependencies:
+      '@toon-format/toon': 0.9.0
+      axios: 1.13.5(debug@4.4.3)
+      axios-retry: 4.5.0(axios@1.13.5)
+      debug: 4.4.3(supports-color@5.5.0)
+      eventsource: 4.1.0
+      git-url-parse: 15.0.0
+      https-proxy-agent: 7.0.6
+      is-ci: 4.1.0
+      jose: 5.10.0
+      node-persist: 4.0.4
+      open: 10.2.0
+      proper-lockfile: 4.1.2
+      tslib: 2.8.1
+      zephyr-edge-contract: 1.0.0-next.1
+    transitivePeerDependencies:
+      - supports-color
+
+  zephyr-astro-integration@1.0.0-next.1(astro@5.18.1(@types/node@24.10.13)(db0@0.3.4)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(https-proxy-agent@7.0.6):
     dependencies:
       astro: 5.18.1(@types/node@24.10.13)(db0@0.3.4)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       tslib: 2.8.1
-      zephyr-agent: 0.1.16-next.1(https-proxy-agent@7.0.6)
+      zephyr-agent: 1.0.0-next.1(https-proxy-agent@7.0.6)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
-
-  zephyr-edge-contract@0.1.10:
-    dependencies:
-      tslib: 2.8.1
 
   zephyr-edge-contract@0.1.16:
     dependencies:
       tslib: 2.8.1
 
-  zephyr-edge-contract@0.1.16-next.1:
+  zephyr-edge-contract@0.2.0:
     dependencies:
       tslib: 2.8.1
 
-  zephyr-modernjs-plugin@0.1.16(@modern-js/app-tools@2.70.8(@rspack/core@1.7.6(@swc/helpers@0.5.18))(encoding@0.1.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.60.0)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4))(tsconfig-paths@4.2.0)(tslib@2.8.1)(type-fest@4.41.0)(typescript@5.9.3)(webpack-dev-server@5.2.3(tslib@2.8.1)(webpack@5.105.1(esbuild@0.25.5))))(https-proxy-agent@7.0.6)(zephyr-rspack-plugin@0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))):
+  zephyr-edge-contract@1.0.0:
+    dependencies:
+      tslib: 2.8.1
+
+  zephyr-edge-contract@1.0.0-next.1:
+    dependencies:
+      tslib: 2.8.1
+
+  zephyr-modernjs-plugin@0.2.0(@modern-js/app-tools@2.70.8(@rspack/core@1.7.6(@swc/helpers@0.5.18))(encoding@0.1.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.60.0)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4))(tsconfig-paths@4.2.0)(tslib@2.8.1)(type-fest@4.41.0)(typescript@5.9.3)(webpack-dev-server@5.2.3(tslib@2.8.1)(webpack@5.105.1(esbuild@0.25.5))))(https-proxy-agent@7.0.6)(zephyr-rspack-plugin@0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)))(zephyr-webpack-plugin@0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(esbuild@0.25.5))):
     dependencies:
       '@modern-js/app-tools': 2.70.8(@rspack/core@1.7.6(@swc/helpers@0.5.18))(encoding@0.1.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.60.0)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4))(tsconfig-paths@4.2.0)(tslib@2.8.1)(type-fest@4.41.0)(typescript@5.9.3)(webpack-dev-server@5.2.3(tslib@2.8.1)(webpack@5.105.1(esbuild@0.25.5)))
       tslib: 2.8.1
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
-      zephyr-edge-contract: 0.1.16
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-edge-contract: 0.2.0
     optionalDependencies:
-      zephyr-rspack-plugin: 0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
+      zephyr-rspack-plugin: 0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
+      zephyr-webpack-plugin: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(esbuild@0.25.5))
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
 
-  zephyr-rolldown-plugin@0.1.16(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.46):
+  zephyr-rolldown-plugin@0.2.0(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.46):
     dependencies:
       rolldown: 1.0.0-beta.46
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
 
-  zephyr-rolldown-plugin@0.1.16(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.9):
+  zephyr-rolldown-plugin@0.2.0(https-proxy-agent@7.0.6)(rolldown@1.0.0-beta.9):
     dependencies:
       rolldown: 1.0.0-beta.9
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
 
-  zephyr-rsbuild-plugin@0.1.10(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(webpack@5.105.1):
+  zephyr-rsbuild-plugin@0.2.0(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1):
     dependencies:
       '@rsbuild/core': 1.7.3
-      zephyr-rspack-plugin: 0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
+      zephyr-rspack-plugin: 0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
     transitivePeerDependencies:
       - '@rspack/core'
       - https-proxy-agent
       - supports-color
       - webpack
 
-  zephyr-rsbuild-plugin@0.1.16(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1):
-    dependencies:
-      '@rsbuild/core': 1.7.3
-      zephyr-rspack-plugin: 0.1.16(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
-    transitivePeerDependencies:
-      - '@rspack/core'
-      - https-proxy-agent
-      - supports-color
-      - webpack
-
-  zephyr-rspack-plugin@0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)):
+  zephyr-rspack-plugin@0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)):
     dependencies:
       '@rspack/core': 1.7.6(@swc/helpers@0.5.18)
       tslib: 2.8.1
-      zephyr-agent: 0.1.10(https-proxy-agent@7.0.6)
-      zephyr-xpack-internal: 0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-xpack-internal: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
       - webpack
 
-  zephyr-rspack-plugin@0.1.10(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1):
+  zephyr-rspack-plugin@0.2.0(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1):
     dependencies:
       '@rspack/core': 1.7.6(@swc/helpers@0.5.18)
       tslib: 2.8.1
-      zephyr-agent: 0.1.10(https-proxy-agent@7.0.6)
-      zephyr-xpack-internal: 0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-xpack-internal: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
       - webpack
 
-  zephyr-rspack-plugin@0.1.16(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1):
-    dependencies:
-      '@rspack/core': 1.7.6(@swc/helpers@0.5.18)
-      tslib: 2.8.1
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
-      zephyr-xpack-internal: 0.1.16(https-proxy-agent@7.0.6)(webpack@5.105.1)
-    transitivePeerDependencies:
-      - https-proxy-agent
-      - supports-color
-      - webpack
-
-  zephyr-rspress-plugin@0.1.16(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(@rspress/core@1.45.8(tslib@2.8.1)(webpack@5.105.1))(https-proxy-agent@7.0.6)(webpack@5.105.1):
+  zephyr-rspress-plugin@0.2.0(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(@rspress/core@1.45.8(tslib@2.8.1)(webpack@5.105.1))(https-proxy-agent@7.0.6)(webpack@5.105.1):
     dependencies:
       '@rspress/core': 1.45.8(tslib@2.8.1)(webpack@5.105.1)
       tslib: 2.8.1
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
-      zephyr-edge-contract: 0.1.16
-      zephyr-rsbuild-plugin: 0.1.16(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
-      zephyr-xpack-internal: 0.1.16(https-proxy-agent@7.0.6)(webpack@5.105.1)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-edge-contract: 0.2.0
+      zephyr-rsbuild-plugin: 0.2.0(@rsbuild/core@1.7.3)(@rspack/core@1.7.6(@swc/helpers@0.5.18))(https-proxy-agent@7.0.6)(webpack@5.105.1)
+      zephyr-xpack-internal: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1)
     transitivePeerDependencies:
       - '@rsbuild/core'
       - '@rspack/core'
@@ -36128,44 +36140,44 @@ snapshots:
       - supports-color
       - webpack
 
-  zephyr-webpack-plugin@0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1):
+  zephyr-webpack-plugin@0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(esbuild@0.25.5)):
+    dependencies:
+      tslib: 2.8.1
+      webpack: 5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-xpack-internal: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
+    transitivePeerDependencies:
+      - https-proxy-agent
+      - supports-color
+    optional: true
+
+  zephyr-webpack-plugin@0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1):
     dependencies:
       tslib: 2.8.1
       webpack: 5.105.1(webpack-cli@6.0.1)
-      zephyr-agent: 0.1.10(https-proxy-agent@7.0.6)
-      zephyr-xpack-internal: 0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1)
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-xpack-internal: 0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1)
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
 
-  zephyr-xpack-internal@0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)):
+  zephyr-xpack-internal@0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5)):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.105.1(@swc/core@1.15.8(@swc/helpers@0.5.18))(esbuild@0.25.5))
       tslib: 2.8.1
-      zephyr-agent: 0.1.10(https-proxy-agent@7.0.6)
-      zephyr-edge-contract: 0.1.10
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-edge-contract: 0.2.0
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
       - webpack
 
-  zephyr-xpack-internal@0.1.10(https-proxy-agent@7.0.6)(webpack@5.105.1):
+  zephyr-xpack-internal@0.2.0(https-proxy-agent@7.0.6)(webpack@5.105.1):
     dependencies:
       '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.105.1)
       tslib: 2.8.1
-      zephyr-agent: 0.1.10(https-proxy-agent@7.0.6)
-      zephyr-edge-contract: 0.1.10
-    transitivePeerDependencies:
-      - https-proxy-agent
-      - supports-color
-      - webpack
-
-  zephyr-xpack-internal@0.1.16(https-proxy-agent@7.0.6)(webpack@5.105.1):
-    dependencies:
-      '@module-federation/automatic-vendor-federation': 1.2.1(webpack@5.105.1)
-      tslib: 2.8.1
-      zephyr-agent: 0.1.16(https-proxy-agent@7.0.6)
-      zephyr-edge-contract: 0.1.16
+      zephyr-agent: 0.2.0(https-proxy-agent@7.0.6)
+      zephyr-edge-contract: 0.2.0
     transitivePeerDependencies:
       - https-proxy-agent
       - supports-color
