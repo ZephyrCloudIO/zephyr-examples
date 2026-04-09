@@ -1,7 +1,7 @@
 {
   "name": "zephyr-metro-example",
   "license": "MIT",
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "prepare": "pnpm build",
     "build": "turbo build",
