@@ -16,7 +16,7 @@
   },
   "@callstack/repack": {
     "name": "@callstack/repack",
-    "version": "5.1.1",
+    "version": "5.2.5",
     "devOnly": true
   },
   "@react-native/babel-preset": {
@@ -36,22 +36,22 @@
   },
   "@rnef/cli": {
     "name": "@rnef/cli",
-    "version": "^0.7.5",
+    "version": "^0.8.13",
     "devOnly": true
   },
   "@rnef/platform-android": {
     "name": "@rnef/platform-android",
-    "version": "^0.7.5",
+    "version": "^0.8.13",
     "devOnly": true
   },
   "@rnef/platform-ios": {
     "name": "@rnef/platform-ios",
-    "version": "^0.7.5",
+    "version": "^0.8.13",
     "devOnly": true
   },
   "@rnef/plugin-repack": {
     "name": "@rnef/plugin-repack",
-    "version": "^0.7.5",
+    "version": "^0.8.13",
     "devOnly": true
   },
   "@rspack/core": {
@@ -96,12 +96,12 @@
   },
   "zephyr-repack-plugin": {
     "name": "zephyr-repack-plugin",
-    "version": "0.0.54",
+    "version": "0.0.59",
     "devOnly": true
   },
   "@rsdoctor/rspack-plugin": {
     "name": "@rsdoctor/rspack-plugin",
-    "version": "^0.4.13",
+    "version": "^1.5.7",
     "devOnly": true
   }
 }
