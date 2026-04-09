@@ -2,6 +2,9 @@ packages:
   - 'apps/*'
   - 'packages/*'
 
+autoInstallPeers: false
+linkWorkspacePackages: true
+
 # Fails if trusted package stops being trusted
 trustPolicy: no-downgrade
 # Ignores trust policies for packages older than a week
@@ -10,3 +13,7 @@ trustPolicyIgnoreAfter: 10080
 minimumReleaseAge: 1440
 # no git/tarball dependencies, only from trusted registry
 blockExoticSubdeps: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp

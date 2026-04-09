@@ -9,6 +9,8 @@ packages:
   - server/**
   - scripts
 
+linkWorkspacePackages: true
+
 # Fails if trusted package stops being trusted
 trustPolicy: no-downgrade
 # Ignores trust policies for packages older than a week
@@ -17,3 +19,14 @@ trustPolicyIgnoreAfter: 10080
 minimumReleaseAge: 1440
 # no git/tarball dependencies, only from trusted registry
 blockExoticSubdeps: true
+
+onlyBuiltDependencies:
+  - "@parcel/watcher"
+  - "@swc/core"
+  - core-js
+  - core-js-pure
+  - esbuild
+  - lmdb
+  - msgpackr-extract
+  - sharp
+  - workerd
