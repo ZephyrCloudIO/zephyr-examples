@@ -31,5 +31,6 @@ vite.config.*.timestamp*
 .aws-sam/*
 
 .rnef
+.rock
 
 .kotlin/

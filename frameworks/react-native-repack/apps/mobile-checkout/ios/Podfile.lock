@@ -1,6 +1,6 @@
 PODS:
   - boost (1.84.0)
-  - callstack-repack (5.1.1):
+  - callstack-repack (5.2.5):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2170,7 +2170,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
-  callstack-repack: 93606de2832cf6a5da55e589e1b6137752cf79c7
+  callstack-repack: db6bd9b142359768cf5119061284053233675170
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 15c28682af535aa55b9b31e64deff54b7ed7d453
@@ -2253,6 +2253,6 @@ SPEC CHECKSUMS:
   SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
   Yoga: a6cb833e04fb8c59a012b49fb1d040fcb0cbb633
 
-PODFILE CHECKSUM: cd5e64e52d7cabcfa29de1da5cfdf049cc51b410
+PODFILE CHECKSUM: a7693b27efa1f470efdb2cc73c81337fa1a4bc16
 
 COCOAPODS: 1.15.2
