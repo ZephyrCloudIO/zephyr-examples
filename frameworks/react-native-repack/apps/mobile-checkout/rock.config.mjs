@@ -1,6 +1,6 @@
-import {platformAndroid} from '@rnef/platform-android';
-import {platformIOS} from '@rnef/platform-ios';
-import {pluginRepack} from '@rnef/plugin-repack';
+import {platformAndroid} from '@rock-js/platform-android';
+import {platformIOS} from '@rock-js/platform-ios';
+import {pluginRepack} from '@rock-js/plugin-repack';
 
 export default {
   bundler: pluginRepack(),

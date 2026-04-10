@@ -34,24 +34,24 @@
     "version": "0.79.4",
     "devOnly": true
   },
-  "@rnef/cli": {
-    "name": "@rnef/cli",
-    "version": "^0.8.13",
+  "rock": {
+    "name": "rock",
+    "version": "^0.13.0",
     "devOnly": true
   },
-  "@rnef/platform-android": {
-    "name": "@rnef/platform-android",
-    "version": "^0.8.13",
+  "@rock-js/platform-android": {
+    "name": "@rock-js/platform-android",
+    "version": "^0.13.0",
     "devOnly": true
   },
-  "@rnef/platform-ios": {
-    "name": "@rnef/platform-ios",
-    "version": "^0.8.13",
+  "@rock-js/platform-ios": {
+    "name": "@rock-js/platform-ios",
+    "version": "^0.13.0",
     "devOnly": true
   },
-  "@rnef/plugin-repack": {
-    "name": "@rnef/plugin-repack",
-    "version": "^0.8.13",
+  "@rock-js/plugin-repack": {
+    "name": "@rock-js/plugin-repack",
+    "version": "^0.13.0",
     "devOnly": true
   },
   "@rspack/core": {
