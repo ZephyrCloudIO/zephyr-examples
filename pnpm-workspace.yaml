@@ -30,3 +30,6 @@ onlyBuiltDependencies:
   - msgpackr-extract
   - sharp
   - workerd
+minimumReleaseAgeExclude:
+  # Renovate security update: hono@4.12.12
+  - hono@4.12.12
