@@ -217,7 +217,7 @@ const upgradePlugins = async (): Promise<void> => {
       version = resolvedVersion;
       log.info(`Resolved dist-tag "${specifiedVersion}" to version: ${resolvedVersion}`);
     } else {
-      version = specifiedVersion.replace(/^\^/, '');
+      version = specifiedVersion;
       log.info(`Using specified version: ${version}`);
     }
   } else {
