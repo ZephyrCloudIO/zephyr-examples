@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 60 # Set a timeout for the job to prevent it from running indefinitely
     runs-on: macos-latest
     env:
-      RUBY_VERSION: 2.7.6
+      RUBY_VERSION: 3.4.9
       MAESTRO_VERSION: 1.39.4
       MAESTRO_DRIVER_STARTUP_TIMEOUT: 240000
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

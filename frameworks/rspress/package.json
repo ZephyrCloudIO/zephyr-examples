@@ -19,6 +19,6 @@
     "zephyr-rspress-plugin": "latest"
   },
   "devDependencies": {
-    "@types/node": "^24.10.0"
+    "@types/node": "^24.12.0"
   }
 }

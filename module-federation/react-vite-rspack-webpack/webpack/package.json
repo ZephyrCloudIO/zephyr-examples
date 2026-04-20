@@ -16,7 +16,7 @@
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
     "@babel/runtime": "7.28.4",
-    "@module-federation/enhanced": "^0.21.2",
+    "@module-federation/enhanced": "^2.3.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "autoprefixer": "^10.4.21",

@@ -2,7 +2,6 @@
   "name": "MFNotesList",
   "version": "0.0.1",
   "private": true,
-
   "scripts": {
     "android": "rnef run:android",
     "ios": "rnef run:ios",
@@ -51,7 +50,7 @@
     "nodemon": "^3.1.9",
     "prettier": "2.8.8",
     "react-test-renderer": "19.1.0",
-    "serve": "^14.2.4",
+    "serve": "^14.2.6",
     "typescript": "5.0.4",
     "zephyr-metro-plugin": "0.0.0-canary-20250813124421",
     "zephyr-metro-rnef-plugin": "workspace:*"

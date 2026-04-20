@@ -1,5 +1,5 @@
 {
   "name": "zephyr-examples",
   "private": true,
-  "packageManager": "pnpm@10.6.3"
+  "packageManager": "pnpm@10.33.0"
 }

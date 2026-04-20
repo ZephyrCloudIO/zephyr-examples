@@ -24,6 +24,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           variant: 'Debug'
-          rnef-build-extra-params: '--active-arch-only'
+          rock-build-extra-params: '--active-arch-only'
           working-directory: './apps/mobile-host'
 

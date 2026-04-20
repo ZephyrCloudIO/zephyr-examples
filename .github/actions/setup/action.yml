@@ -16,7 +16,6 @@ runs:
   steps:
     - uses: pnpm/action-setup@v4
       with:
-        version: 10.6.3
         run_install: false
     - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
       with:
