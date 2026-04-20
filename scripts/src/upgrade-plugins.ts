@@ -175,6 +175,24 @@ const parseVersion = (): string | null => {
   return versionArg ? versionArg.split('=')[1] : null;
 };
 
+const resolveDistTagVersion = (tag: string): string => {
+  try {
+    log.warning(`Resolving dist-tag "${tag}" for zephyr-rspack-plugin...`);
+    const result = execSync(`npm view zephyr-rspack-plugin dist-tags.${tag}`, {
+      encoding: "utf-8",
+    }).trim();
+
+    if (!result) {
+      throw new Error(`Empty dist-tag result for "${tag}"`);
+    }
+
+    return result;
+  } catch (error: any) {
+    log.error(`Failed to resolve dist-tag "${tag}": ${error.message}`);
+    process.exit(1);
+  }
+};
+
 const upgradePlugins = async (): Promise<void> => {
   if (["--help", "-h"].includes(process.argv[2])) {
     console.log(
@@ -194,12 +212,17 @@ const upgradePlugins = async (): Promise<void> => {
   const isDistTag = (v: string) => !/^\d+\.\d+/.test(v);
 
   if (specifiedVersion) {
-    // Don't add caret to dist-tags
-    version = isDistTag(specifiedVersion) ? specifiedVersion : `^${specifiedVersion}`;
-    log.info(`Using specified version: ${version}`);
+    if (isDistTag(specifiedVersion)) {
+      const resolvedVersion = resolveDistTagVersion(specifiedVersion);
+      version = resolvedVersion;
+      log.info(`Resolved dist-tag "${specifiedVersion}" to version: ${resolvedVersion}`);
+    } else {
+      version = specifiedVersion.replace(/^\^/, '');
+      log.info(`Using specified version: ${version}`);
+    }
   } else {
     const fetchedVersion = await getNextVersion();
-    version = `^${fetchedVersion}`;
+    version = fetchedVersion;
     log.info(`Using fetched next version: ${version}`);
   }
 
@@ -236,14 +259,18 @@ const upgradePlugins = async (): Promise<void> => {
   // Run pnpm install at workspace root to regenerate the lockfile
   log.warning("\nRunning pnpm install at workspace root to update lockfile...");
 
+  const installCommand = "pnpm install --no-frozen-lockfile --config.minimumReleaseAge=0";
+  log.warning("Temporarily bypassing minimumReleaseAge for lockfile refresh.");
+
   try {
-    execSync("pnpm install --no-frozen-lockfile", {
+    execSync(installCommand, {
       cwd: rootPath,
       stdio: "inherit",
     });
   } catch (error: any) {
     log.error(`Failed to run pnpm install at workspace root:`);
     console.error(error.message);
+    process.exit(1);
   }
 
   log.success("\n✓ Successfully updated all dependencies!");
