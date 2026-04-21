@@ -8,3 +8,9 @@ packages:
   - "!frameworks/react-native-repack/**"
   - server/**
   - scripts
+# Excluded from root workspace (kept standalone):
+# - build-systems/** — each example ships its own build tool (nx, turbo) and lockfile
+# - module-federation/airbnb-clone — multi-bundler demo with pinned dep stack
+# - module-federation/react-vite-rspack-webpack — multi-bundler demo with pinned dep stack
+# - frameworks/react-native-metro, frameworks/react-native-repack — require native tooling (Xcode/Android SDK)
+# These are built via a matrix job in .github/workflows/release.yml and .github/workflows/manual.yml.

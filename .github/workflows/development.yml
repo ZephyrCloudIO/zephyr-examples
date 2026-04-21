@@ -1,0 +1,111 @@
+name: Development
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'bundlers/**'
+      - 'module-federation/**'
+      - 'frameworks/**'
+      - 'server/**'
+      - 'build-systems/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - '.github/actions/**'
+      - 'turbo.json'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  TURBO_TELEMETRY_DISABLED: 1
+  TURBO_CACHE: remote:rw
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+  ZE_ENV: staging
+  ZE_FAIL_BUILD: true
+  ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN_STAGING }}
+  ZE_API: https://zephyr-api-prerelease-1a6b535d0499.herokuapp.com
+  ZE_API_GATE: https://zeapi.zephyrcloudapp.xyz
+  USE_ZEPHYR_DEPLOY: true
+
+jobs:
+  # ── Workspace examples (affected via turbo) ────────────────────────────────
+  build-affected:
+    name: Build affected (staging)
+    if: ${{ !github.event.pull_request.draft }}
+    timeout-minutes: 30
+    runs-on: depot-ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node & PNPM
+        uses: ./.github/actions/setup-node
+
+      - name: 🎯 Build affected examples (staging)
+        run: pnpm exec turbo build --affected
+        env:
+          TURBO_SCM_BASE: ${{ github.event.pull_request.base.sha }}
+
+  # ── Standalone examples (matrix, per-directory install + build) ────────────
+  standalone-affected:
+    name: Standalone ${{ matrix.example }} (staging)
+    if: ${{ !github.event.pull_request.draft }}
+    timeout-minutes: 30
+    runs-on: depot-ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - build-systems/nx-rspack-mf
+          - build-systems/turborepo-rspack-mf
+          - module-federation/airbnb-clone
+          - module-federation/react-vite-rspack-webpack
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: 🔎 Check if standalone changed
+        id: changed
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
+        with:
+          filters: |
+            example:
+              - '${{ matrix.example }}/**'
+              - '.github/workflows/development.yml'
+
+      - name: 📦 Setup PNPM
+        if: steps.changed.outputs.example == 'true'
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 10.6.3
+
+      - name: 🟢 Setup Node
+        if: steps.changed.outputs.example == 'true'
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+          cache-dependency-path: ${{ matrix.example }}/pnpm-lock.yaml
+
+      - name: 📥 Install ${{ matrix.example }}
+        if: steps.changed.outputs.example == 'true'
+        run: pnpm install --prefer-offline
+        working-directory: ${{ matrix.example }}
+
+      - name: 🏗️ Build ${{ matrix.example }}
+        if: steps.changed.outputs.example == 'true'
+        run: pnpm build
+        working-directory: ${{ matrix.example }}
+
+      - name: ⏭️ Skipped — no changes
+        if: steps.changed.outputs.example != 'true'
+        run: echo "Skipped ${{ matrix.example }} — no changes in this PR."

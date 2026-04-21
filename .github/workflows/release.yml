@@ -1,0 +1,147 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'bundlers/**'
+      - 'module-federation/**'
+      - 'frameworks/**'
+      - 'server/**'
+      - 'build-systems/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - '.github/actions/**'
+      - 'turbo.json'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  TURBO_TELEMETRY_DISABLED: 1
+  TURBO_CACHE: remote:rw
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+  ZE_ENV: production
+  ZE_FAIL_BUILD: true
+  ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN_PROD }}
+  ZE_API: https://api.zephyr-cloud.io
+  ZE_API_GATE: https://zeapi.zephyrcloud.app
+  USE_ZEPHYR_DEPLOY: true
+
+jobs:
+  # ── Workspace examples (affected via turbo) ────────────────────────────────
+  build-affected:
+    name: Build affected (production)
+    timeout-minutes: 30
+    runs-on: depot-ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node & PNPM
+        uses: ./.github/actions/setup-node
+
+      - name: 🎯 Build affected examples (production)
+        run: pnpm exec turbo build --affected
+        env:
+          # Compare against previous commit on main
+          TURBO_SCM_BASE: ${{ github.event.before }}
+
+  # ── Standalone examples (matrix, only build if changed) ────────────────────
+  standalone-affected:
+    name: Standalone ${{ matrix.example }} (production)
+    timeout-minutes: 30
+    runs-on: depot-ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - build-systems/nx-rspack-mf
+          - build-systems/turborepo-rspack-mf
+          - module-federation/airbnb-clone
+          - module-federation/react-vite-rspack-webpack
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: 🔎 Check if standalone changed since last commit
+        id: changed
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
+        with:
+          base: ${{ github.event.before }}
+          filters: |
+            example:
+              - '${{ matrix.example }}/**'
+              - '.github/workflows/release.yml'
+
+      - name: 📦 Setup PNPM
+        if: steps.changed.outputs.example == 'true'
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 10.6.3
+
+      - name: 🟢 Setup Node
+        if: steps.changed.outputs.example == 'true'
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+          cache-dependency-path: ${{ matrix.example }}/pnpm-lock.yaml
+
+      - name: 📥 Install ${{ matrix.example }}
+        if: steps.changed.outputs.example == 'true'
+        run: pnpm install --prefer-offline
+        working-directory: ${{ matrix.example }}
+
+      - name: 🏗️ Build ${{ matrix.example }}
+        if: steps.changed.outputs.example == 'true'
+        run: pnpm build
+        working-directory: ${{ matrix.example }}
+
+      - name: ⏭️ Skipped — no changes
+        if: steps.changed.outputs.example != 'true'
+        run: echo "Skipped ${{ matrix.example }} — no changes in this push."
+
+  # ── Deployment validation (Playwright) ─────────────────────────────────────
+  validate:
+    name: Validate prod deployments
+    needs: [build-affected, standalone-affected]
+    if: always() && needs.build-affected.result == 'success'
+    timeout-minutes: 15
+    runs-on: depot-ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: 📦 Setup Node & PNPM
+        uses: ./.github/actions/setup-node
+
+      - name: ⏳ Wait for edge propagation
+        run: sleep 60
+
+      - name: 🎭 Install Playwright browsers
+        run: pnpm --filter @zephyr-examples/scripts exec playwright install chromium
+
+      - name: 🧪 Run deployment validation
+        run: pnpm --filter @zephyr-examples/scripts test
+        env:
+          CI: true
+
+      - name: 📋 Upload test results
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
+        if: always()
+        with:
+          name: validation-results
+          path: |
+            scripts/test-results/
+            scripts/playwright-report/
+          retention-days: 7

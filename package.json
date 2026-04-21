@@ -1,5 +1,15 @@
 {
   "name": "zephyr-examples",
   "private": true,
-  "packageManager": "pnpm@10.6.3"
+  "packageManager": "pnpm@10.6.3",
+  "scripts": {
+    "build": "turbo build",
+    "build:affected": "turbo build --affected",
+    "build:force": "turbo build --force",
+    "lint": "turbo lint",
+    "test": "pnpm --filter @zephyr-examples/scripts test"
+  },
+  "devDependencies": {
+    "turbo": "^2.6.0"
+  }
 }

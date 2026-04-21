@@ -2,15 +2,10 @@
   "name": "@zephyr-examples/scripts",
   "version": "0.0.1",
   "private": true,
-  "description": "Build and test scripts for Zephyr examples",
+  "description": "Playwright deployment-validation tests and metadata generators for Zephyr examples",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "build-packages": "tsx src/build-packages.ts",
-    "build-packages:force": "tsx src/build-packages.ts --skip-cache",
-    "build-affected": "tsx src/build-affected.ts",
-    "build-affected:force": "tsx src/build-affected.ts --skip-cache",
-    "build-affected:list": "tsx src/build-affected.ts --list-only",
     "upgrade-plugins": "tsx src/upgrade-plugins.ts",
     "generate-templates": "tsx src/generate-templates-json.ts",
     "generate-readme": "tsx src/generate-readme.ts",
@@ -22,7 +17,6 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "p-limit": "^7.1.0",
     "zephyr-agent": "latest",
     "@types/node": "^22.10.7",
     "@types/node-persist": "^3.1.8"

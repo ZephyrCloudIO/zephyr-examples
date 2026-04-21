@@ -1,0 +1,56 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "concurrency": "90%",
+  "remoteCache": {
+    "teamSlug": "l727rgm5x8",
+    "apiUrl": "https://cache.depot.dev",
+    "enabled": true
+  },
+  "globalEnv": [
+    "CI",
+    "NODE_ENV",
+    "USE_ZEPHYR_DEPLOY",
+    "ZE_API",
+    "ZE_API_GATE",
+    "ZE_ENV",
+    "ZE_FAIL_BUILD",
+    "ZE_SECRET_TOKEN",
+    "ZE_SERVER_TOKEN",
+    "ZE_USER_EMAIL",
+    "PUBLIC_*"
+  ],
+  "globalDependencies": [".env", ".env.*", "pnpm-lock.yaml"],
+  "tasks": {
+    "build": {
+      "inputs": [
+        "src/**",
+        "public/**",
+        "index.html",
+        "package.json",
+        "tsconfig*.json",
+        "*.config.*",
+        "postcss.config.*",
+        "tailwind.config.*",
+        "vite.config.*",
+        "rspack.config.*",
+        "rsbuild.config.*",
+        "webpack.config.*",
+        "rollup.config.*",
+        "metro.config.*",
+        "nitro.config.*",
+        "astro.config.*",
+        "module-federation.config.*"
+      ],
+      "outputs": ["dist/**", ".output/**", "build/**"],
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "env": ["CI", "ZE_SECRET_TOKEN", "ZE_API", "ZE_API_GATE"]
+    },
+    "lint": {
+      "outputLogs": "full"
+    }
+  }
+}

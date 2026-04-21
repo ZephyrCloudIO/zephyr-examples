@@ -1,0 +1,21 @@
+name: Setup Node and PNPM
+description: Sets up Node.js and PNPM with caching and installs root dependencies
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 📦 Setup PNPM
+      uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      with:
+        version: 10.6.3
+        run_install: false
+
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+      with:
+        node-version: '24'
+        cache: 'pnpm'
+
+    - name: 📥 Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile --prefer-offline

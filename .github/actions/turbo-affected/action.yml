@@ -1,0 +1,83 @@
+name: Turbo Affected
+description: Detects affected packages using Turborepo and outputs a JSON matrix
+
+inputs:
+  exclude:
+    description: 'Comma-separated package names to exclude from the matrix'
+    required: false
+    default: ''
+  filter_path:
+    description: 'Only include packages whose path starts with this prefix (e.g. "bundlers/")'
+    required: false
+    default: ''
+
+outputs:
+  matrix:
+    description: 'JSON array of affected package names'
+    value: ${{ steps.affected.outputs.matrix }}
+  any_changed:
+    description: '"true" if any packages are affected, "false" otherwise'
+    value: ${{ steps.affected.outputs.any_changed }}
+  count:
+    description: 'Number of affected packages'
+    value: ${{ steps.affected.outputs.count }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 🎯 Detect affected packages
+      id: affected
+      shell: bash
+      env:
+        EXCLUDE: ${{ inputs.exclude }}
+        FILTER_PATH: ${{ inputs.filter_path }}
+        TURBO_SCM_BASE: ${{ github.event.pull_request.base.sha }}
+      run: |
+        RAW=$(pnpm exec turbo ls --affected --output=json)
+
+        if [ -n "$FILTER_PATH" ]; then
+          ITEMS=$(echo "$RAW" | jq -c --arg prefix "$FILTER_PATH" '[.packages.items[] | select(.path | startswith($prefix)) | .name]')
+        else
+          ITEMS=$(echo "$RAW" | jq -c '[.packages.items[].name]')
+        fi
+
+        if [ -n "$EXCLUDE" ]; then
+          EXCL=$(echo "$EXCLUDE" | jq -Rc 'split(",") | map(gsub("^\\s+|\\s+$"; ""))')
+          MATRIX=$(echo "$ITEMS" | jq -c --argjson ex "$EXCL" 'map(select(. as $n | $ex | index($n) | not))')
+        else
+          MATRIX=$ITEMS
+        fi
+
+        COUNT=$(echo "$MATRIX" | jq -r 'length')
+        ANY_CHANGED=$([ "$COUNT" -gt 0 ] && echo "true" || echo "false")
+
+        echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+        echo "any_changed=$ANY_CHANGED" >> "$GITHUB_OUTPUT"
+        echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+
+        echo ""
+        if [ "$ANY_CHANGED" = "true" ]; then
+          echo "🚀 $COUNT affected packages:"
+          echo "$MATRIX" | jq -r '.[]' | while read -r pkg; do
+            echo "  ✓ $pkg"
+          done
+        else
+          echo "💤 No affected packages detected"
+        fi
+        echo ""
+
+        {
+          echo "## 🎯 Affected Packages"
+          echo ""
+          if [ "$ANY_CHANGED" = "true" ]; then
+            echo "**$COUNT** packages affected:"
+            echo ""
+            echo "| Package | Status |"
+            echo "| ------- | ------ |"
+            echo "$MATRIX" | jq -r '.[]' | while read -r pkg; do
+              echo "| \`$pkg\` | 🟢 Affected |"
+            done
+          else
+            echo "No affected packages detected. Downstream jobs will be skipped."
+          fi
+        } >> "$GITHUB_STEP_SUMMARY"
