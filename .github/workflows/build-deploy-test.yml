@@ -169,6 +169,13 @@ jobs:
           ZE_API_GATE: ${{ env.ZE_API_GATE }}
           ZE_API: ${{ env.ZE_API }}
 
+      - name: Zephyr deploy summary
+        if: github.event_name == 'pull_request'
+        uses: ZephyrCloudIO/zephyr-preview-environment-action@main
+        id: zephyr-summary
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload build logs
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         if: always()
