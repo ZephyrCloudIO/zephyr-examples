@@ -34,7 +34,7 @@ jobs:
           sudo udevadm trigger --name-match=kvm
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a # v4
         with:
           cache-read-only: false
 
@@ -57,7 +57,7 @@ jobs:
 
       - name: Create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@e89f39f1abbbd05b1113a29cf4db69e7540cae5a # v2
         with:
           api-level: ${{ env.ANDROID_EMULATOR_API_LEVEL }}
           target: ${{ env.ANDROID_EMULATOR_TARGET }}
@@ -70,14 +70,14 @@ jobs:
         if: ${{ inputs.build-zephyr-repack-plugin-locally }}
         uses: ./.github/actions/build-zephyr-repack-plugin
 
-      - uses: callstackincubator/android@v1
+      - uses: callstackincubator/android@2f67a7003e5ed1bb4e483619ab582fabff25677d # v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           variant: 'Release'
           working-directory: './apps/mobile-host'
 
       - name: Run Android E2E Tests on Release Mode
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@e89f39f1abbbd05b1113a29cf4db69e7540cae5a # v2
         env:
           ZC: 1
           ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}

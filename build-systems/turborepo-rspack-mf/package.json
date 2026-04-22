@@ -24,16 +24,16 @@
     "zephyr-rspack-plugin": "latest"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.3",
-    "@rspack/cli": "^1.6.0",
-    "@rspack/core": "^1.6.0",
-    "@rspack/plugin-react-refresh": "^1.5.2",
+    "@biomejs/biome": "2.4.12",
+    "@rspack/cli": "1.7.11",
+    "@rspack/core": "1.7.11",
+    "@rspack/plugin-react-refresh": "1.6.2",
     "@types/react-dom": "^19.2.2",
     "@types/react": "^19.2.2",
-    "cross-env": "^10.1.0",
-    "react-refresh": "^0.18.0",
-    "ts-node": "^10.9.2",
-    "turbo": "^2.6.0",
-    "typescript": "^5.9.3"
+    "cross-env": "10.1.0",
+    "react-refresh": "0.18.0",
+    "ts-node": "10.9.2",
+    "turbo": "2.9.6",
+    "typescript": "5.9.3"
   }
 }

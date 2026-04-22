@@ -13,7 +13,7 @@ runs:
   using: "composite"
   steps:
     - name: Checkout repository
-      uses: actions/checkout@v6
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       with:
         submodules: true
         clean: true
@@ -25,10 +25,10 @@ runs:
         sudo udevadm trigger --name-match=kvm
       shell: bash
 
-    - uses: pnpm/action-setup@v4
+    - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
 
     - name: Set up Node
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
       with:
         node-version: 24
         cache: 'pnpm'
@@ -57,14 +57,14 @@ runs:
         pnpm --filter ${{ inputs.app_name }} e2e:serve:android &
       shell: bash
 
-    - uses: callstackincubator/android@v3
+    - uses: callstackincubator/android@c04be7b6078d62620958c7420634a984a40f0bb5 # v3
       with:
         github-token: ${{ inputs.github_token }}
         variant: 'Release'
         working-directory: './apps/${{ inputs.app_name}}'
 
     - name: Run Android E2E Tests
-      uses: reactivecircus/android-emulator-runner@v2
+      uses: reactivecircus/android-emulator-runner@e89f39f1abbbd05b1113a29cf4db69e7540cae5a # v2
       with:
         api-level: ${{ env.ANDROID_EMULATOR_API_LEVEL }}
         target: ${{ env.ANDROID_EMULATOR_TARGET }}
