@@ -34,7 +34,7 @@
     "sort-by": "^1.2.0",
     "swr": "^2.3.6",
     "util": "^0.12.5",
-    "uuid": "^13.0.0",
+    "uuid": "13.0.0",
     "world-countries": "^5.1.0",
     "zephyr-webpack-plugin": "latest",
     "zustand": "^5.0.8"
