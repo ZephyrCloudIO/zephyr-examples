@@ -70,7 +70,7 @@ env:
       github.event.inputs.environment == 'staging' && 'https://zephyr-api-prerelease-1a6b535d0499.herokuapp.com' ||
       'https://api.zephyr-cloud.io'
     }}
-  PNPM_INSTALL_FLAGS: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch') && '--config.minimumReleaseAge=0' || '' }}
+  PNPM_INSTALL_FLAGS: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch') && '--config.minimumReleaseAge=0 --no-frozen-lockfile' || '' }}
 
 jobs:
   build-deploy-test:
