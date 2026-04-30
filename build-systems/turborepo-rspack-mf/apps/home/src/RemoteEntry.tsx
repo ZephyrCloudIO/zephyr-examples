@@ -1,45 +1,94 @@
-import { Cloud, Book, Link2Icon } from 'lucide-react';
-import { Link } from 'react-router';
+const styles = {
+  wrap: {
+    fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+    color: '#fff7ed',
+  } as const,
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    marginBottom: '16px',
+  } as const,
+  badge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '6px',
+    padding: '4px 10px',
+    borderRadius: '999px',
+    background: 'rgba(245, 158, 11, 0.15)',
+    color: '#fbbf24',
+    fontSize: '11px',
+    fontWeight: 600,
+    letterSpacing: '0.05em',
+    textTransform: 'uppercase' as const,
+  } as const,
+  title: {
+    fontSize: '18px',
+    fontWeight: 700,
+    margin: 0,
+    color: '#fff7ed',
+  } as const,
+  sub: {
+    fontSize: '13px',
+    color: '#fcd34d',
+    opacity: 0.8,
+    margin: '0 0 16px 0',
+  } as const,
+  list: {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    gap: '8px',
+  },
+  item: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    padding: '12px',
+    borderRadius: '10px',
+    background: 'rgba(245, 158, 11, 0.08)',
+    border: '1px solid rgba(245, 158, 11, 0.2)',
+  },
+  icon: {
+    fontSize: '22px',
+  },
+  itemTitle: {
+    flex: 1,
+    fontSize: '14px',
+    fontWeight: 600,
+  },
+  itemPrice: {
+    fontSize: '13px',
+    color: '#fbbf24',
+    fontWeight: 600,
+    fontVariantNumeric: 'tabular-nums' as const,
+  },
+};
+
+const products = [
+  { icon: '📦', name: 'Edge Runtime Bundle', price: '$24.00' },
+  { icon: '⚡', name: 'Worker Starter Kit', price: '$12.00' },
+  { icon: '🧩', name: 'Component Library', price: '$18.00' },
+];
 
 function RemoteEntry() {
   return (
-    <div className="h-full bg-gradient-to-b from-neutral-950 p-10 to-black flex flex-col items-center justify-center">
-      <div className="rounded-md p-4">
-        {' '}
-        <div className="text-center max-w-2xl">
-          <div className="flex items-center justify-center mb-6">
-            <Cloud className="w-10 h-10 text-white" />
+    <div style={styles.wrap}>
+      <div style={styles.header}>
+        <span style={styles.badge}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fbbf24', display: 'inline-block' }} />
+          Catalog Team
+        </span>
+      </div>
+      <h2 style={styles.title}>Featured Products</h2>
+      <p style={styles.sub}>Shipped by turbo_home · independent release cadence</p>
+      <div style={styles.list}>
+        {products.map((p) => (
+          <div key={p.name} style={styles.item}>
+            <span style={styles.icon}>{p.icon}</span>
+            <span style={styles.itemTitle}>{p.name}</span>
+            <span style={styles.itemPrice}>{p.price}</span>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-4">
-            Zephyr Cloud Starter
-          </h1>
-          <p className="text-neutral-400 mb-8">
-            Edge-ready template with module federation and RSPack bundling.
-            Start building your application with instant deployments.
-          </p>
-          <div className="flex justify-center gap-4">
-            <a
-              href="https://app.zephyr-cloud.io"
-              className="px-4 py-2 bg-white text-black rounded-lg hover:bg-neutral-200 transition-colors flex items-center justify-center"
-            >
-              Get Started
-            </a>
-            <a
-              href="https://docs.zephyr-cloud.io/"
-              className="px-4 py-2 border-2 border-white text-white rounded-lg hover:bg-neutral-900 transition-colors inline-flex items-center"
-            >
-              <Book className="w-4 h-4 mr-2" />
-              Documentation
-            </a>
-            <Link
-              to="/settings"
-              className="px-4 py-2 border-2 border-white text-white rounded-lg hover:bg-neutral-900 transition-colors inline-flex items-center"
-            >
-              <Link2Icon className="w-4 h-4 mr-2" />
-              Router Link To Settings
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
