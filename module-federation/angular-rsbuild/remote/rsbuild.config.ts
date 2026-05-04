@@ -41,7 +41,7 @@ export default async () => createConfig({
       ...(config.plugins ?? []),
       ...(browser?.plugins ?? []),
       pluginModuleFederation({
-        name: 'angular_remote',
+        name: 'angular_rsbuild_remote',
         filename: 'remoteEntry.js',
         exposes: {
           './PromoCard': './src/promo-card.component.ts',

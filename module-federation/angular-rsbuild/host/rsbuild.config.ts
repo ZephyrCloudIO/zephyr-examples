@@ -41,9 +41,9 @@ export default async () => createConfig({
       ...(config.plugins ?? []),
       ...(browser?.plugins ?? []),
       pluginModuleFederation({
-        name: 'angular_host',
+        name: 'angular_rsbuild_host',
         remotes: {
-          angular_remote: 'angular_remote@http://localhost:4201/mf-manifest.json',
+          angular_rsbuild_remote: 'angular_rsbuild_remote@http://localhost:4201/mf-manifest.json',
         },
         shared,
       }),

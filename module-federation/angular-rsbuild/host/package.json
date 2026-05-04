@@ -1,5 +1,5 @@
 {
-  "name": "mf-angular-rsbuild-host",
+  "name": "angular_rsbuild_host",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -28,6 +28,6 @@
     "zephyr-rsbuild-plugin": "^1.0.3"
   },
   "zephyr:dependencies": {
-    "angular_remote": "workspace:*"
+    "angular_rsbuild_remote": "workspace:*"
   }
 }

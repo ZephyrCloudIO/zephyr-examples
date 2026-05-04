@@ -32,11 +32,11 @@ pnpm dev
 
 ## What's Inside
 
-- `remote/` exposes `PromoCardComponent` as `angular_remote/PromoCard`
+- `remote/` exposes `PromoCardComponent` as `angular_rsbuild_remote/PromoCard`
 - `host/` imports the remote component at runtime and renders it with `NgComponentOutlet`
 - Both apps use standalone Angular components, zoneless change detection, Rsbuild, and Module Federation
 - Rsbuild runs the Module Federation plugin and the Zephyr plugin as separate plugins
-- The host declares `zephyr:dependencies` so Zephyr can resolve `angular_remote` during deployment
+- The host declares `zephyr:dependencies` so Zephyr can resolve `angular_rsbuild_remote` during deployment
 
 Angular 20 is used because the current Angular Rsbuild adapters support Angular `>=19 <21`.
 
@@ -61,4 +61,3 @@ pnpm build
 - [Rspack Documentation](https://rspack.dev)
 - [Module Federation Documentation](https://module-federation.io)
 - [Zephyr Cloud Docs](https://docs.zephyr-cloud.io)
-

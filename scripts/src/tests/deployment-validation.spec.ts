@@ -14,6 +14,9 @@ process.on("unhandledRejection", (reason, promise) => {
 
 test.describe("Deployment Validation", () => {
   let deployedApps: DeployedApp[] = [];
+  const requiredAppNames = Object.entries(APP_VALIDATIONS)
+    .filter(([, validation]) => validation.required)
+    .map(([name]) => name);
 
   test.beforeAll(async () => {
     console.log("Fetching deployed applications...");
@@ -63,7 +66,7 @@ test.describe("Deployment Validation", () => {
       }
 
       let response;
-      let navigationError;
+      let navigationError: Error | undefined;
 
       // Navigate and wait for network to be idle (handles defer scripts)
       try {
@@ -72,7 +75,7 @@ test.describe("Deployment Validation", () => {
           timeout: 30_000,
         });
       } catch (e) {
-        navigationError = e;
+        navigationError = e instanceof Error ? e : new Error(String(e));
       }
 
       if (!response || response.status() >= 400) {
@@ -173,7 +176,8 @@ test.describe("Deployment Validation", () => {
           }
         }
       } catch (e) {
-        console.log(`  ⚠️  Error extracting text: ${e.message}`);
+        const message = e instanceof Error ? e.message : String(e);
+        console.log(`  ⚠️  Error extracting text: ${message}`);
         // If text extraction fails entirely, mark as failed
         failedApps.push({
           name: app.name,
@@ -260,5 +264,17 @@ test.describe("Deployment Validation", () => {
 
   test("deployment summary", async () => {
     expect(deployedApps.length).toBeGreaterThan(0);
+  });
+
+  test("required deployments must be present", async () => {
+    const deployedAppNames = new Set(deployedApps.map((app) => app.name));
+    const missingRequiredApps = requiredAppNames.filter(
+      (name) => !deployedAppNames.has(name)
+    );
+
+    expect(
+      missingRequiredApps,
+      `required deployments missing: ${missingRequiredApps.join(", ")}`
+    ).toEqual([]);
   });
 });

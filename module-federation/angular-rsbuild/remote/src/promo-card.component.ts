@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
       <dl>
         <div>
           <dt>Remote</dt>
-          <dd>angular_remote</dd>
+          <dd>angular_rsbuild_remote</dd>
         </div>
         <div>
           <dt>Expose</dt>
@@ -124,4 +124,3 @@ import { Component } from '@angular/core';
   ],
 })
 export class PromoCardComponent {}
-
