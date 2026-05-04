@@ -19,7 +19,7 @@ export default async () => createConfig({
     index: './src/index.html',
     outputHashing: 'none',
     outputPath: './dist',
-    styles: [],
+    styles: ['./src/styles.css'],
   },
   rsbuildConfigOverrides: {
     output: {
