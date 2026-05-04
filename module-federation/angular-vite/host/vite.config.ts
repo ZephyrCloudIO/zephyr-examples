@@ -1,0 +1,38 @@
+import angular from '@analogjs/vite-plugin-angular';
+import { federation } from '@module-federation/vite';
+import { defineConfig } from 'vite';
+import { withZephyr, type ModuleFederationOptions } from 'vite-plugin-zephyr';
+
+const mfConfig: ModuleFederationOptions = {
+  name: 'angular_host',
+  filename: 'remoteEntry.js',
+  remotes: {
+    angular_remote: {
+      type: 'module',
+      name: 'angular_remote',
+      entry: 'http://localhost:5174/remoteEntry.js',
+      entryGlobalName: 'angular_remote',
+      shareScope: 'default',
+    },
+  },
+  shared: {
+    '@angular/core': { singleton: true, strictVersion: true },
+    '@angular/common': { singleton: true, strictVersion: true },
+    '@angular/platform-browser': { singleton: true, strictVersion: true },
+    rxjs: { singleton: true },
+  },
+};
+
+export default defineConfig(({ command }) => ({
+  plugins: [
+    angular(),
+    command === 'serve' ? federation(mfConfig) : withZephyr({ mfConfig }),
+  ],
+  server: {
+    origin: 'http://localhost:5173',
+    port: 5173,
+  },
+  build: {
+    target: 'chrome89',
+  },
+}));

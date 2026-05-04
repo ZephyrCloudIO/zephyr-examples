@@ -24,6 +24,7 @@ Micro-frontend architecture with Module Federation, Zephyr's core value proposit
 | Example | Framework | Bundler | Complexity |
 |---------|-----------|---------|------------|
 | [Airbnb Clone (Module Federation)](module-federation/airbnb-clone) | react | rspack | advanced |
+| [Angular + Vite Module Federation](module-federation/angular-vite) | angular | vite | intermediate |
 | [React + Rsbuild Module Federation](module-federation/react-rsbuild) | react | rsbuild | intermediate |
 | [React Multi-Bundler Module Federation](module-federation/react-vite-rspack-webpack) | react | webpack | advanced |
 | [React + Webpack Module Federation](module-federation/react-webpack) | react | webpack | intermediate |
