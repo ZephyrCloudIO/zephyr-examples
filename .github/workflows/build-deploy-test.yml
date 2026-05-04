@@ -142,8 +142,12 @@ jobs:
             fi
           done
 
-      - name: Rebuild Angular Rspack compiler
-        run: pnpm rebuild @nx/angular-rspack-compiler
+      - name: Patch Angular Rspack compiler dependencies
+        run: |
+          find node_modules/.pnpm \
+            -path "*/@nx/angular-rspack-compiler/patch/patch-angular-build.js" \
+            -print \
+            -exec node {} \;
 
       - name: Clean zephyr cache before build
         run: |
