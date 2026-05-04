@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
       <dl>
         <div>
           <dt>Remote</dt>
-          <dd>angular_remote</dd>
+          <dd>angular_vite_remote</dd>
         </div>
         <div>
           <dt>Expose</dt>

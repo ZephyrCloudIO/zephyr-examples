@@ -4,14 +4,14 @@ import { defineConfig } from 'vite';
 import { withZephyr, type ModuleFederationOptions } from 'vite-plugin-zephyr';
 
 const mfConfig: ModuleFederationOptions = {
-  name: 'angular_host',
+  name: 'angular_vite_host',
   filename: 'remoteEntry.js',
   remotes: {
-    angular_remote: {
+    angular_vite_remote: {
       type: 'module',
-      name: 'angular_remote',
+      name: 'angular_vite_remote',
       entry: 'http://localhost:5174/remoteEntry.js',
-      entryGlobalName: 'angular_remote',
+      entryGlobalName: 'angular_vite_remote',
       shareScope: 'default',
     },
   },

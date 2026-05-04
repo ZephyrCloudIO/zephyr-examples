@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import { withZephyr, type ModuleFederationOptions } from 'vite-plugin-zephyr';
 
 const mfConfig: ModuleFederationOptions = {
-  name: 'angular_remote',
+  name: 'angular_vite_remote',
   filename: 'remoteEntry.js',
   exposes: {
     './PromoCard': './src/promo-card.component.ts',

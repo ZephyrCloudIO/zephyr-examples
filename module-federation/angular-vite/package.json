@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm --parallel --filter angular_host --filter angular_remote dev",
+    "dev": "pnpm --parallel --filter angular_vite_host --filter angular_vite_remote dev",
     "build": "pnpm build-remote && pnpm build-host",
-    "build-host": "pnpm --filter angular_host build",
-    "build-remote": "pnpm --filter angular_remote build"
+    "build-host": "pnpm --filter angular_vite_host build",
+    "build-remote": "pnpm --filter angular_vite_remote build"
   },
   "devDependencies": {
     "@module-federation/vite": "1.15.1",

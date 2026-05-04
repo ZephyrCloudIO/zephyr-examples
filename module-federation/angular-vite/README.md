@@ -32,11 +32,11 @@ pnpm dev
 
 ## What's Inside
 
-- `remote/` exposes `PromoCardComponent` as `angular_remote/PromoCard`
+- `remote/` exposes `PromoCardComponent` as `angular_vite_remote/PromoCard`
 - `host/` imports the remote component at runtime and renders it with `NgComponentOutlet`
 - Both apps use Vite, standalone Angular components, zoneless change detection, and shared Module Federation config
 - Vite runs `@module-federation/vite` directly and `vite-plugin-zephyr` alongside it
-- The host declares `zephyr:dependencies` so Zephyr can resolve `angular_remote` during deployment
+- The host declares `zephyr:dependencies` so Zephyr can resolve `angular_vite_remote` during deployment
 
 ## Why Analog's Vite Plugin?
 

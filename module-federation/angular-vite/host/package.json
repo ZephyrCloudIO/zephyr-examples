@@ -1,5 +1,5 @@
 {
-  "name": "angular_host",
+  "name": "angular_vite_host",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -27,6 +27,6 @@
     "vite-plugin-zephyr": "1.0.3"
   },
   "zephyr:dependencies": {
-    "angular_remote": "workspace:*"
+    "angular_vite_remote": "workspace:*"
   }
 }
