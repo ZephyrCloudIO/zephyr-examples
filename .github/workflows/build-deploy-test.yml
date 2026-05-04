@@ -142,6 +142,9 @@ jobs:
             fi
           done
 
+      - name: Rebuild Angular Rspack compiler
+        run: pnpm rebuild @nx/angular-rspack-compiler
+
       - name: Clean zephyr cache before build
         run: |
           echo "Cleaning $HOME/.zephyr directory..."
