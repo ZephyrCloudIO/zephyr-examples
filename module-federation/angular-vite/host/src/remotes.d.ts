@@ -1,6 +1,5 @@
-declare module 'angular_remote/PromoCard' {
+declare module 'angular_vite_remote/PromoCard' {
   import type { Type } from '@angular/core';
 
   export const PromoCardComponent: Type<unknown>;
 }
-

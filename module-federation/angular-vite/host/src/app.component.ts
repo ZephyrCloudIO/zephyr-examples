@@ -54,7 +54,7 @@ import { Component, signal, Type } from '@angular/core';
       <section class="remote-slot" aria-label="Federated remote component">
         <div class="section-heading">
           <h2>Remote loaded by the host</h2>
-          <p>The card is compiled and served by <code>angular_remote</code>.</p>
+          <p>The card is compiled and served by <code>angular_vite_remote</code>.</p>
         </div>
         @if (remoteComponent()) {
           <ng-container *ngComponentOutlet="remoteComponent()" />
@@ -403,7 +403,7 @@ export class AppComponent {
   }
 
   private async loadRemote(): Promise<void> {
-    const remote = await import('angular_remote/PromoCard');
+    const remote = await import('angular_vite_remote/PromoCard');
     this.remoteComponent.set(remote.PromoCardComponent);
   }
 }
