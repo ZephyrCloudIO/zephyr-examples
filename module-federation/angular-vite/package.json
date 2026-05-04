@@ -1,0 +1,16 @@
+{
+  "name": "mf-angular-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel --filter angular_host --filter angular_remote dev",
+    "build": "pnpm build-remote && pnpm build-host",
+    "build-host": "pnpm --filter angular_host build",
+    "build-remote": "pnpm --filter angular_remote build"
+  },
+  "devDependencies": {
+    "@module-federation/vite": "1.15.1",
+    "vite-plugin-zephyr": "1.0.3"
+  }
+}
