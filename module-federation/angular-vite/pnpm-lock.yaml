@@ -12,7 +12,7 @@ importers:
         specifier: 1.15.1
         version: 1.15.1(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3))
       vite-plugin-zephyr:
-        specifier: ^1.0.3
+        specifier: 1.0.3
         version: 1.0.3(@module-federation/vite@1.15.1(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3)))(rollup@4.60.2)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3))
 
   host:
@@ -58,7 +58,7 @@ importers:
         specifier: ^8.0.10
         version: 8.0.10(esbuild@0.27.3)(sass@1.97.3)
       vite-plugin-zephyr:
-        specifier: ^1.0.3
+        specifier: 1.0.3
         version: 1.0.3(@module-federation/vite@1.15.1(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3)))(rollup@4.60.2)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3))
 
   remote:
@@ -104,7 +104,7 @@ importers:
         specifier: ^8.0.10
         version: 8.0.10(esbuild@0.27.3)(sass@1.97.3)
       vite-plugin-zephyr:
-        specifier: ^1.0.3
+        specifier: 1.0.3
         version: 1.0.3(@module-federation/vite@1.15.1(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3)))(rollup@4.60.2)(vite@8.0.10(esbuild@0.27.3)(sass@1.97.3))
 
 packages:

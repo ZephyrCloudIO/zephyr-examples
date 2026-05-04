@@ -11,6 +11,6 @@
   },
   "devDependencies": {
     "@module-federation/vite": "1.15.1",
-    "vite-plugin-zephyr": "^1.0.3"
+    "vite-plugin-zephyr": "1.0.3"
   }
 }

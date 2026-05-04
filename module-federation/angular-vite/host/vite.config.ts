@@ -23,11 +23,8 @@ const mfConfig: ModuleFederationOptions = {
   },
 };
 
-export default defineConfig(({ command }) => ({
-  plugins: [
-    angular(),
-    command === 'serve' ? federation(mfConfig) : withZephyr({ mfConfig }),
-  ],
+export default defineConfig({
+  plugins: [angular(), federation(mfConfig), withZephyr()],
   server: {
     origin: 'http://localhost:5173',
     port: 5173,
@@ -35,4 +32,4 @@ export default defineConfig(({ command }) => ({
   build: {
     target: 'chrome89',
   },
-}));
+});
