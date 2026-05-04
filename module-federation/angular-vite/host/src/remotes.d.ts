@@ -3,3 +3,4 @@ declare module 'angular_remote/PromoCard' {
 
   export const PromoCardComponent: Type<unknown>;
 }
+
