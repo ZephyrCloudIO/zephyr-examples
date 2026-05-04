@@ -21,7 +21,7 @@
     "@analogjs/vite-plugin-angular": "^2.5.0",
     "@angular/build": "^21.2.9",
     "@angular/compiler-cli": "^21.2.11",
-    "@module-federation/vite": "^1.15.2",
+    "@module-federation/vite": "1.15.1",
     "typescript": "^5.9.3",
     "vite": "^8.0.10",
     "vite-plugin-zephyr": "^1.0.3"
