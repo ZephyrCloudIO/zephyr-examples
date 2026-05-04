@@ -1,0 +1,33 @@
+{
+  "name": "mf-angular-rsbuild-host",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --open",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@angular/common": "20.3.19",
+    "@angular/compiler": "20.3.19",
+    "@angular/core": "20.3.19",
+    "@angular/platform-browser": "20.3.19",
+    "@angular/router": "20.3.19",
+    "@angular/ssr": "20.3.19",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.8.1",
+    "zone.js": "^0.15.1"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "20.3.19",
+    "@module-federation/rsbuild-plugin": "^2.4.0",
+    "@nx/angular-rsbuild": "^21.2.0",
+    "@rsbuild/core": "^1.7.5",
+    "typescript": "5.8.3",
+    "zephyr-rsbuild-plugin": "^1.0.3"
+  },
+  "zephyr:dependencies": {
+    "angular_remote": "workspace:*"
+  }
+}

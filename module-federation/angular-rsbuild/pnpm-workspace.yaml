@@ -1,0 +1,11 @@
+packages:
+  - host
+  - remote
+
+onlyBuiltDependencies:
+  - "@nx/angular-rspack-compiler"
+  - "@parcel/watcher"
+  - core-js
+  - esbuild
+  - lmdb
+  - msgpackr-extract

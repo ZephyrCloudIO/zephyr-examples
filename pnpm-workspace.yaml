@@ -23,6 +23,7 @@ blockExoticSubdeps: true
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - "@swc/core"
+  - "@nx/angular-rspack-compiler"
   - core-js
   - core-js-pure
   - esbuild

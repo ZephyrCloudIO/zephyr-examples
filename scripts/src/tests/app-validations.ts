@@ -177,6 +177,12 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "mf-react-rsbuild-provider": {
     uniqueText: ["Basic Host-Remote", "Provider button"],
   },
+  "mf-angular-rsbuild-host": {
+    uniqueText: ["Angular + Rsbuild", "Remote loaded by the host"],
+  },
+  "mf-angular-rsbuild-remote": {
+    uniqueText: ["Federated starter card", "angular_remote"],
+  },
   // TODO: pending checks for deployment
   // Snapshot assets have incorrect pathing
   // "react-components-starter": {
