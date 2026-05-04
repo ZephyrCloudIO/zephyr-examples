@@ -79,6 +79,21 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   remote2: {
     uniqueText: ["Remote 2", "Module Federation"],
   },
+  "angular-vite-host": {
+    uniqueText: [
+      "Angular + Vite",
+      "Remote loaded by the host",
+      "Federated starter card",
+      "angular_vite_remote",
+    ],
+  },
+  "angular-vite-remote": {
+    uniqueText: [
+      "Federated starter card",
+      "angular_vite_remote",
+      "./PromoCard",
+    ],
+  },
 
   // Airbnb clone microfrontends
   "airbnb-react-host": {
