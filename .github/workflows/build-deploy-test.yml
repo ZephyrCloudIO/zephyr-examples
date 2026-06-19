@@ -198,30 +198,62 @@ jobs:
           echo "Waiting 60 seconds for all deployments to propagate..."
           sleep 60
 
-      - name: Cache Playwright browsers
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            playwright-${{ runner.os }}-
-
-      - name: Install Playwright browsers
-        timeout-minutes: 15
+      # --- TEMPORARY DIAGNOSTIC (#1) — remove once root cause is confirmed ---
+      # Reproduces the `playwright install` stall with verbose logging so we can
+      # see the exact point it hangs (download finalize vs. archive extraction).
+      # `continue-on-error` ensures it never blocks the pipeline — the real
+      # browsers are provided by the Playwright container in the `test` job.
+      - name: Diagnose Playwright install (DEBUG)
+        continue-on-error: true
+        timeout-minutes: 4
+        env:
+          DEBUG: pw:install
         run: |
           cd scripts
-          for attempt in 1 2 3; do
-            echo "Installing Playwright browsers (attempt ${attempt}/3)..."
-            # Per-attempt timeout so a stalled CDN download is killed and retried
-            # instead of hanging the whole step (playwright has no download timeout).
-            if timeout --signal=KILL 240 npx playwright install chromium; then
-              exit 0
-            fi
-            echo "Attempt ${attempt} failed or timed out, retrying in 10s..."
-            sleep 10
-          done
-          echo "Failed to install Playwright browsers after 3 attempts"
-          exit 1
+          timeout --signal=KILL 120 npx playwright install chromium
+
+  # Tests run against the live deployed URLs (baseURL: https://zephyrcloud.app),
+  # so this job only needs a browser + network — not the build outputs. Using
+  # the official Playwright image means browsers are pre-installed, removing the
+  # flaky `playwright install` download/extract step entirely.
+  test:
+    name: Run deployment validation tests
+    needs: build-deploy-test
+    runs-on: depot-ubuntu-latest
+    timeout-minutes: 20
+    # Keep this tag in sync with the @playwright/test version in pnpm-lock.yaml.
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-${{ runner.os }}-
+
+      - name: Install scripts dependencies
+        run: |
+          cd scripts
+          pnpm install --prefer-offline ${PNPM_INSTALL_FLAGS}
 
       - name: Run deployment validation tests
         run: |

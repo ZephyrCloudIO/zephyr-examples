@@ -14,6 +14,11 @@ module.exports = defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    // The CI Playwright container runs as root; Chromium requires --no-sandbox
+    // to launch as root. Only applied in CI so local runs keep the sandbox.
+    launchOptions: {
+      args: process.env.CI ? ['--no-sandbox'] : [],
+    },
   },
   projects: [
     {
