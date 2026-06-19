@@ -198,6 +198,7 @@ jobs:
           sleep 60
 
       - name: Install Playwright browsers
+        timeout-minutes: 5
         run: |
           cd scripts
           npx playwright install chromium
