@@ -78,9 +78,8 @@ jobs:
     runs-on: depot-ubuntu-latest
     timeout-minutes: 30
     env:
-      # Extract/install browsers to the fast /tmp filesystem instead of the
-      # default $HOME/.cache/ms-playwright, which stalls on this runner.
-      # Honored by both `playwright install` and `playwright test`.
+      # Where browsers are provisioned (from the official Playwright image, see
+      # steps below) and where `playwright test` looks for them.
       PLAYWRIGHT_BROWSERS_PATH: /tmp/ms-playwright
     steps:
       - name: Checkout
@@ -208,34 +207,24 @@ jobs:
       # (~/.zephyr/storage), so they can't run in a separate job.
 
       # Root cause of the previous CI hang: `playwright install` downloads the
-      # browser fine (to /tmp) but then hangs forever extracting the archive into
-      # $HOME/.cache/ms-playwright — $HOME is on a slow/stalling filesystem on the
-      # runner. Pointing PLAYWRIGHT_BROWSERS_PATH at /tmp makes extraction land on
-      # the fast filesystem (the same one the download already writes to).
-      - name: Cache Playwright browsers
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
-        with:
-          path: /tmp/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            playwright-${{ runner.os }}-
-
-      - name: Install Playwright browsers
-        timeout-minutes: 15
+      # browser fine but then hangs forever at "extracting archive" on this
+      # runner (the bundled unzip stalls — and it is NOT the disk: `pnpm install`
+      # writes hundreds of thousands of files here without issue). Work around it
+      # by copying the already-extracted browsers out of the official Playwright
+      # image (proven to work) instead of running Playwright's extractor.
+      - name: Provision Playwright browsers (from official image)
+        timeout-minutes: 10
         run: |
-          cd scripts
-          for attempt in 1 2 3; do
-            echo "Installing Playwright browsers (attempt ${attempt}/3)..."
-            # Per-attempt hard timeout so a stall is killed and retried rather
-            # than hanging the whole step indefinitely.
-            if timeout --signal=KILL 240 npx playwright install chromium; then
-              exit 0
-            fi
-            echo "Attempt ${attempt} failed or timed out, retrying in 10s..."
-            sleep 10
-          done
-          echo "Failed to install Playwright browsers after 3 attempts"
-          exit 1
+          set -euo pipefail
+          # Keep this tag in sync with the @playwright/test version in pnpm-lock.yaml.
+          IMAGE="mcr.microsoft.com/playwright:v1.58.2-noble"
+          docker pull "$IMAGE"
+          CID=$(docker create "$IMAGE")
+          mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
+          docker cp "$CID:/ms-playwright/." "$PLAYWRIGHT_BROWSERS_PATH/"
+          docker rm "$CID"
+          echo "Provisioned browsers into $PLAYWRIGHT_BROWSERS_PATH:"
+          ls -1 "$PLAYWRIGHT_BROWSERS_PATH"
 
       - name: Run deployment validation tests
         run: |
