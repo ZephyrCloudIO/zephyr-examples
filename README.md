@@ -10,6 +10,7 @@ Zephyr Cloud integrated with different bundlers — no Module Federation.
 
 | Example | Framework | Bundler | Complexity |
 |---------|-----------|---------|------------|
+| [React + NEAR Auth for Zephyr Deploys](bundlers/near-zephyr-vite) | react | vite | advanced |
 | [Parcel + React](bundlers/parcel-react) | react | parcel | beginner |
 | [React + Rspack](bundlers/react-rspack) | react | rspack | beginner |
 | [React + Vite](bundlers/react-vite) | react | vite | beginner |
@@ -54,6 +55,7 @@ Server-side and edge runtime examples.
 
 | Example | Framework | Bundler | Complexity |
 |---------|-----------|---------|------------|
+| [NEAR Zephyr Auth Proxy](server/near-zephyr-proxy) | nitro | nitro | advanced |
 | [Nitro + Elysia](server/nitro-elysia) | nitro | nitro | beginner |
 | [Nitro Hello World](server/nitro-hello-world) | nitro | nitro | beginner |
 | [Nitro + Hono](server/nitro-hono) | nitro | nitro | beginner |
