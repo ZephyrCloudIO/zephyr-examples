@@ -10,6 +10,7 @@ Zephyr Cloud integrated with different bundlers — no Module Federation.
 
 | Example | Framework | Bundler | Complexity |
 |---------|-----------|---------|------------|
+| [React + NEAR Auth for Zephyr Deploys](bundlers/near-zephyr-vite) | react | vite | advanced |
 | [Parcel + React](bundlers/parcel-react) | react | parcel | beginner |
 | [React + Rspack](bundlers/react-rspack) | react | rspack | beginner |
 | [React + Vite](bundlers/react-vite) | react | vite | beginner |

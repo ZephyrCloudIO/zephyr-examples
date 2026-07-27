@@ -1,5 +1,15 @@
 [
   {
+    "name": "React + NEAR Auth for Zephyr Deploys",
+    "slug": "bundlers/near-zephyr-vite",
+    "description": "Zephyr deploys gated by a NEAR account signature via OutLayer TEE, with an on-chain deploy ledger",
+    "framework": "react",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "advanced",
+    "path": "bundlers/near-zephyr-vite"
+  },
+  {
     "name": "Parcel + React",
     "slug": "bundlers/parcel-react",
     "description": "React application with Parcel bundler, deployed with Zephyr Cloud",

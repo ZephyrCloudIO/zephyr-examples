@@ -1,0 +1,21 @@
+[package]
+name = "zephyr-contract"
+version = "0.1.0"
+edition = "2021"
+description = "NEAR contract that gates Zephyr deploys by account, calls OutLayer to release a ZE_SERVER_TOKEN, and records an on-chain deployment ledger"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = { version = "=5.9.0", features = ["legacy", "unit-testing"] }
+serde_json = "1.0"
+schemars = "0.8"
+
+[profile.release]
+codegen-units = 1
+opt-level = "s"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
