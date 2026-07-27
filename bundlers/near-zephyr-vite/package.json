@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "tsx scripts/near-auth-gate.ts",
+    "prebuild": "tsx scripts/auth.ts",
     "build": "pnpm prebuild && tsc && vite build",
     "preview": "vite preview",
     "deploy:contract": "tsx scripts/deploy-contract.ts",

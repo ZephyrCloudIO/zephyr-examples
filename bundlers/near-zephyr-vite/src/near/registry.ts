@@ -9,7 +9,6 @@ import { getRegistry, DEPLOY_REGISTRY_CONTRACT, accountExplorer } from './client
 export interface DeploymentRecord {
   deployer: string
   manifest_hash: string
-  authorized: boolean
   url: string | null
   snapshot_id: string | null
   timestamp: number

@@ -2,7 +2,7 @@
 name = "zephyr-contract"
 version = "0.1.0"
 edition = "2021"
-description = "NEAR contract that gates Zephyr deploys by account, calls OutLayer to release a ZE_SERVER_TOKEN, and records an on-chain deployment ledger"
+description = "NEAR contract that gates Zephyr deploys by whitelisted accounts and records an on-chain deployment provenance ledger"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

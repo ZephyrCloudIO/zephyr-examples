@@ -47,8 +47,8 @@ export default function App() {
       <header className="header">
         <h1>NEAR × Zephyr — Deploy Ledger</h1>
         <p className="subtitle">
-          Zephyr Cloud deploys gated by a NEAR account signature via OutLayer TEE.
-          Every deploy is provably attributable to a NEAR account on-chain.
+          Zephyr Cloud deploys gated by a NEAR account signature. Every deploy
+          is provably attributable to a NEAR account on-chain.
         </p>
         <p style={{ marginTop: 10 }}>
           <span className="badge">{DEPLOY_REGISTRY_CONTRACT || 'no contract configured'}</span>
@@ -57,16 +57,20 @@ export default function App() {
 
       <div className="flow">
         <div className="step">
-          <strong>1 · sign</strong>NEAR account signs near-kit tx → <code>authorize_deploy(manifest_hash)</code>
+          <strong>1 · sign</strong>NEP-413 off-chain signature with NEAR key{' '}
+          (free, no gas)
         </div>
         <div className="step">
-          <strong>2 · gate</strong>DeployRegistry → OutLayer TEE → releases <code>ZE_SERVER_TOKEN</code>
+          <strong>2 · proxy</strong>Auth proxy verifies signature + checks{' '}
+          <code>is_authorized()</code> on-chain
         </div>
         <div className="step">
-          <strong>3 · build</strong>vite build + Zephyr Cloud upload using the gated token
+          <strong>3 · build</strong>vite build + Zephyr Cloud upload using the
+          issued token
         </div>
         <div className="step">
-          <strong>4 · register</strong>onDeployComplete posts <code>register_deployment(url, snapshot_id)</code>
+          <strong>4 · register</strong>onDeployComplete posts{' '}
+          <code>register_deployment(url, snapshot_id)</code>
         </div>
       </div>
 
@@ -74,7 +78,6 @@ export default function App() {
         <table>
           <thead>
             <tr>
-              <th>State</th>
               <th>Deployer</th>
               <th>Manifest hash</th>
               <th>URL</th>
@@ -85,12 +88,12 @@ export default function App() {
           <tbody>
             {loading && (
               <tr>
-                <td className="loading" colSpan={6}>Loading ledger…</td>
+                <td className="loading" colSpan={5}>Loading ledger…</td>
               </tr>
             )}
             {!loading && err && (
               <tr>
-                <td className="empty" colSpan={6}>
+                <td className="empty" colSpan={5}>
                   <strong>Couldn't reach the contract.</strong>
                   <br />
                   <code style={{ fontSize: 11 }}>{err}</code>
@@ -102,7 +105,7 @@ export default function App() {
             )}
             {!loading && !err && records.length === 0 && (
               <tr>
-                <td className="empty" colSpan={6}>
+                <td className="empty" colSpan={5}>
                   No deploys recorded yet. Run <code>pnpm build</code>.
                 </td>
               </tr>
@@ -113,23 +116,6 @@ export default function App() {
                 .reverse()
                 .map((r, idx) => (
                   <tr key={`${r.manifest_hash}-${idx}`}>
-                    <td>
-                      {r.authorized ? (
-                        r.url ? (
-                          <span className="badge">
-                            <span className="dot" /> deployed
-                          </span>
-                        ) : (
-                          <span className="badge muted">
-                            <span className="dot pending" /> authorized · awaiting register
-                          </span>
-                        )
-                      ) : (
-                        <span className="badge danger">
-                          <span className="dot fail" /> rejected
-                        </span>
-                      )}
-                    </td>
                     <td className="mono">
                       <a href={accountExplorer(r.deployer)} target="_blank" rel="noreferrer">
                         {r.deployer}
@@ -149,7 +135,7 @@ export default function App() {
 
       <div className="footer">
         <p>
-          Total records: <strong>{count}</strong> ·{' '}
+          Total deploys: <strong>{count}</strong> ·{' '}
           <button
             type="button"
             onClick={refresh}
@@ -168,20 +154,19 @@ export default function App() {
           </button>
         </p>
         <p>
-          <strong>How it works</strong> — a NEAR account signs (and pays) on-chain
-          via the <code>DeployRegistry</code> contract. The contract verifies the
-          signer and cross-calls OutLayer to run the <code>zephyr-auth-gate</code>{' '}
-          WASM in a TEE. The gate reads the{' '}
-          <code>ZE_SERVER_TOKEN</code> secret — stored as a{' '}
-          <code>PROTECTED_</code> CKD secret on the OutLayer dashboard — and{' '}
-          returns it in stdout. The callback logs it back, the build picks it up
-          from receipts, and passes it to the Zephyr agent for the upload. After
-          the upload, the URL + snapshot are registered back on the contract.
+          <strong>How it works</strong> — a developer signs a deploy request with
+          their NEAR private key (NEP-413 off-chain signature, free). The{' '}
+          <code>near-zephyr-proxy</code> server verifies the signature and checks
+          the <code>DeployRegistry</code> contract's{' '}
+          <code>is_authorized(accountId)</code> view method. If authorized, the
+          proxy returns a Zephyr <code>ZE_SERVER_TOKEN</code> for the build. After
+          upload, <code>onDeployComplete</code> calls{' '}
+          <code>register_deployment</code> to record the URL and snapshot on-chain.
         </p>
         <p>
-          See <a href="../../zephyr-auth-gate/README.md">zephyr-auth-gate</a> and
-          {' '}<a href="../../zephyr-auth-gate/zephyr-contract/README.md">zephyr-contract</a>{' '}
-          for the off-chain + on-chain halves.
+          See <a href="../../zephyr-contract/README.md">zephyr-contract</a> and{' '}
+          <a href="../../server/near-zephyr-proxy/README.md">near-zephyr-proxy</a>{' '}
+          for the on-chain and server halves.
         </p>
       </div>
     </div>
