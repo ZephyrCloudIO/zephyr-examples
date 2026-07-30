@@ -21,6 +21,7 @@ export default defineConfig({
     pluginReact(),
     pluginModuleFederation({
       name: 'host',
+      filename: 'remoteEntry.js',
       remotes: {
         header: {
           external: 'header@http://localhost:3001/remoteEntry.js',
