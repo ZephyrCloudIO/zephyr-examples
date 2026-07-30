@@ -84,7 +84,12 @@ const bootstrapSource = await readFile(
   'utf8',
 );
 for (const alias of dependencyAliases) {
-  if (!hostConfig.includes(`${alias}: {`)) {
+  const port = alias === 'header' ? 3001 : 3002;
+  if (
+    !hostConfig.includes(
+      `${alias}: '${alias}@http://localhost:${port}/remoteEntry.js'`,
+    )
+  ) {
     throw new Error(`Host Module Federation remotes omit ${alias}.`);
   }
   const exposedName = alias === 'header' ? 'Header' : 'Hero';

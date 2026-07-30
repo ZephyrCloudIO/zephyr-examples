@@ -23,12 +23,8 @@ export default defineConfig({
       name: 'host',
       filename: 'remoteEntry.js',
       remotes: {
-        header: {
-          external: 'header@http://localhost:3001/remoteEntry.js',
-        },
-        hero: {
-          external: 'hero@http://localhost:3002/remoteEntry.js',
-        },
+        header: 'header@http://localhost:3001/remoteEntry.js',
+        hero: 'hero@http://localhost:3002/remoteEntry.js',
       },
       shared: {
         react: {
