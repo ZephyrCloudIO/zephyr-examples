@@ -1,11 +1,11 @@
 {
   "sameProjectWorkspaceBuild": {
-    "header": "workspace:*"
+    "header": "rsbuild-mf-monorepo-header@workspace:*"
   },
   "sameProjectProductionEnvironment": {
-    "header": "header@production"
+    "header": "rsbuild-mf-monorepo-header@production"
   },
   "crossProjectProductionEnvironment": {
-    "header": "header.design-system.acme@production"
+    "header": "rsbuild-mf-monorepo-header.design-system.acme@production"
   }
 }

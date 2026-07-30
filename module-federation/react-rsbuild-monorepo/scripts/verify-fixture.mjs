@@ -74,6 +74,14 @@ const dependencyAliases = Object.keys(
 if (dependencyAliases.join(',') !== 'header,hero') {
   throw new Error('Host Zephyr dependency aliases must be header and hero.');
 }
+if (
+  hostPackage['zephyr:dependencies'].header !==
+    'rsbuild-mf-monorepo-header@workspace:*' ||
+  hostPackage['zephyr:dependencies'].hero !==
+    'rsbuild-mf-monorepo-hero@workspace:*'
+) {
+  throw new Error('Host Zephyr aliases must map to the unique remote app UIDs.');
+}
 
 const hostConfig = await readFile(
   new URL('apps/host/rsbuild.config.ts', fixtureRoot),
@@ -127,11 +135,12 @@ for (const remote of [
 
 const selectorExamples = await readJson('dependency-selectors.json');
 if (
-  selectorExamples.sameProjectWorkspaceBuild.header !== 'workspace:*' ||
+  selectorExamples.sameProjectWorkspaceBuild.header !==
+    'rsbuild-mf-monorepo-header@workspace:*' ||
   selectorExamples.sameProjectProductionEnvironment.header !==
-    'header@production' ||
+    'rsbuild-mf-monorepo-header@production' ||
   selectorExamples.crossProjectProductionEnvironment.header !==
-    'header.design-system.acme@production'
+    'rsbuild-mf-monorepo-header.design-system.acme@production'
 ) {
   throw new Error('Dependency selector examples drifted from the guide.');
 }
@@ -186,7 +195,7 @@ for (const requiredFlag of [
 
 const rsbuildHelp = commandOutput('pnpm', [
   '--filter',
-  'header',
+  './apps/header',
   'exec',
   'rsbuild',
   '--help',

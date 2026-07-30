@@ -1,5 +1,5 @@
 {
-  "name": "hero",
+  "name": "rsbuild-mf-monorepo-hero",
   "version": "1.0.0",
   "private": true,
   "type": "module",

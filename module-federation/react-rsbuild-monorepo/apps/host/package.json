@@ -1,5 +1,5 @@
 {
-  "name": "host",
+  "name": "rsbuild-mf-monorepo-host",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -24,7 +24,7 @@
     "zephyr-rsbuild-plugin": "1.2.0"
   },
   "zephyr:dependencies": {
-    "header": "workspace:*",
-    "hero": "workspace:*"
+    "header": "rsbuild-mf-monorepo-header@workspace:*",
+    "hero": "rsbuild-mf-monorepo-hero@workspace:*"
   }
 }

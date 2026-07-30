@@ -15,7 +15,7 @@ export default defineConfig({
   webServer: [
     {
       command:
-        'pnpm --filter header exec rsbuild dev --host 127.0.0.1 --strict-port',
+        "pnpm --filter './apps/header' exec rsbuild dev --host 127.0.0.1 --strict-port",
       env: offlineEnvironment,
       reuseExistingServer: false,
       url: 'http://127.0.0.1:3001/remoteEntry.js',
@@ -23,7 +23,7 @@ export default defineConfig({
     },
     {
       command:
-        'pnpm --filter hero exec rsbuild dev --host 127.0.0.1 --strict-port',
+        "pnpm --filter './apps/hero' exec rsbuild dev --host 127.0.0.1 --strict-port",
       env: offlineEnvironment,
       reuseExistingServer: false,
       url: 'http://127.0.0.1:3002/remoteEntry.js',
@@ -31,7 +31,7 @@ export default defineConfig({
     },
     {
       command:
-        'pnpm --filter host exec rsbuild dev --host 127.0.0.1 --strict-port',
+        "pnpm --filter './apps/host' exec rsbuild dev --host 127.0.0.1 --strict-port",
       env: offlineEnvironment,
       reuseExistingServer: false,
       url: 'http://127.0.0.1:3000',
