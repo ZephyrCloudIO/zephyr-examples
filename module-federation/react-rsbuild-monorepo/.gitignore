@@ -1,0 +1,6 @@
+.mf/
+apps/*/@mf-types/
+diagnostics/type-001/node_modules/
+diagnostics/type-001/outside.d.ts
+playwright-report/
+test-results/

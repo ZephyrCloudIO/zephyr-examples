@@ -131,6 +131,7 @@ jobs:
             build-systems/nx-rspack-mf
             build-systems/turborepo-rspack-mf
             module-federation/airbnb-clone
+            module-federation/react-rsbuild-monorepo
             module-federation/react-vite-rspack-webpack
           )
           for example in "${standalone[@]}"; do

@@ -1,0 +1,58 @@
+name: Verify Rsbuild Module Federation monorepo
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "module-federation/react-rsbuild-monorepo/**"
+      - ".github/workflows/verify-rsbuild-mf-monorepo.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "module-federation/react-rsbuild-monorepo/**"
+      - ".github/workflows/verify-rsbuild-mf-monorepo.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-rsbuild-mf-monorepo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: depot-ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: module-federation/react-rsbuild-monorepo
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+          run_install: false
+
+      - name: Install pinned dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify official scaffold and integration commands
+        run: pnpm verify:scaffold
+
+      - name: Build and diagnose the example
+        run: pnpm verify
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Verify remotes in a browser
+        run: pnpm verify:browser
