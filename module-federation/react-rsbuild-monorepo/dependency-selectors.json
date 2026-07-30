@@ -1,0 +1,11 @@
+{
+  "sameProjectWorkspaceBuild": {
+    "header": "workspace:*"
+  },
+  "sameProjectProductionEnvironment": {
+    "header": "header@production"
+  },
+  "crossProjectProductionEnvironment": {
+    "header": "header.design-system.acme@production"
+  }
+}

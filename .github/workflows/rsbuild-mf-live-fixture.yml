@@ -1,0 +1,46 @@
+name: Rsbuild Module Federation live fixture
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rsbuild-mf-live-fixture
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'ZephyrCloudIO/zephyr-examples'
+    runs-on: depot-ubuntu-latest
+    timeout-minutes: 30
+    environment: rsbuild-mf-live-fixture
+    env:
+      ZE_SECRET_TOKEN: ${{ secrets.ZEPHYR_AUTH_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+          run_install: false
+
+      - name: Require the protected Zephyr credential
+        run: test -n "$ZE_SECRET_TOKEN"
+
+      - name: Install pinned example dependencies
+        working-directory: module-federation/react-rsbuild-monorepo
+        run: pnpm install --frozen-lockfile
+
+      - name: Publish remotes before host
+        working-directory: module-federation/react-rsbuild-monorepo
+        run: pnpm build

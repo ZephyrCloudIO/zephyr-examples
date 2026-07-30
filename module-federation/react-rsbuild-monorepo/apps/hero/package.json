@@ -1,0 +1,25 @@
+{
+  "name": "hero",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@module-federation/rsbuild-plugin": "2.8.0",
+    "@rsbuild/core": "2.1.8",
+    "@rsbuild/plugin-react": "2.1.0",
+    "@types/node": "24.5.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "6.0.3",
+    "zephyr-rsbuild-plugin": "1.2.0"
+  }
+}
