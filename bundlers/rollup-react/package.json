@@ -20,8 +20,8 @@
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-typescript": "^12.3.0",
     "@svgr/rollup": "^8.1.0",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "rollup": "^4.52.5",
     "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^5.9.3"
