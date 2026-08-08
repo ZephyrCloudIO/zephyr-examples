@@ -57,7 +57,7 @@ jobs:
       - name: Install Pods
         run: pnpm --filter MobileHost pods
 
-      - uses: callstackincubator/ios@v1
+      - uses: callstackincubator/ios@78ed46313dac4ed09cb5cc73b9b1b9193d59d863 # v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           destination: 'simulator' # or 'device'
