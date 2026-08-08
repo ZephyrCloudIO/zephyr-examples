@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 2
       - uses: ./.github/actions/setup-dependencies
-      - uses: callstackincubator/android@v1
+      - uses: callstackincubator/android@2f67a7003e5ed1bb4e483619ab582fabff25677d # v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           variant: 'Debug'
