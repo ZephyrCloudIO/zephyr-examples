@@ -104,7 +104,6 @@ jobs:
           pnpm install --prefer-offline ${PNPM_INSTALL_FLAGS}
 
       - name: Upgrade Zephyr plugins
-        if: github.event_name != 'pull_request' && github.event_name != 'push'
         run: |
           cd scripts
           if [ -n "${{ github.event.inputs.plugin_version }}" ]; then
