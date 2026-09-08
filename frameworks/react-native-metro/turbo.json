@@ -28,6 +28,7 @@
     "build:ios:zephyr": {
       "dependsOn": ["^build:ios:zephyr"],
       "cache": false,
+      "env": ["ZE_CI_TOKEN"],
       "outputs": ["dist"],
       "outputLogs": "errors-only"
     },

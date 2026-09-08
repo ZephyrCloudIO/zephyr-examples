@@ -73,37 +73,47 @@ function findZephyrPackages(rootPath: string): PackageUpdate[] {
       continue;
     }
 
-    const examples = readdirSync(categoryPath);
+    const directories = [categoryPath];
 
-    for (const example of examples) {
-      const examplePath = join(categoryPath, example);
-      const packagePath = join(examplePath, "package.json");
+    while (directories.length > 0) {
+      const directory = directories.pop()!;
 
-      if (!existsSync(packagePath)) continue;
+      for (const entry of readdirSync(directory, { withFileTypes: true })) {
+        if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
 
-      try {
-        const content = readFileSync(packagePath, "utf-8");
-        const packageJson = JSON.parse(content);
+        const entryPath = join(directory, entry.name);
 
-        // Check all dependency types
-        const depTypes = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
+        if (entry.isDirectory()) {
+          directories.push(entryPath);
+          continue;
+        }
 
-        for (const depType of depTypes) {
-          if (!packageJson[depType]) continue;
+        if (entry.name !== "package.json") continue;
 
-          for (const zephyrPkg of ZEPHYR_PACKAGES) {
-            if (packageJson[depType][zephyrPkg]) {
-              updates.push({
-                filePath: packagePath,
-                package: zephyrPkg,
-                oldVersion: packageJson[depType][zephyrPkg],
-                newVersion: '', // Will be filled later
-              });
+        try {
+          const content = readFileSync(entryPath, "utf-8");
+          const packageJson = JSON.parse(content);
+
+          // Check all dependency types
+          const depTypes = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
+
+          for (const depType of depTypes) {
+            if (!packageJson[depType]) continue;
+
+            for (const zephyrPkg of ZEPHYR_PACKAGES) {
+              if (packageJson[depType][zephyrPkg]) {
+                updates.push({
+                  filePath: entryPath,
+                  package: zephyrPkg,
+                  oldVersion: packageJson[depType][zephyrPkg],
+                  newVersion: '', // Will be filled later
+                });
+              }
             }
           }
+        } catch (error) {
+          log.error(`Failed to read ${entryPath}: ${error}`);
         }
-      } catch (error) {
-        log.error(`Failed to read ${packagePath}: ${error}`);
       }
     }
   }
