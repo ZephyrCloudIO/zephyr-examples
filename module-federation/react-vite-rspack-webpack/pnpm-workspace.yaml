@@ -6,6 +6,8 @@ packages:
 
 # Fails if trusted package stops being trusted
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - "webpack-dev-middleware@7.4.6"
 # Ignores trust policies for packages older than a week
 trustPolicyIgnoreAfter: 10080
 # Minimum of 1 day before released packages can be installed
