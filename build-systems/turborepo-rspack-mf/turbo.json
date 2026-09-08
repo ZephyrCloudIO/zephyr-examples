@@ -15,7 +15,7 @@
         "ZE_API",
         "ZE_API_GATE",
         "DEBUG",
-        "ZE_SECRET_TOKEN"
+        "ZE_CI_TOKEN"
       ]
     },
     "deploy": {
@@ -30,7 +30,7 @@
         "ZE_API",
         "ZE_API_GATE",
         "DEBUG",
-        "ZE_SECRET_TOKEN"
+        "ZE_CI_TOKEN"
       ]
     },
     "lint": {
