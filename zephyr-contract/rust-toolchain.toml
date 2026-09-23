@@ -1,0 +1,4 @@
+# Bumped from 1.85.0 to stable because near-sdk 5.9.0's transitive dep
+# (near-sys 0.2.13) requires rustc 1.93+. Use `rustup install stable` if needed.
+[toolchain]
+channel = "stable"

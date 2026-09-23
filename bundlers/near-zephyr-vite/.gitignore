@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+.vite-inspect
+.manifest-hash
+.zephyr-tmp-token

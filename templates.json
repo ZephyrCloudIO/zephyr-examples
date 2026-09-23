@@ -1,5 +1,15 @@
 [
   {
+    "name": "React + NEAR Auth for Zephyr Deploys",
+    "slug": "bundlers/near-zephyr-vite",
+    "description": "Zephyr deploys gated by a NEAR account signature, with an on-chain deploy provenance ledger",
+    "framework": "react",
+    "bundler": "vite",
+    "features": [],
+    "complexity": "advanced",
+    "path": "bundlers/near-zephyr-vite"
+  },
+  {
     "name": "Parcel + React",
     "slug": "bundlers/parcel-react",
     "description": "React application with Parcel bundler, deployed with Zephyr Cloud",
@@ -256,6 +266,16 @@
     ],
     "complexity": "intermediate",
     "path": "frameworks/tanstack-start"
+  },
+  {
+    "name": "NEAR Zephyr Auth Proxy",
+    "slug": "server/near-zephyr-proxy",
+    "description": "Hono proxy that verifies NEP-413 NEAR signatures and gates Zephyr deploy tokens behind on-chain authorization",
+    "framework": "nitro",
+    "bundler": "nitro",
+    "features": [],
+    "complexity": "advanced",
+    "path": "server/near-zephyr-proxy"
   },
   {
     "name": "Nitro + Elysia",

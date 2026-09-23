@@ -1,0 +1,30 @@
+{
+  "name": "near-zephyr-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "tsx scripts/auth.ts",
+    "build": "pnpm prebuild && tsc && vite build",
+    "preview": "vite preview",
+    "deploy:contract": "tsx scripts/deploy-contract.ts",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "near-kit": "^0.19.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "vite-plugin-zephyr": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vitest": "^4.1.6"
+  }
+}
