@@ -13,6 +13,6 @@
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "rolldown": "1.0.0-beta.46",
-    "zephyr-rolldown-plugin": "1.4.0"
+    "zephyr-rolldown-plugin": "latest"
   }
 }

@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "zephyr-webpack-plugin": "1.4.0",
+    "zephyr-webpack-plugin": "latest",
     "@module-federation/enhanced": "^0.21.2"
   },
   "devDependencies": {

@@ -30,7 +30,7 @@
     "@types/react-dom": "^19.2.2",
     "rimraf": "^6.1.0",
     "typescript": "^5.9.3",
-    "zephyr-modernjs-plugin": "1.4.0",
-    "zephyr-rspack-plugin": "1.4.0"
+    "zephyr-modernjs-plugin": "latest",
+    "zephyr-rspack-plugin": "latest"
   }
 }

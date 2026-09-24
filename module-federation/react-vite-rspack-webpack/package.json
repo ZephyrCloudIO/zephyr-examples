@@ -15,8 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "@module-federation/vite": "1.9.3",
-    "vite-plugin-zephyr": "1.4.0",
-    "zephyr-rspack-plugin": "1.4.0",
-    "zephyr-webpack-plugin": "1.4.0"
+    "vite-plugin-zephyr": "latest",
+    "zephyr-rspack-plugin": "latest",
+    "zephyr-webpack-plugin": "latest"
   }
 }

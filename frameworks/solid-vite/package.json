@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "solid-js": "^1.9.10",
-    "vite-plugin-zephyr": "1.4.0"
+    "vite-plugin-zephyr": "latest"
   },
   "devDependencies": {
     "typescript": "^5.9.3",

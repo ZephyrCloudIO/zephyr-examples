@@ -78,7 +78,7 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       zephyr-webpack-plugin:
-        specifier: 1.4.0
+        specifier: latest
         version: 1.4.0(webpack@5.106.2)
       zustand:
         specifier: ^5.0.8

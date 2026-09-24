@@ -16,7 +16,7 @@
     "globby": "^15.0.0",
     "rspress": "^1.45.8",
     "webpack-sources": "^3.3.3",
-    "zephyr-rspress-plugin": "1.4.0"
+    "zephyr-rspress-plugin": "latest"
   },
   "devDependencies": {
     "@types/node": "^24.12.0"
