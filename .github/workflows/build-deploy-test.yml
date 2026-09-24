@@ -17,9 +17,9 @@ on:
         default: true
         type: boolean
       plugin_version:
-        description: "Zephyr plugin version to upgrade to (default: next)"
+        description: "Zephyr plugin version to upgrade to (default: latest)"
         required: false
-        default: "next"
+        default: "latest"
         type: string
   repository_dispatch:
     types: [build-deploy-test]
@@ -63,7 +63,7 @@ env:
     }}
   ZE_API: |
     ${{
-      github.event.inputs.environment == 'staging' && 'https://zephyr-api-prerelease-1a6b535d0499.herokuapp.com' ||
+      github.event.inputs.environment == 'staging' && 'https://api-stg.zephyr-cloud.io' ||
       'https://api.zephyr-cloud.io'
     }}
   PNPM_INSTALL_FLAGS: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch') && '--config.minimumReleaseAge=0 --no-frozen-lockfile' || '' }}
@@ -113,8 +113,8 @@ jobs:
             echo "Upgrading plugins to version: ${{ github.event.client_payload.plugin_version }}"
             pnpm upgrade-plugins --version=${{ github.event.client_payload.plugin_version }}
           else
-            echo "Upgrading plugins to latest (next)"
-            pnpm upgrade-plugins
+            echo "Upgrading plugins to latest"
+            pnpm upgrade-plugins --version=latest
           fi
 
       - name: Install example dependencies

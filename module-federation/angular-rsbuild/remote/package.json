@@ -25,6 +25,6 @@
     "@nx/angular-rsbuild": "^21.2.0",
     "@rsbuild/core": "^1.7.5",
     "typescript": "5.8.3",
-    "zephyr-rsbuild-plugin": "^1.0.3"
+    "zephyr-rsbuild-plugin": "latest"
   }
 }
