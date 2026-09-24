@@ -193,6 +193,13 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "mf-react-rsbuild-provider": {
     uniqueText: ["Basic Host-Remote", "Provider button"],
   },
+  "rsbuild-mf-monorepo-host": {
+    uniqueText: [
+      "Header fixture v1",
+      "Hero fixture",
+      "Rsbuild, Module Federation, and Zephyr Cloud are connected.",
+    ],
+  },
   "angular-rsbuild-host": {
     uniqueText: ["Angular + Rsbuild", "Remote loaded by the host"],
     required: true,
