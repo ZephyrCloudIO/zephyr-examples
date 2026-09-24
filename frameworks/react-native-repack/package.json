@@ -42,12 +42,12 @@
     "commitlint": "commitlint --edit"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "eslint": "~8.57.1",
-    "husky": "^9.1.7",
-    "mprocs": "^0.7.1",
-    "prettier": "^3.4.2"
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
+    "eslint": "8.57.1",
+    "husky": "9.1.7",
+    "mprocs": "0.7.3",
+    "prettier": "3.6.2"
   },
   "pnpm": {
     "patchedDependencies": {

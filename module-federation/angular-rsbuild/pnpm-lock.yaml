@@ -42,19 +42,19 @@ importers:
         specifier: 20.3.19
         version: 20.3.19(@angular/compiler@20.3.19)(typescript@5.8.3)
       '@module-federation/rsbuild-plugin':
-        specifier: ^2.4.0
+        specifier: 2.4.0
         version: 2.4.0(@rsbuild/core@1.7.5)(@rspack/core@1.7.11(@swc/helpers@0.5.21))(node-fetch@2.7.0(encoding@0.1.13))(typescript@5.8.3)(webpack@5.106.2)
       '@nx/angular-rsbuild':
-        specifier: ^21.2.0
+        specifier: 21.2.0
         version: 21.2.0(f8204ef96ab466dc6bc16fbc97505fee)
       '@rsbuild/core':
-        specifier: ^1.7.5
+        specifier: 1.7.5
         version: 1.7.5
       typescript:
         specifier: 5.8.3
         version: 5.8.3
       zephyr-rsbuild-plugin:
-        specifier: ^1.0.3
+        specifier: 1.0.3
         version: 1.0.3(@rsbuild/core@1.7.5)(@rspack/core@1.7.11(@swc/helpers@0.5.21))(webpack@5.106.2)
 
   remote:
@@ -91,19 +91,19 @@ importers:
         specifier: 20.3.19
         version: 20.3.19(@angular/compiler@20.3.19)(typescript@5.8.3)
       '@module-federation/rsbuild-plugin':
-        specifier: ^2.4.0
+        specifier: 2.4.0
         version: 2.4.0(@rsbuild/core@1.7.5)(@rspack/core@1.7.11(@swc/helpers@0.5.21))(node-fetch@2.7.0(encoding@0.1.13))(typescript@5.8.3)(webpack@5.106.2)
       '@nx/angular-rsbuild':
-        specifier: ^21.2.0
+        specifier: 21.2.0
         version: 21.2.0(f8204ef96ab466dc6bc16fbc97505fee)
       '@rsbuild/core':
-        specifier: ^1.7.5
+        specifier: 1.7.5
         version: 1.7.5
       typescript:
         specifier: 5.8.3
         version: 5.8.3
       zephyr-rsbuild-plugin:
-        specifier: ^1.0.3
+        specifier: 1.0.3
         version: 1.0.3(@rsbuild/core@1.7.5)(@rspack/core@1.7.11(@swc/helpers@0.5.21))(webpack@5.106.2)
 
 packages:

@@ -21,10 +21,10 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "20.3.19",
-    "@module-federation/rsbuild-plugin": "^2.4.0",
-    "@nx/angular-rsbuild": "^21.2.0",
-    "@rsbuild/core": "^1.7.5",
+    "@module-federation/rsbuild-plugin": "2.4.0",
+    "@nx/angular-rsbuild": "21.2.0",
+    "@rsbuild/core": "1.7.5",
     "typescript": "5.8.3",
-    "zephyr-rsbuild-plugin": "^1.0.3"
+    "zephyr-rsbuild-plugin": "1.0.3"
   }
 }

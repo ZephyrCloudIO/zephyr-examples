@@ -14,8 +14,8 @@
     "@parcel/config-default": "2.16.0",
     "parcel": "2.16.0",
     "parcel-reporter-zephyr": "latest",
-    "process": "^0.11.10",
-    "typescript": "^5.9.3"
+    "process": "0.11.10",
+    "typescript": "5.9.3"
   },
   "browserslist": [
     "> 0.5%, last 2 versions, not dead"
