@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "rollup-plugin-zephyr": "latest"
+    "rollup-plugin-zephyr": "1.4.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.28.5",

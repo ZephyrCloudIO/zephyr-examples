@@ -80,7 +80,7 @@
     "testem": "^3.16.0",
     "tracked-built-ins": "^4.0.0",
     "vite": "^7.1.12",
-    "vite-plugin-zephyr": "latest"
+    "vite-plugin-zephyr": "1.4.0"
   },
   "engines": {
     "node": ">= 18"

@@ -2,7 +2,7 @@
   "name": "ze-starter-turbo",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "pnpm --filter turbo_host run build && pnpm --filter turbo_home run build && pnpm --filter turbo_settings run build && pnpm --filter turbo_host run build",
     "check": "biome check --write",
     "dev": "turbo dev",
     "format": "biome format --write",
@@ -21,7 +21,7 @@
     "react-router": "^7.9.5",
     "react": "^19.2.0",
     "tailwindcss": "^3.4.17",
-    "zephyr-rspack-plugin": "latest"
+    "zephyr-rspack-plugin": "1.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.3",

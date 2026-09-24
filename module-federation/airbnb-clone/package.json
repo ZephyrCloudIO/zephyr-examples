@@ -36,7 +36,7 @@
     "util": "^0.12.5",
     "uuid": "13.0.0",
     "world-countries": "^5.1.0",
-    "zephyr-webpack-plugin": "latest",
+    "zephyr-webpack-plugin": "1.4.0",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
