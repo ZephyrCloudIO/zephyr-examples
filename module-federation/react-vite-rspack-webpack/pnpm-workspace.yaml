@@ -14,3 +14,6 @@ trustPolicyIgnoreAfter: 10080
 minimumReleaseAge: 1440
 # no git/tarball dependencies, only from trusted registry
 blockExoticSubdeps: true
+minimumReleaseAgeExclude:
+  # Renovate security update: @babel/core@7.29.6
+  - "@babel/core@7.29.6"
