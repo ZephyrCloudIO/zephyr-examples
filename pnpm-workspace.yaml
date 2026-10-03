@@ -31,3 +31,6 @@ onlyBuiltDependencies:
   - msgpackr-extract
   - sharp
   - workerd
+minimumReleaseAgeExclude:
+  # Renovate security update: js-yaml@4.3.2
+  - js-yaml@4.3.2
