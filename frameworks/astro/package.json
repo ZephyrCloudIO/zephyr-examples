@@ -13,7 +13,7 @@
     "@astrojs/rss": "^4.0.15-alpha.0",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.15.3",
-    "sharp": "^0.34.4"
+    "sharp": "^0.35.0"
   },
   "devDependencies": {
     "zephyr-astro-integration": "latest"
