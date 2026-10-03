@@ -17,3 +17,6 @@ blockExoticSubdeps: true
 onlyBuiltDependencies:
   - esbuild
   - sharp
+minimumReleaseAgeExclude:
+  # Renovate security update: @rsdoctor/rspack-plugin@1.5.16
+  - "@rsdoctor/rspack-plugin@1.5.16"
