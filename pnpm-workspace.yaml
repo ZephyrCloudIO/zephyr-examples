@@ -31,3 +31,6 @@ onlyBuiltDependencies:
   - msgpackr-extract
   - sharp
   - workerd
+minimumReleaseAgeExclude:
+  # Renovate security update: elysia@1.4.29
+  - elysia@1.4.29
