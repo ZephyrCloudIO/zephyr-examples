@@ -31,3 +31,6 @@ onlyBuiltDependencies:
   - msgpackr-extract
   - sharp
   - workerd
+minimumReleaseAgeExclude:
+  # Renovate security update: @babel/core@7.29.6
+  - "@babel/core@7.29.6"
