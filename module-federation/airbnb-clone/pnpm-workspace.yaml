@@ -11,3 +11,6 @@ trustPolicyIgnoreAfter: 10080
 minimumReleaseAge: 1440
 # no git/tarball dependencies, only from trusted registry
 blockExoticSubdeps: true
+minimumReleaseAgeExclude:
+  # Renovate security update: webpack-dev-server@5.2.6
+  - webpack-dev-server@5.2.6
