@@ -17,3 +17,6 @@ blockExoticSubdeps: true
 onlyBuiltDependencies:
   - esbuild
   - sharp
+minimumReleaseAgeExclude:
+  # Renovate security update: fast-xml-parser@5.7.0
+  - fast-xml-parser@5.7.0
