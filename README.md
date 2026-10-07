@@ -12,6 +12,7 @@ Zephyr Cloud integrated with different bundlers — no Module Federation.
 |---------|-----------|---------|------------|
 | [Parcel + React](bundlers/parcel-react) | react | parcel | beginner |
 | [React + Rspack](bundlers/react-rspack) | react | rspack | beginner |
+| [React + Rspack SPA fallback](bundlers/react-rspack-spa) | react | rspack | beginner |
 | [React + Vite](bundlers/react-vite) | react | vite | beginner |
 | [React + Rolldown](bundlers/rolldown-react) | react | rolldown | beginner |
 | [React + Rollup](bundlers/rollup-react) | react | rollup | beginner |

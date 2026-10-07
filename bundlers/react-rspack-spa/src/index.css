@@ -1,0 +1,50 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #213547;
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #3b5bdb;
+}
+
+a:hover {
+  color: #364fc7;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a.active {
+  font-weight: 700;
+}
+
+code {
+  background: #f1f3f5;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}

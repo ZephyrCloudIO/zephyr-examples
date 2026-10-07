@@ -20,6 +20,18 @@
     "path": "bundlers/react-rspack"
   },
   {
+    "name": "React + Rspack SPA fallback",
+    "slug": "bundlers/react-rspack-spa",
+    "description": "BrowserRouter nested routes to reproduce Zephyr preview refresh 404s without HashRouter",
+    "framework": "react",
+    "bundler": "rspack",
+    "features": [
+      "typescript"
+    ],
+    "complexity": "beginner",
+    "path": "bundlers/react-rspack-spa"
+  },
+  {
     "name": "React + Vite",
     "slug": "bundlers/react-vite",
     "description": "React application with Vite bundler, deployed with Zephyr Cloud",
