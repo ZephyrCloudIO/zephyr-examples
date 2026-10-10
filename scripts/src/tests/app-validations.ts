@@ -201,6 +201,14 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
     uniqueText: ["Federated starter card", "angular_rsbuild_remote"],
     required: true,
   },
+  "tanstack-router-rsbuild-host": {
+    uniqueText: ["TanStack Router + Rsbuild", "Zephyr Shop"],
+    required: true,
+  },
+  "tanstack-router-rsbuild-catalog": {
+    uniqueText: ["Catalog remote", "Edge Hoodie"],
+    required: true,
+  },
   // TODO: pending checks for deployment
   // Snapshot assets have incorrect pathing
   // "react-components-starter": {

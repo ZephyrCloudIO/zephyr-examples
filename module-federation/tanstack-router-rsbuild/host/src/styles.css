@@ -1,0 +1,39 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #18181b;
+  background: #fafafa;
+}
+
+body {
+  margin: 0;
+}
+
+.shell {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e4e4e7;
+  margin-bottom: 2rem;
+}
+
+.shell-header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.shell-header a {
+  color: #52525b;
+  text-decoration: none;
+}
+
+.shell-header a[data-status='active'] {
+  color: #7c3aed;
+  font-weight: 600;
+}

@@ -29,6 +29,7 @@ Micro-frontend architecture with Module Federation, Zephyr's core value proposit
 | [React + Rsbuild Module Federation](module-federation/react-rsbuild) | react | rsbuild | intermediate |
 | [React Multi-Bundler Module Federation](module-federation/react-vite-rspack-webpack) | react | webpack | advanced |
 | [React + Webpack Module Federation](module-federation/react-webpack) | react | webpack | intermediate |
+| [TanStack Router + Rsbuild Module Federation](module-federation/tanstack-router-rsbuild) | tanstack | rsbuild | intermediate |
 | [Tractor Store (Module Federation)](module-federation/tractor-sample) | react | rspack | advanced |
 
 ## Frameworks
