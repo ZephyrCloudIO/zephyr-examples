@@ -127,6 +127,7 @@ jobs:
             build-systems/turborepo-rspack-mf
             module-federation/airbnb-clone
             module-federation/react-vite-rspack-webpack
+            module-federation/tanstack-router-rsbuild
           )
           for example in "${standalone[@]}"; do
             if [ -f "${example}/package.json" ]; then

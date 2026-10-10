@@ -1,0 +1,15 @@
+{
+  "name": "mf-tanstack-router-rsbuild",
+  "version": "1.0.0",
+  "description": "TanStack Router + Module Federation example with Rsbuild and Zephyr",
+  "private": true,
+  "scripts": {
+    "build": "pnpm build-catalog && pnpm build-host",
+    "build-catalog": "pnpm --filter=tanstack-router-rsbuild-catalog build",
+    "build-host": "pnpm --filter=tanstack-router-rsbuild-host build",
+    "dev": "pnpm --filter=tanstack-router-rsbuild-catalog dev & pnpm --filter=tanstack-router-rsbuild-host dev"
+  },
+  "keywords": ["tanstack-router", "rsbuild", "module-federation", "zephyr"],
+  "author": "",
+  "license": "MIT"
+}

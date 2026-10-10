@@ -1,0 +1,26 @@
+{
+  "name": "tanstack-router-rsbuild-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --open",
+    "preview": "rsbuild preview",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.170.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@module-federation/rsbuild-plugin": "^2.9.0",
+    "@rsbuild/core": "^2.2.0",
+    "@rsbuild/plugin-react": "^2.1.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.3",
+    "zephyr-rsbuild-plugin": "latest"
+  }
+}

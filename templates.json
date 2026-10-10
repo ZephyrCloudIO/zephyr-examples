@@ -134,6 +134,19 @@
     "path": "module-federation/react-webpack"
   },
   {
+    "name": "TanStack Router + Rsbuild Module Federation",
+    "slug": "module-federation/tanstack-router-rsbuild",
+    "description": "Type-safe TanStack Router host lazy-loading federated route components with Rsbuild, deployed with Zephyr Cloud",
+    "framework": "tanstack",
+    "bundler": "rsbuild",
+    "features": [
+      "module-federation",
+      "typescript"
+    ],
+    "complexity": "intermediate",
+    "path": "module-federation/tanstack-router-rsbuild"
+  },
+  {
     "name": "Tractor Store (Module Federation)",
     "slug": "module-federation/tractor-sample",
     "description": "Tractor Store micro-frontend sample with Rspack and Module Federation",
