@@ -4,6 +4,7 @@ packages:
   - "!module-federation/airbnb-clone/**"
   - "!module-federation/react-vite-rspack-webpack/**"
   - "!module-federation/tanstack-router-rsbuild/**"
+  - "!module-federation/ssr-runtime-remotes/**"
   - frameworks/**
   - "!frameworks/react-native-metro/**"
   - "!frameworks/react-native-repack/**"

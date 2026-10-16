@@ -1,0 +1,19 @@
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+node_modules
+dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# MF Types
+@mf-types
+
+# Written by the Zephyr build hook
+zephyr-deployment.json

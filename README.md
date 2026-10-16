@@ -29,6 +29,7 @@ Micro-frontend architecture with Module Federation, Zephyr's core value proposit
 | [React + Rsbuild Module Federation](module-federation/react-rsbuild) | react | rsbuild | intermediate |
 | [React Multi-Bundler Module Federation](module-federation/react-vite-rspack-webpack) | react | webpack | advanced |
 | [React + Webpack Module Federation](module-federation/react-webpack) | react | webpack | intermediate |
+| [Server-Rendered Federated Remotes with Canary Releases](module-federation/ssr-runtime-remotes) | react | rsbuild | advanced |
 | [TanStack Router + Rsbuild Module Federation](module-federation/tanstack-router-rsbuild) | tanstack | rsbuild | intermediate |
 | [Tractor Store (Module Federation)](module-federation/tractor-sample) | react | rspack | advanced |
 
@@ -58,6 +59,9 @@ Server-side and edge runtime examples.
 | [Nitro + Elysia](server/nitro-elysia) | nitro | nitro | beginner |
 | [Nitro Hello World](server/nitro-hello-world) | nitro | nitro | beginner |
 | [Nitro + Hono](server/nitro-hono) | nitro | nitro | beginner |
+| [SSR with a Zephyr HTML Shell](server/ssr-html-shell) | react | vite | beginner |
+| [SSR Release Pinning](server/ssr-release-pinning) | react | vite | intermediate |
+| [Streaming SSR from Zephyr Snapshot Assets](server/ssr-snapshot-assets) | react | vite | advanced |
 
 ## Build Systems
 

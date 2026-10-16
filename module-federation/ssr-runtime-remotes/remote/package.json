@@ -1,0 +1,27 @@
+{
+  "name": "ssr-runtime-remotes-product",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev",
+    "preview": "rsbuild preview",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@module-federation/node": "^2.7.52",
+    "@module-federation/rsbuild-plugin": "^2.9.2",
+    "@rsbuild/core": "^2.2.13",
+    "@rsbuild/plugin-react": "^2.1.1",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.3",
+    "zephyr-rsbuild-plugin": "latest"
+  }
+}

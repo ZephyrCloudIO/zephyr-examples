@@ -1,0 +1,30 @@
+{
+  "name": "ssr-runtime-remotes-host",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "tsx watch --env-file-if-exists=.env server/fastify.ts",
+    "build": "pnpm build:client && tsc --noEmit && pnpm build:server",
+    "build:client": "vite build",
+    "build:server": "vite build --config vite.server.config.ts",
+    "start": "node --env-file-if-exists=.env dist-server/server.mjs"
+  },
+  "dependencies": {
+    "@module-federation/runtime": "^2.9.2",
+    "fastify": "^5.12.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vite-plugin-zephyr": "latest"
+  }
+}

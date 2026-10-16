@@ -134,6 +134,20 @@
     "path": "module-federation/react-webpack"
   },
   {
+    "name": "Server-Rendered Federated Remotes with Canary Releases",
+    "slug": "module-federation/ssr-runtime-remotes",
+    "description": "Your own Fastify server renders a Module Federation remote it loads from Zephyr at runtime, with canary and preview releases decided per request",
+    "framework": "react",
+    "bundler": "rsbuild",
+    "features": [
+      "module-federation",
+      "ssr",
+      "typescript"
+    ],
+    "complexity": "advanced",
+    "path": "module-federation/ssr-runtime-remotes"
+  },
+  {
     "name": "TanStack Router + Rsbuild Module Federation",
     "slug": "module-federation/tanstack-router-rsbuild",
     "description": "Type-safe TanStack Router host lazy-loading federated route components with Rsbuild, deployed with Zephyr Cloud",
@@ -305,6 +319,48 @@
     ],
     "complexity": "beginner",
     "path": "server/nitro-hono"
+  },
+  {
+    "name": "SSR with a Zephyr HTML Shell",
+    "slug": "server/ssr-html-shell",
+    "description": "Server-render React on your own Node or Cloudflare server while Zephyr serves the HTML shell and every asset",
+    "framework": "react",
+    "bundler": "vite",
+    "features": [
+      "ssr",
+      "edge",
+      "typescript"
+    ],
+    "complexity": "beginner",
+    "path": "server/ssr-html-shell"
+  },
+  {
+    "name": "SSR Release Pinning",
+    "slug": "server/ssr-release-pinning",
+    "description": "Let Zephyr environments and tags pick the live client build while your SSR server only renders the build it matches",
+    "framework": "react",
+    "bundler": "vite",
+    "features": [
+      "ssr",
+      "edge",
+      "typescript"
+    ],
+    "complexity": "intermediate",
+    "path": "server/ssr-release-pinning"
+  },
+  {
+    "name": "Streaming SSR from Zephyr Snapshot Assets",
+    "slug": "server/ssr-snapshot-assets",
+    "description": "Stream React SSR on your own server using the asset list and Vite manifest Zephyr's edge exposes for every snapshot",
+    "framework": "react",
+    "bundler": "vite",
+    "features": [
+      "ssr",
+      "edge",
+      "typescript"
+    ],
+    "complexity": "advanced",
+    "path": "server/ssr-snapshot-assets"
   },
   {
     "name": "Nx + Rspack Module Federation",

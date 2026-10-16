@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ssr-release-pinning",
+  "main": "server/worker.ts",
+  "compatibility_date": "2026-10-01",
+  "vars": {
+    // Empty: render against the client build this Worker was built with.
+    // Set to an environment or tag (e.g. "production") to let Zephyr decide.
+    "ZEPHYR_SELECTOR": "",
+    "ZEPHYR_ALLOW_OVERRIDE": "false"
+  }
+}

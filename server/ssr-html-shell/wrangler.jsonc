@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ssr-html-shell",
+  "main": "server/worker.ts",
+  "compatibility_date": "2026-10-01",
+  "vars": {
+    // Paste the Zephyr URL printed by `pnpm build:client`, or an environment URL.
+    "ZEPHYR_URL": ""
+  }
+}
