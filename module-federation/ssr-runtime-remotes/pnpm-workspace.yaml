@@ -11,11 +11,6 @@ minimumReleaseAge: 1440
 # no git/tarball dependencies, only from trusted registry
 blockExoticSubdeps: true
 
-# Temporary: lets Zephyr publish the browser and Node builds of one container
-# (ZephyrCloudIO/zephyr-packages#671). Remove once the fix is released.
-patchedDependencies:
-  zephyr-xpack-internal@1.6.0: patches/zephyr-xpack-internal@1.6.0.patch
-
 # Vite and tsx need esbuild's install script, which pnpm 11 blocks by default.
 allowBuilds:
   esbuild: true
