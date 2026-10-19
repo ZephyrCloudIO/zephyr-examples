@@ -1,0 +1,16 @@
+{
+  "name": "mf-ssr-runtime-remotes",
+  "version": "1.0.0",
+  "description": "Server-render Module Federation remotes loaded from Zephyr at runtime, with canary releases decided by your own server",
+  "private": true,
+  "scripts": {
+    "build": "pnpm build-remote && pnpm build-host",
+    "build-remote": "pnpm --filter=ssr-runtime-remotes-product build",
+    "build-host": "pnpm --filter=ssr-runtime-remotes-host build",
+    "dev": "pnpm --filter=ssr-runtime-remotes-product dev & pnpm --filter=ssr-runtime-remotes-host dev",
+    "start": "pnpm --filter=ssr-runtime-remotes-host start"
+  },
+  "keywords": ["ssr", "module-federation", "fastify", "zephyr"],
+  "author": "",
+  "license": "MIT"
+}

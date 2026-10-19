@@ -33,6 +33,16 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   "nitro-hono": {
     uniqueText: ["Hello Zephyr from Hono and Nitro!"],
   },
+  // SSR examples: the Zephyr URL serves the client-rendered fallback of each app.
+  "ssr-html-shell": {
+    uniqueText: ["Zephyr SSR HTML Shell"],
+  },
+  "ssr-release-pinning": {
+    uniqueText: ["Zephyr SSR Release Pinning"],
+  },
+  "ssr-snapshot-assets": {
+    uniqueText: ["Zephyr SSR Snapshot Assets"],
+  },
   "nx-ng": {
     uniqueText: ["Welcome", "Hello there"],
   },
@@ -207,6 +217,14 @@ export const APP_VALIDATIONS: Record<string, AppValidation> = {
   },
   "tanstack-router-rsbuild-catalog": {
     uniqueText: ["Catalog remote", "Edge Hoodie"],
+    required: true,
+  },
+  "ssr-runtime-remotes-host": {
+    uniqueText: ["Zephyr SSR Runtime Remotes", "Trail running shoe"],
+    required: true,
+  },
+  "ssr-runtime-remotes-product": {
+    uniqueText: ["Product card remote", "Trail running shoe"],
     required: true,
   },
   // TODO: pending checks for deployment
