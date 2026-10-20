@@ -110,6 +110,20 @@
     "path": "module-federation/react-rsbuild"
   },
   {
+    "name": "React + Rsbuild Module Federation Monorepo",
+    "slug": "module-federation/react-rsbuild-monorepo",
+    "description": "Verified React monorepo with an Rsbuild host, two federated remotes, Zephyr dependencies, DTS diagnostics, and browser tests",
+    "framework": "react",
+    "bundler": "rsbuild",
+    "features": [
+      "module-federation",
+      "monorepo",
+      "typescript"
+    ],
+    "complexity": "advanced",
+    "path": "module-federation/react-rsbuild-monorepo"
+  },
+  {
     "name": "React Multi-Bundler Module Federation",
     "slug": "module-federation/react-vite-rspack-webpack",
     "description": "Module Federation across Vite, Rspack, and Webpack bundlers, deployed with Zephyr Cloud",

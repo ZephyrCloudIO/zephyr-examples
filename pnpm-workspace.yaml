@@ -2,6 +2,7 @@ packages:
   - bundlers/**
   - module-federation/**
   - "!module-federation/airbnb-clone/**"
+  - "!module-federation/react-rsbuild-monorepo/**"
   - "!module-federation/react-vite-rspack-webpack/**"
   - "!module-federation/tanstack-router-rsbuild/**"
   - "!module-federation/ssr-runtime-remotes/**"
